@@ -41,4 +41,10 @@ public class PlayerController : MonoBehaviour
     {
         stateMachine.currentState.FixedUpdate();
     }
+
+    public void SetVelocityX(float velocity)
+    {
+        Vector2 newVelocity = new Vector2(velocity, m_rb2D.velocity.y);
+        m_rb2D.velocity = newVelocity;
+    }
 }

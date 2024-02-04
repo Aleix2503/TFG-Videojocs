@@ -31,5 +31,12 @@ public class PlayerMoveState : PlayerState
     public override void Update()
     {
         base.Update();
+
+        if (playerController.m_playerInputHandler.movementInput == 0)
+        {
+            playerStateMachine.ChangeState(playerController.idleState);
+        }
+
+        playerController.SetVelocityX(playerValues.moveSpeed * playerController.m_playerInputHandler.movementInput);
     }
 }

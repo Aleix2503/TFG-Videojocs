@@ -16,6 +16,7 @@ public class PlayerIdleState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        playerController.SetVelocityX(0);
     }
 
     public override void Exit()
@@ -31,5 +32,9 @@ public class PlayerIdleState : PlayerState
     public override void Update()
     {
         base.Update();
+        if (playerController.m_playerInputHandler.movementInput != 0)
+        {
+            playerStateMachine.ChangeState(playerController.moveState);
+        }
     }
 }
