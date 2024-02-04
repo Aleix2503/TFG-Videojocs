@@ -33,6 +33,8 @@ public class PlayerJumpState : PlayerState
     {
         base.Update();
 
+        playerController.SetVelocityX(playerValues.moveSpeed * playerController.m_playerInputHandler.movementInput);
+
         if (!playerController.m_playerInputHandler.jumpInput || playerController.m_rb2D.velocity.y <= 0)
         {
             playerStateMachine.ChangeState(playerController.fallState);

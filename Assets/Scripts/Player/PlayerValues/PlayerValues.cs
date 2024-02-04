@@ -15,7 +15,7 @@ public class PlayerValues : ScriptableObject
     public float fallGravityMultiplierWhileGoingUp = 5f;
 
     [Header("Checks")]
-    public float groundCheckRadius = 0.3f;
+    public Vector2 groundCheckBox;
     public LayerMask whatIsGround;
 
     [Header("Ability Unlocks")]

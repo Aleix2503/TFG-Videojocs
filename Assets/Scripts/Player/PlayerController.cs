@@ -39,7 +39,6 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         stateMachine.currentState.Update();
-        print(checkIfGrounded());
     }
 
     private void FixedUpdate()
@@ -67,7 +66,7 @@ public class PlayerController : MonoBehaviour
 
     public bool checkIfGrounded()
     {
-        return Physics2D.OverlapCircle(groundCheckTransform.position, m_playerValues.groundCheckRadius, m_playerValues.whatIsGround);
+        return Physics2D.OverlapBox(groundCheckTransform.position, m_playerValues.groundCheckBox, 0, m_playerValues.whatIsGround);
     }
 
     #endregion

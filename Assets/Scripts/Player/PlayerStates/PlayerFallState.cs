@@ -32,6 +32,8 @@ public class PlayerFallState : PlayerState
     {
         base.Update();
 
+        playerController.SetVelocityX(playerValues.moveSpeed * playerController.m_playerInputHandler.movementInput);
+
         if (isGrounded)
         {
             if (playerController.m_playerInputHandler.movementInput == 0)
