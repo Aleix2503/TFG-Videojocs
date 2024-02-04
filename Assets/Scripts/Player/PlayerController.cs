@@ -5,36 +5,40 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public PlayerValues m_playerValues;
+
     public Rigidbody2D m_rb2D;
     public PlayerInputHandler m_playerInputHandler;
 
-    public PlayerStateMachine playerStateMachine { get; private set; }
+    public PlayerStateMachine stateMachine { get; private set; }
     
     public Animator animator;
 
+    public PlayerIdleState idleState { get; private set; }
+    public PlayerMoveState moveState { get; private set; }
+
     private void Awake()
     {
-        playerStateMachine = new PlayerStateMachine();
+        stateMachine = new PlayerStateMachine();
+
+        idleState = new PlayerIdleState(this, stateMachine, m_playerValues, "idle");
+        moveState = new PlayerMoveState(this, stateMachine, m_playerValues, "move");
     }
 
-    
 
     void Start()
     {
-        //Initialize State machine
+        stateMachine.Initialize(idleState);
     }
 
 
     void Update()
     {
-        
-        print(m_playerInputHandler.movementInput);
-
-        playerStateMachine.currentState.Update();
+        stateMachine.currentState.Update();
     }
 
     private void FixedUpdate()
     {
-        playerStateMachine.currentState.FixedUpdate();
+        stateMachine.currentState.FixedUpdate();
     }
 }

@@ -6,15 +6,17 @@ public class PlayerState
 {
     protected PlayerController playerController;
     protected PlayerStateMachine playerStateMachine;
+    protected PlayerValues playerValues;
 
     protected float startTime;
 
     private string animBoolName;
 
-    public PlayerState(PlayerController playerController, PlayerStateMachine playerStateMachine, string animBoolName)
+    public PlayerState(PlayerController playerController, PlayerStateMachine playerStateMachine, PlayerValues playerValues, string animBoolName)
     {
         this.playerController = playerController;
         this.playerStateMachine = playerStateMachine;
+        this.playerValues = playerValues;
         this.animBoolName = animBoolName;
     }
 

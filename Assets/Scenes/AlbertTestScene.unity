@@ -580,6 +580,7 @@ GameObject:
   - component: {fileID: 1700561095}
   - component: {fileID: 1700561094}
   - component: {fileID: 1700561097}
+  - component: {fileID: 1700561099}
   - component: {fileID: 1700561098}
   m_Layer: 0
   m_Name: Player
@@ -663,7 +664,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5f4923c56b5bdb4cab6800352239e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_playerValues: {fileID: 11400000, guid: 67cb10daab4201f4d81b625384cae637, type: 2}
   m_rb2D: {fileID: 1700561095}
+  m_playerInputHandler: {fileID: 1700561099}
   animator: {fileID: 1266286120}
 --- !u!114 &1700561098
 MonoBehaviour:
@@ -695,6 +698,18 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1700561099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1700561092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 254d320ed115adc4fafee291026c9a7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1996289620
 GameObject:
   m_ObjectHideFlags: 0
