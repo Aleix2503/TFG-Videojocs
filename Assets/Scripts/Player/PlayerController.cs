@@ -6,43 +6,35 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public Rigidbody2D m_rb2D;
-    public PlayerInputActions m_playerControls;
+    public PlayerInputHandler m_playerInputHandler;
 
-    private InputAction move;
-    private InputAction jump;
-
-    float moveDirection;
+    public PlayerStateMachine playerStateMachine { get; private set; }
+    
+    public Animator animator;
 
     private void Awake()
     {
-        m_playerControls = new PlayerInputActions();
+        playerStateMachine = new PlayerStateMachine();
     }
 
-    private void OnEnable()
-    {
-        move = m_playerControls.Player.Move;
-        move.Enable();
-
-        jump = m_playerControls.Player.Jump;
-        jump.Enable();
-
-    }
-
-    private void OnDisable()
-    {
-        move.Disable();
-        jump.Disable();
-    }
+    
 
     void Start()
     {
-        
+        //Initialize State machine
     }
 
 
     void Update()
     {
-        moveDirection = move.ReadValue<float>();
-        print(moveDirection);
+        
+        print(m_playerInputHandler.movementInput);
+
+        playerStateMachine.currentState.Update();
+    }
+
+    private void FixedUpdate()
+    {
+        playerStateMachine.currentState.FixedUpdate();
     }
 }
