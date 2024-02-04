@@ -42,5 +42,10 @@ public class PlayerIdleState : PlayerState
         {
             playerStateMachine.ChangeState(playerController.moveState);
         }
+
+        if (!isGrounded)
+        {
+            playerStateMachine.ChangeState(playerController.fallState);
+        }
     }
 }

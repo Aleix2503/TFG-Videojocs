@@ -227,7 +227,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 143143791}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.31, y: 0.4447, z: 0}
+  m_LocalPosition: {x: 10.25, y: 0.26, z: 0}
   m_LocalScale: {x: 13.092705, y: 0.43578815, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -246,6 +246,7 @@ GameObject:
   - component: {fileID: 211160127}
   - component: {fileID: 211160126}
   - component: {fileID: 211160129}
+  - component: {fileID: 211160130}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -352,6 +353,28 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &211160130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211160125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0dd162c1327f294c93983890e45882c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1700561093}
+  targetRB2D: {fileID: 1700561095}
+  smoothTime: 0.3
+  YOffset: 0
+  XOffsetVelocityThreshold: 5
+  XOffsetFromVelocityMultiplier: 0.5
+  YOffsetVelocityThreshold: 5
+  YOffsetFromVelocityMultiplier: 0.5
+  cameraBoundariesMin: {x: -20.74, y: -13.92}
+  cameraBoundariesMax: {x: 34.82, y: 22.89}
 --- !u!1 &254339260
 GameObject:
   m_ObjectHideFlags: 0
@@ -487,7 +510,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 375046336}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.54, y: 1.6, z: 0}
+  m_LocalPosition: {x: -8.6, y: 1.4153, z: 0}
   m_LocalScale: {x: 13.092705, y: 0.8262953, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -814,7 +837,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1311326542}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.029, y: -3.3352, z: 0}
+  m_LocalPosition: {x: -0.03100042, y: -3.5199, z: 0}
   m_LocalScale: {x: 22.9979, y: 3.9503, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
