@@ -12,7 +12,8 @@ public class PlayerValues : ScriptableObject
     public float jumpVelocity = 15f;
 
     [Header("Fall State")]
-    public float fallGravityMultiplierWhileGoingUp = 5f;
+    public float fallForce = -5f;
+    public float fallForceWhenGoingUp = -15f;
 
     [Header("Checks")]
     public Vector2 groundCheckBox;

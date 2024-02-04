@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerFallState : PlayerState
 {
+
     public PlayerFallState(PlayerController playerController, PlayerStateMachine playerStateMachine, PlayerValues playerValues, string animBoolName) : base(playerController, playerStateMachine, playerValues, animBoolName)
     {
     }
@@ -34,6 +35,14 @@ public class PlayerFallState : PlayerState
 
         playerController.SetVelocityX(playerValues.moveSpeed * playerController.m_playerInputHandler.movementInput);
 
+        if (playerController.m_rb2D.velocity.y > 0)
+        {
+            playerController.m_rb2D.AddForce(new Vector2(0, playerValues.fallForceWhenGoingUp));
+        } else
+        {
+            playerController.m_rb2D.AddForce(new Vector2(0, playerValues.fallForce));
+        }
+        
         if (isGrounded)
         {
             if (playerController.m_playerInputHandler.movementInput == 0)
@@ -43,7 +52,6 @@ public class PlayerFallState : PlayerState
             {
                 playerStateMachine.ChangeState(playerController.moveState);
             }
-            
         }
     }
 }
