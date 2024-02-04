@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
 
     public PlayerIdleState idleState { get; private set; }
     public PlayerMoveState moveState { get; private set; }
+    public PlayerJumpState jumpState { get; private set; }
+    public PlayerFallState fallState { get; private set; }
 
     private void Awake()
     {
@@ -23,6 +25,8 @@ public class PlayerController : MonoBehaviour
 
         idleState = new PlayerIdleState(this, stateMachine, m_playerValues, "idle");
         moveState = new PlayerMoveState(this, stateMachine, m_playerValues, "move");
+        jumpState = new PlayerJumpState(this, stateMachine, m_playerValues, "jump");
+        fallState = new PlayerFallState(this, stateMachine, m_playerValues, "fall");
     }
 
 
@@ -35,6 +39,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         stateMachine.currentState.Update();
+        print(checkIfGrounded());
     }
 
     private void FixedUpdate()
@@ -47,4 +52,23 @@ public class PlayerController : MonoBehaviour
         Vector2 newVelocity = new Vector2(velocity, m_rb2D.velocity.y);
         m_rb2D.velocity = newVelocity;
     }
+
+    public void SetVelocityY(float velocity)
+    {
+        Vector2 newVelocity = new Vector2(m_rb2D.velocity.x, velocity);
+        m_rb2D.velocity = newVelocity;
+    }
+
+    #region Checks
+    [Header("Check variables")]
+    [SerializeField]
+    Transform groundCheckTransform;
+
+
+    public bool checkIfGrounded()
+    {
+        return Physics2D.OverlapCircle(groundCheckTransform.position, m_playerValues.groundCheckRadius, m_playerValues.whatIsGround);
+    }
+
+    #endregion
 }

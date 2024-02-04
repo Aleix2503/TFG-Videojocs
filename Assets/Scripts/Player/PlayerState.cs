@@ -12,6 +12,8 @@ public class PlayerState
 
     private string animBoolName;
 
+    protected bool isGrounded;
+
     public PlayerState(PlayerController playerController, PlayerStateMachine playerStateMachine, PlayerValues playerValues, string animBoolName)
     {
         this.playerController = playerController;
@@ -45,6 +47,6 @@ public class PlayerState
 
     public virtual void DoChecks()
     {
-
+        isGrounded = playerController.checkIfGrounded();
     }
 }

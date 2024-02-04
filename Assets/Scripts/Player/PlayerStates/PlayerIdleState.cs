@@ -32,6 +32,12 @@ public class PlayerIdleState : PlayerState
     public override void Update()
     {
         base.Update();
+        if (playerController.m_playerInputHandler.jumpInput == true)
+        {
+            playerStateMachine.ChangeState(playerController.jumpState);
+        }
+
+
         if (playerController.m_playerInputHandler.movementInput != 0)
         {
             playerStateMachine.ChangeState(playerController.moveState);

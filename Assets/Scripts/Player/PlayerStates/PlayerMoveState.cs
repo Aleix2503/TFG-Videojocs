@@ -32,11 +32,16 @@ public class PlayerMoveState : PlayerState
     {
         base.Update();
 
+        playerController.SetVelocityX(playerValues.moveSpeed * playerController.m_playerInputHandler.movementInput);
+
+        if (playerController.m_playerInputHandler.jumpInput == true)
+        {
+            playerStateMachine.ChangeState(playerController.jumpState);
+        }
+
         if (playerController.m_playerInputHandler.movementInput == 0)
         {
             playerStateMachine.ChangeState(playerController.idleState);
         }
-
-        playerController.SetVelocityX(playerValues.moveSpeed * playerController.m_playerInputHandler.movementInput);
     }
 }
