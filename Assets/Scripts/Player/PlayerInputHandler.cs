@@ -36,5 +36,6 @@ public class PlayerInputHandler : MonoBehaviour
     private void Update()
     {
         movementInput = inputAction_move.ReadValue<float>();
+        jumpInput = inputAction_jump.ReadValue<float>() > 0.5f ? true : false;
     }
 }
