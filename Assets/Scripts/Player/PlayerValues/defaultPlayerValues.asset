@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   jumpVelocity: 15
-  fallGravityMultiplierWhileGoingUp: 5
+  fallForce: -5
+  fallForceWhenGoingUp: -50
   groundCheckBox: {x: 0.9, y: 0.2}
   whatIsGround:
     serializedVersion: 2
