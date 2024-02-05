@@ -8,25 +8,10 @@ public class PlayerIdleState : PlayerState
     {
     }
 
-    public override void DoChecks()
-    {
-        base.DoChecks();
-    }
-
     public override void Enter()
     {
         base.Enter();
         playerController.SetVelocityX(0);
-    }
-
-    public override void Exit()
-    {
-        base.Exit();
-    }
-
-    public override void FixedUpdate()
-    {
-        base.FixedUpdate();
     }
 
     public override void Update()

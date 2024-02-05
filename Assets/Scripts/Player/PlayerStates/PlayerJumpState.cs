@@ -8,26 +8,12 @@ public class PlayerJumpState : PlayerState
     {
     }
 
-    public override void DoChecks()
-    {
-        base.DoChecks();
-    }
-
     public override void Enter()
     {
         base.Enter();
         playerController.SetVelocityY(playerValues.jumpVelocity);
     }
 
-    public override void Exit()
-    {
-        base.Exit();
-    }
-
-    public override void FixedUpdate()
-    {
-        base.FixedUpdate();
-    }
 
     public override void Update()
     {
