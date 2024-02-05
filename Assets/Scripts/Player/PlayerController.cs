@@ -14,6 +14,9 @@ public class PlayerController : MonoBehaviour
     
     public Animator animator;
 
+    public int facingDirection { get; private set; }
+
+    #region State machine setup
     public PlayerIdleState idleState { get; private set; }
     public PlayerMoveState moveState { get; private set; }
     public PlayerJumpState jumpState { get; private set; }
@@ -29,9 +32,13 @@ public class PlayerController : MonoBehaviour
         fallState = new PlayerFallState(this, stateMachine, m_playerValues, "fall");
     }
 
+    #endregion
+
 
     void Start()
     {
+        facingDirection = 1;
+
         stateMachine.Initialize(idleState);
     }
 
@@ -56,6 +63,24 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 newVelocity = new Vector2(m_rb2D.velocity.x, velocity);
         m_rb2D.velocity = newVelocity;
+    }
+
+    public void CheckIfShouldFlip(float movementInput)
+    {
+        if (movementInput == 0) return;
+
+        int direction = movementInput > 0 ? 1 : -1;
+
+        if (direction != facingDirection)
+        {
+            Flip();
+        }
+    }
+
+    private void Flip()
+    {
+        facingDirection *= -1;
+        transform.Rotate(0, 180, 0);
     }
 
     #region Checks

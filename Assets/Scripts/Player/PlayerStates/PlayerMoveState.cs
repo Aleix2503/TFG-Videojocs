@@ -12,6 +12,8 @@ public class PlayerMoveState : PlayerState
     {
         base.Update();
 
+        playerController.CheckIfShouldFlip(playerController.m_playerInputHandler.movementInput);
+
         playerController.SetVelocityX(playerValues.moveSpeed * playerController.m_playerInputHandler.movementInput);
 
         if (playerController.m_playerInputHandler.jumpInput == true)
