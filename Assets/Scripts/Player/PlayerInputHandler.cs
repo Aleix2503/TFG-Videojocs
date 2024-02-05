@@ -5,10 +5,14 @@ using UnityEngine.InputSystem;
 
 public class PlayerInputHandler : MonoBehaviour
 {
-    public PlayerInputActions m_playerControls;
-
+    /// <summary>
+    /// Acts as a middleman between the new input system and PlayerController.
+    /// PlayerStates read from these public variables to interpret the current player inputs.
+    /// </summary>
     public float movementInput { get; private set; }
     public bool jumpInput { get; private set; }
+
+    public PlayerInputActions m_playerControls;
 
     private InputAction inputAction_move;
     private InputAction inputAction_jump;

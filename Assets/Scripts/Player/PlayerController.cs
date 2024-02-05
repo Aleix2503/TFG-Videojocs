@@ -16,7 +16,14 @@ public class PlayerController : MonoBehaviour
 
     public int facingDirection { get; private set; }
 
+
     #region State machine setup
+
+    /// <summary>
+    /// PlayerController contains and initializes instances of all states.
+    /// Whenever a state change happens, it gets replaced by one of these.
+    /// The name of the animation parameter is set when instantiating the state in the "Awake" method.
+    /// </summary>
     public PlayerIdleState idleState { get; private set; }
     public PlayerMoveState moveState { get; private set; }
     public PlayerJumpState jumpState { get; private set; }
@@ -53,6 +60,13 @@ public class PlayerController : MonoBehaviour
         stateMachine.currentState.FixedUpdate();
     }
 
+    #region Player altering functions
+
+    /// <summary>
+    /// All functions that the states can call on the PlayerController to alter it.
+    /// For example, you can set the horizontal velocity to walk, or an initial vertical velocity to jump.
+    /// </summary>
+
     public void SetVelocityX(float velocity)
     {
         Vector2 newVelocity = new Vector2(velocity, m_rb2D.velocity.y);
@@ -83,7 +97,9 @@ public class PlayerController : MonoBehaviour
         transform.Rotate(0, 180, 0);
     }
 
-    #region Checks
+    #endregion
+
+    #region Physics checks
     [Header("Check variables")]
     [SerializeField]
     Transform groundCheckTransform;

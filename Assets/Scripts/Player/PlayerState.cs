@@ -22,6 +22,7 @@ public class PlayerState
         this.animBoolName = animBoolName;
     }
 
+    //Called from PlayerStateMachine. 
     public virtual void Enter()
     {
         DoChecks();
@@ -30,21 +31,25 @@ public class PlayerState
         playerController.animator.SetBool(animBoolName, true);
     }
 
+    //Called from PlayerStateMachine. 
     public virtual void Exit()
     {
         playerController.animator.SetBool(animBoolName, false);
     }
 
+    //Called from PlayerController. 
     public virtual void Update()
     {
 
     }
 
+    //Called from PlayerController. 
     public virtual void FixedUpdate()
     {
         DoChecks();
     }
 
+    //Called from this class, in Enter and FixedUpdate. Reserve for calling specific physics checks on the player class.
     public virtual void DoChecks()
     {
         isGrounded = playerController.checkIfGrounded();
