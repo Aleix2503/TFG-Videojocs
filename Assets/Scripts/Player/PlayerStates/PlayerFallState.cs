@@ -20,6 +20,11 @@ public class PlayerFallState : PlayerAirState
         {
             playerController.m_rb2D.AddForce(new Vector2(0, playerValues.fallForce));
         }
+
+        if (playerController.m_rb2D.velocity.y <= playerValues.fallTerminalVelocity)
+        {
+            playerController.SetVelocityY(playerValues.fallTerminalVelocity);
+        }
         
         if (isGrounded)
         {

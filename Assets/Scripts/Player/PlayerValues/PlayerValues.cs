@@ -20,6 +20,7 @@ public class PlayerValues : ScriptableObject
     [Header("Fall State")]
     public float fallForce = -5f;
     public float fallForceWhenGoingUp = -15f;
+    public float fallTerminalVelocity = -10f;
 
     [Header("Checks")]
     public Vector2 groundCheckBox;
