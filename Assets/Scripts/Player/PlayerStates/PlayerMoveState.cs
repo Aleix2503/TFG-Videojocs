@@ -8,13 +8,23 @@ public class PlayerMoveState : PlayerState
     {
     }
 
+    private float currentRelativeVelocity;
+
+    public override void Enter()
+    {
+        base.Enter();
+
+        currentRelativeVelocity = playerController.m_rb2D.velocity.x/playerValues.moveAccelerationSeconds;
+        Debug.Log(playerController.m_rb2D.velocity.x + " " + playerValues.moveMaxVelocity);
+    }
+
     public override void Update()
     {
         base.Update();
 
         playerController.CheckIfShouldFlip(playerController.m_playerInputHandler.absoluteMovementInput);
 
-        playerController.SetVelocityX(playerValues.moveSpeed * playerController.m_playerInputHandler.absoluteMovementInput);
+        playerController.SetVelocityX(CalculateNewVelocity());
 
         if (playerController.m_playerInputHandler.jumpInput == true)
         {
@@ -31,4 +41,25 @@ public class PlayerMoveState : PlayerState
             playerStateMachine.ChangeState(playerController.fallState);
         }
     }
+
+    private float CalculateNewVelocity()
+    {
+        float targetVelocity = playerValues.moveMaxVelocity * playerController.m_playerInputHandler.absoluteMovementInput;
+
+        float accelerationRate = playerValues.moveMaxVelocity / playerValues.moveAccelerationSeconds;
+
+        currentRelativeVelocity += accelerationRate * Time.deltaTime * Mathf.Sign(targetVelocity - currentRelativeVelocity);
+
+        if (playerController.m_playerInputHandler.absoluteMovementInput > 0)
+        {
+            currentRelativeVelocity = Mathf.Min(currentRelativeVelocity, targetVelocity);
+        }
+        else if (playerController.m_playerInputHandler.absoluteMovementInput < 0)
+        {
+            currentRelativeVelocity = Mathf.Max(currentRelativeVelocity, targetVelocity);
+        }
+
+        return currentRelativeVelocity;
+    }
+
 }

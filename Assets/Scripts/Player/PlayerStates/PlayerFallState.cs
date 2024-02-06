@@ -13,7 +13,7 @@ public class PlayerFallState : PlayerState
     {
         base.Update();
 
-        playerController.SetVelocityX(playerValues.moveSpeed * playerController.m_playerInputHandler.absoluteMovementInput);
+        playerController.SetVelocityX(playerValues.moveMaxVelocity * playerController.m_playerInputHandler.absoluteMovementInput);
 
         if (playerController.m_rb2D.velocity.y > 0)
         {
