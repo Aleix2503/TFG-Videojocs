@@ -23,7 +23,7 @@ public class PlayerIdleState : PlayerState
         }
 
 
-        if (playerController.m_playerInputHandler.movementInput != 0)
+        if (playerController.m_playerInputHandler.absoluteMovementInput != 0)
         {
             playerStateMachine.ChangeState(playerController.moveState);
         }

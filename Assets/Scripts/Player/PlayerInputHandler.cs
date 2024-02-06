@@ -9,7 +9,9 @@ public class PlayerInputHandler : MonoBehaviour
     /// Acts as a middleman between the new input system and PlayerController.
     /// PlayerStates read from these public variables to interpret the current player inputs.
     /// </summary>
-    public float movementInput { get; private set; }
+
+    public float rawMovementInput { get; private set; }
+    public int absoluteMovementInput { get; private set; }
     public bool jumpInput { get; private set; }
 
     public PlayerInputActions m_playerControls;
@@ -39,7 +41,8 @@ public class PlayerInputHandler : MonoBehaviour
 
     private void Update()
     {
-        movementInput = inputAction_move.ReadValue<float>();
+        rawMovementInput = inputAction_move.ReadValue<float>();
+        absoluteMovementInput = Mathf.RoundToInt(rawMovementInput);
         jumpInput = inputAction_jump.ReadValue<float>() > 0.5f ? true : false;
     }
 }

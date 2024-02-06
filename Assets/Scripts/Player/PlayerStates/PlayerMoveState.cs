@@ -12,16 +12,16 @@ public class PlayerMoveState : PlayerState
     {
         base.Update();
 
-        playerController.CheckIfShouldFlip(playerController.m_playerInputHandler.movementInput);
+        playerController.CheckIfShouldFlip(playerController.m_playerInputHandler.absoluteMovementInput);
 
-        playerController.SetVelocityX(playerValues.moveSpeed * playerController.m_playerInputHandler.movementInput);
+        playerController.SetVelocityX(playerValues.moveSpeed * playerController.m_playerInputHandler.absoluteMovementInput);
 
         if (playerController.m_playerInputHandler.jumpInput == true)
         {
             playerStateMachine.ChangeState(playerController.jumpState);
         }
 
-        if (playerController.m_playerInputHandler.movementInput == 0)
+        if (playerController.m_playerInputHandler.absoluteMovementInput == 0)
         {
             playerStateMachine.ChangeState(playerController.idleState);
         }

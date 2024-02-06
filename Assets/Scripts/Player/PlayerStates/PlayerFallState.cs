@@ -13,7 +13,7 @@ public class PlayerFallState : PlayerState
     {
         base.Update();
 
-        playerController.SetVelocityX(playerValues.moveSpeed * playerController.m_playerInputHandler.movementInput);
+        playerController.SetVelocityX(playerValues.moveSpeed * playerController.m_playerInputHandler.absoluteMovementInput);
 
         if (playerController.m_rb2D.velocity.y > 0)
         {
@@ -25,7 +25,7 @@ public class PlayerFallState : PlayerState
         
         if (isGrounded)
         {
-            if (playerController.m_playerInputHandler.movementInput == 0)
+            if (playerController.m_playerInputHandler.absoluteMovementInput == 0)
             {
                 playerStateMachine.ChangeState(playerController.idleState);
             } else
