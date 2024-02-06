@@ -15,7 +15,6 @@ public class PlayerMoveState : PlayerState
         base.Enter();
 
         currentRelativeVelocity = playerController.m_rb2D.velocity.x/playerValues.moveAccelerationSeconds;
-        Debug.Log(playerController.m_rb2D.velocity.x + " " + playerValues.moveMaxVelocity);
     }
 
     public override void Update()

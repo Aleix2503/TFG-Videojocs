@@ -6,8 +6,13 @@ using UnityEngine;
 public class PlayerValues : ScriptableObject
 {
     [Header("Move State")]
-    public float moveAccelerationSeconds = 0.3f;
     public float moveMaxVelocity = 10f;
+    public float moveAccelerationSeconds = 0.1f;
+    
+    [Header("Aerial State")]
+    public float airMoveMaxVelocity = 10f;
+    public float airMoveAccelerationSeconds = 0.3f;
+    
 
     [Header("Jump State")]
     public float jumpVelocity = 15f;

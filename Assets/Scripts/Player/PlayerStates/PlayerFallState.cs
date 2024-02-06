@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerFallState : PlayerState
+public class PlayerFallState : PlayerAirState
 {
 
     public PlayerFallState(PlayerController playerController, PlayerStateMachine playerStateMachine, PlayerValues playerValues, string animBoolName) : base(playerController, playerStateMachine, playerValues, animBoolName)
@@ -12,8 +12,6 @@ public class PlayerFallState : PlayerState
     public override void Update()
     {
         base.Update();
-
-        playerController.SetVelocityX(playerValues.moveMaxVelocity * playerController.m_playerInputHandler.absoluteMovementInput);
 
         if (playerController.m_rb2D.velocity.y > 0)
         {
