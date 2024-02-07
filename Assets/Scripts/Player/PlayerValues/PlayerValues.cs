@@ -28,7 +28,7 @@ public class PlayerValues : ScriptableObject
     public LayerMask whatIsGround;
 
     [Header("Ability Unlocks")]
-    public bool isAbility1Unlocked = false;
-    public bool isAbility2Unlocked = false;
-    public bool isAbility3Unlocked = false;
+    public bool isDashUnlocked = false;
+    public bool isBubbleUnlocked = false;
+    public bool isExpandUnlocked = false;
 }
