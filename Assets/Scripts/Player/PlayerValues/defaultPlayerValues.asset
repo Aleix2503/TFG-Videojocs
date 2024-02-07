@@ -21,10 +21,10 @@ MonoBehaviour:
   fallForce: -5
   fallForceWhenGoingUp: -50
   fallTerminalVelocity: -15
-  groundCheckBox: {x: 0.9, y: 0.2}
+  groundCheckBox: {x: 0.9, y: 0.1}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1
-  isAbility1Unlocked: 0
-  isAbility2Unlocked: 0
-  isAbility3Unlocked: 0
+  isDashUnlocked: 0
+  isBubbleUnlocked: 0
+  isExpandUnlocked: 0
