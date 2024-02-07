@@ -30,6 +30,7 @@ public class PlayerIdleState : PlayerState
 
         if (!isGrounded)
         {
+            playerController.fallState.StartCoyoteTime();
             playerStateMachine.ChangeState(playerController.fallState);
         }
     }

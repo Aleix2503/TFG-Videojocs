@@ -9,9 +9,13 @@ public class PlayerFallState : PlayerAirState
     {
     }
 
+    private bool isCoyoteTimeActive;
+
     public override void Update()
     {
         base.Update();
+
+        CheckCoyoteTime();
 
         if (playerController.m_rb2D.velocity.y > 0)
         {
@@ -25,6 +29,12 @@ public class PlayerFallState : PlayerAirState
         {
             playerController.SetVelocityY(playerValues.fallTerminalVelocity);
         }
+
+        if (isCoyoteTimeActive && playerController.m_playerInputHandler.jumpInput)
+        {
+            isCoyoteTimeActive = false;
+            playerStateMachine.ChangeState(playerController.jumpState);
+        }
         
         if (isGrounded)
         {
@@ -37,4 +47,14 @@ public class PlayerFallState : PlayerAirState
             }
         }
     }
+
+    private void CheckCoyoteTime()
+    {
+        if (isCoyoteTimeActive && Time.time > startTime + playerValues.coyoteTime)
+        {
+            isCoyoteTimeActive = false;
+        }
+    }
+
+    public void StartCoyoteTime() => isCoyoteTimeActive = true;
 }

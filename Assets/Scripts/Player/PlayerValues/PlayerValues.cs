@@ -18,6 +18,7 @@ public class PlayerValues : ScriptableObject
     public float jumpVelocity = 15f;
 
     [Header("Fall State")]
+    public float coyoteTime = 0.05f;
     public float fallForce = -5f;
     public float fallForceWhenGoingUp = -15f;
     public float fallTerminalVelocity = -10f;
