@@ -13,13 +13,21 @@ public class PlayerInputHandler : MonoBehaviour
     public float rawMovementInput { get; private set; }
     public int absoluteMovementInput { get; private set; }
     public bool jumpInput { get; private set; }
-
     public bool jumpInputHeld { get; private set; }
+
+    public bool dashInput { get; private set; }
+
+    public bool bubbleInput { get; private set; }
+
+    public bool expandInput { get; private set; }
 
     public PlayerInputActions m_playerControls;
 
     private InputAction inputAction_move;
     private InputAction inputAction_jump;
+    private InputAction inputAction_dash;
+    private InputAction inputAction_bubble;
+    private InputAction inputAction_expand;
 
     private void Awake()
     {
@@ -33,6 +41,15 @@ public class PlayerInputHandler : MonoBehaviour
 
         inputAction_jump = m_playerControls.Player.Jump;
         inputAction_jump.Enable();
+
+        inputAction_dash = m_playerControls.Player.Dash;
+        inputAction_dash.Enable();
+
+        inputAction_bubble = m_playerControls.Player.Bubble;
+        inputAction_bubble.Enable();
+
+        inputAction_expand = m_playerControls.Player.Expand;
+        inputAction_expand.Enable();
     }
 
     private void OnDisable()
@@ -52,7 +69,15 @@ public class PlayerInputHandler : MonoBehaviour
         }
 
         jumpInputHeld = inputAction_jump.ReadValue<float>() > 0.5f ? true : false;
-        
+
+        dashInput = inputAction_dash.WasPressedThisFrame();
+        bubbleInput = inputAction_bubble.WasPressedThisFrame();
+        expandInput = inputAction_expand.WasReleasedThisFrame();
+
+        if (dashInput)
+        {
+            Debug.Log("Dash!");
+        }
     }
 
     public void UseJumpInput() => jumpInput = false;
