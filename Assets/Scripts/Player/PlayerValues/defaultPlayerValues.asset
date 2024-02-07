@@ -19,7 +19,7 @@ MonoBehaviour:
   jumpVelocity: 15
   fallForce: -5
   fallForceWhenGoingUp: -50
-  fallTerminalVelocity: -1
+  fallTerminalVelocity: -15
   groundCheckBox: {x: 0.9, y: 0.2}
   whatIsGround:
     serializedVersion: 2
