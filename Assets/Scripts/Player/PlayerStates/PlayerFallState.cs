@@ -20,6 +20,10 @@ public class PlayerFallState : PlayerAirState
         if (playerController.m_rb2D.velocity.y > 0)
         {
             playerController.m_rb2D.AddForce(new Vector2(0, playerValues.fallForceWhenGoingUp));
+            if (playerController.m_rb2D.velocity.y < 0)
+            {
+                playerController.SetVelocityY(0);
+            }
         } else
         {
             playerController.m_rb2D.AddForce(new Vector2(0, playerValues.fallForce));
