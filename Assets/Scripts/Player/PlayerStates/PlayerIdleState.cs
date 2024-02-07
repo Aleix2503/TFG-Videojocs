@@ -19,6 +19,7 @@ public class PlayerIdleState : PlayerState
         base.Update();
         if (playerController.m_playerInputHandler.jumpInput == true)
         {
+            playerController.m_playerInputHandler.UseJumpInput();
             playerStateMachine.ChangeState(playerController.jumpState);
         }
 

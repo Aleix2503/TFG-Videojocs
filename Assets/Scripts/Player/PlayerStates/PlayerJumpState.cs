@@ -19,7 +19,7 @@ public class PlayerJumpState : PlayerAirState
     {
         base.Update();
 
-        if (!playerController.m_playerInputHandler.jumpInput || playerController.m_rb2D.velocity.y <= 0)
+        if (!playerController.m_playerInputHandler.jumpInputHeld || playerController.m_rb2D.velocity.y <= 0)
         {
             playerStateMachine.ChangeState(playerController.fallState);
         }

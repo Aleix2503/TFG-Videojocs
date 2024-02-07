@@ -14,6 +14,8 @@ public class PlayerInputHandler : MonoBehaviour
     public int absoluteMovementInput { get; private set; }
     public bool jumpInput { get; private set; }
 
+    public bool jumpInputHeld { get; private set; }
+
     public PlayerInputActions m_playerControls;
 
     private InputAction inputAction_move;
@@ -43,6 +45,15 @@ public class PlayerInputHandler : MonoBehaviour
     {
         rawMovementInput = inputAction_move.ReadValue<float>();
         absoluteMovementInput = Mathf.RoundToInt(rawMovementInput);
-        jumpInput = inputAction_jump.ReadValue<float>() > 0.5f ? true : false;
+
+        if (inputAction_jump.WasPressedThisFrame())
+        {
+            jumpInput = true;
+        }
+
+        jumpInputHeld = inputAction_jump.ReadValue<float>() > 0.5f ? true : false;
+        
     }
+
+    public void UseJumpInput() => jumpInput = false;
 }
