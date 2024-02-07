@@ -111,4 +111,20 @@ public class PlayerController : MonoBehaviour
     }
 
     #endregion
+
+
+    #region Gizmos
+    void OnDrawGizmos()
+    {
+        if (m_playerValues == null) return;
+
+        //Ground check area gizmo
+        Gizmos.color = new Color(0, 0, 1, 0.4f);
+        if (groundCheckTransform != null)
+        {
+            Gizmos.DrawCube(groundCheckTransform.position, m_playerValues.groundCheckBox);
+        }
+    }
+    #endregion
+
 }
