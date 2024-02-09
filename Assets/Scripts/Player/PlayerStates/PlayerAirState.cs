@@ -13,8 +13,7 @@ public class PlayerAirState : PlayerState
     public override void Enter()
     {
         base.Enter();
-
-        currentRelativeVelocity = playerController.m_rb2D.velocity.x / playerValues.airMoveAccelerationSeconds;
+        currentRelativeVelocity = playerController.m_rb2D.velocity.x / playerValues.airMoveMaxVelocity;
     }
 
     public override void Update()
@@ -34,14 +33,14 @@ public class PlayerAirState : PlayerState
         }
         else
         {
-            currentRelativeVelocity += (Time.deltaTime / playerValues.airMoveMaxVelocity) * movementInput;
+            currentRelativeVelocity += (Time.deltaTime / playerValues.airMoveAccelerationSeconds) * movementInput;
         }
 
         currentRelativeVelocity = Mathf.Clamp(currentRelativeVelocity, -1, 1);
 
-        Debug.Log(currentRelativeVelocity);
+        Debug.Log(Time.deltaTime / playerValues.airMoveMaxVelocity);
 
-        return playerValues.moveMaxVelocity * currentRelativeVelocity;
+        return playerValues.airMoveMaxVelocity * currentRelativeVelocity;
     }
 
 }
