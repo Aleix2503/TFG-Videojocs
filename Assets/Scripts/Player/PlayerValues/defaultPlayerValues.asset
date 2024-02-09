@@ -16,7 +16,9 @@ MonoBehaviour:
   moveAccelerationSeconds: 0.1
   airMoveMaxVelocity: 10
   airMoveAccelerationSeconds: 0.3
+  jumpCanPlayerFlip: 1
   jumpVelocity: 18
+  fallCanPlayerFlip: 1
   coyoteTime: 0.05
   fallForce: -5
   fallForceWhenGoingUp: -50
@@ -25,6 +27,10 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1
+  hazardCheckBox: {x: 0.8, y: 0.8}
+  whatIsHazard:
+    serializedVersion: 2
+    m_Bits: 64
   isDashUnlocked: 0
   isBubbleUnlocked: 0
   isExpandUnlocked: 0

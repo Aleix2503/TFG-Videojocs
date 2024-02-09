@@ -29,6 +29,9 @@ public class PlayerValues : ScriptableObject
     public Vector2 groundCheckBox;
     public LayerMask whatIsGround;
 
+    public Vector2 hazardCheckBox;
+    public LayerMask whatIsHazard;
+
     [Header("Ability Unlocks")]
     public bool isDashUnlocked = false;
     public bool isBubbleUnlocked = false;
