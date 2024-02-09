@@ -38,8 +38,6 @@ public class PlayerAirState : PlayerState
 
         currentRelativeVelocity = Mathf.Clamp(currentRelativeVelocity, -1, 1);
 
-        Debug.Log(Time.deltaTime / playerValues.airMoveMaxVelocity);
-
         return playerValues.airMoveMaxVelocity * currentRelativeVelocity;
     }
 

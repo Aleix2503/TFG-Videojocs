@@ -56,8 +56,6 @@ public class PlayerMoveState : PlayerState
 
         currentRelativeVelocity = Mathf.Clamp(currentRelativeVelocity, -1, 1);
 
-        Debug.Log(currentRelativeVelocity);
-
         return playerValues.moveMaxVelocity * currentRelativeVelocity;
     }
 
