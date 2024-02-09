@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
 
     public int facingDirection { get; private set; }
 
+    public Vector3 respawnPosition { get; private set; }
 
     #region State machine setup
 
@@ -62,7 +63,7 @@ public class PlayerController : MonoBehaviour
         stateMachine.currentState.FixedUpdate();
     }
 
-    #region Player altering functions
+    #region Player altering functions called by states
 
     /// <summary>
     /// All functions that the states can call on the PlayerController to alter it.
@@ -119,6 +120,15 @@ public class PlayerController : MonoBehaviour
 
     #endregion
 
+    #region Player altering functions called outside states
+
+    public void SetRespawnPosition(Vector3 position)
+    {
+        respawnPosition = position;
+        print("New respawn position: " + respawnPosition);
+    }
+
+    #endregion
 
     #region Gizmos
     void OnDrawGizmos()
