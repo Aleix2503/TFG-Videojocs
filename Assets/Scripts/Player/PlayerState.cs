@@ -13,6 +13,7 @@ public class PlayerState
     private string animBoolName;
 
     protected bool isGrounded;
+    protected bool isTouchingHazard;
 
     public PlayerState(PlayerController playerController, PlayerStateMachine playerStateMachine, PlayerValues playerValues, string animBoolName)
     {
@@ -47,11 +48,17 @@ public class PlayerState
     public virtual void FixedUpdate()
     {
         DoChecks();
+
+        if (isTouchingHazard)
+        {
+            playerStateMachine.ChangeState(playerController.deathState);
+        }
     }
 
     //Called from this class, in Enter and FixedUpdate. Reserve for calling specific physics checks on the player class.
     public virtual void DoChecks()
     {
         isGrounded = playerController.checkIfGrounded();
+        isTouchingHazard = playerController.checkIfTouchingHazard();
     }
 }

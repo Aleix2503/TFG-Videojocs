@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     public PlayerMoveState moveState { get; private set; }
     public PlayerJumpState jumpState { get; private set; }
     public PlayerFallState fallState { get; private set; }
+    public PlayerDeathState deathState { get; private set; }
 
     private void Awake()
     {
@@ -37,6 +38,7 @@ public class PlayerController : MonoBehaviour
         moveState = new PlayerMoveState(this, stateMachine, m_playerValues, "move");
         jumpState = new PlayerJumpState(this, stateMachine, m_playerValues, "jump");
         fallState = new PlayerFallState(this, stateMachine, m_playerValues, "fall");
+        deathState = new PlayerDeathState(this, stateMachine, m_playerValues, "death");
     }
 
     #endregion
