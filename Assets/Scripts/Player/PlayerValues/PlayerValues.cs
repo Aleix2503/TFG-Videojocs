@@ -12,12 +12,14 @@ public class PlayerValues : ScriptableObject
     [Header("Aerial State")]
     public float airMoveMaxVelocity = 10f;
     public float airMoveAccelerationSeconds = 0.3f;
-    
+
 
     [Header("Jump State")]
+    public bool jumpCanPlayerFlip = true;
     public float jumpVelocity = 15f;
 
     [Header("Fall State")]
+    public bool fallCanPlayerFlip = true;
     public float coyoteTime = 0.05f;
     public float fallForce = -5f;
     public float fallForceWhenGoingUp = -15f;

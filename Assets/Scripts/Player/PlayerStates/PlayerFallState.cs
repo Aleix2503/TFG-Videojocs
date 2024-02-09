@@ -17,6 +17,11 @@ public class PlayerFallState : PlayerAirState
 
         CheckCoyoteTime();
 
+        if (playerValues.fallCanPlayerFlip)
+        {
+            playerController.CheckIfShouldFlip(playerController.m_playerInputHandler.absoluteMovementInput);
+        }
+
         if (playerController.m_rb2D.velocity.y > 0)
         {
             playerController.m_rb2D.AddForce(new Vector2(0, playerValues.fallForceWhenGoingUp));
