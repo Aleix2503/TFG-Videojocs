@@ -16,7 +16,7 @@ MonoBehaviour:
   moveAccelerationSeconds: 0.1
   airMoveMaxVelocity: 10
   airMoveAccelerationSeconds: 0.3
-  jumpVelocity: 15
+  jumpVelocity: 18
   coyoteTime: 0.05
   fallForce: -5
   fallForceWhenGoingUp: -50
