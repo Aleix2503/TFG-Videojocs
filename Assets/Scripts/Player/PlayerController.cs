@@ -125,7 +125,6 @@ public class PlayerController : MonoBehaviour
     public void SetRespawnPosition(Vector3 position)
     {
         respawnPosition = position;
-        print("New respawn position: " + respawnPosition);
     }
 
     #endregion
