@@ -10,28 +10,22 @@ public class PlayerDeathState : PlayerState
 
     public override void DoChecks()
     {
-        
+
     }
 
     public override void Enter()
     {
-        Debug.Log("Dead");
+        base.Enter();
+
         playerController.SetVelocityX(0);
         playerController.SetVelocityY(0);
     }
 
-    public override void Exit()
-    {
-        
-    }
-
-    public override void FixedUpdate()
-    {
-        
-    }
-
     public override void Update()
     {
-        
+        if (Time.time > startTime + playerValues.deathToRespawnSeconds)
+        {
+            playerStateMachine.ChangeState(playerController.respawnState);
+        }
     }
 }

@@ -25,6 +25,12 @@ public class PlayerValues : ScriptableObject
     public float fallForceWhenGoingUp = -15f;
     public float fallTerminalVelocity = -10f;
 
+    [Header("Death State")]
+    public float deathToRespawnSeconds = 1f;
+
+    [Header("Respawn State")]
+    public float respawnToIdleSeconds = 0.5f;
+
     [Header("Checks")]
     public Vector2 groundCheckBox;
     public LayerMask whatIsGround;

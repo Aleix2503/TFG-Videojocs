@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     public PlayerJumpState jumpState { get; private set; }
     public PlayerFallState fallState { get; private set; }
     public PlayerDeathState deathState { get; private set; }
+    public PlayerRespawnState respawnState { get; private set; }
 
     private void Awake()
     {
@@ -40,6 +41,7 @@ public class PlayerController : MonoBehaviour
         jumpState = new PlayerJumpState(this, stateMachine, m_playerValues, "jump");
         fallState = new PlayerFallState(this, stateMachine, m_playerValues, "fall");
         deathState = new PlayerDeathState(this, stateMachine, m_playerValues, "death");
+        respawnState = new PlayerRespawnState(this, stateMachine, m_playerValues, "respawn");
     }
 
     #endregion
@@ -48,6 +50,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         facingDirection = 1;
+        respawnPosition = Vector3.zero;
 
         stateMachine.Initialize(idleState);
     }
@@ -98,6 +101,22 @@ public class PlayerController : MonoBehaviour
     {
         facingDirection *= -1;
         transform.Rotate(0, 180, 0);
+    }
+
+    public void Respawn()
+    {
+        transform.position = respawnPosition;
+    }
+
+    public void FreezePlayerPosition(bool isPlayerFrozen)
+    {
+        if (isPlayerFrozen)
+        {
+            m_rb2D.constraints = RigidbodyConstraints2D.FreezeAll;
+        } else
+        {
+            m_rb2D.constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
     }
 
     #endregion

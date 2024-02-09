@@ -23,6 +23,8 @@ MonoBehaviour:
   fallForce: -5
   fallForceWhenGoingUp: -50
   fallTerminalVelocity: -15
+  deathToRespawnSeconds: 1
+  respawnToIdleSeconds: 0.5
   groundCheckBox: {x: 0.9, y: 0.1}
   whatIsGround:
     serializedVersion: 2
