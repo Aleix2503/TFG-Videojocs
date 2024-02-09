@@ -13,8 +13,8 @@ public class PlayerMoveState : PlayerState
     public override void Enter()
     {
         base.Enter();
-
-        currentRelativeVelocity = playerController.m_rb2D.velocity.x/playerValues.moveAccelerationSeconds;
+        currentRelativeVelocity = playerController.m_rb2D.velocity.x/playerValues.moveMaxVelocity;
+        Mathf.Clamp(currentRelativeVelocity, -1, 1);
     }
 
     public override void Update()
@@ -45,22 +45,21 @@ public class PlayerMoveState : PlayerState
 
     private float CalculateNewVelocity()
     {
-        float targetVelocity = playerValues.moveMaxVelocity * playerController.m_playerInputHandler.absoluteMovementInput;
+        int movementInput = playerController.m_playerInputHandler.absoluteMovementInput;
 
-        float accelerationRate = playerValues.moveMaxVelocity / playerValues.moveAccelerationSeconds;
-
-        currentRelativeVelocity += accelerationRate * Time.deltaTime * Mathf.Sign(targetVelocity - currentRelativeVelocity);
-
-        if (playerController.m_playerInputHandler.absoluteMovementInput > 0)
+        if (currentRelativeVelocity * movementInput < 0)
         {
-            currentRelativeVelocity = Mathf.Min(currentRelativeVelocity, targetVelocity);
-        }
-        else if (playerController.m_playerInputHandler.absoluteMovementInput < 0)
+            currentRelativeVelocity = 0;
+        } else
         {
-            currentRelativeVelocity = Mathf.Max(currentRelativeVelocity, targetVelocity);
+            currentRelativeVelocity += (Time.deltaTime / playerValues.moveAccelerationSeconds) * movementInput;
         }
 
-        return currentRelativeVelocity;
+        currentRelativeVelocity = Mathf.Clamp(currentRelativeVelocity, -1, 1);
+
+        Debug.Log(currentRelativeVelocity);
+
+        return playerValues.moveMaxVelocity * currentRelativeVelocity;
     }
 
 }

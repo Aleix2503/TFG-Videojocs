@@ -26,21 +26,22 @@ public class PlayerAirState : PlayerState
 
     private float CalculateNewVelocity()
     {
-        float targetVelocity = playerValues.moveMaxVelocity * playerController.m_playerInputHandler.absoluteMovementInput;
+        int movementInput = playerController.m_playerInputHandler.absoluteMovementInput;
 
-        float acceleration = (targetVelocity - currentRelativeVelocity) / playerValues.moveAccelerationSeconds;
-
-        if (playerController.m_playerInputHandler.absoluteMovementInput != 0)
-        {
-            currentRelativeVelocity += acceleration * Time.deltaTime;
-            currentRelativeVelocity = Mathf.Clamp(currentRelativeVelocity, -playerValues.moveMaxVelocity, playerValues.moveMaxVelocity);
-        }
-        else
+        if (currentRelativeVelocity * movementInput < 0)
         {
             currentRelativeVelocity = 0;
         }
+        else
+        {
+            currentRelativeVelocity += (Time.deltaTime / playerValues.airMoveMaxVelocity) * movementInput;
+        }
 
-        return currentRelativeVelocity;
+        currentRelativeVelocity = Mathf.Clamp(currentRelativeVelocity, -1, 1);
+
+        Debug.Log(currentRelativeVelocity);
+
+        return playerValues.moveMaxVelocity * currentRelativeVelocity;
     }
 
 }
