@@ -16,12 +16,15 @@ public class PlayerDashState : PlayerState
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("Dash!");
+        playerController.SetVelocityY(0);
+        playerController.SetVelocityX(playerValues.dashVelocity * playerController.facingDirection);
+        playerController.SetGravityScale(0);
     }
 
     public override void Exit()
     {
         base.Exit();
+        playerController.SetGravityScale(playerValues.defaultGravity);
     }
 
     public override void FixedUpdate()
@@ -32,6 +35,9 @@ public class PlayerDashState : PlayerState
     public override void Update()
     {
         base.Update();
-        playerStateMachine.ChangeState(playerController.fallState);
+        if (Time.time > startTime + playerValues.dashTime)
+        {
+            playerStateMachine.ChangeState(playerController.fallState);
+        }
     }
 }

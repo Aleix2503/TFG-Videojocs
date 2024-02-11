@@ -88,6 +88,11 @@ public class PlayerController : MonoBehaviour
         m_rb2D.velocity = newVelocity;
     }
 
+    public void SetGravityScale(float gravity)
+    {
+        m_rb2D.gravityScale = gravity;
+    }
+
     public void CheckIfShouldFlip(float movementInput)
     {
         if (movementInput == 0) return;

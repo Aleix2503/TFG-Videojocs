@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f42c0ffd2cafa654a9f50dff35b1c52d, type: 3}
   m_Name: defaultPlayerValues
   m_EditorClassIdentifier: 
+  defaultGravity: 5
   moveMaxVelocity: 10
   moveAccelerationSeconds: 0.1
   airMoveMaxVelocity: 10
@@ -23,6 +24,8 @@ MonoBehaviour:
   fallForce: -5
   fallForceWhenGoingUp: -50
   fallTerminalVelocity: -15
+  dashVelocity: 30
+  dashTime: 0.15
   deathToRespawnSeconds: 1
   respawnToIdleSeconds: 0.5
   groundCheckBox: {x: 0.9, y: 0.1}

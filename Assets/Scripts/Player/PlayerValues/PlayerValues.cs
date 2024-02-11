@@ -5,6 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "newPlayerValues", menuName = "PlayerValues")]
 public class PlayerValues : ScriptableObject
 {
+    [Header("General")]
+    public float defaultGravity = 5f;
+
     [Header("Move State")]
     public float moveMaxVelocity = 10f;
     public float moveAccelerationSeconds = 0.1f;
@@ -24,6 +27,10 @@ public class PlayerValues : ScriptableObject
     public float fallForce = -5f;
     public float fallForceWhenGoingUp = -15f;
     public float fallTerminalVelocity = -10f;
+
+    [Header("Dash State")]
+    public float dashVelocity = 30f;
+    public float dashTime = 0.3f;
 
     [Header("Death State")]
     public float deathToRespawnSeconds = 1f;
