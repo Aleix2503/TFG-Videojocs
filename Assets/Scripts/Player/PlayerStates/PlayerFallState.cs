@@ -22,6 +22,12 @@ public class PlayerFallState : PlayerAirState
             playerController.CheckIfShouldFlip(playerController.m_playerInputHandler.absoluteMovementInput);
         }
 
+        if (playerController.m_playerInputHandler.dashInput == true)
+        {
+            playerController.m_playerInputHandler.UseDashInput();
+            playerStateMachine.ChangeState(playerController.dashState);
+        }
+
         if (playerController.m_rb2D.velocity.y > 0)
         {
             playerController.m_rb2D.AddForce(new Vector2(0, playerValues.fallForceWhenGoingUp));

@@ -17,12 +17,18 @@ public class PlayerIdleState : PlayerState
     public override void Update()
     {
         base.Update();
+
+        if (playerController.m_playerInputHandler.dashInput == true)
+        {
+            playerController.m_playerInputHandler.UseDashInput();
+            playerStateMachine.ChangeState(playerController.dashState);
+        }
+
         if (playerController.m_playerInputHandler.jumpInput == true)
         {
             playerController.m_playerInputHandler.UseJumpInput();
             playerStateMachine.ChangeState(playerController.jumpState);
         }
-
 
         if (playerController.m_playerInputHandler.absoluteMovementInput != 0)
         {

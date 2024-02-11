@@ -32,6 +32,8 @@ public class PlayerController : MonoBehaviour
     public PlayerDeathState deathState { get; private set; }
     public PlayerRespawnState respawnState { get; private set; }
 
+    public PlayerDashState dashState { get; private set; }
+
     private void Awake()
     {
         stateMachine = new PlayerStateMachine();
@@ -42,6 +44,7 @@ public class PlayerController : MonoBehaviour
         fallState = new PlayerFallState(this, stateMachine, m_playerValues, "fall");
         deathState = new PlayerDeathState(this, stateMachine, m_playerValues, "death");
         respawnState = new PlayerRespawnState(this, stateMachine, m_playerValues, "respawn");
+        dashState = new PlayerDashState(this, stateMachine, m_playerValues, "dash");
     }
 
     #endregion
