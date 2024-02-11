@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: defaultPlayerValues
   m_EditorClassIdentifier: 
   defaultGravity: 5
+  defaultLinearDrag: 0
   moveMaxVelocity: 10
   moveAccelerationSeconds: 0.1
   airMoveMaxVelocity: 10
@@ -24,8 +25,9 @@ MonoBehaviour:
   fallForce: -5
   fallForceWhenGoingUp: -50
   fallTerminalVelocity: -15
-  dashVelocity: 30
-  dashTime: 0.15
+  dashVelocity: 40
+  dashTime: 0.2
+  dashLinearDrag: 12
   deathToRespawnSeconds: 1
   respawnToIdleSeconds: 0.5
   groundCheckBox: {x: 0.9, y: 0.1}
@@ -36,6 +38,6 @@ MonoBehaviour:
   whatIsHazard:
     serializedVersion: 2
     m_Bits: 64
-  isDashUnlocked: 0
+  isDashUnlocked: 1
   isBubbleUnlocked: 0
   isExpandUnlocked: 0
