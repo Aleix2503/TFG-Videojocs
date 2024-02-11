@@ -130,7 +130,7 @@ public class PlayerController : MonoBehaviour
     {
         if (m_playerInputHandler.bubbleInput && m_playerValues.isBubbleUnlocked)
         {
-            m_playerInputHandler.UseDashInput();
+            m_playerInputHandler.UseBubbleInput();
             return true;
         }
         return false;
@@ -140,7 +140,7 @@ public class PlayerController : MonoBehaviour
     {
         if (m_playerInputHandler.expandInput && m_playerValues.isExpandUnlocked)
         {
-            m_playerInputHandler.UseDashInput();
+            m_playerInputHandler.UseExpandInput();
             return true;
         }
         return false;
