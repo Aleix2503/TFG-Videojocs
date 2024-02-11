@@ -18,10 +18,10 @@ public class PlayerIdleState : PlayerState
     {
         base.Update();
 
-        if (playerController.m_playerInputHandler.dashInput == true)
+        if (playerController.CheckIfCanDash())
         {
-            playerController.m_playerInputHandler.UseDashInput();
             playerStateMachine.ChangeState(playerController.dashState);
+            return;
         }
 
         if (playerController.m_playerInputHandler.jumpInput == true)

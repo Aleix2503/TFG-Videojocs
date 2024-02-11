@@ -24,10 +24,10 @@ public class PlayerMoveState : PlayerState
 
         playerController.SetVelocityX(CalculateNewVelocity());
 
-        if (playerController.m_playerInputHandler.dashInput == true)
+        if (playerController.CheckIfCanDash())
         {
-            playerController.m_playerInputHandler.UseDashInput();
             playerStateMachine.ChangeState(playerController.dashState);
+            return;
         }
 
         if (playerController.m_playerInputHandler.jumpInput == true)

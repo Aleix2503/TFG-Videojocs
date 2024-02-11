@@ -24,15 +24,15 @@ public class PlayerJumpState : PlayerAirState
             playerController.CheckIfShouldFlip(playerController.m_playerInputHandler.absoluteMovementInput);
         }
 
+        if (playerController.CheckIfCanDash())
+        {
+            playerStateMachine.ChangeState(playerController.dashState);
+            return;
+        }
+
         if (!playerController.m_playerInputHandler.jumpInputHeld || playerController.m_rb2D.velocity.y <= 0)
         {
             playerStateMachine.ChangeState(playerController.fallState);
-        }
-
-        if (playerController.m_playerInputHandler.dashInput == true)
-        {
-            playerController.m_playerInputHandler.UseDashInput();
-            playerStateMachine.ChangeState(playerController.dashState);
         }
     }
 }

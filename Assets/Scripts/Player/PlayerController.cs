@@ -116,6 +116,16 @@ public class PlayerController : MonoBehaviour
         transform.Rotate(0, 180, 0);
     }
 
+    public bool CheckIfCanDash()
+    {
+        if (m_playerInputHandler.dashInput && m_playerValues.isDashUnlocked)
+        {
+            m_playerInputHandler.UseDashInput();
+            return true;
+        }
+        return false;
+    }
+
     public void Respawn()
     {
         transform.position = respawnPosition;
