@@ -27,7 +27,7 @@ public class PlayerAirState : PlayerState
     {
         int movementInput = playerController.m_playerInputHandler.absoluteMovementInput;
 
-        if (currentRelativeVelocity * movementInput < 0)
+        if (currentRelativeVelocity * movementInput < 0 || movementInput == 0)
         {
             currentRelativeVelocity = 0;
         }
