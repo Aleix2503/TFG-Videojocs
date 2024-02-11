@@ -126,6 +126,26 @@ public class PlayerController : MonoBehaviour
         return false;
     }
 
+    public bool CheckIfCanBubble()
+    {
+        if (m_playerInputHandler.bubbleInput && m_playerValues.isBubbleUnlocked)
+        {
+            m_playerInputHandler.UseDashInput();
+            return true;
+        }
+        return false;
+    }
+
+    public bool CheckIfCanExpand()
+    {
+        if (m_playerInputHandler.expandInput && m_playerValues.isExpandUnlocked)
+        {
+            m_playerInputHandler.UseDashInput();
+            return true;
+        }
+        return false;
+    }
+
     public void Respawn()
     {
         transform.position = respawnPosition;
