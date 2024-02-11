@@ -173,12 +173,23 @@ public class PlayerController : MonoBehaviour
 
     public bool checkIfTouchingFrontWall()
     {
-        return Physics2D.OverlapBox((Vector2)transform.position + m_playerValues.frontWallCheckOffset, m_playerValues.frontWallCheckBox, 0, m_playerValues.whatIsGround);
+        if (facingDirection == 1)
+        {
+            return checkIfTouchingRightWall();
+        } else
+        {
+            return checkIfTouchingLeftWall();
+        }
     }
 
-    public bool checkIfTouchingBackWall()
+    public bool checkIfTouchingRightWall()
     {
-        return Physics2D.OverlapBox((Vector2)transform.position + m_playerValues.backWallCheckOffset, m_playerValues.backWallCheckBox, 0, m_playerValues.whatIsGround);
+        return Physics2D.OverlapBox((Vector2)transform.position + m_playerValues.rightWallCheckOffset, m_playerValues.rightWallCheckBox, 0, m_playerValues.whatIsGround);
+    }
+
+    public bool checkIfTouchingLeftWall()
+    {
+        return Physics2D.OverlapBox((Vector2)transform.position + m_playerValues.leftWallCheckOffset, m_playerValues.leftWallCheckBox, 0, m_playerValues.whatIsGround);
     }
 
     public bool checkIfTouchingHazard()
@@ -207,9 +218,9 @@ public class PlayerController : MonoBehaviour
         //Ground check and wall check area gizmos
         Gizmos.DrawCube((Vector2)transform.position + m_playerValues.groundCheckOffset, m_playerValues.groundCheckBox);
 
-        Gizmos.DrawCube((Vector2)transform.position + m_playerValues.frontWallCheckOffset, m_playerValues.frontWallCheckBox);
+        Gizmos.DrawCube((Vector2)transform.position + m_playerValues.rightWallCheckOffset, m_playerValues.rightWallCheckBox);
         
-        Gizmos.DrawCube((Vector2)transform.position + m_playerValues.backWallCheckOffset, m_playerValues.backWallCheckBox);
+        Gizmos.DrawCube((Vector2)transform.position + m_playerValues.leftWallCheckOffset, m_playerValues.leftWallCheckBox);
 
         //Hazard check area gizmo
         Gizmos.color = new Color(1, 0, 0, 0.4f);

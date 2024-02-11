@@ -44,11 +44,11 @@ public class PlayerValues : ScriptableObject
     public Vector2 groundCheckBox;
     public Vector2 groundCheckOffset = new Vector2(0, -1);
 
-    public Vector2 frontWallCheckBox;
-    public Vector2 frontWallCheckOffset = new Vector2(1, 0);
+    public Vector2 rightWallCheckBox;
+    public Vector2 rightWallCheckOffset = new Vector2(1, 0);
 
-    public Vector2 backWallCheckBox;
-    public Vector2 backWallCheckOffset = new Vector2(-1, 0);
+    public Vector2 leftWallCheckBox;
+    public Vector2 leftWallCheckOffset = new Vector2(-1, 0);
 
     public Vector2 hazardCheckBox;
     public Vector2 hazardCheckOffset = new Vector2(0, 0);

@@ -7,10 +7,11 @@ public class PlayerDashState : PlayerState
     public PlayerDashState(PlayerController playerController, PlayerStateMachine playerStateMachine, PlayerValues playerValues, string animBoolName) : base(playerController, playerStateMachine, playerValues, animBoolName)
     {
     }
-
+    bool isTouchingFrontWall;
     public override void DoChecks()
     {
         base.DoChecks();
+        isTouchingFrontWall = playerController.checkIfTouchingFrontWall();
     }
 
     public override void Enter()
@@ -20,6 +21,8 @@ public class PlayerDashState : PlayerState
         playerController.SetVelocityX(playerValues.dashVelocity * playerController.facingDirection);
         playerController.SetGravityScale(0);
         playerController.SetLinearDrag(playerValues.dashLinearDrag);
+
+        isTouchingFrontWall = false;
     }
 
     public override void Exit()
@@ -27,11 +30,6 @@ public class PlayerDashState : PlayerState
         base.Exit();
         playerController.SetGravityScale(playerValues.defaultGravity);
         playerController.SetLinearDrag(playerValues.defaultLinearDrag);
-    }
-
-    public override void FixedUpdate()
-    {
-        base.FixedUpdate();
     }
 
     public override void Update()
@@ -43,14 +41,17 @@ public class PlayerDashState : PlayerState
         float elapsedTime = Time.time - startTime;
         float dashDuration = playerValues.dashTime;
 
-        if (elapsedTime < dashDuration)
-        {
-            float fraction = elapsedTime / dashDuration;
+        float fraction = elapsedTime / dashDuration;
 
-            float currentDrag = Mathf.Lerp(playerValues.dashLinearDrag, playerValues.defaultLinearDrag, fraction);
-            playerController.SetLinearDrag(currentDrag);
+        float currentDrag = Mathf.Lerp(playerValues.dashLinearDrag, playerValues.defaultLinearDrag, fraction);
+        playerController.SetLinearDrag(currentDrag);
+
+        if (elapsedTime > dashDuration)
+        {
+            playerStateMachine.ChangeState(playerController.fallState);
         }
-        else
+
+        if (isTouchingFrontWall)
         {
             playerStateMachine.ChangeState(playerController.fallState);
         }
