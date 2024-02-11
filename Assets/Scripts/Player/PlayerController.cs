@@ -165,19 +165,15 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region Physics checks
-    [Header("Check variables")]
-    [SerializeField] Transform groundCheckTransform;
-    [SerializeField] Transform hazardCheckTransform;
-
 
     public bool checkIfGrounded()
     {
-        return Physics2D.OverlapBox(groundCheckTransform.position, m_playerValues.groundCheckBox, 0, m_playerValues.whatIsGround);
+        return Physics2D.OverlapBox((Vector2)transform.position + m_playerValues.groundCheckOffset, m_playerValues.groundCheckBox, 0, m_playerValues.whatIsGround);
     }
 
     public bool checkIfTouchingHazard()
     {
-        return Physics2D.OverlapBox(hazardCheckTransform.position, m_playerValues.hazardCheckBox, 0, m_playerValues.whatIsHazard);
+        return Physics2D.OverlapBox((Vector2)transform.position + m_playerValues.hazardCheckOffset, m_playerValues.hazardCheckBox, 0, m_playerValues.whatIsHazard);
     }
 
     #endregion
@@ -198,17 +194,11 @@ public class PlayerController : MonoBehaviour
 
         //Ground check area gizmo
         Gizmos.color = new Color(0, 0, 1, 0.4f);
-        if (groundCheckTransform != null)
-        {
-            Gizmos.DrawCube(groundCheckTransform.position, m_playerValues.groundCheckBox);
-        }
+        Gizmos.DrawCube((Vector2)transform.position + m_playerValues.groundCheckOffset, m_playerValues.groundCheckBox);
 
         //Hazard check area gizmo
         Gizmos.color = new Color(1, 0, 0, 0.4f);
-        if (hazardCheckTransform != null)
-        {
-            Gizmos.DrawCube(hazardCheckTransform.position, m_playerValues.hazardCheckBox);
-        }
+        Gizmos.DrawCube((Vector2)transform.position + m_playerValues.hazardCheckOffset, m_playerValues.hazardCheckBox);
     }
     #endregion
 

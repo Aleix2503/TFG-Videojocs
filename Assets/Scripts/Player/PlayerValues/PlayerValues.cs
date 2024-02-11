@@ -42,10 +42,13 @@ public class PlayerValues : ScriptableObject
 
     [Header("Checks")]
     public Vector2 groundCheckBox;
-    public LayerMask whatIsGround;
+    public Vector2 groundCheckOffset = new Vector2(0, -1);
 
     public Vector2 hazardCheckBox;
+    public Vector2 hazardCheckOffset = new Vector2(0, 0);
+
     public LayerMask whatIsHazard;
+    public LayerMask whatIsGround;
 
     [Header("Ability Unlocks")]
     public bool isDashUnlocked = false;
