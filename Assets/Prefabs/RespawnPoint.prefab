@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1990575245634648723}
   - component: {fileID: 5484789473752868417}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TempSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 5858201273212375362}
   - component: {fileID: 5858201273212375360}
   - component: {fileID: 5858201273212375363}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RespawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
