@@ -18,6 +18,10 @@ public class PlayerController : MonoBehaviour
 
     public Vector3 respawnPosition { get; private set; }
 
+    public float lastDashTime { get; private set; }
+
+    public bool didPlayerTouchGroundSinceLastDash = true;
+
     #region State machine setup
 
     /// <summary>
@@ -33,7 +37,9 @@ public class PlayerController : MonoBehaviour
     public PlayerRespawnState respawnState { get; private set; }
 
     public PlayerDashState dashState { get; private set; }
+    #endregion
 
+    #region Unity callback function
     private void Awake()
     {
         stateMachine = new PlayerStateMachine();
@@ -46,8 +52,6 @@ public class PlayerController : MonoBehaviour
         respawnState = new PlayerRespawnState(this, stateMachine, m_playerValues, "respawn");
         dashState = new PlayerDashState(this, stateMachine, m_playerValues, "dash");
     }
-
-    #endregion
 
 
     void Start()
@@ -68,6 +72,7 @@ public class PlayerController : MonoBehaviour
     {
         stateMachine.currentState.FixedUpdate();
     }
+    #endregion
 
     #region Player altering functions called by states
 
@@ -118,13 +123,17 @@ public class PlayerController : MonoBehaviour
 
     public bool CheckIfCanDash()
     {
-        if (m_playerInputHandler.dashInput && m_playerValues.isDashUnlocked)
+        if (m_playerInputHandler.dashInput && m_playerValues.isDashUnlocked && Time.time > lastDashTime + m_playerValues.dashCooldownSeconds && didPlayerTouchGroundSinceLastDash)
         {
             m_playerInputHandler.UseDashInput();
+            lastDashTime = Time.time;
+            didPlayerTouchGroundSinceLastDash = false;
             return true;
         }
         return false;
     }
+
+    public bool ResetDashGroundFlag() => didPlayerTouchGroundSinceLastDash = true;
 
     public bool CheckIfCanBubble()
     {

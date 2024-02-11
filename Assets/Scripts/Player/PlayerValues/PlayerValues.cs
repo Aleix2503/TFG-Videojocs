@@ -30,6 +30,7 @@ public class PlayerValues : ScriptableObject
     public float fallTerminalVelocity = -10f;
 
     [Header("Dash State")]
+    public float dashCooldownSeconds = 0.5f;
     public float dashVelocity = 30f;
     public float dashTime = 0.3f;
     public float dashLinearDrag = 8f;

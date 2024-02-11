@@ -53,6 +53,11 @@ public class PlayerState
         {
             playerStateMachine.ChangeState(playerController.deathState);
         }
+        Debug.Log(isGrounded);
+        if (isGrounded)
+        {
+            playerController.ResetDashGroundFlag();
+        }
     }
 
     //Called from this class, in Enter and FixedUpdate. Reserve for calling specific physics checks on the player class.
