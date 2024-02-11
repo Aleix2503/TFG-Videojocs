@@ -7,6 +7,7 @@ public class PlayerValues : ScriptableObject
 {
     [Header("General")]
     public float defaultGravity = 5f;
+    public float defaultLinearDrag = 0f;
 
     [Header("Move State")]
     public float moveMaxVelocity = 10f;
@@ -31,6 +32,7 @@ public class PlayerValues : ScriptableObject
     [Header("Dash State")]
     public float dashVelocity = 30f;
     public float dashTime = 0.3f;
+    public float dashLinearDrag = 8f;
 
     [Header("Death State")]
     public float deathToRespawnSeconds = 1f;

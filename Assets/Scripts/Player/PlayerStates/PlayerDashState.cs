@@ -19,12 +19,14 @@ public class PlayerDashState : PlayerState
         playerController.SetVelocityY(0);
         playerController.SetVelocityX(playerValues.dashVelocity * playerController.facingDirection);
         playerController.SetGravityScale(0);
+        playerController.SetLinearDrag(playerValues.dashLinearDrag);
     }
 
     public override void Exit()
     {
         base.Exit();
         playerController.SetGravityScale(playerValues.defaultGravity);
+        playerController.SetLinearDrag(playerValues.defaultLinearDrag);
     }
 
     public override void FixedUpdate()
@@ -35,7 +37,17 @@ public class PlayerDashState : PlayerState
     public override void Update()
     {
         base.Update();
-        if (Time.time > startTime + playerValues.dashTime)
+        float elapsedTime = Time.time - startTime;
+        float dashDuration = playerValues.dashTime;
+
+        if (elapsedTime < dashDuration)
+        {
+            float fraction = elapsedTime / dashDuration;
+
+            float currentDrag = Mathf.Lerp(playerValues.dashLinearDrag, playerValues.defaultLinearDrag, fraction);
+            playerController.SetLinearDrag(currentDrag);
+        }
+        else
         {
             playerStateMachine.ChangeState(playerController.fallState);
         }

@@ -93,6 +93,11 @@ public class PlayerController : MonoBehaviour
         m_rb2D.gravityScale = gravity;
     }
 
+    public void SetLinearDrag(float linearDrag)
+    {
+        m_rb2D.drag = linearDrag;
+    }
+
     public void CheckIfShouldFlip(float movementInput)
     {
         if (movementInput == 0) return;
