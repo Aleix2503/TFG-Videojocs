@@ -37,6 +37,9 @@ public class PlayerDashState : PlayerState
     public override void Update()
     {
         base.Update();
+
+        playerController.SetVelocityY(0);
+
         float elapsedTime = Time.time - startTime;
         float dashDuration = playerValues.dashTime;
 
