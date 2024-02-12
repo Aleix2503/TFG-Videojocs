@@ -26,7 +26,7 @@ MonoBehaviour:
   fallForceWhenGoingUp: -50
   fallTerminalVelocity: -15
   dashCooldownSeconds: 0.5
-  dashVelocity: 85
+  dashVelocity: 80
   dashTime: 0.2
   dashLinearDrag: 12
   deathToRespawnSeconds: 1
