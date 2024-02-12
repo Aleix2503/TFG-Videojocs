@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class BubbleController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public LayerMask disableWhenTouchingLayer;
+
+    private PlayerValues playerValues;
+
+    public void Initialize(PlayerValues playerValues)
     {
-        
+        this.playerValues = playerValues;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
-        
+        if (playerValues == null) return;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == disableWhenTouchingLayer)
+        {
+            this.enabled = false;
+        }
     }
 }

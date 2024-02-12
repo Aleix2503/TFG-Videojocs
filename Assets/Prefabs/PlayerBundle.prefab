@@ -321,6 +321,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3181360694712765471}
     - target: {fileID: 4672833244012665230, guid: 9a3b66ba7ec6a7a4780a2fa264b1cbaa, type: 3}
+      propertyPath: bubbleTransform
+      value: 
+      objectReference: {fileID: 6779139717524361316}
+    - target: {fileID: 4672833244012665230, guid: 9a3b66ba7ec6a7a4780a2fa264b1cbaa, type: 3}
       propertyPath: bubbleController
       value: 
       objectReference: {fileID: 8818966808949226231}

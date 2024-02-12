@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
 
     public GameObject bubbleInstance;
+    public Transform bubbleTransform;
     public BubbleController bubbleController;
 
     public int facingDirection { get; private set; }
@@ -42,7 +43,7 @@ public class PlayerController : MonoBehaviour
     public PlayerDashState dashState { get; private set; }
     #endregion
 
-    #region Unity callback function
+    #region Unity callback functions
     private void Awake()
     {
         stateMachine = new PlayerStateMachine();
@@ -63,6 +64,9 @@ public class PlayerController : MonoBehaviour
         respawnPosition = Vector3.zero;
 
         stateMachine.Initialize(idleState);
+
+        bubbleController.Initialize(m_playerValues);
+        bubbleInstance.SetActive(false);
     }
 
 
