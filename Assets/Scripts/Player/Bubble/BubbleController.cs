@@ -34,7 +34,9 @@ public class BubbleController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == disableWhenTouchingLayer)
+        int collisionLayerMask = 1 << collision.gameObject.layer;
+
+        if ((disableWhenTouchingLayer.value & collisionLayerMask) != 0)
         {
             gameObject.SetActive(false);
         }
