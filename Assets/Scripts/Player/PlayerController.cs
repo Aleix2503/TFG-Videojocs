@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
 
         stateMachine.Initialize(idleState);
 
-        bubbleController.Initialize(m_playerValues);
+        bubbleController.Initialize(this, transform, m_playerValues);
         bubbleInstance.SetActive(false);
     }
 
@@ -73,6 +73,12 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         stateMachine.currentState.Update();
+
+        if (m_playerInputHandler.bubbleInput == true)
+        {
+            m_playerInputHandler.UseBubbleInput();
+            InstantiateBubble();
+        }
     }
 
     private void FixedUpdate()
@@ -160,6 +166,16 @@ public class PlayerController : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    public void InstantiateBubble()
+    {
+        if (bubbleInstance.activeSelf == true)
+        {
+            bubbleInstance.SetActive(false);
+        }
+
+        bubbleInstance.SetActive(true);
     }
 
     public void Respawn()

@@ -50,6 +50,7 @@ MonoBehaviour:
   disableWhenTouchingLayer:
     serializedVersion: 2
     m_Bits: 65
+  rb2D: {fileID: 2011333946253489234}
 --- !u!58 &80287408265219376
 CircleCollider2D:
   m_ObjectHideFlags: 0

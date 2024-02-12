@@ -53,7 +53,7 @@ public class PlayerState
         {
             playerStateMachine.ChangeState(playerController.deathState);
         }
-        Debug.Log(isGrounded);
+
         if (isGrounded)
         {
             playerController.ResetDashGroundFlag();

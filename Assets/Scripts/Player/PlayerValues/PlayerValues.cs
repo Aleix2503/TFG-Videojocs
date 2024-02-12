@@ -8,19 +8,23 @@ public class PlayerValues : ScriptableObject
     [Header("General")]
     public float defaultGravity = 5f;
     public float defaultLinearDrag = 0f;
+    [Space]
 
     [Header("Move State")]
     public float moveMaxVelocity = 10f;
     public float moveAccelerationSeconds = 0.1f;
-    
+    [Space]
+
     [Header("Aerial State")]
     public float airMoveMaxVelocity = 10f;
     public float airMoveAccelerationSeconds = 0.3f;
+    [Space]
 
 
     [Header("Jump State")]
     public bool jumpCanPlayerFlip = true;
     public float jumpVelocity = 15f;
+    [Space]
 
     [Header("Fall State")]
     public bool fallCanPlayerFlip = true;
@@ -28,18 +32,29 @@ public class PlayerValues : ScriptableObject
     public float fallForce = -5f;
     public float fallForceWhenGoingUp = -15f;
     public float fallTerminalVelocity = -10f;
+    [Space]
 
     [Header("Dash State")]
     public float dashCooldownSeconds = 0.5f;
     public float dashVelocity = 30f;
     public float dashTime = 0.3f;
     public float dashLinearDrag = 8f;
+    [Space]
+
+    [Header("Bubble")]
+    public Vector2 bubbleInitialSpawnOffset;
+    public Vector2 bubbleInitialVelocity;
+    public float bubbleGravityScale = -1f;
+    public float bubbleLinearDrag = 8;
+    [Space]
 
     [Header("Death State")]
     public float deathToRespawnSeconds = 1f;
+    [Space]
 
     [Header("Respawn State")]
     public float respawnToIdleSeconds = 0.5f;
+    [Space]
 
     [Header("Checks")]
     public Vector2 groundCheckBox;
