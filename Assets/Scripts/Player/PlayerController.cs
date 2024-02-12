@@ -14,6 +14,9 @@ public class PlayerController : MonoBehaviour
     
     public Animator animator;
 
+    public GameObject bubbleInstance;
+    public BubbleController bubbleController;
+
     public int facingDirection { get; private set; }
 
     public Vector3 respawnPosition { get; private set; }

@@ -240,11 +240,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9843e1916faec2c4fbc052fb8229460d, type: 3}
+--- !u!1 &3181360694712765471 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2305068367110418264, guid: 9843e1916faec2c4fbc052fb8229460d, type: 3}
+  m_PrefabInstance: {fileID: 3736661429145936711}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6779139717524361316 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7912576478513836835, guid: 9843e1916faec2c4fbc052fb8229460d, type: 3}
   m_PrefabInstance: {fileID: 3736661429145936711}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8818966808949226231 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5312007115693709744, guid: 9843e1916faec2c4fbc052fb8229460d, type: 3}
+  m_PrefabInstance: {fileID: 3736661429145936711}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3181360694712765471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94d21f715dc0fda4e98e79e9ad220231, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8287314727971900019
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -252,10 +268,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3736661429977556970}
     m_Modifications:
-    - target: {fileID: 4672833244012665217, guid: 9a3b66ba7ec6a7a4780a2fa264b1cbaa, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4672833244012665218, guid: 9a3b66ba7ec6a7a4780a2fa264b1cbaa, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -304,14 +316,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 4672833244012665229, guid: 9a3b66ba7ec6a7a4780a2fa264b1cbaa, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4672833244012665230, guid: 9a3b66ba7ec6a7a4780a2fa264b1cbaa, type: 3}
-      propertyPath: m_playerValues
+      propertyPath: bubbleInstance
       value: 
-      objectReference: {fileID: 11400000, guid: 9c429f0168e82624a89779ddd67a3c85, type: 2}
+      objectReference: {fileID: 3181360694712765471}
+    - target: {fileID: 4672833244012665230, guid: 9a3b66ba7ec6a7a4780a2fa264b1cbaa, type: 3}
+      propertyPath: bubbleController
+      value: 
+      objectReference: {fileID: 8818966808949226231}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a3b66ba7ec6a7a4780a2fa264b1cbaa, type: 3}
 --- !u!4 &3736661429019874289 stripped
