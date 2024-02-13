@@ -53,6 +53,5 @@ public class PlayerAirState : PlayerState
     {
         base.DoChecks();
         isTouchingBubble = playerController.checkIfTouchingBubble();
-        Debug.Log(isTouchingBubble);
     }
 }
