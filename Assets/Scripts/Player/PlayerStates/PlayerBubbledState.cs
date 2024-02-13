@@ -20,6 +20,8 @@ public class PlayerBubbledState : PlayerState
         playerController.SetVelocityY(0);
 
         playerController.SetGravityScale(0);
+
+        playerController.ResetDashGroundFlag();
     }
 
     public override void Exit()
@@ -43,5 +45,13 @@ public class PlayerBubbledState : PlayerState
     public override void Update()
     {
         base.Update();
+
+        playerController.CheckIfShouldFlip(playerController.m_playerInputHandler.absoluteMovementInput);
+
+        if (playerController.CheckIfCanDash())
+        {
+            playerStateMachine.ChangeState(playerController.dashState);
+            return;
+        }
     }
 }
