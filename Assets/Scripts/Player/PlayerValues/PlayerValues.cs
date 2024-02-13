@@ -41,6 +41,10 @@ public class PlayerValues : ScriptableObject
     public float dashLinearDrag = 8f;
     [Space]
 
+    [Header("Bubble Summon State")]
+    public float bubbleSummonDelay = 0.5f;
+    public float bubbleSummonFinishTime = 1;
+
     [Header("Bubble")]
     public Vector2 bubbleInitialSpawnOffset;
     public Vector2 bubbleInitialVelocity;

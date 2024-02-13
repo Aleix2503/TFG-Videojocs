@@ -44,6 +44,8 @@ public class PlayerController : MonoBehaviour
     public PlayerRespawnState respawnState { get; private set; }
 
     public PlayerDashState dashState { get; private set; }
+
+    public PlayerSummonBubbleState summonBubbleState { get; private set; }
     public PlayerBubbledState bubbledState { get; private set; }
     #endregion
 
@@ -59,6 +61,7 @@ public class PlayerController : MonoBehaviour
         deathState = new PlayerDeathState(this, stateMachine, m_playerValues, "death");
         respawnState = new PlayerRespawnState(this, stateMachine, m_playerValues, "respawn");
         dashState = new PlayerDashState(this, stateMachine, m_playerValues, "dash");
+        summonBubbleState = new PlayerSummonBubbleState(this, stateMachine, m_playerValues, "summonBubble");
         bubbledState = new PlayerBubbledState(this, stateMachine, m_playerValues, "bubbled");
     }
 
@@ -78,12 +81,6 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         stateMachine.currentState.Update();
-
-        if (CheckIfCanBubble())
-        {
-            m_playerInputHandler.UseBubbleInput();
-            InstantiateBubble();
-        }
     }
 
     private void FixedUpdate()

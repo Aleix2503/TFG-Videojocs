@@ -30,6 +30,12 @@ public class PlayerMoveState : PlayerState
             return;
         }
 
+        if (playerController.CheckIfCanBubble())
+        {
+            playerStateMachine.ChangeState(playerController.summonBubbleState);
+            return;
+        }
+
         if (playerController.m_playerInputHandler.jumpInput == true)
         {
             playerController.m_playerInputHandler.UseJumpInput();
