@@ -29,10 +29,11 @@ MonoBehaviour:
   dashVelocity: 80
   dashTime: 0.2
   dashLinearDrag: 12
-  bubbleInitialSpawnOffset: {x: 1.5, y: 0}
+  bubbleInitialSpawnOffset: {x: 0, y: 1}
   bubbleInitialVelocity: {x: 0, y: 0}
   bubbleGravityScale: -1
-  bubbleLinearDrag: 2
+  bubbleLinearDrag: 10
+  bubbleMaxLifetimeSeconds: 15
   deathToRespawnSeconds: 1
   respawnToIdleSeconds: 0.5
   groundCheckBox: {x: 0.9, y: 0.1}
@@ -50,5 +51,5 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   isDashUnlocked: 1
-  isBubbleUnlocked: 0
+  isBubbleUnlocked: 1
   isExpandUnlocked: 0

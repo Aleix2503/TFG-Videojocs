@@ -12,11 +12,24 @@ public class BubbleController : MonoBehaviour
     private Transform playerTransform;
     private PlayerValues playerValues;
 
+    private float startTime;
+    private float maxLifetime;
+
     public void Initialize(PlayerController playerController, Transform playerTransform, PlayerValues playerValues)
     {
         this.playerController = playerController;
         this.playerTransform = playerTransform;
         this.playerValues = playerValues;
+    }
+
+    public void Update()
+    {
+        if (playerValues == null) return;
+
+        if (Time.time > startTime + maxLifetime)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     private void OnEnable()
@@ -30,6 +43,14 @@ public class BubbleController : MonoBehaviour
         rb2D.velocity = playerValues.bubbleInitialVelocity;
         rb2D.gravityScale = playerValues.bubbleGravityScale;
         rb2D.drag = playerValues.bubbleLinearDrag;
+
+        startTime = Time.time;
+        maxLifetime = playerValues.bubbleMaxLifetimeSeconds;
+    }
+
+    private void OnDisable()
+    {
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

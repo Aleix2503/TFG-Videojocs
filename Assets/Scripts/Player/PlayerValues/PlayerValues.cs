@@ -46,6 +46,7 @@ public class PlayerValues : ScriptableObject
     public Vector2 bubbleInitialVelocity;
     public float bubbleGravityScale = -1f;
     public float bubbleLinearDrag = 8;
+    public float bubbleMaxLifetimeSeconds = 10f;
     [Space]
 
     [Header("Death State")]
