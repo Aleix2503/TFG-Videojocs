@@ -10,6 +10,8 @@ public class PlayerAirState : PlayerState
 
     private float currentRelativeVelocity;
 
+    private bool isTouchingBubble;
+
     public override void Enter()
     {
         base.Enter();
@@ -19,6 +21,12 @@ public class PlayerAirState : PlayerState
     public override void Update()
     {
         base.Update();
+
+        if (isTouchingBubble)
+        {
+            playerStateMachine.ChangeState(playerController.bubbledState);
+            return;
+        }
 
         playerController.SetVelocityX(CalculateNewVelocity());
     }
@@ -41,4 +49,10 @@ public class PlayerAirState : PlayerState
         return playerValues.airMoveMaxVelocity * currentRelativeVelocity;
     }
 
+    public override void DoChecks()
+    {
+        base.DoChecks();
+        isTouchingBubble = playerController.checkIfTouchingBubble();
+        Debug.Log(isTouchingBubble);
+    }
 }

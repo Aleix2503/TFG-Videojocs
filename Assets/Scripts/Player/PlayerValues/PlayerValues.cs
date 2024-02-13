@@ -70,8 +70,12 @@ public class PlayerValues : ScriptableObject
     public Vector2 hazardCheckBox;
     public Vector2 hazardCheckOffset = new Vector2(0, 0);
 
+    public Vector2 bubbleCheckBox = new Vector2(1, 1);
+    public Vector2 bubbleCheckOffset = new Vector2(0, 0);
+
     public LayerMask whatIsHazard;
     public LayerMask whatIsGround;
+    public LayerMask whatIsBubble;
 
     [Header("Ability Unlocks")]
     public bool isDashUnlocked = false;

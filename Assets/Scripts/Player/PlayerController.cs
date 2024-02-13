@@ -15,8 +15,11 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
 
     public GameObject bubbleInstance;
-    public Transform bubbleTransform;
+    public Transform instancedBubbleTransform;
     public BubbleController bubbleController;
+
+    public GameObject currentBubble;
+    public Transform currentBubbleTransform;
 
     public int facingDirection { get; private set; }
 
@@ -41,6 +44,7 @@ public class PlayerController : MonoBehaviour
     public PlayerRespawnState respawnState { get; private set; }
 
     public PlayerDashState dashState { get; private set; }
+    public PlayerBubbledState bubbledState { get; private set; }
     #endregion
 
     #region Unity callback functions
@@ -55,6 +59,7 @@ public class PlayerController : MonoBehaviour
         deathState = new PlayerDeathState(this, stateMachine, m_playerValues, "death");
         respawnState = new PlayerRespawnState(this, stateMachine, m_playerValues, "respawn");
         dashState = new PlayerDashState(this, stateMachine, m_playerValues, "dash");
+        bubbledState = new PlayerBubbledState(this, stateMachine, m_playerValues, "bubbled");
     }
 
 
@@ -94,6 +99,10 @@ public class PlayerController : MonoBehaviour
     /// For example, you can set the horizontal velocity to walk, or an initial vertical velocity to jump.
     /// </summary>
 
+    public void SetPosition(Vector3 position)
+    {
+        transform.position = position;
+    }
     public void SetVelocityX(float velocity)
     {
         Vector2 newVelocity = new Vector2(velocity, m_rb2D.velocity.y);
@@ -176,6 +185,7 @@ public class PlayerController : MonoBehaviour
         }
 
         bubbleInstance.SetActive(true);
+        instancedBubbleTransform = bubbleInstance.transform;
     }
 
     public void Respawn()
@@ -229,6 +239,11 @@ public class PlayerController : MonoBehaviour
         return Physics2D.OverlapBox((Vector2)transform.position + m_playerValues.hazardCheckOffset, m_playerValues.hazardCheckBox, 0, m_playerValues.whatIsHazard);
     }
 
+    public bool checkIfTouchingBubble()
+    {
+        return Physics2D.OverlapBox((Vector2)transform.position + m_playerValues.bubbleCheckOffset, m_playerValues.bubbleCheckBox, 0, m_playerValues.whatIsBubble);
+    }
+
     #endregion
 
     #region Player altering functions called outside states
@@ -257,6 +272,10 @@ public class PlayerController : MonoBehaviour
         //Hazard check area gizmo
         Gizmos.color = new Color(1, 0, 0, 0.4f);
         Gizmos.DrawCube((Vector2)transform.position + m_playerValues.hazardCheckOffset, m_playerValues.hazardCheckBox);
+
+        //Bubble check area gizmo
+        Gizmos.color = new Color(0, 1, 1, 0.3f);
+        Gizmos.DrawCube((Vector2)transform.position + m_playerValues.bubbleCheckOffset, m_playerValues.bubbleCheckBox);
     }
     #endregion
 
