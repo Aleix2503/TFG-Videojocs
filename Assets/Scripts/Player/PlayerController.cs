@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
     {
         stateMachine.currentState.Update();
 
-        if (m_playerInputHandler.bubbleInput == true)
+        if (CheckIfCanBubble())
         {
             m_playerInputHandler.UseBubbleInput();
             InstantiateBubble();
@@ -150,7 +150,7 @@ public class PlayerController : MonoBehaviour
 
     public bool CheckIfCanBubble()
     {
-        if (m_playerInputHandler.bubbleInput && m_playerValues.isBubbleUnlocked)
+        if (m_playerInputHandler.bubbleInput && m_playerValues.isBubbleUnlocked && bubbleInstance.activeSelf == false)
         {
             m_playerInputHandler.UseBubbleInput();
             return true;

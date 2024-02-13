@@ -32,7 +32,7 @@ MonoBehaviour:
   bubbleInitialSpawnOffset: {x: 1.5, y: 0}
   bubbleInitialVelocity: {x: 0, y: 0}
   bubbleGravityScale: -1
-  bubbleLinearDrag: 8
+  bubbleLinearDrag: 2
   deathToRespawnSeconds: 1
   respawnToIdleSeconds: 0.5
   groundCheckBox: {x: 0.9, y: 0.1}
