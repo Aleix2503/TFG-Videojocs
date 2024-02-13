@@ -186,6 +186,12 @@ public class PlayerController : MonoBehaviour
 
         bubbleInstance.SetActive(true);
         instancedBubbleTransform = bubbleInstance.transform;
+        bubbleController = bubbleInstance.GetComponent<BubbleController>();
+    }
+
+    public void DestroyBubble()
+    {
+        bubbleController.popBubble();
     }
 
     public void Respawn()

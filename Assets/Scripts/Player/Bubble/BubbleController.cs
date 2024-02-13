@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,7 +29,7 @@ public class BubbleController : MonoBehaviour
 
         if (Time.time > startTime + maxLifetime)
         {
-            gameObject.SetActive(false);
+            popBubble();
         }
     }
 
@@ -59,7 +60,12 @@ public class BubbleController : MonoBehaviour
 
         if ((disableWhenTouchingLayer.value & collisionLayerMask) != 0)
         {
-            gameObject.SetActive(false);
+            popBubble();
         }
+    }
+
+    internal void popBubble()
+    {
+        gameObject.SetActive(false);
     }
 }

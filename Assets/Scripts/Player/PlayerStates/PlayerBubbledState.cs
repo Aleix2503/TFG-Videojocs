@@ -50,6 +50,7 @@ public class PlayerBubbledState : PlayerState
 
         if (playerController.CheckIfCanDash())
         {
+            playerController.bubbleController.popBubble();
             playerStateMachine.ChangeState(playerController.dashState);
             return;
         }
