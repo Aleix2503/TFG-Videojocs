@@ -44,12 +44,17 @@ MonoBehaviour:
   leftWallCheckOffset: {x: -0.5, y: 0}
   hazardCheckBox: {x: 0.8, y: 0.8}
   hazardCheckOffset: {x: 0, y: 0}
+  bubbleCheckBox: {x: 0.1, y: 0.1}
+  bubbleCheckOffset: {x: 0, y: 0}
   whatIsHazard:
     serializedVersion: 2
     m_Bits: 64
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1
+  whatIsBubble:
+    serializedVersion: 2
+    m_Bits: 128
   isDashUnlocked: 1
   isBubbleUnlocked: 1
   isExpandUnlocked: 0
