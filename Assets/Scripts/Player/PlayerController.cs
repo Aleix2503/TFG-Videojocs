@@ -18,9 +18,6 @@ public class PlayerController : MonoBehaviour
     public Transform instancedBubbleTransform;
     public BubbleController bubbleController;
 
-    public GameObject currentBubble;
-    public Transform currentBubbleTransform;
-
     public int facingDirection { get; private set; }
 
     public Vector3 respawnPosition { get; private set; }
@@ -74,7 +71,6 @@ public class PlayerController : MonoBehaviour
         stateMachine.Initialize(idleState);
 
         bubbleController.Initialize(this, transform, m_playerValues);
-        bubbleInstance.SetActive(false);
     }
 
 
@@ -156,7 +152,7 @@ public class PlayerController : MonoBehaviour
 
     public bool CheckIfCanBubble()
     {
-        if (m_playerInputHandler.bubbleInput && m_playerValues.isBubbleUnlocked && bubbleInstance.activeSelf == false)
+        if (m_playerInputHandler.bubbleInput && m_playerValues.isBubbleUnlocked && bubbleController.isActive == false)
         {
             m_playerInputHandler.UseBubbleInput();
             return true;
@@ -176,19 +172,14 @@ public class PlayerController : MonoBehaviour
 
     public void InstantiateBubble()
     {
-        if (bubbleInstance.activeSelf == true)
-        {
-            bubbleInstance.SetActive(false);
-        }
-
-        bubbleInstance.SetActive(true);
+        bubbleController.SummonBubble();
         instancedBubbleTransform = bubbleInstance.transform;
         bubbleController = bubbleInstance.GetComponent<BubbleController>();
     }
 
     public void DestroyBubble()
     {
-        bubbleController.popBubble();
+        bubbleController.PopBubble();
     }
 
     public void Respawn()

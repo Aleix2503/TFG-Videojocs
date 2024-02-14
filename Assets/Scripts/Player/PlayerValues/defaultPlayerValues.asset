@@ -29,6 +29,8 @@ MonoBehaviour:
   dashVelocity: 80
   dashTime: 0.2
   dashLinearDrag: 12
+  bubbleSummonDelay: 0.3
+  bubbleSummonFinishTime: 0.6
   bubbleInitialSpawnOffset: {x: 0, y: 1}
   bubbleInitialVelocity: {x: 0, y: 1}
   bubbleGravityScale: -1

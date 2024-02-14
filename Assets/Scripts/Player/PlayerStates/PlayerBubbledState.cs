@@ -34,7 +34,7 @@ public class PlayerBubbledState : PlayerState
     public override void FixedUpdate()
     {
         base.FixedUpdate();
-        if (playerController.bubbleInstance.activeSelf == false)
+        if (playerController.bubbleController.isActive == false)
         {
             playerStateMachine.ChangeState(playerController.fallState);
             return;
@@ -50,7 +50,7 @@ public class PlayerBubbledState : PlayerState
 
         if (playerController.CheckIfCanDash())
         {
-            playerController.bubbleController.popBubble();
+            playerController.bubbleController.PopBubble();
             playerStateMachine.ChangeState(playerController.dashState);
             return;
         }

@@ -8,6 +8,9 @@ public class BubbleController : MonoBehaviour
     public LayerMask disableWhenTouchingLayer;
 
     public Rigidbody2D rb2D;
+    public Animator animator;
+    public new Collider2D collider;
+    public SpriteRenderer spriteRenderer;
 
     private PlayerController playerController;
     private Transform playerTransform;
@@ -16,28 +19,36 @@ public class BubbleController : MonoBehaviour
     private float startTime;
     private float maxLifetime;
 
+    public bool isActive { get; private set; }
+
     public void Initialize(PlayerController playerController, Transform playerTransform, PlayerValues playerValues)
     {
         this.playerController = playerController;
         this.playerTransform = playerTransform;
         this.playerValues = playerValues;
+
+        this.spriteRenderer.color = Color.clear;
+
+        isActive = false;
     }
 
     public void Update()
     {
         if (playerValues == null) return;
+        if (isActive == false) return;
 
         if (Time.time > startTime + maxLifetime)
         {
-            popBubble();
+            PopBubble();
         }
     }
 
-    private void OnEnable()
+    public void SummonBubble()
     {
         if (playerValues == null) return;
+        this.spriteRenderer.color = Color.white;
 
-        Vector2 spawnPosition = new Vector2(playerTransform.position.x + playerValues.bubbleInitialSpawnOffset.x * playerController.facingDirection, 
+        Vector2 spawnPosition = new Vector2(playerTransform.position.x + playerValues.bubbleInitialSpawnOffset.x * playerController.facingDirection,
             playerTransform.position.y + playerValues.bubbleInitialSpawnOffset.y);
 
         transform.position = spawnPosition;
@@ -47,6 +58,12 @@ public class BubbleController : MonoBehaviour
 
         startTime = Time.time;
         maxLifetime = playerValues.bubbleMaxLifetimeSeconds;
+
+        collider.enabled = true;
+        isActive = true;
+
+        animator.SetBool("pop", false);
+        animator.SetBool("spawn", true);
     }
 
     private void OnDisable()
@@ -60,12 +77,16 @@ public class BubbleController : MonoBehaviour
 
         if ((disableWhenTouchingLayer.value & collisionLayerMask) != 0)
         {
-            popBubble();
+            PopBubble();
         }
     }
 
-    internal void popBubble()
+    internal void PopBubble()
     {
-        gameObject.SetActive(false);
+        isActive = false;
+        collider.enabled = false;
+
+        animator.SetBool("pop", true);
+        animator.SetBool("spawn", false);
     }
 }
