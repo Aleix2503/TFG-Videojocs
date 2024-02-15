@@ -31,5 +31,9 @@ public class PlayerEndExpandState : PlayerState
     public override void Update()
     {
         base.Update();
+        if (Time.time > startTime + playerValues.endExpandTime)
+        {
+            playerStateMachine.ChangeState(playerController.idleState);
+        }
     }
 }

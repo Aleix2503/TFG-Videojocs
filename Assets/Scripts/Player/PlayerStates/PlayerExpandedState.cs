@@ -16,11 +16,13 @@ public class PlayerExpandedState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        playerController.SetGravityScale(playerValues.defaultGravity * playerValues.expandGravityMultiplier);
     }
 
     public override void Exit()
     {
         base.Exit();
+        playerController.SetGravityScale(playerValues.defaultGravity);
     }
 
     public override void FixedUpdate()
@@ -31,5 +33,14 @@ public class PlayerExpandedState : PlayerState
     public override void Update()
     {
         base.Update();
+        if (Time.time > startTime + playerValues.expandMaxFallTime)
+        {
+            playerStateMachine.ChangeState(playerController.endExpandState);
+        }
+        if (isGrounded) //TODO grounded logic with expanded collision?
+        {
+            playerStateMachine.ChangeState(playerController.endExpandState);
+        }
+
     }
 }

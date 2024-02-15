@@ -28,6 +28,12 @@ public class PlayerFallState : PlayerAirState
             return;
         }
 
+        if (playerController.CheckIfCanExpand())
+        {
+            playerStateMachine.ChangeState(playerController.startExpandState);
+            return;
+        }
+
         if (playerController.m_rb2D.velocity.y > 0)
         {
             playerController.m_rb2D.AddForce(new Vector2(0, playerValues.fallForceWhenGoingUp));

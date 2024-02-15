@@ -16,11 +16,15 @@ public class PlayerStartExpandState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        playerController.SetVelocityX(0);
+        playerController.SetVelocityY(0);
+        playerController.SetGravityScale(0);
     }
 
     public override void Exit()
     {
         base.Exit();
+        playerController.SetGravityScale(playerValues.defaultGravity);
     }
 
     public override void FixedUpdate()
@@ -31,5 +35,10 @@ public class PlayerStartExpandState : PlayerState
     public override void Update()
     {
         base.Update();
+
+        if (Time.time > startTime + playerValues.startExpandTime)
+        {
+            playerStateMachine.ChangeState(playerController.expandedState);
+        }
     }
 }

@@ -53,6 +53,19 @@ public class PlayerValues : ScriptableObject
     public float bubbleMaxLifetimeSeconds = 10f;
     [Space]
 
+    [Header("StartExpand State")]
+    public float startExpandTime = 0.5f;
+    [Space]
+
+    [Header("Expand State")]
+    public float expandMaxFallTime = 5;
+    public float expandGravityMultiplier = 2;
+    [Space]
+
+    [Header("EndExpand State")]
+    public float endExpandTime = 0.5f;
+    [Space]
+
     [Header("Death State")]
     public float deathToRespawnSeconds = 1f;
     [Space]
