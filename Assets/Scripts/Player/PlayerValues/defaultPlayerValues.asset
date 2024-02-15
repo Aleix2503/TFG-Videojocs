@@ -51,17 +51,19 @@ MonoBehaviour:
   bubbledColorFadeInTime: 0.05
   bubbledColorFadeOutTime: 0.5
   startExpandTime: 0.5
+  startExpandColorFadeInTime: 0.5
   expandMaxFallTime: 5
   expandGravityMultiplier: 3
-  expandedShowGizmos: 0
-  expandedCollisionBox: {x: 1.8, y: 1.8}
+  expandedShowGizmos: 1
+  expandedCollisionBox: {x: 1.8, y: 1.6}
   expandedCollisionBoxOffset: {x: 0, y: 0.4}
   expandedCollisionEdgeRadius: 0.1
-  expandedGroundCheckBox: {x: 1.85, y: 0.15}
-  expandedGroundCheckBoxOffset: {x: 0, y: -0.55}
-  expandedHazardCollisionBox: {x: 1.6, y: 1.6}
+  expandedGroundCheckBox: {x: 1.85, y: 0.1}
+  expandedGroundCheckBoxOffset: {x: 0, y: -0.5}
+  expandedHazardCollisionBox: {x: 1.6, y: 1.5}
   expandedHazardCollisionBoxOffset: {x: 0, y: 0.4}
   endExpandTime: 0.5
+  endExpandColorFadeOutTime: 0.5
   deathToRespawnSeconds: 1
   respawnToIdleSeconds: 0.5
   groundCheckBox: {x: 0.9, y: 0.1}
