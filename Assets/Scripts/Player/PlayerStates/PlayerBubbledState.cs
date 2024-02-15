@@ -54,5 +54,12 @@ public class PlayerBubbledState : PlayerState
             playerStateMachine.ChangeState(playerController.dashState);
             return;
         }
+
+        if (playerController.CheckIfCanExpand())
+        {
+            playerController.bubbleController.PopBubble();
+            playerStateMachine.ChangeState(playerController.startExpandState);
+            return;
+        }
     }
 }
