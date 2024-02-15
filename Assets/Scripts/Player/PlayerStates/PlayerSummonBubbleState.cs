@@ -41,7 +41,6 @@ public class PlayerSummonBubbleState : PlayerState
 
         if (Time.time > startTime + playerValues.bubbleSummonDelay && !isBubbleInstantiated)
         {
-            Debug.Log("Instantiate");
             playerController.InstantiateBubble();
             isBubbleInstantiated = true;
         } else if (Time.time > startTime + playerValues.bubbleSummonFinishTime)
