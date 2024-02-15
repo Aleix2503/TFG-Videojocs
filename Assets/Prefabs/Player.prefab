@@ -291,6 +291,7 @@ MonoBehaviour:
   m_playerInputHandler: {fileID: 4672833244012665228}
   animator: {fileID: 4672833243578869615}
   bubbleInstance: {fileID: 0}
+  instancedBubbleTransform: {fileID: 0}
   bubbleController: {fileID: 0}
   didPlayerTouchGroundSinceLastDash: 1
 --- !u!114 &4672833244012665228
