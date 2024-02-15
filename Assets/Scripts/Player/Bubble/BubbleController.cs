@@ -48,7 +48,7 @@ public class BubbleController : MonoBehaviour
         if (playerValues == null) return;
         rb2D.bodyType = RigidbodyType2D.Dynamic;
 
-        this.spriteRenderer.color = playerValues.bubbleColor;
+        spriteRenderer.color = playerValues.bubbleColor;
 
         Vector2 spawnPosition = new Vector2(playerTransform.position.x + playerValues.bubbleInitialSpawnOffset.x * playerController.facingDirection,
             playerTransform.position.y + playerValues.bubbleInitialSpawnOffset.y);
@@ -92,5 +92,7 @@ public class BubbleController : MonoBehaviour
 
         animator.SetBool("pop", true);
         animator.SetBool("spawn", false);
+
+        spriteRenderer.color = Color.clear; //TODO cambiar esto cuando haya animación
     }
 }
