@@ -88,7 +88,6 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         stateMachine.currentState.Update();
-        print(checkIfExpandedTouchingGround());
     }
 
     private void FixedUpdate()
