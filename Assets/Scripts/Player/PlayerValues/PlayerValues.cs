@@ -8,6 +8,9 @@ public class PlayerValues : ScriptableObject
     [Header("General")]
     public float defaultGravity = 5f;
     public float defaultLinearDrag = 0f;
+
+    public Vector2 defaultCollisionBox = Vector2.one;
+    public Vector2 defaultCollisionBoxOffset = Vector2.zero;
     [Space]
 
     [Header("Move State")]
@@ -60,6 +63,9 @@ public class PlayerValues : ScriptableObject
     [Header("Expand State")]
     public float expandMaxFallTime = 5;
     public float expandGravityMultiplier = 2;
+
+    public Vector2 expandedCollisionBox = Vector2.one;
+    public Vector2 expandedCollisionBoxOffset = Vector2.zero;
     [Space]
 
     [Header("EndExpand State")]

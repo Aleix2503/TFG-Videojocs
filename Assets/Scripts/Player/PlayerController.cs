@@ -280,6 +280,14 @@ public class PlayerController : MonoBehaviour
         //Bubble check area gizmo
         Gizmos.color = new Color(0, 1, 1, 0.3f);
         Gizmos.DrawCube((Vector2)transform.position + m_playerValues.bubbleCheckOffset, m_playerValues.bubbleCheckBox);
+
+        //Collision gizmo
+        Gizmos.color = new Color(0, 1, 0, 0.4f);
+        Gizmos.DrawCube((Vector2)transform.position + m_playerValues.defaultCollisionBoxOffset, m_playerValues.defaultCollisionBox);
+
+        //Expanded collision gizmo
+        Gizmos.color = new Color(0.5f, 1, 0, 0.2f);
+        Gizmos.DrawCube((Vector2)transform.position + m_playerValues.expandedCollisionBoxOffset, m_playerValues.expandedCollisionBox);
     }
     #endregion
 
