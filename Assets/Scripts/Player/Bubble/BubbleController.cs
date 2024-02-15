@@ -29,7 +29,7 @@ public class BubbleController : MonoBehaviour
 
         this.spriteRenderer.color = Color.clear;
 
-        isActive = false;
+        PopBubble();
     }
 
     public void Update()
