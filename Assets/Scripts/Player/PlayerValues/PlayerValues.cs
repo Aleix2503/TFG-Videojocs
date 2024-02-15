@@ -71,6 +71,7 @@ public class PlayerValues : ScriptableObject
 
     [Header("StartExpand State")]
     public float startExpandTime = 0.5f;
+    public float startExpandColorFadeInTime = 0.5f;
     [Space]
 
     [Header("Expand State")]
@@ -91,6 +92,7 @@ public class PlayerValues : ScriptableObject
 
     [Header("EndExpand State")]
     public float endExpandTime = 0.5f;
+    public float endExpandColorFadeOutTime = 0.5f;
     [Space]
 
     [Header("Death State")]

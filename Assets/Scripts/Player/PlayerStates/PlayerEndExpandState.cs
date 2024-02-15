@@ -23,6 +23,7 @@ public class PlayerEndExpandState : PlayerState
     {
         base.Exit();
         playerController.FreezePlayerPosition(false);
+        playerController.FadePlayerColor(playerValues.defaultColor, playerValues.endExpandColorFadeOutTime);
     }
 
     public override void FixedUpdate()

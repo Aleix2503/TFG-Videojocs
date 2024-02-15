@@ -20,6 +20,8 @@ public class PlayerStartExpandState : PlayerState
     {
         base.Enter();
         playerController.FreezePlayerPosition(true);
+
+        playerController.FadePlayerColor(playerValues.expandColor, playerValues.startExpandColorFadeInTime);
     }
 
     public override void Exit()
