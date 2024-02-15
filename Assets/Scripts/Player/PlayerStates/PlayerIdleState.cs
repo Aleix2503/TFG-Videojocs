@@ -30,6 +30,12 @@ public class PlayerIdleState : PlayerState
             return;
         }
 
+        if (playerController.CheckIfCanExpand())
+        {
+            playerStateMachine.ChangeState(playerController.startExpandState);
+            return;
+        }
+
         if (playerController.m_playerInputHandler.jumpInput == true)
         {
             playerController.m_playerInputHandler.UseJumpInput();
