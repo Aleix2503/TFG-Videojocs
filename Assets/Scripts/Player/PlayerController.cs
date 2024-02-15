@@ -79,6 +79,9 @@ public class PlayerController : MonoBehaviour
         facingDirection = 1;
         respawnPosition = Vector3.zero;
 
+        SetColliderDimensions(m_playerValues.defaultCollisionBox, m_playerValues.defaultCollisionBoxOffset, m_playerValues.defaultCollisionEdgeRadius);
+        SetGravityScale(m_playerValues.defaultGravity);
+
         stateMachine.Initialize(idleState);
 
         bubbleController.Initialize(this, transform, m_playerValues);

@@ -13,6 +13,11 @@ public class PlayerValues : ScriptableObject
     public Vector2 defaultCollisionBox = Vector2.one;
     public Vector2 defaultCollisionBoxOffset = Vector2.zero;
     public float defaultCollisionEdgeRadius = 0.1f;
+
+    public Color defaultColor = Color.white;
+    public Color dashColor = Color.yellow;
+    public Color bubbleColor = Color.cyan;
+    public Color expandColor = Color.magenta;
     [Space]
 
     [Header("Move State")]
