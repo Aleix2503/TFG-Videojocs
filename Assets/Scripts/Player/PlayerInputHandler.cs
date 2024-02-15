@@ -72,7 +72,7 @@ public class PlayerInputHandler : MonoBehaviour
 
         dashInput = inputAction_dash.WasPressedThisFrame();
         bubbleInput = inputAction_bubble.WasPressedThisFrame();
-        expandInput = inputAction_expand.WasReleasedThisFrame();
+        expandInput = inputAction_expand.WasPressedThisFrame();
     }
 
     public void UseJumpInput() => jumpInput = false;
