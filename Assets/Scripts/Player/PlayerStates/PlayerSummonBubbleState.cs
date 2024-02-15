@@ -19,11 +19,15 @@ public class PlayerSummonBubbleState : PlayerState
         base.Enter();
         playerController.SetVelocityX(0);
         isBubbleInstantiated = false;
+
+        playerController.FadePlayerColor(playerValues.bubbleColor, playerValues.bubbleSummonColorFadeInTime);
     }
 
     public override void Exit()
     {
         base.Exit();
+
+        playerController.FadePlayerColor(playerValues.defaultColor, playerValues.bubbleSummonColorFadeOutTime);
     }
 
     public override void FixedUpdate()

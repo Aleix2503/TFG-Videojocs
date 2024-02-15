@@ -56,6 +56,8 @@ public class PlayerValues : ScriptableObject
     [Header("Bubble Summon State")]
     public float bubbleSummonDelay = 0.5f;
     public float bubbleSummonFinishTime = 1;
+    public float bubbleSummonColorFadeInTime = 0.3f;
+    public float bubbleSummonColorFadeOutTime = 0.5f;
 
     [Header("Bubble")]
     public Vector2 bubbleInitialSpawnOffset;
@@ -63,6 +65,8 @@ public class PlayerValues : ScriptableObject
     public float bubbleGravityScale = -1f;
     public float bubbleLinearDrag = 8;
     public float bubbleMaxLifetimeSeconds = 10f;
+    public float bubbledColorFadeInTime = 0.05f;
+    public float bubbledColorFadeOutTime = 0.05f;
     [Space]
 
     [Header("StartExpand State")]

@@ -46,7 +46,9 @@ public class BubbleController : MonoBehaviour
     public void SummonBubble()
     {
         if (playerValues == null) return;
-        this.spriteRenderer.color = Color.white;
+        rb2D.bodyType = RigidbodyType2D.Dynamic;
+
+        this.spriteRenderer.color = playerValues.bubbleColor;
 
         Vector2 spawnPosition = new Vector2(playerTransform.position.x + playerValues.bubbleInitialSpawnOffset.x * playerController.facingDirection,
             playerTransform.position.y + playerValues.bubbleInitialSpawnOffset.y);
@@ -60,7 +62,6 @@ public class BubbleController : MonoBehaviour
         maxLifetime = playerValues.bubbleMaxLifetimeSeconds;
 
         collider.enabled = true;
-        rb2D.bodyType = RigidbodyType2D.Dynamic;
 
         isActive = true;
 

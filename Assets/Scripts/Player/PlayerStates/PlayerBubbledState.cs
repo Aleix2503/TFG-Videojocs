@@ -22,6 +22,8 @@ public class PlayerBubbledState : PlayerState
         playerController.SetGravityScale(0);
 
         playerController.ResetDashGroundFlag();
+
+        playerController.FadePlayerColor(playerValues.bubbleColor, playerValues.bubbledColorFadeInTime);
     }
 
     public override void Exit()
@@ -29,6 +31,8 @@ public class PlayerBubbledState : PlayerState
         base.Exit();
 
         playerController.SetGravityScale(playerValues.defaultGravity);
+
+        playerController.FadePlayerColor(playerValues.defaultColor, playerValues.bubbledColorFadeOutTime);
     }
 
     public override void FixedUpdate()
