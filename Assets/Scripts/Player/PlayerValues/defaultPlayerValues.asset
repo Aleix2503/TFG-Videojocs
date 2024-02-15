@@ -15,9 +15,13 @@ MonoBehaviour:
   showGizmos: 1
   defaultGravity: 5
   defaultLinearDrag: 0
-  defaultCollisionBox: {x: 0.8, y: 0.8}
-  defaultCollisionBoxOffset: {x: 0, y: 0}
+  defaultCollisionBox: {x: 0.8, y: 0.4}
+  defaultCollisionBoxOffset: {x: 0, y: -0.2}
   defaultCollisionEdgeRadius: 0.1
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  dashColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  bubbleColor: {r: 0, g: 1, b: 1, a: 1}
+  expandColor: {r: 1, g: 0, b: 1, a: 1}
   moveMaxVelocity: 10
   moveAccelerationSeconds: 0.1
   airMoveMaxVelocity: 10
@@ -33,6 +37,8 @@ MonoBehaviour:
   dashVelocity: 80
   dashTime: 0.2
   dashLinearDrag: 12
+  dashColorFadeInTime: 0.05
+  dashColorFadeOutTime: 0.5
   bubbleSummonDelay: 0.3
   bubbleSummonFinishTime: 0.6
   bubbleInitialSpawnOffset: {x: 0, y: 1}
@@ -56,12 +62,12 @@ MonoBehaviour:
   respawnToIdleSeconds: 0.5
   groundCheckBox: {x: 0.9, y: 0.1}
   groundCheckOffset: {x: 0, y: -0.5}
-  rightWallCheckBox: {x: 0.1, y: 0.9}
-  rightWallCheckOffset: {x: 0.5, y: 0}
-  leftWallCheckBox: {x: 0.1, y: 0.9}
-  leftWallCheckOffset: {x: -0.5, y: 0}
-  hazardCheckBox: {x: 0.8, y: 0.8}
-  hazardCheckOffset: {x: 0, y: 0}
+  rightWallCheckBox: {x: 0.1, y: 0.5}
+  rightWallCheckOffset: {x: 0.5, y: -0.2}
+  leftWallCheckBox: {x: 0.1, y: 0.5}
+  leftWallCheckOffset: {x: -0.5, y: -0.2}
+  hazardCheckBox: {x: 0.8, y: 0.4}
+  hazardCheckOffset: {x: 0, y: -0.2}
   bubbleCheckBox: {x: 0.1, y: 0.1}
   bubbleCheckOffset: {x: 0, y: 0}
   whatIsHazard:

@@ -9,8 +9,8 @@ public class PlayerController : MonoBehaviour
 
     public Rigidbody2D m_rb2D;
     public BoxCollider2D m_collider2D;
+    public SpriteRenderer m_spriteRenderer;
     public PlayerInputHandler m_playerInputHandler;
-
     public PlayerStateMachine stateMachine { get; private set; }
     
     public Animator animator;
@@ -217,6 +217,32 @@ public class PlayerController : MonoBehaviour
         {
             m_rb2D.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
+    }
+
+    private Coroutine fadePlayerCoroutine;
+    public void FadePlayerColor(Color toColor, float seconds)
+    {
+        if (fadePlayerCoroutine != null)
+        {
+            StopCoroutine(fadePlayerCoroutine);
+        }
+
+        fadePlayerCoroutine = StartCoroutine(FadeToColorCoroutine(toColor, seconds));
+    }
+
+    private IEnumerator FadeToColorCoroutine(Color toColor, float seconds)
+    {
+        float time = 0;
+        Color startColor = m_spriteRenderer.color;
+
+        while (time < seconds)
+        {
+            m_spriteRenderer.color = Color.Lerp(startColor, toColor, time / seconds);
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        m_spriteRenderer.color = toColor;
     }
 
     #endregion

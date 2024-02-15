@@ -23,6 +23,8 @@ public class PlayerDashState : PlayerState
         playerController.SetLinearDrag(playerValues.dashLinearDrag);
 
         isTouchingFrontWall = false;
+
+        playerController.FadePlayerColor(playerValues.dashColor, playerValues.dashColorFadeInTime);
     }
 
     public override void Exit()
@@ -30,6 +32,8 @@ public class PlayerDashState : PlayerState
         base.Exit();
         playerController.SetGravityScale(playerValues.defaultGravity);
         playerController.SetLinearDrag(playerValues.defaultLinearDrag);
+
+        playerController.FadePlayerColor(playerValues.defaultColor, playerValues.dashColorFadeOutTime);
     }
 
     public override void Update()
