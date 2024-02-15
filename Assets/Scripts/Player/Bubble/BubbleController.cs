@@ -60,6 +60,8 @@ public class BubbleController : MonoBehaviour
         maxLifetime = playerValues.bubbleMaxLifetimeSeconds;
 
         collider.enabled = true;
+        rb2D.bodyType = RigidbodyType2D.Dynamic;
+
         isActive = true;
 
         animator.SetBool("pop", false);
@@ -85,6 +87,7 @@ public class BubbleController : MonoBehaviour
     {
         isActive = false;
         collider.enabled = false;
+        rb2D.bodyType = RigidbodyType2D.Static;
 
         animator.SetBool("pop", true);
         animator.SetBool("spawn", false);
