@@ -44,6 +44,10 @@ public class PlayerController : MonoBehaviour
 
     public PlayerSummonBubbleState summonBubbleState { get; private set; }
     public PlayerBubbledState bubbledState { get; private set; }
+
+    public PlayerStartExpandState startExpandState { get; private set; }
+    public PlayerExpandedState expandedState { get; private set; }
+    public PlayerEndExpandState endExpandState { get; private set; }
     #endregion
 
     #region Unity callback functions
@@ -57,9 +61,15 @@ public class PlayerController : MonoBehaviour
         fallState = new PlayerFallState(this, stateMachine, m_playerValues, "fall");
         deathState = new PlayerDeathState(this, stateMachine, m_playerValues, "death");
         respawnState = new PlayerRespawnState(this, stateMachine, m_playerValues, "respawn");
+
         dashState = new PlayerDashState(this, stateMachine, m_playerValues, "dash");
+
         summonBubbleState = new PlayerSummonBubbleState(this, stateMachine, m_playerValues, "summonBubble");
         bubbledState = new PlayerBubbledState(this, stateMachine, m_playerValues, "bubbled");
+
+        startExpandState = new PlayerStartExpandState(this, stateMachine, m_playerValues, "startExpand");
+        expandedState = new PlayerExpandedState(this, stateMachine, m_playerValues, "expanded");
+        endExpandState = new PlayerEndExpandState(this, stateMachine, m_playerValues, "endExpand");
     }
 
 
