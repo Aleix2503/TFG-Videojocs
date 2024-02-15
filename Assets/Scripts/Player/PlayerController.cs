@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public PlayerValues m_playerValues;
 
     public Rigidbody2D m_rb2D;
+    public BoxCollider2D m_collider2D;
     public PlayerInputHandler m_playerInputHandler;
 
     public PlayerStateMachine stateMachine { get; private set; }
@@ -87,6 +88,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         stateMachine.currentState.Update();
+        print(checkIfExpandedTouchingGround());
     }
 
     private void FixedUpdate()
@@ -180,6 +182,13 @@ public class PlayerController : MonoBehaviour
         return false;
     }
 
+    public void SetColliderDimensions(Vector2 size, Vector2 offset, float edgeRadius)
+    {
+        m_collider2D.size = size;
+        m_collider2D.offset = offset;
+        m_collider2D.edgeRadius = edgeRadius;
+    }
+ 
     public void InstantiateBubble()
     {
         bubbleController.SummonBubble();
@@ -248,6 +257,21 @@ public class PlayerController : MonoBehaviour
         return Physics2D.OverlapBox((Vector2)transform.position + m_playerValues.bubbleCheckOffset, m_playerValues.bubbleCheckBox, 0, m_playerValues.whatIsBubble);
     }
 
+    public bool checkIfExpandedCollision()
+    {
+        return Physics2D.OverlapBox((Vector2)transform.position + m_playerValues.expandedCollisionBoxOffset, m_playerValues.expandedCollisionBox, 0, m_playerValues.whatIsGround);
+    }
+
+    public bool checkIfExpandedTouchingHazard()
+    {
+        return Physics2D.OverlapBox((Vector2)transform.position + m_playerValues.expandedHazardCollisionBoxOffset, m_playerValues.expandedHazardCollisionBox, 0, m_playerValues.whatIsHazard);
+    }
+
+    public bool checkIfExpandedTouchingGround()
+    {
+        return Physics2D.OverlapBox((Vector2)transform.position + m_playerValues.expandedGroundCheckBoxOffset, m_playerValues.expandedGroundCheckBox, 0, m_playerValues.whatIsGround);
+    }
+
     #endregion
 
     #region Player altering functions called outside states
@@ -283,11 +307,19 @@ public class PlayerController : MonoBehaviour
 
         //Collision gizmo
         Gizmos.color = new Color(0, 1, 0, 0.4f);
-        Gizmos.DrawCube((Vector2)transform.position + m_playerValues.defaultCollisionBoxOffset, m_playerValues.defaultCollisionBox);
+        Gizmos.DrawCube((Vector2)transform.position + m_playerValues.defaultCollisionBoxOffset,
+            new Vector2(m_playerValues.defaultCollisionBox.x + m_playerValues.defaultCollisionEdgeRadius, m_playerValues.defaultCollisionBox.y + m_playerValues.defaultCollisionEdgeRadius));
 
-        //Expanded collision gizmo
+        //Expanded collision gizmos
         Gizmos.color = new Color(0.5f, 1, 0, 0.2f);
-        Gizmos.DrawCube((Vector2)transform.position + m_playerValues.expandedCollisionBoxOffset, m_playerValues.expandedCollisionBox);
+        Gizmos.DrawCube((Vector2)transform.position + m_playerValues.expandedCollisionBoxOffset,
+            new Vector2(m_playerValues.expandedCollisionBox.x + m_playerValues.expandedCollisionEdgeRadius, m_playerValues.expandedCollisionBox.y + m_playerValues.expandedCollisionEdgeRadius));
+
+        Gizmos.color = new Color(1, 1, 0, 0.2f);
+        Gizmos.DrawCube((Vector2)transform.position + m_playerValues.expandedHazardCollisionBoxOffset, m_playerValues.expandedHazardCollisionBox);
+
+        Gizmos.color = new Color(0, 0, 1, 0.2f);
+        Gizmos.DrawCube((Vector2)transform.position + m_playerValues.expandedGroundCheckBoxOffset, m_playerValues.expandedGroundCheckBox);
     }
     #endregion
 

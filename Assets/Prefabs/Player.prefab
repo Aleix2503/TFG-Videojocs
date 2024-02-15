@@ -288,6 +288,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_playerValues: {fileID: 11400000, guid: 9c429f0168e82624a89779ddd67a3c85, type: 2}
   m_rb2D: {fileID: 4672833244012665216}
+  m_collider2D: {fileID: 4672833244012665217}
   m_playerInputHandler: {fileID: 4672833244012665228}
   animator: {fileID: 4672833243578869615}
   bubbleInstance: {fileID: 0}

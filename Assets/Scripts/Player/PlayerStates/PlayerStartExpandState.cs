@@ -8,9 +8,12 @@ public class PlayerStartExpandState : PlayerState
     {
     }
 
+    bool isInsidePlatform = false;
+
     public override void DoChecks()
     {
         base.DoChecks();
+        isInsidePlatform = playerController.checkIfExpandedCollision();
     }
 
     public override void Enter()
@@ -37,7 +40,14 @@ public class PlayerStartExpandState : PlayerState
 
         if (Time.time > startTime + playerValues.startExpandTime)
         {
-            playerStateMachine.ChangeState(playerController.expandedState);
+            if (isInsidePlatform)
+            {
+                playerStateMachine.ChangeState(playerController.endExpandState);
+
+            } else
+            {
+                playerStateMachine.ChangeState(playerController.expandedState);
+            }
         }
     }
 }

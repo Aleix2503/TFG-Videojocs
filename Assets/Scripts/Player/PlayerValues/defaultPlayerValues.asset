@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultGravity: 5
   defaultLinearDrag: 0
+  defaultCollisionBox: {x: 0.8, y: 0.8}
+  defaultCollisionBoxOffset: {x: 0, y: 0}
+  defaultCollisionEdgeRadius: 0.1
   moveMaxVelocity: 10
   moveAccelerationSeconds: 0.1
   airMoveMaxVelocity: 10
@@ -36,6 +39,17 @@ MonoBehaviour:
   bubbleGravityScale: -1
   bubbleLinearDrag: 10
   bubbleMaxLifetimeSeconds: 15
+  startExpandTime: 0.5
+  expandMaxFallTime: 5
+  expandGravityMultiplier: 3
+  expandedCollisionBox: {x: 1.8, y: 1.8}
+  expandedCollisionBoxOffset: {x: 0, y: 0.4}
+  expandedCollisionEdgeRadius: 0.1
+  expandedGroundCheckBox: {x: 1.85, y: 0.15}
+  expandedGroundCheckBoxOffset: {x: 0, y: -0.5}
+  expandedHazardCollisionBox: {x: 1.6, y: 1.6}
+  expandedHazardCollisionBoxOffset: {x: 0, y: 0.4}
+  endExpandTime: 0.5
   deathToRespawnSeconds: 1
   respawnToIdleSeconds: 0.5
   groundCheckBox: {x: 0.9, y: 0.1}
@@ -59,4 +73,4 @@ MonoBehaviour:
     m_Bits: 128
   isDashUnlocked: 1
   isBubbleUnlocked: 1
-  isExpandUnlocked: 0
+  isExpandUnlocked: 1

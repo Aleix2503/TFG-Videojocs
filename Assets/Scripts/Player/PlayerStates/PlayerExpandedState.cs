@@ -8,20 +8,29 @@ public class PlayerExpandedState : PlayerState
     {
     }
 
+    bool expandedIsTouchingGround = false;
+    bool expandedIsTouchingHazard = false;
+    bool expandedIsGrounded = false;
+
     public override void DoChecks()
     {
         base.DoChecks();
+        expandedIsTouchingGround = playerController.checkIfExpandedCollision();
+        expandedIsTouchingHazard = playerController.checkIfExpandedTouchingHazard();
+        expandedIsGrounded = playerController.checkIfExpandedTouchingGround();
     }
 
     public override void Enter()
     {
         base.Enter();
+        playerController.SetColliderDimensions(playerValues.expandedCollisionBox, playerValues.expandedCollisionBoxOffset, playerValues.expandedCollisionEdgeRadius);
         playerController.SetGravityScale(playerValues.defaultGravity * playerValues.expandGravityMultiplier);
     }
 
     public override void Exit()
     {
         base.Exit();
+        playerController.SetColliderDimensions(playerValues.defaultCollisionBox, playerValues.defaultCollisionBoxOffset, playerValues.defaultCollisionEdgeRadius);
         playerController.SetGravityScale(playerValues.defaultGravity);
     }
 
@@ -37,9 +46,12 @@ public class PlayerExpandedState : PlayerState
         {
             playerStateMachine.ChangeState(playerController.endExpandState);
         }
-        if (isGrounded) //TODO grounded logic with expanded collision?
+        else if (expandedIsTouchingGround || expandedIsGrounded)
         {
             playerStateMachine.ChangeState(playerController.endExpandState);
+        } else if (expandedIsTouchingHazard)
+        {
+            playerStateMachine.ChangeState(playerController.deathState); //TODO special death state?
         }
 
     }

@@ -11,6 +11,7 @@ public class PlayerValues : ScriptableObject
 
     public Vector2 defaultCollisionBox = Vector2.one;
     public Vector2 defaultCollisionBoxOffset = Vector2.zero;
+    public float defaultCollisionEdgeRadius = 0.1f;
     [Space]
 
     [Header("Move State")]
@@ -66,6 +67,13 @@ public class PlayerValues : ScriptableObject
 
     public Vector2 expandedCollisionBox = Vector2.one;
     public Vector2 expandedCollisionBoxOffset = Vector2.zero;
+    public float expandedCollisionEdgeRadius = 0.1f;
+
+    public Vector2 expandedGroundCheckBox = Vector2.one;
+    public Vector2 expandedGroundCheckBoxOffset = Vector2.zero;
+
+    public Vector2 expandedHazardCollisionBox = Vector2.one;
+    public Vector2 expandedHazardCollisionBoxOffset = Vector2.zero;
     [Space]
 
     [Header("EndExpand State")]
