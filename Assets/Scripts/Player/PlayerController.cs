@@ -346,7 +346,7 @@ public class PlayerController : MonoBehaviour
             Gizmos.DrawWireCube((Vector2)transform.position + m_playerValues.expandedCollisionBoxOffset,
                 new Vector2(m_playerValues.expandedCollisionBox.x + m_playerValues.expandedCollisionEdgeRadius, m_playerValues.expandedCollisionBox.y + m_playerValues.expandedCollisionEdgeRadius));
 
-            Gizmos.color = new Color(1, 1, 0, 0.2f);
+            Gizmos.color = new Color(1, 0, 0, 0.2f);
             Gizmos.DrawWireCube((Vector2)transform.position + m_playerValues.expandedHazardCollisionBoxOffset, m_playerValues.expandedHazardCollisionBox);
 
             Gizmos.color = new Color(0, 0, 1, 0.2f);
