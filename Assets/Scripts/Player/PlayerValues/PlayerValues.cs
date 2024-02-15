@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerValues : ScriptableObject
 {
     [Header("General")]
+    public bool showGizmos = true;
     public float defaultGravity = 5f;
     public float defaultLinearDrag = 0f;
 
@@ -64,7 +65,8 @@ public class PlayerValues : ScriptableObject
     [Header("Expand State")]
     public float expandMaxFallTime = 5;
     public float expandGravityMultiplier = 2;
-
+    [Space]
+    public bool expandedShowGizmos = false;
     public Vector2 expandedCollisionBox = Vector2.one;
     public Vector2 expandedCollisionBoxOffset = Vector2.zero;
     public float expandedCollisionEdgeRadius = 0.1f;

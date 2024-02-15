@@ -287,7 +287,8 @@ public class PlayerController : MonoBehaviour
     void OnDrawGizmos()
     {
         if (m_playerValues == null) return;
-
+        if (!m_playerValues.showGizmos) return;
+        
         Gizmos.color = new Color(0, 0, 1, 0.4f);
 
         //Ground check and wall check area gizmos
@@ -310,16 +311,19 @@ public class PlayerController : MonoBehaviour
         Gizmos.DrawCube((Vector2)transform.position + m_playerValues.defaultCollisionBoxOffset,
             new Vector2(m_playerValues.defaultCollisionBox.x + m_playerValues.defaultCollisionEdgeRadius, m_playerValues.defaultCollisionBox.y + m_playerValues.defaultCollisionEdgeRadius));
 
-        //Expanded collision gizmos
-        Gizmos.color = new Color(0.5f, 1, 0, 0.2f);
-        Gizmos.DrawCube((Vector2)transform.position + m_playerValues.expandedCollisionBoxOffset,
-            new Vector2(m_playerValues.expandedCollisionBox.x + m_playerValues.expandedCollisionEdgeRadius, m_playerValues.expandedCollisionBox.y + m_playerValues.expandedCollisionEdgeRadius));
+        if (m_playerValues.expandedShowGizmos)
+        {
+            //Expanded collision gizmos
+            Gizmos.color = new Color(0.5f, 1, 0, 0.2f);
+            Gizmos.DrawWireCube((Vector2)transform.position + m_playerValues.expandedCollisionBoxOffset,
+                new Vector2(m_playerValues.expandedCollisionBox.x + m_playerValues.expandedCollisionEdgeRadius, m_playerValues.expandedCollisionBox.y + m_playerValues.expandedCollisionEdgeRadius));
 
-        Gizmos.color = new Color(1, 1, 0, 0.2f);
-        Gizmos.DrawCube((Vector2)transform.position + m_playerValues.expandedHazardCollisionBoxOffset, m_playerValues.expandedHazardCollisionBox);
+            Gizmos.color = new Color(1, 1, 0, 0.2f);
+            Gizmos.DrawWireCube((Vector2)transform.position + m_playerValues.expandedHazardCollisionBoxOffset, m_playerValues.expandedHazardCollisionBox);
 
-        Gizmos.color = new Color(0, 0, 1, 0.2f);
-        Gizmos.DrawCube((Vector2)transform.position + m_playerValues.expandedGroundCheckBoxOffset, m_playerValues.expandedGroundCheckBox);
+            Gizmos.color = new Color(0, 0, 1, 0.2f);
+            Gizmos.DrawWireCube((Vector2)transform.position + m_playerValues.expandedGroundCheckBoxOffset, m_playerValues.expandedGroundCheckBox);
+        }
     }
     #endregion
 
