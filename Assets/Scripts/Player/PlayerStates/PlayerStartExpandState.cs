@@ -16,15 +16,14 @@ public class PlayerStartExpandState : PlayerState
     public override void Enter()
     {
         base.Enter();
-        playerController.SetVelocityX(0);
-        playerController.SetVelocityY(0);
-        playerController.SetGravityScale(0);
+        playerController.FreezePlayerPosition(true);
     }
 
     public override void Exit()
     {
         base.Exit();
         playerController.SetGravityScale(playerValues.defaultGravity);
+        playerController.FreezePlayerPosition(false);
     }
 
     public override void FixedUpdate()

@@ -16,11 +16,13 @@ public class PlayerEndExpandState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        playerController.FreezePlayerPosition(true);
     }
 
     public override void Exit()
     {
         base.Exit();
+        playerController.FreezePlayerPosition(false);
     }
 
     public override void FixedUpdate()
