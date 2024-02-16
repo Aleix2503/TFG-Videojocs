@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class PaintManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private PaintManager _instance;
+    private void Awake()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (_instance != null)
+        {
+            Destroy(gameObject);
+        }
+        _instance = this;
     }
 }
