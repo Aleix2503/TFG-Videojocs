@@ -54,6 +54,7 @@ MonoBehaviour:
   startExpandColorFadeInTime: 0.5
   expandMaxFallTime: 5
   expandGravityMultiplier: 3
+  expandBreakPlatformVelocityThreshold: -30
   expandedShowGizmos: 1
   expandedCollisionBox: {x: 1.8, y: 1.6}
   expandedCollisionBoxOffset: {x: 0, y: 0.4}

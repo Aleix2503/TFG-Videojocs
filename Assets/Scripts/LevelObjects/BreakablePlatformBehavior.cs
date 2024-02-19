@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BreakablePlatformBehavior : MonoBehaviour
 {
-    public float velocityToBreak = -15;
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
@@ -13,8 +12,12 @@ public class BreakablePlatformBehavior : MonoBehaviour
             Rigidbody2D rb2D = collision.gameObject.GetComponent<Rigidbody2D>();
             PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
             print(rb2D.velocity.y);
-            if (rb2D.velocity.y <= velocityToBreak) {
-                Destroy(gameObject);
+            if (playerController.stateMachine.currentState is PlayerExpandedState) {
+                PlayerExpandedState expandedState = (PlayerExpandedState)playerController.stateMachine.currentState;
+                if (expandedState.canBreakGround)
+                {
+                    Destroy(gameObject);
+                }
             }
         }
     }

@@ -77,6 +77,7 @@ public class PlayerValues : ScriptableObject
     [Header("Expand State")]
     public float expandMaxFallTime = 5;
     public float expandGravityMultiplier = 2;
+    public float expandBreakPlatformVelocityThreshold = -15;
     [Space]
     public bool expandedShowGizmos = false;
     public Vector2 expandedCollisionBox = Vector2.one;

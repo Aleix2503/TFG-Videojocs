@@ -12,6 +12,7 @@ public class PlayerExpandedState : PlayerState
     bool expandedIsTouchingHazard = false;
     bool expandedIsGrounded = false;
 
+    public bool canBreakGround = false;
     public override void DoChecks()
     {
         base.DoChecks();
@@ -25,6 +26,8 @@ public class PlayerExpandedState : PlayerState
         base.Enter();
         playerController.SetColliderDimensions(playerValues.expandedCollisionBox, playerValues.expandedCollisionBoxOffset, playerValues.expandedCollisionEdgeRadius);
         playerController.SetGravityScale(playerValues.defaultGravity * playerValues.expandGravityMultiplier);
+
+        canBreakGround = false;
     }
 
     public override void Exit()
@@ -37,11 +40,17 @@ public class PlayerExpandedState : PlayerState
     public override void FixedUpdate()
     {
         base.FixedUpdate();
+
+        if (playerController.m_rb2D.velocity.y  < playerValues.expandBreakPlatformVelocityThreshold)
+        {
+            canBreakGround = true;
+        }
     }
 
     public override void Update()
     {
         base.Update();
+
         if (Time.time > startTime + playerValues.expandMaxFallTime)
         {
             playerStateMachine.ChangeState(playerController.endExpandState);
