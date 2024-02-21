@@ -1442,6 +1442,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3736661429703974774, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
+      propertyPath: XOffset
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3736661429703974774, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
+      propertyPath: YOffset
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3736661429977556969, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
       propertyPath: m_Name
       value: PlayerBundle

@@ -134,8 +134,8 @@ MonoBehaviour:
   target: {fileID: 3736661429019874289}
   targetRB2D: {fileID: 3736661429019874291}
   smoothTime: 0.05
-  YOffset: 1
-  XOffset: 0.2
+  YOffset: 0
+  XOffset: 0
   cameraBoundariesMin: {x: -20.74, y: -13.92}
   cameraBoundariesMax: {x: 34.82, y: 22.89}
 --- !u!1 &3736661429977556969
