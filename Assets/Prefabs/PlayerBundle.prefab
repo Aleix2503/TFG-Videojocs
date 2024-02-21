@@ -133,12 +133,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 3736661429019874289}
   targetRB2D: {fileID: 3736661429019874291}
-  smoothTime: 0.3
-  YOffset: 0
-  XOffsetVelocityThreshold: 5
-  XOffsetFromVelocityMultiplier: 0.5
-  YOffsetVelocityThreshold: 5
-  YOffsetFromVelocityMultiplier: 0.5
+  smoothTime: 0.05
+  YOffset: 1
+  XOffset: 0.2
   cameraBoundariesMin: {x: -20.74, y: -13.92}
   cameraBoundariesMax: {x: 34.82, y: 22.89}
 --- !u!1 &3736661429977556969

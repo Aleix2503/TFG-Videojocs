@@ -8,11 +8,7 @@ public class CameraPlayerFollow : MonoBehaviour
     [SerializeField] private Rigidbody2D targetRB2D;
     [SerializeField] private float smoothTime = 0.1f;
     [SerializeField] private float YOffset;
-    [SerializeField] private float XOffsetVelocityThreshold;
-    [SerializeField] private float XOffsetFromVelocityMultiplier;
-
-    [SerializeField] private float YOffsetVelocityThreshold;
-    [SerializeField] private float YOffsetFromVelocityMultiplier;
+    [SerializeField] private float XOffset;
 
     [SerializeField] private Vector2 cameraBoundariesMin;
     [SerializeField] private Vector2 cameraBoundariesMax;
@@ -31,17 +27,8 @@ public class CameraPlayerFollow : MonoBehaviour
 
     private Vector3 CalculateTargetPosition()
     {
-        float targetX = target.position.x;
+        float targetX = target.position.x + XOffset;
         float targetY = target.position.y + YOffset;
-        if (Mathf.Abs(targetRB2D.velocity.x) > XOffsetVelocityThreshold)
-        {
-            targetX += targetRB2D.velocity.x * XOffsetFromVelocityMultiplier;
-        }
-
-        if (Mathf.Abs(targetRB2D.velocity.y) > YOffsetVelocityThreshold)
-        {
-            targetY += targetRB2D.velocity.y * YOffsetFromVelocityMultiplier;
-        }
 
         return new Vector3(targetX, targetY, transform.position.z);
     }
