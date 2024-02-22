@@ -3003,12 +3003,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1269323151386680250, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
+      propertyPath: targetZ
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1269323151386680250, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
+      propertyPath: YUpLimit
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1269323151386680250, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
+      propertyPath: YDownLimit
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1269323151386680250, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
       propertyPath: smoothTimeY
-      value: 1
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1269323151386680250, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
       propertyPath: DownVelocityLimit
-      value: -12
+      value: -15
       objectReference: {fileID: 0}
     - target: {fileID: 1269323151386680250, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
       propertyPath: boundsTransitionTime
@@ -3020,23 +3032,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1269323151386680250, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
       propertyPath: cameraBoundariesSize.x
-      value: 27.73
+      value: 18.98
       objectReference: {fileID: 0}
     - target: {fileID: 1269323151386680250, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
       propertyPath: cameraBoundariesSize.y
-      value: 11.64
+      value: 33.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 1269323151386680250, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
+      propertyPath: cameraBoundariesPosition.x
+      value: -18.958387
       objectReference: {fileID: 0}
     - target: {fileID: 1269323151386680250, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
       propertyPath: cameraBoundariesPosition.y
-      value: 3.4
+      value: -12.314912
       objectReference: {fileID: 0}
     - target: {fileID: 1269323151386680250, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
       propertyPath: smoothTimeYOutsideBoundsUp
-      value: 0.5
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1269323151386680250, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
+      propertyPath: smoothTimeYWhenVelocityDown
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 1269323151386680250, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
       propertyPath: smoothTimeYOutsideBoundsDown
-      value: 0.05
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1269323151386680250, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
+      propertyPath: DownVelocityExtraOffsetMultiplier
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3736661429977556969, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
       propertyPath: m_Name

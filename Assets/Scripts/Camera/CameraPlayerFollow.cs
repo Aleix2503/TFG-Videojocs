@@ -11,12 +11,14 @@ public class CameraPlayerFollow : MonoBehaviour
     [SerializeField] private float targetZ = 10;
     [SerializeField] private float smoothTimeX = 0.1f;
     [SerializeField] private float smoothTimeY = 2f;
+    [SerializeField] private float smoothTimeYWhenVelocityDown = 0.02f;
     [SerializeField] private float smoothTimeYOutsideBoundsUp = 0.2f;
     [SerializeField] private float smoothTimeYOutsideBoundsDown = 0.02f;
     [SerializeField] private float YOffset;
     [SerializeField] private float XOffset;
 
     [SerializeField] private float DownVelocityLimit = -4;
+    [SerializeField] private float YDownLimit = -2;
     [SerializeField] private float YUpLimit = 3;
 
     [SerializeField] private float DownVelocityExtraOffsetMultiplier = 0.2f;
@@ -52,6 +54,8 @@ public class CameraPlayerFollow : MonoBehaviour
     {
         if (target != null)
         {
+            cam.transform.position = new Vector3(transform.position.x + XOffset, transform.position.y + YOffset, targetZ);
+
             Vector3 targetPosition = CalculateTargetPosition();
             Vector3 finalPosition = transform.position;
             finalPosition.x = Mathf.SmoothDamp(transform.position.x, targetPosition.x, ref velocity.x, smoothTimeX);
@@ -60,7 +64,11 @@ public class CameraPlayerFollow : MonoBehaviour
 
             if (targetRB2D.velocity.y < DownVelocityLimit)
             {
-                finalPosition.y = Mathf.SmoothDamp(transform.position.y, targetPosition.y, ref velocity.y, smoothTimeYOutsideBoundsDown) - DownVelocityExtraOffsetMultiplier * (targetRB2D.velocity.y  + DownVelocityLimit);
+                finalPosition.y = Mathf.SmoothDamp(transform.position.y, targetPosition.y, ref velocity.y, smoothTimeYWhenVelocityDown) - DownVelocityExtraOffsetMultiplier * (targetRB2D.velocity.y - DownVelocityLimit);
+            }
+            else if (relativePosition < YDownLimit)
+            {
+                finalPosition.y = Mathf.SmoothDamp(transform.position.y, targetPosition.y, ref velocity.y, smoothTimeYOutsideBoundsDown);
             }
             else if (relativePosition > YUpLimit)
             {
@@ -84,8 +92,8 @@ public class CameraPlayerFollow : MonoBehaviour
 
     private Vector3 CalculateTargetPosition()
     {
-        float targetX = target.position.x + XOffset;
-        float targetY = target.position.y + YOffset;
+        float targetX = target.position.x;
+        float targetY = target.position.y;
 
         return new Vector3(targetX, targetY, targetZ);
     }
