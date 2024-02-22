@@ -906,7 +906,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2164541633895916905, guid: 48bf559864572d741abdd4bae8e0af52, type: 3}
       propertyPath: m_Size.x
-      value: 20.669327
+      value: 18.08367
       objectReference: {fileID: 0}
     - target: {fileID: 2164541633895916905, guid: 48bf559864572d741abdd4bae8e0af52, type: 3}
       propertyPath: m_Size.y
@@ -914,7 +914,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2164541633895916905, guid: 48bf559864572d741abdd4bae8e0af52, type: 3}
       propertyPath: m_Offset.x
-      value: -0.78920174
+      value: -2.08203
       objectReference: {fileID: 0}
     - target: {fileID: 2164541633895916905, guid: 48bf559864572d741abdd4bae8e0af52, type: 3}
       propertyPath: m_Offset.y
@@ -1608,7 +1608,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2164541633895916905, guid: 48bf559864572d741abdd4bae8e0af52, type: 3}
       propertyPath: m_Size.x
-      value: 7.9432545
+      value: 9.277787
       objectReference: {fileID: 0}
     - target: {fileID: 2164541633895916905, guid: 48bf559864572d741abdd4bae8e0af52, type: 3}
       propertyPath: m_Size.y
@@ -1616,7 +1616,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2164541633895916905, guid: 48bf559864572d741abdd4bae8e0af52, type: 3}
       propertyPath: m_Offset.x
-      value: 0.82459545
+      value: 0.15732908
       objectReference: {fileID: 0}
     - target: {fileID: 2164541633895916905, guid: 48bf559864572d741abdd4bae8e0af52, type: 3}
       propertyPath: m_Offset.y
@@ -2614,6 +2614,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1269323151386680250, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
+      propertyPath: boundsTransitionSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1269323151386680250, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
       propertyPath: cameraBoundariesSize.x
       value: 27.73

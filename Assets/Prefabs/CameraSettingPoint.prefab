@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8482541737432567632}
   - component: {fileID: 2164541633895916905}
   - component: {fileID: 2649189463555083768}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CameraSettingPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,6 +74,7 @@ MonoBehaviour:
   cameraInfo:
     areCameraBoundariesActive: 0
     cameraBoundariesSize: {x: 0, y: 0}
+    cameraBoundariesOffset: {x: 0, y: 0}
     cameraBoundariesPosition: {x: 0, y: 0}
     XOffset: 0
     YOffset: 0

@@ -101,17 +101,29 @@ public class CameraPlayerFollow : MonoBehaviour
     {
         if (!areCameraBoundariesActive) return;
 
-        float halfHeight = currentHeight / 2f;
-        float halfWidth = currentWidth / 2f;
+        if (currentWidth > cameraBoundariesSize.x)
+        {
+            position.x = cameraBoundariesPosition.x;
+        }
+        else
+        {
+            float minX = cameraBoundariesPosition.x - cameraBoundariesSize.x / 2f + halfWidth;
+            float maxX = cameraBoundariesPosition.x + cameraBoundariesSize.x / 2f - halfWidth;
+            position.x = Mathf.Clamp(position.x, minX, maxX);
+        }
 
-        float minX = cameraBoundariesPosition.x - cameraBoundariesSize.x / 2f + halfWidth;
-        float maxX = cameraBoundariesPosition.x + cameraBoundariesSize.x / 2f - halfWidth;
-        float minY = cameraBoundariesPosition.y - cameraBoundariesSize.y / 2f + halfHeight;
-        float maxY = cameraBoundariesPosition.y + cameraBoundariesSize.y / 2f - halfHeight;
-
-        position.x = Mathf.Clamp(position.x, minX, maxX);
-        position.y = Mathf.Clamp(position.y, minY, maxY);
+        if (currentHeight > cameraBoundariesSize.y)
+        {
+            position.y = cameraBoundariesPosition.y;
+        }
+        else
+        {
+            float minY = cameraBoundariesPosition.y - cameraBoundariesSize.y / 2f + halfHeight;
+            float maxY = cameraBoundariesPosition.y + cameraBoundariesSize.y / 2f - halfHeight;
+            position.y = Mathf.Clamp(position.y, minY, maxY);
+        }
     }
+
 
     private void OnDrawGizmosSelected()
     {

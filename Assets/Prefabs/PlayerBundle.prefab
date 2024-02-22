@@ -209,8 +209,9 @@ MonoBehaviour:
   XOffset: 0
   YDownLimit: -1
   YUpLimit: 3
-  cameraBoundariesMin: {x: -20.74, y: -13.92}
-  cameraBoundariesMax: {x: 34.82, y: 22.89}
+  cameraBoundariesSize: {x: 0, y: 0}
+  cameraBoundariesPosition: {x: 0, y: 0}
+  boundsTransitionSpeed: 0.5
 --- !u!1001 &3736661429145936711
 PrefabInstance:
   m_ObjectHideFlags: 0
