@@ -512,91 +512,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5858201273212375362, guid: 0be44175b5ff3a84ca21edf59f43e514, type: 3}
   m_PrefabInstance: {fileID: 582473491}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &365378740
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1702964481}
-    m_Modifications:
-    - target: {fileID: 2164541633895916905, guid: 48bf559864572d741abdd4bae8e0af52, type: 3}
-      propertyPath: m_Size.x
-      value: 19.754148
-      objectReference: {fileID: 0}
-    - target: {fileID: 2164541633895916905, guid: 48bf559864572d741abdd4bae8e0af52, type: 3}
-      propertyPath: m_Size.y
-      value: 11.016787
-      objectReference: {fileID: 0}
-    - target: {fileID: 2164541633895916905, guid: 48bf559864572d741abdd4bae8e0af52, type: 3}
-      propertyPath: m_Offset.x
-      value: -1.2467909
-      objectReference: {fileID: 0}
-    - target: {fileID: 2164541633895916905, guid: 48bf559864572d741abdd4bae8e0af52, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.030353546
-      objectReference: {fileID: 0}
-    - target: {fileID: 2649189463555083768, guid: 48bf559864572d741abdd4bae8e0af52, type: 3}
-      propertyPath: cameraInfo.cameraBoundariesSize.x
-      value: 27.46
-      objectReference: {fileID: 0}
-    - target: {fileID: 2649189463555083768, guid: 48bf559864572d741abdd4bae8e0af52, type: 3}
-      propertyPath: cameraInfo.cameraBoundariesSize.y
-      value: 11.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2649189463555083768, guid: 48bf559864572d741abdd4bae8e0af52, type: 3}
-      propertyPath: cameraInfo.areCameraBoundariesActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6882970422370537332, guid: 48bf559864572d741abdd4bae8e0af52, type: 3}
-      propertyPath: m_Name
-      value: CameraSettingPoint (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8482541737432567632, guid: 48bf559864572d741abdd4bae8e0af52, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8482541737432567632, guid: 48bf559864572d741abdd4bae8e0af52, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -23.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 8482541737432567632, guid: 48bf559864572d741abdd4bae8e0af52, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 6.11
-      objectReference: {fileID: 0}
-    - target: {fileID: 8482541737432567632, guid: 48bf559864572d741abdd4bae8e0af52, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8482541737432567632, guid: 48bf559864572d741abdd4bae8e0af52, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8482541737432567632, guid: 48bf559864572d741abdd4bae8e0af52, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8482541737432567632, guid: 48bf559864572d741abdd4bae8e0af52, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8482541737432567632, guid: 48bf559864572d741abdd4bae8e0af52, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8482541737432567632, guid: 48bf559864572d741abdd4bae8e0af52, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8482541737432567632, guid: 48bf559864572d741abdd4bae8e0af52, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8482541737432567632, guid: 48bf559864572d741abdd4bae8e0af52, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 48bf559864572d741abdd4bae8e0af52, type: 3}
 --- !u!1 &375046336
 GameObject:
   m_ObjectHideFlags: 0
@@ -762,7 +677,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8482541737432567632, guid: 48bf559864572d741abdd4bae8e0af52, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8482541737432567632, guid: 48bf559864572d741abdd4bae8e0af52, type: 3}
       propertyPath: m_LocalPosition.x
@@ -979,11 +894,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0be44175b5ff3a84ca21edf59f43e514, type: 3}
---- !u!4 &589853912 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8482541737432567632, guid: 48bf559864572d741abdd4bae8e0af52, type: 3}
-  m_PrefabInstance: {fileID: 365378740}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &642173959
 GameObject:
   m_ObjectHideFlags: 0
@@ -1114,7 +1024,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2649189463555083768, guid: 48bf559864572d741abdd4bae8e0af52, type: 3}
       propertyPath: cameraInfo.cameraBoundariesSize.y
-      value: 11.1
+      value: 30.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2649189463555083768, guid: 48bf559864572d741abdd4bae8e0af52, type: 3}
+      propertyPath: cameraInfo.cameraBoundariesOffset.y
+      value: 8.97
       objectReference: {fileID: 0}
     - target: {fileID: 2649189463555083768, guid: 48bf559864572d741abdd4bae8e0af52, type: 3}
       propertyPath: cameraInfo.areCameraBoundariesActive
@@ -2016,7 +1930,6 @@ Transform:
   m_Children:
   - {fileID: 735353360}
   - {fileID: 1394093658}
-  - {fileID: 589853912}
   - {fileID: 1811669279}
   - {fileID: 472668938}
   - {fileID: 1991557355}
@@ -2173,7 +2086,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8482541737432567632, guid: 48bf559864572d741abdd4bae8e0af52, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8482541737432567632, guid: 48bf559864572d741abdd4bae8e0af52, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2568,7 +2481,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2164541633895916905, guid: 48bf559864572d741abdd4bae8e0af52, type: 3}
       propertyPath: m_Size.y
-      value: 29.033993
+      value: 45.68786
       objectReference: {fileID: 0}
     - target: {fileID: 2164541633895916905, guid: 48bf559864572d741abdd4bae8e0af52, type: 3}
       propertyPath: m_Offset.x
@@ -2576,7 +2489,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2164541633895916905, guid: 48bf559864572d741abdd4bae8e0af52, type: 3}
       propertyPath: m_Offset.y
-      value: -1.2196441
+      value: 7.1072884
       objectReference: {fileID: 0}
     - target: {fileID: 2649189463555083768, guid: 48bf559864572d741abdd4bae8e0af52, type: 3}
       propertyPath: cameraInfo.YOffset
@@ -2588,11 +2501,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2649189463555083768, guid: 48bf559864572d741abdd4bae8e0af52, type: 3}
       propertyPath: cameraInfo.cameraBoundariesSize.y
-      value: 33.55
+      value: 85.06
       objectReference: {fileID: 0}
     - target: {fileID: 2649189463555083768, guid: 48bf559864572d741abdd4bae8e0af52, type: 3}
       propertyPath: cameraInfo.cameraBoundariesOffset.y
-      value: 0
+      value: 26.7
       objectReference: {fileID: 0}
     - target: {fileID: 2649189463555083768, guid: 48bf559864572d741abdd4bae8e0af52, type: 3}
       propertyPath: cameraInfo.areCameraBoundariesActive
@@ -2604,7 +2517,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8482541737432567632, guid: 48bf559864572d741abdd4bae8e0af52, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8482541737432567632, guid: 48bf559864572d741abdd4bae8e0af52, type: 3}
       propertyPath: m_LocalPosition.x
