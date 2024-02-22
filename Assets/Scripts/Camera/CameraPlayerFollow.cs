@@ -21,6 +21,7 @@ public class CameraPlayerFollow : MonoBehaviour
 
     [SerializeField] private Vector2 cameraBoundariesSize;
     [SerializeField] private Vector2 cameraBoundariesPosition;
+    private bool areCameraBoundariesActive = true;
 
     private Vector3 velocity = Vector3.zero;
 
@@ -76,6 +77,7 @@ public class CameraPlayerFollow : MonoBehaviour
 
     private void ApplyCameraBounds(ref Vector3 position)
     {
+        if (!areCameraBoundariesActive) return;
 
         float halfHeight = currentHeight / 2f;
         float halfWidth = currentWidth / 2f;
@@ -89,13 +91,46 @@ public class CameraPlayerFollow : MonoBehaviour
         position.y = Mathf.Clamp(position.y, minY, maxY);
     }
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         if (cam == null) return;
 
         //camera bounds
-        Gizmos.color = new Color(0.5f, 1, 0.5f, 0.5f);
+        Gizmos.color = new Color(1f, 1, 0.5f, 0.5f);
         Gizmos.DrawWireCube(cameraBoundariesPosition, cameraBoundariesSize);
-
     }
+
+    public void UpdateCameraInfo(CameraInfo cameraInfo)
+    {
+        XOffset = cameraInfo.XOffset;
+        YOffset = cameraInfo.YOffset;
+
+        if (cameraInfo.areCameraBoundariesActive)
+        {
+            cameraBoundariesSize = cameraInfo.cameraBoundariesSize;
+            cameraBoundariesPosition = cameraInfo.cameraBoundariesPosition;
+            areCameraBoundariesActive = true;
+        }
+        else
+        {
+            areCameraBoundariesActive = false;
+        }
+
+        currentHeight = 2f * cam.orthographicSize;
+        currentWidth = currentHeight * cam.aspect;
+        halfHeight = currentHeight / 2f;
+        halfWidth = currentWidth / 2f;
+    }
+
+}
+
+[Serializable]
+public class CameraInfo
+{
+    public bool areCameraBoundariesActive;
+    public Vector2 cameraBoundariesSize;
+    public Vector2 cameraBoundariesOffset;
+    [HideInInspector] public Vector2 cameraBoundariesPosition;
+    public float XOffset;
+    public float YOffset;
 }
