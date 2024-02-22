@@ -62,19 +62,22 @@ public class CameraPlayerFollow : MonoBehaviour
 
             float relativePosition = target.position.y - transform.position.y;
 
-            if (targetRB2D.velocity.y < DownVelocityLimit)
+            if (targetRB2D.velocity.y < DownVelocityLimit && target.position.y < transform.position.y)
             {
-                finalPosition.y = Mathf.SmoothDamp(transform.position.y, targetPosition.y, ref velocity.y, smoothTimeYWhenVelocityDown) - DownVelocityExtraOffsetMultiplier * (targetRB2D.velocity.y - DownVelocityLimit);
+                
+                finalPosition.y = Mathf.SmoothDamp(transform.position.y, targetPosition.y, ref velocity.y, smoothTimeYWhenVelocityDown);
             }
             else if (relativePosition < YDownLimit)
             {
-                finalPosition.y = Mathf.SmoothDamp(transform.position.y, targetPosition.y, ref velocity.y, smoothTimeYOutsideBoundsDown);
+                float dynamicSmoothTime = smoothTimeYOutsideBoundsDown / Mathf.Abs(relativePosition - YDownLimit);
+                finalPosition.y = Mathf.SmoothDamp(transform.position.y, targetPosition.y, ref velocity.y, dynamicSmoothTime);
             }
             else if (relativePosition > YUpLimit)
             {
-                finalPosition.y = Mathf.SmoothDamp(transform.position.y, targetPosition.y, ref velocity.y, smoothTimeYOutsideBoundsUp);
+                float dynamicSmoothTime = smoothTimeYOutsideBoundsUp / (relativePosition - YUpLimit);
+                finalPosition.y = Mathf.SmoothDamp(transform.position.y, targetPosition.y, ref velocity.y, dynamicSmoothTime);
             }
-            else
+            else if(targetRB2D.velocity.y == 0)
             {
                 finalPosition.y = Mathf.SmoothDamp(transform.position.y, targetPosition.y, ref velocity.y, smoothTimeY);
             }

@@ -3008,11 +3008,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1269323151386680250, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
       propertyPath: YUpLimit
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1269323151386680250, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
       propertyPath: YDownLimit
-      value: -4
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 1269323151386680250, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
       propertyPath: smoothTimeY
