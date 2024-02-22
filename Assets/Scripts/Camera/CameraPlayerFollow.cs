@@ -16,8 +16,10 @@ public class CameraPlayerFollow : MonoBehaviour
     [SerializeField] private float YOffset;
     [SerializeField] private float XOffset;
 
-    [SerializeField] private float YDownLimit = -1;
+    [SerializeField] private float DownVelocityLimit = -4;
     [SerializeField] private float YUpLimit = 3;
+
+    [SerializeField] private float DownVelocityExtraOffsetMultiplier = 0.2f;
 
     [SerializeField] private Vector2 cameraBoundariesSize;
     [SerializeField] private Vector2 cameraBoundariesPosition;
@@ -56,9 +58,9 @@ public class CameraPlayerFollow : MonoBehaviour
 
             float relativePosition = target.position.y - transform.position.y;
 
-            if (relativePosition < YDownLimit)
+            if (targetRB2D.velocity.y < DownVelocityLimit)
             {
-                finalPosition.y = Mathf.SmoothDamp(transform.position.y, targetPosition.y, ref velocity.y, smoothTimeYOutsideBoundsDown);
+                finalPosition.y = Mathf.SmoothDamp(transform.position.y, targetPosition.y, ref velocity.y, smoothTimeYOutsideBoundsDown) - DownVelocityExtraOffsetMultiplier * (targetRB2D.velocity.y  + DownVelocityLimit);
             }
             else if (relativePosition > YUpLimit)
             {
