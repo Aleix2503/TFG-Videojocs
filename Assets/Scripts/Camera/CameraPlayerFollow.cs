@@ -31,6 +31,11 @@ public class CameraPlayerFollow : MonoBehaviour
     private float halfHeight;
     private float halfWidth;
 
+    private Vector2 targetCameraBoundariesSize;
+    private Vector2 targetCameraBoundariesPosition;
+    private bool isTransitioningBounds = false;
+    [SerializeField] private float boundsTransitionSpeed = 1f;
+
     private void Start()
     {
         currentHeight = 2f * cam.orthographicSize;
@@ -63,7 +68,24 @@ public class CameraPlayerFollow : MonoBehaviour
 
             ApplyCameraBounds(ref finalPosition);
 
+            if (isTransitioningBounds)
+            {
+                SmoothUpdateCameraBounds();
+            }
+
             transform.position = finalPosition;
+        }
+    }
+
+    private void SmoothUpdateCameraBounds()
+    {
+        cameraBoundariesPosition = Vector2.Lerp(cameraBoundariesPosition, targetCameraBoundariesPosition, boundsTransitionSpeed * Time.deltaTime);
+        cameraBoundariesSize = Vector2.Lerp(cameraBoundariesSize, targetCameraBoundariesSize, boundsTransitionSpeed * Time.deltaTime);
+
+        if (Vector2.Distance(cameraBoundariesPosition, targetCameraBoundariesPosition) < 0.01f &&
+            Vector2.Distance(cameraBoundariesSize, targetCameraBoundariesSize) < 0.01f)
+        {
+            isTransitioningBounds = false;
         }
     }
 
@@ -107,9 +129,9 @@ public class CameraPlayerFollow : MonoBehaviour
 
         if (cameraInfo.areCameraBoundariesActive)
         {
-            cameraBoundariesSize = cameraInfo.cameraBoundariesSize;
-            cameraBoundariesPosition = cameraInfo.cameraBoundariesPosition;
-            areCameraBoundariesActive = true;
+            targetCameraBoundariesSize = cameraInfo.cameraBoundariesSize;
+            targetCameraBoundariesPosition = cameraInfo.cameraBoundariesPosition + cameraInfo.cameraBoundariesOffset;
+            isTransitioningBounds = true; // Start the transition
         }
         else
         {
