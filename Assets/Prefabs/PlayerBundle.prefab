@@ -201,10 +201,10 @@ MonoBehaviour:
   target: {fileID: 3736661429019874289}
   targetRB2D: {fileID: 3736661429019874291}
   targetZ: 10
-  smoothTimeX: 0.1
+  smoothTimeX: 0.05
   smoothTimeY: 2
   smoothTimeYOutsideBoundsUp: 0.2
-  smoothTimeYOutsideBoundsDown: 0.05
+  smoothTimeYOutsideBoundsDown: 0.1
   YOffset: 0
   XOffset: 0
   YDownLimit: -1

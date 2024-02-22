@@ -1385,34 +1385,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1269323151386680250, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
-      propertyPath: smoothTimeYOutsideBoundsDown
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3736661429703974774, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
-      propertyPath: YUpLimit
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3736661429703974774, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
-      propertyPath: smoothTimeX
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 3736661429703974774, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
-      propertyPath: smoothTimeY
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3736661429703974774, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
-      propertyPath: cameraBoundariesMin.x
-      value: -4.42
-      objectReference: {fileID: 0}
-    - target: {fileID: 3736661429703974774, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
-      propertyPath: smoothTimeYOutsideBoundsUp
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 3736661429703974774, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
-      propertyPath: smoothTimeYOutsideBoundsDown
-      value: 0.05
-      objectReference: {fileID: 0}
     - target: {fileID: 3736661429977556969, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
       propertyPath: m_Name
       value: PlayerBundle
