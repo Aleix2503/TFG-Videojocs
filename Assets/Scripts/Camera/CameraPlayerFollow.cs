@@ -54,7 +54,7 @@ public class CameraPlayerFollow : MonoBehaviour
     {
         if (target != null)
         {
-            cam.transform.position = new Vector3(transform.position.x + XOffset, transform.position.y + YOffset, targetZ);
+            Vector3 cameraTransformPosition = new Vector3(transform.position.x + XOffset, transform.position.y + YOffset, targetZ);
 
             Vector3 targetPosition = CalculateTargetPosition();
             Vector3 finalPosition = transform.position;
@@ -64,7 +64,7 @@ public class CameraPlayerFollow : MonoBehaviour
 
             if (targetRB2D.velocity.y < DownVelocityLimit && target.position.y < transform.position.y)
             {
-                
+                float dynamicSmoothTime = smoothTimeYWhenVelocityDown / Mathf.Abs(targetRB2D.velocity.y - DownVelocityLimit);
                 finalPosition.y = Mathf.SmoothDamp(transform.position.y, targetPosition.y, ref velocity.y, smoothTimeYWhenVelocityDown);
             }
             else if (relativePosition < YDownLimit)
@@ -90,6 +90,7 @@ public class CameraPlayerFollow : MonoBehaviour
             }
 
             transform.position = finalPosition;
+            cam.transform.position = cameraTransformPosition;
         }
     }
 

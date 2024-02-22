@@ -2965,11 +2965,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1269323151386680250, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
       propertyPath: smoothTimeYWhenVelocityDown
-      value: 0.05
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 1269323151386680250, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
       propertyPath: smoothTimeYOutsideBoundsDown
-      value: 0.02
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 1269323151386680250, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
       propertyPath: DownVelocityExtraOffsetMultiplier
