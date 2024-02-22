@@ -31,10 +31,11 @@ public class CameraPlayerFollow : MonoBehaviour
     private float halfHeight;
     private float halfWidth;
 
-    private Vector2 targetCameraBoundariesSize;
-    private Vector2 targetCameraBoundariesPosition;
-    private bool isTransitioningBounds = false;
-    [SerializeField] private float boundsTransitionSpeed = 1f;
+    private bool isTransitioningBetweenBounds = false;
+    private Vector2 originalPosition = Vector2.zero;
+    [SerializeField] private float boundsTransitionTime = 0.5f;
+    private float transitionElapsedTime = 0f;
+
 
     private void Start()
     {
@@ -58,34 +59,24 @@ public class CameraPlayerFollow : MonoBehaviour
             if (relativePosition < YDownLimit)
             {
                 finalPosition.y = Mathf.SmoothDamp(transform.position.y, targetPosition.y, ref velocity.y, smoothTimeYOutsideBoundsDown);
-            } else if (relativePosition > YUpLimit)
+            }
+            else if (relativePosition > YUpLimit)
             {
                 finalPosition.y = Mathf.SmoothDamp(transform.position.y, targetPosition.y, ref velocity.y, smoothTimeYOutsideBoundsUp);
-            } else
+            }
+            else
             {
                 finalPosition.y = Mathf.SmoothDamp(transform.position.y, targetPosition.y, ref velocity.y, smoothTimeY);
             }
 
             ApplyCameraBounds(ref finalPosition);
 
-            if (isTransitioningBounds)
+            if (isTransitioningBetweenBounds)
             {
-                SmoothUpdateCameraBounds();
+                InterpolateFromInitialPosition(ref finalPosition);
             }
 
             transform.position = finalPosition;
-        }
-    }
-
-    private void SmoothUpdateCameraBounds()
-    {
-        cameraBoundariesPosition = Vector2.Lerp(cameraBoundariesPosition, targetCameraBoundariesPosition, boundsTransitionSpeed * Time.deltaTime);
-        cameraBoundariesSize = Vector2.Lerp(cameraBoundariesSize, targetCameraBoundariesSize, boundsTransitionSpeed * Time.deltaTime);
-
-        if (Vector2.Distance(cameraBoundariesPosition, targetCameraBoundariesPosition) < 0.01f &&
-            Vector2.Distance(cameraBoundariesSize, targetCameraBoundariesSize) < 0.01f)
-        {
-            isTransitioningBounds = false;
         }
     }
 
@@ -124,6 +115,21 @@ public class CameraPlayerFollow : MonoBehaviour
         }
     }
 
+    private void InterpolateFromInitialPosition(ref Vector3 position)
+    {
+        if (transitionElapsedTime <= boundsTransitionTime)
+        {
+            float t = transitionElapsedTime / boundsTransitionTime;
+            position = Vector3.Lerp(originalPosition, position, t);
+            transitionElapsedTime += Time.fixedDeltaTime;
+        }
+        else
+        {
+            isTransitioningBetweenBounds = false;
+        }
+    }
+
+
 
     private void OnDrawGizmosSelected()
     {
@@ -141,9 +147,9 @@ public class CameraPlayerFollow : MonoBehaviour
 
         if (cameraInfo.areCameraBoundariesActive)
         {
-            targetCameraBoundariesSize = cameraInfo.cameraBoundariesSize;
-            targetCameraBoundariesPosition = cameraInfo.cameraBoundariesPosition + cameraInfo.cameraBoundariesOffset;
-            isTransitioningBounds = true; // Start the transition
+            cameraBoundariesSize = cameraInfo.cameraBoundariesSize;
+            cameraBoundariesPosition = cameraInfo.cameraBoundariesPosition + cameraInfo.cameraBoundariesOffset;
+            StartBoundsTransition();
         }
         else
         {
@@ -155,6 +161,15 @@ public class CameraPlayerFollow : MonoBehaviour
         halfHeight = currentHeight / 2f;
         halfWidth = currentWidth / 2f;
     }
+
+    private void StartBoundsTransition()
+    {
+        originalPosition = transform.position;
+        transitionElapsedTime = 0f;
+
+        isTransitioningBetweenBounds = true;
+    }
+
 
 }
 
