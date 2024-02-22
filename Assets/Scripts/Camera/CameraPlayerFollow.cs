@@ -27,10 +27,16 @@ public class CameraPlayerFollow : MonoBehaviour
     public float currentHeight { get; private set; }
     public float currentWidth { get; private set; }
 
+    private float halfHeight;
+    private float halfWidth;
+
     private void Start()
     {
         currentHeight = 2f * cam.orthographicSize;
         currentWidth = currentHeight * cam.aspect;
+
+        halfHeight = currentHeight / 2f;
+        halfWidth = currentWidth / 2f;
     }
 
     void FixedUpdate()
@@ -60,12 +66,6 @@ public class CameraPlayerFollow : MonoBehaviour
         }
     }
 
-    private bool isTargetWithinYBounds()
-    {
-        float relativePosition = target.position.y - transform.position.y;
-        return relativePosition > YDownLimit && relativePosition < YUpLimit;
-    }
-
     private Vector3 CalculateTargetPosition()
     {
         float targetX = target.position.x + XOffset;
@@ -92,8 +92,8 @@ public class CameraPlayerFollow : MonoBehaviour
     private void OnDrawGizmos()
     {
         if (cam == null) return;
-        //camera bounds
 
+        //camera bounds
         Gizmos.color = new Color(0.5f, 1, 0.5f, 0.5f);
         Gizmos.DrawWireCube(cameraBoundariesPosition, cameraBoundariesSize);
 
