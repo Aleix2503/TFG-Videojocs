@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraPlayerFollow : MonoBehaviour
 {
+    [SerializeField] private Camera cam;
     [SerializeField] private Transform target;
     [SerializeField] private Rigidbody2D targetRB2D;
     [SerializeField] private float smoothTime = 0.1f;
@@ -14,6 +15,15 @@ public class CameraPlayerFollow : MonoBehaviour
     [SerializeField] private Vector2 cameraBoundariesMax;
 
     private Vector3 velocity = Vector3.zero;
+
+    public float currentHeight { get; private set; }
+    public float currentWidth { get; private set; }
+
+    private void Start()
+    {
+        currentHeight = 2f * cam.orthographicSize;
+        currentWidth = currentHeight * cam.aspect;
+    }
 
     void FixedUpdate()
     {
@@ -39,5 +49,10 @@ public class CameraPlayerFollow : MonoBehaviour
         newPosition.x = Mathf.Clamp(newPosition.x, cameraBoundariesMin.x, cameraBoundariesMax.x);
         newPosition.y = Mathf.Clamp(newPosition.y, cameraBoundariesMin.y, cameraBoundariesMax.y);
         transform.position = newPosition;
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (cam == null) return;
     }
 }
