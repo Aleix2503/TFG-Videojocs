@@ -19,8 +19,8 @@ public class CameraPlayerFollow : MonoBehaviour
     [SerializeField] private float YDownLimit = -1;
     [SerializeField] private float YUpLimit = 3;
 
-    [SerializeField] private Vector2 cameraBoundariesMin;
-    [SerializeField] private Vector2 cameraBoundariesMax;
+    [SerializeField] private Vector2 cameraBoundariesSize;
+    [SerializeField] private Vector2 cameraBoundariesPosition;
 
     private Vector3 velocity = Vector3.zero;
 
@@ -54,7 +54,7 @@ public class CameraPlayerFollow : MonoBehaviour
                 finalPosition.y = Mathf.SmoothDamp(transform.position.y, targetPosition.y, ref velocity.y, smoothTimeY);
             }
 
-            //finalPosition = ApplyCameraBoundaries(finalPosition);
+            ApplyCameraBounds(ref finalPosition);
 
             transform.position = finalPosition;
         }
@@ -74,15 +74,28 @@ public class CameraPlayerFollow : MonoBehaviour
         return new Vector3(targetX, targetY, targetZ);
     }
 
-    private Vector3 ApplyCameraBoundaries(Vector2 position)
+    private void ApplyCameraBounds(ref Vector3 position)
     {
-        position.x = Mathf.Clamp(position.x, cameraBoundariesMin.x, cameraBoundariesMax.x);
-        position.y = Mathf.Clamp(position.y, cameraBoundariesMin.y, cameraBoundariesMax.y);
-        return position;
+
+        float halfHeight = currentHeight / 2f;
+        float halfWidth = currentWidth / 2f;
+
+        float minX = cameraBoundariesPosition.x - cameraBoundariesSize.x / 2f + halfWidth;
+        float maxX = cameraBoundariesPosition.x + cameraBoundariesSize.x / 2f - halfWidth;
+        float minY = cameraBoundariesPosition.y - cameraBoundariesSize.y / 2f + halfHeight;
+        float maxY = cameraBoundariesPosition.y + cameraBoundariesSize.y / 2f - halfHeight;
+
+        position.x = Mathf.Clamp(position.x, minX, maxX);
+        position.y = Mathf.Clamp(position.y, minY, maxY);
     }
 
     private void OnDrawGizmos()
     {
         if (cam == null) return;
+        //camera bounds
+
+        Gizmos.color = new Color(0.5f, 1, 0.5f, 0.5f);
+        Gizmos.DrawWireCube(cameraBoundariesPosition, cameraBoundariesSize);
+
     }
 }
