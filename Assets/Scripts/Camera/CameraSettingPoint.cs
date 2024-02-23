@@ -13,8 +13,11 @@ public class CameraSettingPoint : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        cameraInfo.cameraBoundariesPosition = transform.position;
-        cameraPlayerFollow.UpdateCameraInfo(cameraInfo);
+        if (collision.CompareTag("Player"))
+        {
+            cameraInfo.cameraBoundariesPosition = transform.position;
+            cameraPlayerFollow.UpdateCameraInfo(cameraInfo);
+        }
     }
 
     private void OnDrawGizmosSelected()
