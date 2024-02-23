@@ -86,6 +86,7 @@ public class BubbleController : MonoBehaviour
 
     internal void PopBubble()
     {
+        PaintManager._instance.EmitBubbleParticles();
         isActive = false;
         collider.enabled = false;
         rb2D.bodyType = RigidbodyType2D.Static;
@@ -93,6 +94,8 @@ public class BubbleController : MonoBehaviour
         animator.SetBool("pop", true);
         animator.SetBool("spawn", false);
 
-        spriteRenderer.color = Color.clear; //TODO cambiar esto cuando haya animación
+        spriteRenderer.color = Color.clear; //TODO cambiar esto cuando haya animaciï¿½n
+        
+        
     }
 }

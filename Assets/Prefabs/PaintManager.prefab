@@ -44,3 +44,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00f5d3499cc6ab941ac2f65b6fec6d93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerPaintingState: 0
+  particleSystem: {fileID: 0}
+  dashParticleSystem: {fileID: 0}
+  jumpParticleSystem: {fileID: 0}
+  colorOption: 0
+  paintColor: {r: 1, g: 1, b: 1, a: 1}
+  color1: {r: 1, g: 1, b: 1, a: 1}
+  color2: {r: 0.8490566, g: 0.8490566, b: 0.8490566, a: 1}
+  traceSpawnPosition: {fileID: 0}
+  backgroundTraceSpawnPosition: {fileID: 0}
+  onFallTraceSpawnPosition: {fileID: 0}
+  splatPrefab: {fileID: 0}
+  tracePrefab: {fileID: 123533560605408097, guid: 85146b5edf67eaf42a5db468f9b91ddd, type: 3}
+  backgroundTracePrefab: {fileID: 123533560605408097, guid: 7ee62340fe6f3c84d8a50ce7924706b8, type: 3}
+  lastPosition: {x: 0, y: 0, z: 0}
+  timeSinceLastInstantiation: 0
+  moveThreshold: 0.1
+  instantiationInterval: 0.02
+  playerTransform: {fileID: 0}

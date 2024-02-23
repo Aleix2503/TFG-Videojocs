@@ -12,6 +12,8 @@ public class PlayerJumpState : PlayerAirState
     {
         base.Enter();
         playerController.SetVelocityY(playerValues.jumpVelocity);
+        Debug.Log("Jump");
+        PaintManager._instance.EmitJumpParticles();
     }
 
 

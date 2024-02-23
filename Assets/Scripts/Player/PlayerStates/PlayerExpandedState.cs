@@ -35,6 +35,9 @@ public class PlayerExpandedState : PlayerState
         base.Exit();
         playerController.SetColliderDimensions(playerValues.defaultCollisionBox, playerValues.defaultCollisionBoxOffset, playerValues.defaultCollisionEdgeRadius);
         playerController.SetGravityScale(playerValues.defaultGravity);
+        PaintManager._instance.EmitExpandedParticles();
+        PaintManager._instance.PlaceOnExpandedTrace();
+
     }
 
     public override void FixedUpdate()

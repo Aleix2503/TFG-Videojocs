@@ -8,11 +8,8 @@ public class Trace : MonoBehaviour
         Background,
     }
 
-    public Color backgroundTint;
     public float minSizeMod = 0.8f;
     public float maxSizeMod = 1.5f;
-    public float minColorRange = -0.2f;
-    public float maxColorRange = 0.2f; 
     public Sprite[] sprites;
     private SplatLoacation splatLocation;
     private SpriteRenderer spriteRenderer;
@@ -57,8 +54,8 @@ public class Trace : MonoBehaviour
         switch (splatLocation)
         {
             case SplatLoacation.Background:
-                spriteRenderer.color = backgroundTint;
-                spriteRenderer.sortingOrder = 0;
+                //spriteRenderer.color = Color.black*0.1f;
+                spriteRenderer.sortingOrder = layer;
                 break;
             case SplatLoacation.Foreground:
                 spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
@@ -68,7 +65,9 @@ public class Trace : MonoBehaviour
     }
     
     public void SetColor(Color color)
-    {   
+    {
+        spriteRenderer.color = color;
+        /*
         Color initialColor = color;
         // Generate random offsets for each RGB component within the specified range
         float rOffset = Random.Range(minColorRange, maxColorRange);
@@ -83,6 +82,6 @@ public class Trace : MonoBehaviour
             initialColor.a
         );
 
-        spriteRenderer.color = newColor;
+        spriteRenderer.color = newColor;*/
     }
 }

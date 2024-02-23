@@ -55,12 +55,7 @@ public class SplatParticles : MonoBehaviour
         int count = collisionEvents.Count;
         for (int i = 0; i < count; i++)
         {
-            Debug.Log(collisionEvents[i].normal);
-            GameObject splat =
-                Instantiate(splatPrefab, collisionEvents[i].intersection, Quaternion.identity) as GameObject;
-            splat.transform.SetParent(splatHolder, true);
-            Splat splatScript = splat.GetComponent<Splat>();
-            splatScript.Initialize(Splat.SplatLoacation.Foreground, currentLayer, splatParticles.main.startColor.color, collisionEvents[i].normal);
+            PaintManager._instance.PlaceSplat(collisionEvents[i].intersection, collisionEvents[i].normal, splatParticles.main.startColor.color);
         }
     }
 }

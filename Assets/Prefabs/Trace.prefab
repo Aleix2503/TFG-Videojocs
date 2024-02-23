@@ -46,11 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bd191ee96a80af478525ae1d682d65f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundTint: {r: 0, g: 0, b: 0, a: 0}
   minSizeMod: 0.8
   maxSizeMod: 1.5
-  minColorRange: -0.1
-  maxColorRange: 0.1
   sprites:
   - {fileID: 21300000, guid: 023c57c8b58ab0141bf2fa81b7137be4, type: 3}
   - {fileID: 21300000, guid: d461bfe495bef92439d3e19b25c68962, type: 3}
@@ -147,8 +144,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 161629431
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 023c57c8b58ab0141bf2fa81b7137be4, type: 3}
   m_Color: {r: 0.088679194, g: 0.56051666, b: 1, a: 1}

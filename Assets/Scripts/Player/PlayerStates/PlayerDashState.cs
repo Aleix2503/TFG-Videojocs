@@ -25,6 +25,8 @@ public class PlayerDashState : PlayerState
         isTouchingFrontWall = false;
 
         playerController.FadePlayerColor(playerValues.dashColor, playerValues.dashColorFadeInTime);
+        
+        PaintManager._instance.EmitDashParticles();
     }
 
     public override void Exit()

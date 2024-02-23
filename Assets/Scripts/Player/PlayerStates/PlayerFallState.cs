@@ -60,6 +60,7 @@ public class PlayerFallState : PlayerAirState
         
         if (isGrounded)
         {
+            PaintManager._instance.PlaceOnFallTrace();
             if (playerController.m_playerInputHandler.absoluteMovementInput == 0)
             {
                 playerStateMachine.ChangeState(playerController.idleState);

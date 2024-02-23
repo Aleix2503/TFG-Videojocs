@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3599915309634892715}
-  - component: {fileID: 7584173486312471847}
-  - component: {fileID: 5449266303200526082}
+  - component: {fileID: 8741388231476960769}
+  - component: {fileID: 1817961889584530379}
   m_Layer: 0
-  m_Name: Splat
+  m_Name: Background Trace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,11 +30,11 @@ Transform:
   m_LocalScale: {x: 0.5141239, y: 0.5141239, z: 0.5141239}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3765702480830578061}
+  - {fileID: 4412447120390475733}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7584173486312471847
+--- !u!114 &8741388231476960769
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,21 +43,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 123533560605408097}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7764e7ec3671ca547b905bdc1c405e6d, type: 3}
+  m_Script: {fileID: 11500000, guid: 0bd191ee96a80af478525ae1d682d65f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundTint: {r: 0.6981132, g: 0.6981132, b: 0.6981132, a: 1}
   minSizeMod: 0.8
   maxSizeMod: 1.5
-  minColorRange: -0.1
-  maxColorRange: 0.1
   sprites:
   - {fileID: 21300000, guid: 023c57c8b58ab0141bf2fa81b7137be4, type: 3}
   - {fileID: 21300000, guid: d461bfe495bef92439d3e19b25c68962, type: 3}
   - {fileID: 21300000, guid: 4ed637d3eca9f7a419e9c3682feb4ec3, type: 3}
   - {fileID: 21300000, guid: e68be6224c9caa349955ec28f857f01d, type: 3}
   - {fileID: 21300000, guid: 5757c988a3534df409165bcd333c9745, type: 3}
---- !u!95 &5449266303200526082
+--- !u!95 &1817961889584530379
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -67,7 +64,7 @@ Animator:
   m_GameObject: {fileID: 123533560605408097}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8af945227b305db47954d6869b23cb30, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4975be1befa91604d9af477d0f47783c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -77,7 +74,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!1 &4687086014354087501
+--- !u!1 &8972342705912596629
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -85,37 +82,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3765702480830578061}
-  - component: {fileID: 8421084693034348425}
+  - component: {fileID: 4412447120390475733}
+  - component: {fileID: 8942192563927632820}
   m_Layer: 0
-  m_Name: Splat
+  m_Name: TraceSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3765702480830578061
+--- !u!4 &4412447120390475733
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4687086014354087501}
+  m_GameObject: {fileID: 8972342705912596629}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.73, z: 0}
-  m_LocalScale: {x: 0.63348883, y: 0.63348883, z: 0.63348883}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3599915309634892715}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &8421084693034348425
+--- !u!212 &8942192563927632820
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4687086014354087501}
+  m_GameObject: {fileID: 8972342705912596629}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -147,7 +144,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 161629431
+  m_SortingLayerID: 1614836965
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 023c57c8b58ab0141bf2fa81b7137be4, type: 3}
