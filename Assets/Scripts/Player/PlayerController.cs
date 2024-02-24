@@ -49,6 +49,9 @@ public class PlayerController : MonoBehaviour
     public PlayerStartExpandState startExpandState { get; private set; }
     public PlayerExpandedState expandedState { get; private set; }
     public PlayerEndExpandState endExpandState { get; private set; }
+
+    public PlayerNoMoveFallState noMoveFallState { get; private set; }
+    public PlayerNoMoveIdleState noMoveIdleState { get; private set; }
     #endregion
 
     #region Unity callback functions
@@ -71,6 +74,9 @@ public class PlayerController : MonoBehaviour
         startExpandState = new PlayerStartExpandState(this, stateMachine, m_playerValues, "startExpand");
         expandedState = new PlayerExpandedState(this, stateMachine, m_playerValues, "expanded");
         endExpandState = new PlayerEndExpandState(this, stateMachine, m_playerValues, "endExpand");
+
+        noMoveIdleState = new PlayerNoMoveIdleState(this, stateMachine, m_playerValues, "idle");
+        noMoveFallState = new PlayerNoMoveFallState(this, stateMachine, m_playerValues, "fall");
     }
 
 
@@ -83,6 +89,7 @@ public class PlayerController : MonoBehaviour
         SetGravityScale(m_playerValues.defaultGravity);
 
         stateMachine.Initialize(idleState);
+        SetPlayerNoMoveForSeconds(5);
 
         bubbleController.Initialize(this, transform, m_playerValues);
     }
@@ -307,6 +314,19 @@ public class PlayerController : MonoBehaviour
     public void SetRespawnPosition(Vector3 position)
     {
         respawnPosition = position;
+    }
+
+    public void SetPlayerNoMoveForSeconds(float seconds)
+    {
+        if (checkIfGrounded())
+        {
+            noMoveIdleState.secondsLeft = seconds;
+            stateMachine.ChangeState(noMoveIdleState);
+        } else
+        {
+            noMoveFallState.secondsLeft = seconds;
+            stateMachine.ChangeState(noMoveFallState);
+        }
     }
 
     #endregion
