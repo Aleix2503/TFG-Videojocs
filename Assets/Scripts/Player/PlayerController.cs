@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
 
     public bool didPlayerTouchGroundSinceLastDash = true;
 
+    public bool isPlayerLocked = false;
+
     #region State machine setup
 
     /// <summary>
@@ -89,7 +91,7 @@ public class PlayerController : MonoBehaviour
         SetGravityScale(m_playerValues.defaultGravity);
 
         stateMachine.Initialize(idleState);
-        SetPlayerNoMoveForSeconds(5);
+        SetPlayerNoMoveForSeconds(m_playerValues.initialNoControlTime);
 
         bubbleController.Initialize(this, transform, m_playerValues);
     }
