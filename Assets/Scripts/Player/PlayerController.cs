@@ -29,6 +29,10 @@ public class PlayerController : MonoBehaviour
 
     public bool isPlayerLocked = false;
 
+    public bool isDashUnlocked = false;
+    public bool isBubbleUnlocked = false;
+    public bool isExpandUnlocked = false;
+
     #region State machine setup
 
     /// <summary>
@@ -94,6 +98,13 @@ public class PlayerController : MonoBehaviour
         SetPlayerNoMoveForSeconds(m_playerValues.initialNoControlTime);
 
         bubbleController.Initialize(this, transform, m_playerValues);
+
+        if (m_playerValues.unlockAllAbilities)
+        {
+            isDashUnlocked = true;
+            isBubbleUnlocked = true;
+            isExpandUnlocked = true;
+        }
     }
 
 
@@ -161,7 +172,7 @@ public class PlayerController : MonoBehaviour
 
     public bool CheckIfCanDash()
     {
-        if (m_playerInputHandler.dashInput && m_playerValues.isDashUnlocked && Time.time > lastDashTime + m_playerValues.dashCooldownSeconds && didPlayerTouchGroundSinceLastDash)
+        if (m_playerInputHandler.dashInput && isDashUnlocked && Time.time > lastDashTime + m_playerValues.dashCooldownSeconds && didPlayerTouchGroundSinceLastDash)
         {
             m_playerInputHandler.UseDashInput();
             lastDashTime = Time.time;
@@ -175,7 +186,7 @@ public class PlayerController : MonoBehaviour
 
     public bool CheckIfCanBubble()
     {
-        if (m_playerInputHandler.bubbleInput && m_playerValues.isBubbleUnlocked && bubbleController.isActive == false)
+        if (m_playerInputHandler.bubbleInput && isBubbleUnlocked && bubbleController.isActive == false)
         {
             m_playerInputHandler.UseBubbleInput();
             return true;
@@ -185,7 +196,7 @@ public class PlayerController : MonoBehaviour
 
     public bool CheckIfCanExpand()
     {
-        if (m_playerInputHandler.expandInput && m_playerValues.isExpandUnlocked)
+        if (m_playerInputHandler.expandInput && isExpandUnlocked)
         {
             m_playerInputHandler.UseExpandInput();
             return true;

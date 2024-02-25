@@ -15,6 +15,7 @@ MonoBehaviour:
   showGizmos: 0
   defaultGravity: 5
   defaultLinearDrag: 0
+  initialNoControlTime: 1
   defaultCollisionBox: {x: 0.8, y: 0.4}
   defaultCollisionBoxOffset: {x: 0, y: -0.2}
   defaultCollisionEdgeRadius: 0.1
@@ -86,6 +87,4 @@ MonoBehaviour:
   whatIsBubble:
     serializedVersion: 2
     m_Bits: 128
-  isDashUnlocked: 1
-  isBubbleUnlocked: 1
-  isExpandUnlocked: 1
+  unlockAllAbilities: 1

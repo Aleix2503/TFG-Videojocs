@@ -125,8 +125,6 @@ public class PlayerValues : ScriptableObject
     public LayerMask whatIsGround;
     public LayerMask whatIsBubble;
 
-    [Header("Ability Unlocks")]
-    public bool isDashUnlocked = false;
-    public bool isBubbleUnlocked = false;
-    public bool isExpandUnlocked = false;
+    [Header("Cheats")]
+    public bool unlockAllAbilities = false;
 }
