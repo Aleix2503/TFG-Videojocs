@@ -10,6 +10,7 @@ public class PlayerValues : ScriptableObject
     public float defaultGravity = 5f;
     public float defaultLinearDrag = 0f;
     public float initialNoControlTime = 5f;
+    public float abilityUnlockNoControlTime = 2f;
 
     public Vector2 defaultCollisionBox = Vector2.one;
     public Vector2 defaultCollisionBoxOffset = Vector2.zero;

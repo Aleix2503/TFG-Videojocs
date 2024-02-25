@@ -342,6 +342,34 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void UnlockAbility(AbilityType ability)
+    {
+        SetPlayerNoMoveForSeconds(m_playerValues.abilityUnlockNoControlTime);
+
+        switch (ability)
+        {
+            case AbilityType.Dash:
+                isDashUnlocked = true;
+                break;
+            case AbilityType.Bubble:
+                isBubbleUnlocked = true;
+                break;
+            case AbilityType.Expand:
+                isExpandUnlocked = true;
+                break;
+            default:
+                print("Non-existing ability?: " + ability.ToString());
+                break;
+        }
+    }
+
+    public enum AbilityType
+    {
+        Dash,
+        Bubble,
+        Expand
+    }
+
     #endregion
 
     #region Gizmos
