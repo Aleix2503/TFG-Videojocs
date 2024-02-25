@@ -10,6 +10,12 @@ public class PlayerNoMoveFallState : PlayerAirState
 
     public float secondsLeft = 0;
 
+    public override void Enter()
+    {
+        base.Enter();
+        playerController.SetVelocityX(0);
+    }
+
     public override void Update()
     {
         if (playerController.m_rb2D.velocity.y > 0)
