@@ -1,0 +1,57 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class PauseController : MonoBehaviour
+{
+    public GameObject pauseMenu;
+    private PlayerInputActions m_playerControls;
+    private InputAction inputAction_pause;
+
+    private bool isPaused = false;
+
+    private void Awake()
+    {
+        m_playerControls = new PlayerInputActions();
+    }
+
+    private void OnEnable()
+    {
+        // Initialize and enable the pause input action
+        inputAction_pause = m_playerControls.Player.Pause;
+        inputAction_pause.Enable();
+        inputAction_pause.performed += _ => TogglePause();
+    }
+
+    private void OnDisable()
+    {
+        inputAction_pause.Disable();
+        inputAction_pause.performed -= _ => TogglePause();
+    }
+
+    private void TogglePause()
+    {
+        if (!isPaused)
+        {
+            PauseGame();
+        }
+        else
+        {
+            ResumeGame();
+        }
+    }
+
+    public void PauseGame()
+    {
+        pauseMenu.SetActive(true);
+        isPaused = true;
+    }
+
+    public void ResumeGame()
+    {
+        pauseMenu.SetActive(false);
+        isPaused = false;
+    }
+}
+
