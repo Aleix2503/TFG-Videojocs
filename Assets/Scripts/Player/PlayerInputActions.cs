@@ -71,6 +71,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""d8eea301-206b-4683-92a0-876de59dcb66"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -214,6 +223,17 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Expand"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bc02ebc6-623a-4f04-ab7a-5aa071e09d20"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -806,6 +826,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_Bubble = m_Player.FindAction("Bubble", throwIfNotFound: true);
         m_Player_Expand = m_Player.FindAction("Expand", throwIfNotFound: true);
+        m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -882,6 +903,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Dash;
     private readonly InputAction m_Player_Bubble;
     private readonly InputAction m_Player_Expand;
+    private readonly InputAction m_Player_Pause;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -891,6 +913,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @Dash => m_Wrapper.m_Player_Dash;
         public InputAction @Bubble => m_Wrapper.m_Player_Bubble;
         public InputAction @Expand => m_Wrapper.m_Player_Expand;
+        public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -915,6 +938,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Expand.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnExpand;
                 @Expand.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnExpand;
                 @Expand.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnExpand;
+                @Pause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -934,6 +960,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Expand.started += instance.OnExpand;
                 @Expand.performed += instance.OnExpand;
                 @Expand.canceled += instance.OnExpand;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -1095,6 +1124,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnDash(InputAction.CallbackContext context);
         void OnBubble(InputAction.CallbackContext context);
         void OnExpand(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
