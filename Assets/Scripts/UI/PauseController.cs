@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PauseController : MonoBehaviour
 {
+    private PlayerController playerController;
     public GameObject pauseMenu;
     private PlayerInputActions m_playerControls;
     private InputAction inputAction_pause;
@@ -14,6 +15,7 @@ public class PauseController : MonoBehaviour
     private void Awake()
     {
         m_playerControls = new PlayerInputActions();
+        playerController = FindObjectOfType<PlayerController>();
     }
 
     private void OnEnable()
@@ -46,12 +48,14 @@ public class PauseController : MonoBehaviour
     {
         pauseMenu.SetActive(true);
         isPaused = true;
+        playerController.DisablePlayerControls();
     }
 
     public void ResumeGame()
     {
         pauseMenu.SetActive(false);
         isPaused = false;
+        playerController.EnablePlayerControls();
     }
 }
 

@@ -75,6 +75,24 @@ public class PlayerInputHandler : MonoBehaviour
         expandInput = inputAction_expand.WasPressedThisFrame();
     }
 
+    public void EnablePlayerInput()
+    {
+        inputAction_move.Enable();
+        inputAction_jump.Enable();
+        inputAction_dash.Enable();
+        inputAction_bubble.Enable();
+        inputAction_expand.Enable();
+    }
+
+    public void DisablePlayerInput()
+    {
+        inputAction_move.Disable();
+        inputAction_jump.Disable();
+        inputAction_dash.Disable();
+        inputAction_bubble.Disable();
+        inputAction_expand.Disable();
+    }
+
     public void UseJumpInput() => jumpInput = false;
     public void UseDashInput() => dashInput = false;
     public void UseBubbleInput() => bubbleInput = false;

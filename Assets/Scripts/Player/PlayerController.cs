@@ -342,6 +342,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void DisablePlayerControls()
+    {
+        m_playerInputHandler.DisablePlayerInput();
+    }
+
+    public void EnablePlayerControls()
+    {
+        m_playerInputHandler.EnablePlayerInput();
+    }
+
     public void UnlockAbility(AbilityType ability)
     {
         SetPlayerNoMoveForSeconds(m_playerValues.abilityUnlockNoControlTime);
