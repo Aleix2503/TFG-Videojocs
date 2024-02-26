@@ -12,6 +12,7 @@ public class CommonMenuActions : MonoBehaviour
 
     public void QuitGame()
     {
+        print("This is a debug message to show that the game should be closing once this function is called. It will work when the game is an actual app.");
         Application.Quit();
     }
 }
