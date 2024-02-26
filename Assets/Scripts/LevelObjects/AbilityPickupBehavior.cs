@@ -6,6 +6,9 @@ public class AbilityPickupBehavior : MonoBehaviour
 {
     [SerializeField]
     PlayerController.AbilityType abilityToUnlock;
+    public Collider2D collider2D;
+    public Animator animator;
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -15,7 +18,8 @@ public class AbilityPickupBehavior : MonoBehaviour
 
             playerController.UnlockAbility(abilityToUnlock);
 
-            Destroy(gameObject);
+            animator.SetTrigger("PickUpTrigger");
+            collider2D.enabled = false;
         }
     }
 }

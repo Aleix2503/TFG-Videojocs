@@ -148,6 +148,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityToUnlock: 2
+  collider2D: {fileID: 8627862820778861495}
+  animator: {fileID: 8894117994462741724}
 --- !u!95 &8894117994462741724
 Animator:
   serializedVersion: 4
