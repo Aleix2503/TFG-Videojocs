@@ -24729,6 +24729,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -15
       objectReference: {fileID: 0}
+    - target: {fileID: 2016207886549934981, guid: d97079fc54102624f81db666385dc296, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2016207886549934981, guid: d97079fc54102624f81db666385dc296, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5633226049728652275}
+    - target: {fileID: 2016207886549934981, guid: d97079fc54102624f81db666385dc296, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResumeGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 2016207886549934981, guid: d97079fc54102624f81db666385dc296, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PauseController, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 2447690095775819888, guid: d97079fc54102624f81db666385dc296, type: 3}
       propertyPath: m_Name
       value: PauseMenu
@@ -24993,6 +25009,10 @@ PrefabInstance:
     - target: {fileID: 3736661429019874289, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 3736661429703974667, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
+      propertyPath: orthographic size
+      value: 5.625
       objectReference: {fileID: 0}
     - target: {fileID: 3736661429703974667, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
