@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0.93629855, b: 0, a: 1}
+  m_Color: {r: 0, g: 0.99029756, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 8627862820778861488}
   - component: {fileID: 8894117994462741724}
   m_Layer: 0
-  m_Name: DashPickup
+  m_Name: BubblePickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85abcde4e9b9ecf4badc213c1c258163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityToUnlock: 0
+  abilityToUnlock: 1
 --- !u!95 &8894117994462741724
 Animator:
   serializedVersion: 4
@@ -158,7 +158,7 @@ Animator:
   m_GameObject: {fileID: 8627862820778861489}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d2c2970d97424d3429c5da170c40df85, type: 2}
+  m_Controller: {fileID: 22100000, guid: 3cafa456a950d304d83aedabb95bc627, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
