@@ -47,9 +47,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94d21f715dc0fda4e98e79e9ad220231, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disableWhenTouchingLayer:
+  platformLayer:
     serializedVersion: 2
-    m_Bits: 65
+    m_Bits: 1
+  hazardLayer:
+    serializedVersion: 2
+    m_Bits: 64
   rb2D: {fileID: 2011333946253489234}
   animator: {fileID: 3378828828849808336}
   collider: {fileID: 80287408265219376}

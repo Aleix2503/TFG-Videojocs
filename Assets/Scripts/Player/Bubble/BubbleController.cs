@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class BubbleController : MonoBehaviour
 {
-    public LayerMask disableWhenTouchingLayer;
+    public LayerMask platformLayer;
+    public LayerMask hazardLayer;
 
     public Rigidbody2D rb2D;
     public Animator animator;
@@ -20,6 +21,7 @@ public class BubbleController : MonoBehaviour
     private float maxLifetime;
 
     public bool isActive { get; private set; }
+    public bool didItTouchHazardToDeactivate { get; private set; }
 
     public void Initialize(PlayerController playerController, Transform playerTransform, PlayerValues playerValues)
     {
@@ -28,6 +30,8 @@ public class BubbleController : MonoBehaviour
         this.playerValues = playerValues;
 
         this.spriteRenderer.color = Color.clear;
+
+        didItTouchHazardToDeactivate = false;
 
         PopBubble();
     }
@@ -64,6 +68,7 @@ public class BubbleController : MonoBehaviour
         collider.enabled = true;
 
         isActive = true;
+        didItTouchHazardToDeactivate = false;
 
         animator.SetBool("pop", false);
         animator.SetBool("spawn", true);
@@ -78,7 +83,15 @@ public class BubbleController : MonoBehaviour
     {
         int collisionLayerMask = 1 << collision.gameObject.layer;
 
-        if ((disableWhenTouchingLayer.value & collisionLayerMask) != 0)
+        
+
+        if ((hazardLayer.value & collisionLayerMask) != 0)
+        {
+            didItTouchHazardToDeactivate = true;
+            PopBubble();
+        }
+
+        if ((platformLayer.value & collisionLayerMask) != 0)
         {
             PopBubble();
         }

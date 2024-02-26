@@ -40,6 +40,11 @@ public class PlayerBubbledState : PlayerState
         base.FixedUpdate();
         if (playerController.bubbleController.isActive == false)
         {
+            if (playerController.bubbleController.didItTouchHazardToDeactivate == true)
+            {
+                playerStateMachine.ChangeState(playerController.deathState);
+                return;
+            }
             playerStateMachine.ChangeState(playerController.fallState);
             return;
         }
