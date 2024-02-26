@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b1d0c25be573eb545b360c20938cb28c
+guid: 5f1f6ab9cba30344a9441a34d8bb43e0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: JumpAnimation_slimy_0
+      name: Animation_JumpSlimyReadjusted-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 25
-        height: 28
+        width: 36
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c01e061528eb9d40990434f212f8c94
-      internalID: -259133268
+      spriteID: acd629710231ada4290dcb492214fbfe
+      internalID: -2085260182
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpAnimation_slimy_1
+      name: Animation_JumpSlimyReadjusted-Sheet_1
       rect:
         serializedVersion: 2
-        x: 25
+        x: 36
         y: 0
-        width: 25
-        height: 28
+        width: 36
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3161219a901bc8f4c9974976dad64eb1
-      internalID: -199532001
+      spriteID: 36a0cbeecf7c23949859862b7d49758b
+      internalID: 704369257
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpAnimation_slimy_2
+      name: Animation_JumpSlimyReadjusted-Sheet_2
       rect:
         serializedVersion: 2
-        x: 50
+        x: 72
         y: 0
-        width: 25
-        height: 28
+        width: 36
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd247e52e35ce574fb9b7934e3ecbad8
-      internalID: 465333930
+      spriteID: 58b4abe991081054394052715e44d911
+      internalID: 33122698
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpAnimation_slimy_3
+      name: Animation_JumpSlimyReadjusted-Sheet_3
       rect:
         serializedVersion: 2
-        x: 75
+        x: 108
         y: 0
-        width: 25
-        height: 28
+        width: 36
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,20 +182,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b75574545e3624408a92150e535fd35
-      internalID: 1630519854
+      spriteID: cc635ebf4738938489948ecea1921b31
+      internalID: -95770550
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpAnimation_slimy_4
+      name: Animation_JumpSlimyReadjusted-Sheet_4
       rect:
         serializedVersion: 2
-        x: 100
+        x: 144
         y: 0
-        width: 25
-        height: 28
+        width: 36
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,20 +203,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bcae582e277f94e4b8861eb1743d102a
-      internalID: 535199021
+      spriteID: cc0a2e2633e84c94aa63e4f4d9edd50a
+      internalID: 1840605928
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpAnimation_slimy_5
+      name: Animation_JumpSlimyReadjusted-Sheet_5
       rect:
         serializedVersion: 2
-        x: 125
+        x: 180
         y: 0
-        width: 25
-        height: 28
+        width: 36
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,20 +224,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 488b4e2e32e936a47bd90332f5c80e14
-      internalID: -1761430861
+      spriteID: 9a79b3b311c3f3a4a8bfff90aed575eb
+      internalID: 1087158092
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpAnimation_slimy_6
+      name: Animation_JumpSlimyReadjusted-Sheet_6
       rect:
         serializedVersion: 2
-        x: 150
+        x: 216
         y: 0
-        width: 25
-        height: 28
+        width: 36
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -245,20 +245,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 390be25dfe4647f4d8939bdb71ac06a7
-      internalID: 1787234214
+      spriteID: dd3e5669828b6e34195d704af6906467
+      internalID: 1073361075
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpAnimation_slimy_7
+      name: Animation_JumpSlimyReadjusted-Sheet_7
       rect:
         serializedVersion: 2
-        x: 175
+        x: 252
         y: 0
-        width: 25
-        height: 28
+        width: 36
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,20 +266,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f48ff211ecca91f47be3009c427b4ed4
-      internalID: 399714402
+      spriteID: a64bebbf301c22f4780d5fae3efde118
+      internalID: 1858885121
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpAnimation_slimy_8
+      name: Animation_JumpSlimyReadjusted-Sheet_8
       rect:
         serializedVersion: 2
-        x: 200
+        x: 288
         y: 0
-        width: 25
-        height: 28
+        width: 36
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -287,20 +287,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 909554d0beb2dcc4894a750fccb823b9
-      internalID: 232845898
+      spriteID: f1386f6f11a4a014399494be71146821
+      internalID: -64109470
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpAnimation_slimy_9
+      name: Animation_JumpSlimyReadjusted-Sheet_9
       rect:
         serializedVersion: 2
-        x: 225
+        x: 324
         y: 0
-        width: 25
-        height: 28
+        width: 36
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -308,8 +308,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd34469f3797a6141bffd68f24502185
-      internalID: 12787615
+      spriteID: 26fac0788f16d4e4abe9ed27d9014f7c
+      internalID: 674485437
       vertices: []
       indices: 
       edges: []
@@ -325,16 +325,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      JumpAnimation_slimy_9: 12787615
-      JumpAnimation_slimy_4: 535199021
-      JumpAnimation_slimy_6: 1787234214
-      JumpAnimation_slimy_1: -199532001
-      JumpAnimation_slimy_7: 399714402
-      JumpAnimation_slimy_3: 1630519854
-      JumpAnimation_slimy_0: -259133268
-      JumpAnimation_slimy_5: -1761430861
-      JumpAnimation_slimy_2: 465333930
-      JumpAnimation_slimy_8: 232845898
+      Animation_JumpSlimyReadjusted-Sheet_2: 33122698
+      Animation_JumpSlimyReadjusted-Sheet_6: 1073361075
+      Animation_JumpSlimyReadjusted-Sheet_5: 1087158092
+      Animation_JumpSlimyReadjusted-Sheet_9: 674485437
+      Animation_JumpSlimyReadjusted-Sheet_4: 1840605928
+      Animation_JumpSlimyReadjusted-Sheet_8: -64109470
+      Animation_JumpSlimyReadjusted-Sheet_3: -95770550
+      Animation_JumpSlimyReadjusted-Sheet_1: 704369257
+      Animation_JumpSlimyReadjusted-Sheet_0: -2085260182
+      Animation_JumpSlimyReadjusted-Sheet_7: 1858885121
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
