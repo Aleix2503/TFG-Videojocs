@@ -28,6 +28,7 @@ MonoBehaviour:
   moveAccelerationSeconds: 0.1
   airMoveMaxVelocity: 10
   airMoveAccelerationSeconds: 0.3
+  jumpBufferTime: 0.2
   jumpCanPlayerFlip: 1
   jumpVelocity: 18
   fallCanPlayerFlip: 1
@@ -58,13 +59,13 @@ MonoBehaviour:
   expandGravityMultiplier: 3
   expandBreakPlatformVelocityThreshold: -30
   expandedShowGizmos: 1
-  expandedCollisionBox: {x: 1.8, y: 1.6}
-  expandedCollisionBoxOffset: {x: 0, y: 0.4}
+  expandedCollisionBox: {x: 1.4, y: 1.2}
+  expandedCollisionBoxOffset: {x: 0, y: 0.15}
   expandedCollisionEdgeRadius: 0.1
   expandedGroundCheckBox: {x: 1.85, y: 0.1}
   expandedGroundCheckBoxOffset: {x: 0, y: -0.5}
-  expandedHazardCollisionBox: {x: 1.6, y: 1.5}
-  expandedHazardCollisionBoxOffset: {x: 0, y: 0.4}
+  expandedHazardCollisionBox: {x: 1.2, y: 1}
+  expandedHazardCollisionBoxOffset: {x: 0, y: 0.15}
   endExpandTime: 0.5
   endExpandColorFadeOutTime: 0.5
   deathToRespawnSeconds: 1
