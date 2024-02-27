@@ -36,7 +36,13 @@ public class PlayerEndExpandState : PlayerState
         base.Update();
         if (Time.time > startTime + playerValues.endExpandTime)
         {
-            playerStateMachine.ChangeState(playerController.idleState);
+            if (!isGrounded)
+            {
+                playerStateMachine.ChangeState(playerController.fallState);
+            } else
+            {
+                playerStateMachine.ChangeState(playerController.idleState);
+            }
         }
     }
 }
