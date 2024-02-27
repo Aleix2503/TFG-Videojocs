@@ -44,6 +44,8 @@ public class PlayerExpandedState : PlayerState
     {
         base.FixedUpdate();
 
+        playerController.SetVelocityX(0);
+
         if (playerController.m_rb2D.velocity.y  < playerValues.expandBreakPlatformVelocityThreshold)
         {
             canBreakGround = true;

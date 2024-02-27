@@ -62,7 +62,7 @@ MonoBehaviour:
   expandedCollisionBox: {x: 1.4, y: 1.2}
   expandedCollisionBoxOffset: {x: 0, y: 0.2}
   expandedCollisionEdgeRadius: 0.1
-  expandedGroundCheckBox: {x: 1.85, y: 0.1}
+  expandedGroundCheckBox: {x: 1.4, y: 0.1}
   expandedGroundCheckBoxOffset: {x: 0, y: -0.45}
   expandedHazardCollisionBox: {x: 1.2, y: 1}
   expandedHazardCollisionBoxOffset: {x: 0, y: 0.15}
