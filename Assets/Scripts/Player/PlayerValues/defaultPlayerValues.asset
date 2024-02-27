@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f42c0ffd2cafa654a9f50dff35b1c52d, type: 3}
   m_Name: defaultPlayerValues
   m_EditorClassIdentifier: 
-  showGizmos: 0
+  showGizmos: 1
   defaultGravity: 5
   defaultLinearDrag: 0
   initialNoControlTime: 1
@@ -60,10 +60,10 @@ MonoBehaviour:
   expandBreakPlatformVelocityThreshold: -30
   expandedShowGizmos: 1
   expandedCollisionBox: {x: 1.4, y: 1.2}
-  expandedCollisionBoxOffset: {x: 0, y: 0.15}
+  expandedCollisionBoxOffset: {x: 0, y: 0.2}
   expandedCollisionEdgeRadius: 0.1
   expandedGroundCheckBox: {x: 1.85, y: 0.1}
-  expandedGroundCheckBoxOffset: {x: 0, y: -0.5}
+  expandedGroundCheckBoxOffset: {x: 0, y: -0.45}
   expandedHazardCollisionBox: {x: 1.2, y: 1}
   expandedHazardCollisionBoxOffset: {x: 0, y: 0.15}
   endExpandTime: 0.5
