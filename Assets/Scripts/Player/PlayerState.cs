@@ -56,7 +56,7 @@ public class PlayerState
 
         if (isGrounded)
         {
-            playerController.ResetDashGroundFlag();
+            playerController.ResetGroundFlags();
         }
     }
 

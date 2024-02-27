@@ -21,7 +21,7 @@ public class PlayerBubbledState : PlayerState
 
         playerController.SetGravityScale(0);
 
-        playerController.ResetDashGroundFlag();
+        playerController.ResetGroundFlags();
 
         playerController.FadePlayerColor(playerValues.bubbleColor, playerValues.bubbledColorFadeInTime);
     }

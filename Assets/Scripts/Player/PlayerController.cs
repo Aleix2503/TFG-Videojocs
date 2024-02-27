@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     public float lastDashTime { get; private set; }
 
     public bool didPlayerTouchGroundSinceLastDash = true;
+    public bool didPlayerTouchGroundSinceLastExpand = true;
 
     public bool isPlayerLocked = false;
 
@@ -184,7 +185,11 @@ public class PlayerController : MonoBehaviour
         return false;
     }
 
-    public bool ResetDashGroundFlag() => didPlayerTouchGroundSinceLastDash = true;
+    public void ResetGroundFlags()
+    {
+        didPlayerTouchGroundSinceLastDash = true;
+        didPlayerTouchGroundSinceLastExpand = true;
+    }
 
     public bool CheckIfCanBubble()
     {
@@ -198,9 +203,10 @@ public class PlayerController : MonoBehaviour
 
     public bool CheckIfCanExpand()
     {
-        if (m_playerInputHandler.expandInput && isExpandUnlocked)
+        if (m_playerInputHandler.expandInput && isExpandUnlocked && didPlayerTouchGroundSinceLastExpand)
         {
             m_playerInputHandler.UseExpandInput();
+            didPlayerTouchGroundSinceLastExpand = false;
             return true;
         }
         return false;
