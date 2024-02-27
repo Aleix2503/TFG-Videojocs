@@ -3887,5 +3887,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelUtilitiesBundle
       objectReference: {fileID: 0}
+    - target: {fileID: 6493722856985976075, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
+      propertyPath: m_NormalizedViewPortRect.x
+      value: 0.15276273
+      objectReference: {fileID: 0}
+    - target: {fileID: 6493722856985976075, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
+      propertyPath: m_NormalizedViewPortRect.y
+      value: 0.15221581
+      objectReference: {fileID: 0}
+    - target: {fileID: 6493722856985976075, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
+      propertyPath: m_NormalizedViewPortRect.width
+      value: 0.6933911
+      objectReference: {fileID: 0}
+    - target: {fileID: 6493722856985976075, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
+      propertyPath: m_NormalizedViewPortRect.height
+      value: 0.6936416
+      objectReference: {fileID: 0}
+    - target: {fileID: 6493722858751087089, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 6493722858751087089, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.28
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
