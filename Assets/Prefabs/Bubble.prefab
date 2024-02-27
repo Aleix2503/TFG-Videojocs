@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platformLayer:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 1025
   hazardLayer:
     serializedVersion: 2
     m_Bits: 64
