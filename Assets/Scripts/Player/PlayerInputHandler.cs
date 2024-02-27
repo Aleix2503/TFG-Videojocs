@@ -21,7 +21,10 @@ public class PlayerInputHandler : MonoBehaviour
 
     public bool expandInput { get; private set; }
 
+    private float lastJumpTime = 0f;
+
     public PlayerInputActions m_playerControls;
+    private PlayerValues playerValues;
 
     private InputAction inputAction_move;
     private InputAction inputAction_jump;
@@ -32,6 +35,11 @@ public class PlayerInputHandler : MonoBehaviour
     private void Awake()
     {
         m_playerControls = new PlayerInputActions();
+    }
+
+    public void Initialize(PlayerValues playerValues)
+    {
+        this.playerValues = playerValues;
     }
 
     private void OnEnable()
@@ -66,6 +74,14 @@ public class PlayerInputHandler : MonoBehaviour
         if (inputAction_jump.WasPressedThisFrame())
         {
             jumpInput = true;
+            lastJumpTime = 0;
+        } else
+        {
+            lastJumpTime += Time.deltaTime;
+            if (lastJumpTime > playerValues.jumpBufferTime)
+            {
+                jumpInput = false;
+            }
         }
 
         jumpInputHeld = inputAction_jump.ReadValue<float>() > 0.5f ? true : false;

@@ -34,6 +34,7 @@ public class PlayerValues : ScriptableObject
 
 
     [Header("Jump State")]
+    public float jumpBufferTime = 0.2f;
     public bool jumpCanPlayerFlip = true;
     public float jumpVelocity = 15f;
     [Space]

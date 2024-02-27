@@ -97,6 +97,8 @@ public class PlayerController : MonoBehaviour
         stateMachine.Initialize(idleState);
         SetPlayerNoMoveForSeconds(m_playerValues.initialNoControlTime);
 
+        m_playerInputHandler.Initialize(m_playerValues);
+
         bubbleController.Initialize(this, transform, m_playerValues);
 
         if (m_playerValues.unlockAllAbilities)
