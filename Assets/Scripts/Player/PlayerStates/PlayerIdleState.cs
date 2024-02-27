@@ -11,6 +11,7 @@ public class PlayerIdleState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        playerController.ResetGroundFlags();
         playerController.SetVelocityX(0);
     }
 

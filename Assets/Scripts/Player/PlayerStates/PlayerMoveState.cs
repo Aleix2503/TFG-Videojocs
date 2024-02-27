@@ -13,6 +13,7 @@ public class PlayerMoveState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        playerController.ResetGroundFlags();
         currentRelativeVelocity = playerController.m_rb2D.velocity.x/playerValues.moveMaxVelocity;
     }
 
