@@ -17,6 +17,8 @@ public class PlayerRespawnState : PlayerState
     {
         base.Enter();
 
+        playerController.FadePlayerColor(playerValues.defaultColor, 0);
+
         playerController.FreezePlayerPosition(true);
 
         playerController.Respawn();
