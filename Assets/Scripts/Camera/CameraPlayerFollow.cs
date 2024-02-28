@@ -190,7 +190,7 @@ public class CameraPlayerFollow : MonoBehaviour
 [Serializable]
 public class CameraInfo
 {
-    public bool areCameraBoundariesActive;
+    public bool areCameraBoundariesActive = true;
     public Vector2 cameraBoundariesSize;
     public Vector2 cameraBoundariesOffset;
     [HideInInspector] public Vector2 cameraBoundariesPosition;
