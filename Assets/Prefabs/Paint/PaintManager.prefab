@@ -45,21 +45,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPaintingState: 0
+  lastState: 0
   particleSystem: {fileID: 0}
   dashParticleSystem: {fileID: 0}
   jumpParticleSystem: {fileID: 0}
+  expandedParticleSystem: {fileID: 0}
+  bubbleParticleSystem: {fileID: 0}
   colorOption: 0
   paintColor: {r: 1, g: 1, b: 1, a: 1}
   color1: {r: 1, g: 1, b: 1, a: 1}
   color2: {r: 0.8490566, g: 0.8490566, b: 0.8490566, a: 1}
+  dashPaintColor: {r: 0, g: 0, b: 0, a: 0}
+  expandedPaintColor: {r: 0, g: 0, b: 0, a: 0}
+  bubblePaintColor: {r: 0, g: 1, b: 1, a: 0}
   traceSpawnPosition: {fileID: 0}
   backgroundTraceSpawnPosition: {fileID: 0}
+  backgroundExpandedTraceSpawnPosition: {fileID: 0}
   onFallTraceSpawnPosition: {fileID: 0}
   splatPrefab: {fileID: 0}
   tracePrefab: {fileID: 123533560605408097, guid: 85146b5edf67eaf42a5db468f9b91ddd, type: 3}
   backgroundTracePrefab: {fileID: 123533560605408097, guid: 7ee62340fe6f3c84d8a50ce7924706b8, type: 3}
   lastPosition: {x: 0, y: 0, z: 0}
   timeSinceLastInstantiation: 0
+  timeSinceLastBackgroundTraceInstantiation: 0
   moveThreshold: 0.1
   instantiationInterval: 0.02
+  dashThreshold: 0.1
+  dashingInstantiationInterval: 0.1
+  distanceMoved: {x: 0, y: 0, z: 0}
   playerTransform: {fileID: 0}
+  bubbleTransform: {fileID: 0}
+  currentLayer: 3
+  debugText: {fileID: 0}
+  bubble: {fileID: 0}
+  buublePaintingRate: 2

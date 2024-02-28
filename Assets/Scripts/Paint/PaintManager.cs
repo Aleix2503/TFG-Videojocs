@@ -38,6 +38,7 @@ public class PaintManager : MonoBehaviour
     
     public Color dashPaintColor;
     public Color expandedPaintColor;
+    public Color bubblePaintColor;
 
     public Transform traceSpawnPosition;
     public Transform backgroundTraceSpawnPosition;
@@ -72,6 +73,10 @@ public class PaintManager : MonoBehaviour
     private float layersPerSecondInterval = 1f; // Time interval for calculating layers per second
     private float timeSinceLastLayersPerSecondCalculation; // Time elapsed since the last layers per second calculation
 
+    public BubbleController bubble;
+    private bool bubbleWasActive;
+    public float buublePaintingRate = 2f;
+    private float timeSinceLastBubblePaint = 0f;
     
     private void Awake()
     {
@@ -88,6 +93,8 @@ public class PaintManager : MonoBehaviour
     private void Start()
     {
         lastPosition = playerTransform.position;
+
+        bubble = FindObjectOfType<BubbleController>();
     }
 
     private void Update()
@@ -107,6 +114,27 @@ public class PaintManager : MonoBehaviour
             currentLayer++;
         }
 
+        
+        if (bubble.isActive)
+        {
+            if (!bubbleWasActive)
+            {
+                currentLayer++;
+            }
+
+            // Update the time since the last paint
+            timeSinceLastBubblePaint += Time.deltaTime;
+
+            // Check if enough time has passed to paint another bubble
+            if (timeSinceLastBubblePaint >= 1f / buublePaintingRate)
+            {
+                PlaceBackgroundBubbleTrace(bubble.transform.position);
+                // Reset the timer
+                timeSinceLastBubblePaint = 0f;
+            }
+        }
+        bubbleWasActive = bubble.isActive;
+        
 
 
         if (playerPaintingState == PlayerPaintingState.dashing)
@@ -377,6 +405,31 @@ public class PaintManager : MonoBehaviour
         Trace traceScript = trace.GetComponent<Trace>();
         trace.transform.SetParent(GetDecalChunk(), true);
         Color color = expandedPaintColor;
+        Color backgroundColor = new Color(color.r / 2f, color.g / 2f, color.b / 2f, 1f);
+        
+        traceScript.Initialize(Trace.SplatLoacation.Background, currentLayer, backgroundColor);
+    }
+    
+    public void PlaceBackgroundBubbleTrace(Vector3 position)
+    {
+        Color traceColor = paintColor; // Default color is the single paint color
+
+        switch (colorOption)
+        {
+            case ColorOption.OneColor:
+                // Use the single paint color
+                traceColor = paintColor;
+                break;
+            case ColorOption.RandomBetweenTwoColors:
+                // Use a random color between color1 and color2
+                traceColor = Color.Lerp(color1, color2, Random.Range(0f, 1f));
+                break;
+        }
+
+        GameObject trace = Instantiate(backgroundTracePrefab, position, Quaternion.identity);
+        Trace traceScript = trace.GetComponent<Trace>();
+        trace.transform.SetParent(GetDecalChunk(), true);
+        Color color = bubblePaintColor;
         Color backgroundColor = new Color(color.r / 2f, color.g / 2f, color.b / 2f, 1f);
         
         traceScript.Initialize(Trace.SplatLoacation.Background, currentLayer, backgroundColor);
