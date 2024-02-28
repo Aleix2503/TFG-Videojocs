@@ -17,7 +17,7 @@ MonoBehaviour:
   defaultLinearDrag: 0
   initialNoControlTime: 1
   abilityUnlockNoControlTime: 2
-  defaultCollisionBox: {x: 0.8, y: 0.4}
+  defaultCollisionBox: {x: 0.75, y: 0.4}
   defaultCollisionBoxOffset: {x: 0, y: -0.2}
   defaultCollisionEdgeRadius: 0.1
   defaultColor: {r: 1, g: 1, b: 1, a: 1}
@@ -70,7 +70,7 @@ MonoBehaviour:
   endExpandColorFadeOutTime: 0.5
   deathToRespawnSeconds: 1
   respawnToIdleSeconds: 0.5
-  groundCheckBox: {x: 0.9, y: 0.1}
+  groundCheckBox: {x: 0.85, y: 0.1}
   groundCheckOffset: {x: 0, y: -0.5}
   rightWallCheckBox: {x: 0.1, y: 0.5}
   rightWallCheckOffset: {x: 0.5, y: -0.2}
