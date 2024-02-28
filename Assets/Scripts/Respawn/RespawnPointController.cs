@@ -11,4 +11,10 @@ public class RespawnPointController : MonoBehaviour
             collision.GetComponent<PlayerController>().SetRespawnPosition(transform.position);
         }
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawSphere(transform.position, 0.3f);
+    }
 }
