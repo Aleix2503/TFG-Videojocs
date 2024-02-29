@@ -515,7 +515,25 @@ public class PaintManager : MonoBehaviour
 
     public void InstanceExplosion(Vector3 position, PlayerController.AbilityType ability)
     {
-        throw new NotImplementedException();
+        switch (ability)
+        {
+            case PlayerController.AbilityType.Bubble:
+                bubbleParticleSystem.transform.position = position;
+                bubbleParticleSystem.Emit(5);   
+                break;
+            case PlayerController.AbilityType.Dash:
+                Transform dashParticlesTransform = dashParticleSystem.transform;
+                dashParticleSystem.transform.position = position;
+                dashParticleSystem.Emit(5);
+                dashParticleSystem.transform.position = dashParticlesTransform.position;
+                break;
+            case PlayerController.AbilityType.Expand:
+                Transform expandedParticlesTransform = expandedParticleSystem.transform;
+                expandedParticleSystem.transform.position = position;
+                expandedParticleSystem.Emit(5);
+                expandedParticleSystem.transform.position = expandedParticlesTransform.position;
+                break;
+        }
     }
 }
 
