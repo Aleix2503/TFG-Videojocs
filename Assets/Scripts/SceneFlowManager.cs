@@ -8,6 +8,4 @@ public class SceneFlowManager : MonoBehaviour
     {
         SceneManager.LoadScene(name);
     }
-
-
 }

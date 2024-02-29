@@ -31,6 +31,7 @@ public class Splat : MonoBehaviour
         SetRotation();
         SetColor(color);
         SetLocationProperties(layer);
+        GetComponent<Animator>().SetTrigger("Init");
     }
 
     private void SetSprite()

@@ -27,6 +27,7 @@ public class Trace : MonoBehaviour
         SetRotation();
         SetColor(color);
         SetLocationProperties(layer);
+        GetComponent<Animator>().SetTrigger("Init");
     }
 
     private void SetSprite()
