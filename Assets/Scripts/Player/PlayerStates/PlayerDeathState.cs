@@ -19,6 +19,17 @@ public class PlayerDeathState : PlayerState
 
         playerController.SetVelocityX(0);
         playerController.SetVelocityY(0);
+
+        PaintManager._instance.PlaceSplat(playerController.transform.position + new Vector3(0, -0.5f, 0),
+                Vector3.up, playerController.currentPlayerColor);
+        PaintManager._instance.PlaceSplat(playerController.transform.position + new Vector3(0.5f, 0, 0),
+                Vector3.up, playerController.currentPlayerColor);
+        PaintManager._instance.PlaceSplat(playerController.transform.position + new Vector3(0, 0.5f, 0),
+                Vector3.up, playerController.currentPlayerColor);
+        PaintManager._instance.PlaceSplat(playerController.transform.position + new Vector3(-0.5f, 0, 0),
+            Vector3.up, playerController.currentPlayerColor);
+
+        playerController.FreezePlayerPosition(true);
     }
 
     public override void Update()
