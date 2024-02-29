@@ -11,11 +11,28 @@ public class PlayerFallState : PlayerAirState
 
     private bool isCoyoteTimeActive;
 
+    private bool isTouchingCeiling = false;
+    private bool hasTouchedCeiling = false;
+
+    public override void Enter()
+    {
+        base.Enter();
+
+        hasTouchedCeiling = false;
+    }
+
     public override void Update()
     {
         base.Update();
 
         CheckCoyoteTime();
+
+        if (isTouchingCeiling && !hasTouchedCeiling)
+        {
+            PaintManager._instance.PlaceSplat(playerController.transform.position + new Vector3(0, 0.3f, 0), Vector3.down, playerValues.defaultColor);
+
+            hasTouchedCeiling = true;
+        }
 
         if (playerValues.fallCanPlayerFlip)
         {
@@ -69,6 +86,12 @@ public class PlayerFallState : PlayerAirState
                 playerStateMachine.ChangeState(playerController.moveState);
             }
         }
+    }
+
+    public override void DoChecks()
+    {
+        base.DoChecks();
+        isTouchingCeiling = playerController.checkIfTouchingCeiling();
     }
 
     private void CheckCoyoteTime()
