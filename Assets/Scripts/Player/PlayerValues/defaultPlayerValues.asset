@@ -76,8 +76,8 @@ MonoBehaviour:
   rightWallCheckOffset: {x: 0.5, y: -0.2}
   leftWallCheckBox: {x: 0.1, y: 0.5}
   leftWallCheckOffset: {x: -0.5, y: -0.2}
-  ceilingCheckBox: {x: 0.85, y: 0.1}
-  ceilingCheckOffset: {x: 0, y: 0.1}
+  ceilingCheckBox: {x: 0.85, y: 0.25}
+  ceilingCheckOffset: {x: 0, y: 0.18}
   hazardCheckBox: {x: 0.8, y: 0.4}
   hazardCheckOffset: {x: 0, y: -0.2}
   bubbleCheckBox: {x: 0.1, y: 0.1}
