@@ -62,6 +62,8 @@ public class PlayerDashState : PlayerState
 
         if (isTouchingFrontWall)
         {
+            PaintManager._instance.PlaceSplat(playerController.transform.position + new Vector3(0.5f * playerController.facingDirection, 0, 0),
+                Vector3.left * playerController.facingDirection, playerValues.dashColor);
             playerStateMachine.ChangeState(playerController.fallState);
         }
     }
