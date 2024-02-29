@@ -12,6 +12,10 @@ public class PlayerAirState : PlayerState
 
     private bool isTouchingBubble;
 
+    private bool isTouchingFrontWall = false;
+
+    private float lastWallPaintTime = 0;
+
     public override void Enter()
     {
         base.Enter();
@@ -21,6 +25,11 @@ public class PlayerAirState : PlayerState
     public override void Update()
     {
         base.Update();
+
+        if (isTouchingFrontWall)
+        {
+            TryPaintFrontWall();
+        }
 
         if (isTouchingBubble)
         {
@@ -53,5 +62,17 @@ public class PlayerAirState : PlayerState
     {
         base.DoChecks();
         isTouchingBubble = playerController.checkIfTouchingBubble();
+        isTouchingFrontWall = playerController.checkIfTouchingFrontWall();
+    }
+
+    private void TryPaintFrontWall()
+    {
+        if (Time.time > lastWallPaintTime + 0.2f)
+        {
+            PaintManager._instance.PlaceSplat(playerController.transform.position + new Vector3(0.5f * playerController.facingDirection, 0, 0),
+                Vector3.left * playerController.facingDirection, playerValues.defaultColor);
+
+            lastWallPaintTime = Time.time;
+        }
     }
 }
