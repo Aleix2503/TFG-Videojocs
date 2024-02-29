@@ -7,11 +7,12 @@ Shader "Unlit/Splater"
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
+        Tags { "RenderType"="Opaque" "Queue"="Transparent" } // Set the queue to Transparent
         LOD 100
 
         Pass
         {
+            ZTest Off
             Stencil{
                 Ref 1
                 Comp Equal

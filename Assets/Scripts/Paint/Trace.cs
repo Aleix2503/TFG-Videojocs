@@ -84,5 +84,6 @@ public class Trace : MonoBehaviour
         );
 
         spriteRenderer.color = newColor;*/
+        GetComponentInChildren<Renderer>().material.color = color;
     }
 }

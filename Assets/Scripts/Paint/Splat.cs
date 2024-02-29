@@ -90,6 +90,7 @@ public class Splat : MonoBehaviour
             initialColor.a
         );
 
+        GetComponentInChildren<Renderer>().material.color = newColor;
         spriteRenderer.color = newColor;
     }
 }
