@@ -311,28 +311,20 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 5865630389881245882}
     m_ColliderPaths:
-    - - X: -760000100
-        Y: -49999959
-      - X: -760000100
-        Y: -56250041
-      - X: -760000041
-        Y: -56250100
-      - X: -709999959
-        Y: -56250100
-      - X: -709999900
-        Y: -56250041
-      - X: -709999900
-        Y: -49999959
-      - X: -709999959
-        Y: -49999900
-      - X: -760000041
-        Y: -49999900
+    - - X: -760000000
+        Y: -56250000
+      - X: -710000000
+        Y: -56250000
+      - X: -710000000
+        Y: -50000000
+      - X: -760000000
+        Y: -50000000
   m_CompositePaths:
     m_Paths:
-    - - {x: -71.00002, y: -5.62501}
-      - {x: -71.00002, y: -4.99999}
-      - {x: -76.000015, y: -5.0000253}
-      - {x: -75.99998, y: -5.62501}
+    - - {x: -71.00003, y: -5.625}
+      - {x: -71.00003, y: -5}
+      - {x: -76, y: -5.000029}
+      - {x: -75.99997, y: -5.625}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
 --- !u!1 &1865010727476389720
@@ -1002,28 +994,20 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 342085955521683327}
     m_ColliderPaths:
-    - - X: 69999900
-        Y: -639999959
-      - X: 69999900
-        Y: -646250025
-      - X: 69999959
-        Y: -646250084
-      - X: 110000041
-        Y: -646250084
-      - X: 110000100
-        Y: -646250025
-      - X: 110000100
-        Y: -639999959
-      - X: 110000041
-        Y: -639999900
-      - X: 69999959
-        Y: -639999900
+    - - X: 70000000
+        Y: -646249984
+      - X: 110000000
+        Y: -646249984
+      - X: 110000000
+        Y: -640000000
+      - X: 70000000
+        Y: -640000000
   m_CompositePaths:
     m_Paths:
-    - - {x: 10.999974, y: -64.625015}
-      - {x: 10.999974, y: -63.99999}
-      - {x: 6.9999905, y: -64.00002}
-      - {x: 7.0000257, y: -64.625015}
+    - - {x: 10.99997, y: -64.625}
+      - {x: 10.99997, y: -64}
+      - {x: 7, y: -64.00003}
+      - {x: 7.0000296, y: -64.625}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
 --- !u!1 &5472936900084277952
@@ -1247,7 +1231,6 @@ GameObject:
   - component: {fileID: 7534376820358949448}
   - component: {fileID: 7534376820358949449}
   - component: {fileID: 7534376820358949450}
-  - component: {fileID: 7534376820358949453}
   m_Layer: 10
   m_Name: Ground
   m_TagString: Untagged
@@ -46225,57 +46208,6 @@ CompositeCollider2D:
       - {x: -56.99997, y: -82}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
---- !u!331 &7534376820358949453
-SpriteMask:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7534376820358949492}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 15d0c3709176029428a0da2f8cecf0b5, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_MaskAlphaCutoff: 0.2
-  m_FrontSortingLayerID: 0
-  m_BackSortingLayerID: 0
-  m_FrontSortingLayer: 0
-  m_BackSortingLayer: 0
-  m_FrontSortingOrder: 0
-  m_BackSortingOrder: 0
-  m_IsCustomRangeActive: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &7534376820957394386
 GameObject:
   m_ObjectHideFlags: 0
@@ -46484,7 +46416,6 @@ GameObject:
   - component: {fileID: 7534376821241461942}
   - component: {fileID: 7534376821241461943}
   - component: {fileID: 7534376821241461936}
-  - component: {fileID: 7534376821241461941}
   m_Layer: 6
   m_Name: Hazards
   m_TagString: Untagged
@@ -49674,57 +49605,6 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
---- !u!331 &7534376821241461941
-SpriteMask:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7534376821241461938}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 15d0c3709176029428a0da2f8cecf0b5, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_MaskAlphaCutoff: 0.2
-  m_FrontSortingLayerID: 0
-  m_BackSortingLayerID: 0
-  m_FrontSortingLayer: 0
-  m_BackSortingLayer: 0
-  m_FrontSortingOrder: 0
-  m_BackSortingOrder: 0
-  m_IsCustomRangeActive: 0
-  m_SpriteSortPoint: 0
 --- !u!1001 &132338938592016042
 PrefabInstance:
   m_ObjectHideFlags: 0
