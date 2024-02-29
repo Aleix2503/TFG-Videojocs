@@ -313,6 +313,11 @@ public class PlayerController : MonoBehaviour
         return Physics2D.OverlapBox((Vector2)transform.position + m_playerValues.hazardCheckOffset, m_playerValues.hazardCheckBox, 0, m_playerValues.whatIsHazard);
     }
 
+    public bool checkIfTouchingCeiling()
+    {
+        return Physics2D.OverlapBox((Vector2)transform.position + m_playerValues.ceilingCheckOffset, m_playerValues.ceilingCheckBox, 0, m_playerValues.whatIsGround);
+    }
+
     public bool checkIfTouchingBubble()
     {
         return Physics2D.OverlapBox((Vector2)transform.position + m_playerValues.bubbleCheckOffset, m_playerValues.bubbleCheckBox, 0, m_playerValues.whatIsBubble);
@@ -409,6 +414,8 @@ public class PlayerController : MonoBehaviour
         Gizmos.DrawCube((Vector2)transform.position + m_playerValues.rightWallCheckOffset, m_playerValues.rightWallCheckBox);
         
         Gizmos.DrawCube((Vector2)transform.position + m_playerValues.leftWallCheckOffset, m_playerValues.leftWallCheckBox);
+
+        Gizmos.DrawCube((Vector2)transform.position + m_playerValues.ceilingCheckOffset, m_playerValues.ceilingCheckBox);
 
         //Hazard check area gizmo
         Gizmos.color = new Color(1, 0, 0, 0.4f);
