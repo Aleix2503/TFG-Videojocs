@@ -143,17 +143,18 @@ public class DecalManager : MonoBehaviour
 
 
 
-    public GameObject GetActiveChunk()
+    public GameObject GetActiveChunk(Transform transform)
     {
-        if (activeChunks.Count == 0)
+        Vector2Int chunkPosition = GetChunkPosition(transform.position);
+        
+        if (allChunks.ContainsKey(chunkPosition))
         {
-            Vector2Int playerChunkPos = GetChunkPosition(playerTransform.position);
-
-            GameObject preloadedChunk = ActivateSingleChunk(playerChunkPos);
-
-            activeChunks.Add(preloadedChunk);
+            return allChunks[chunkPosition];
         }
-        // Return the last chunk in the list (which is the current chunk)
-        return activeChunks[0];
+        // Instantiate a new empty GameObject as the chunk and set its position
+        GameObject newChunk = new GameObject("Chunk (" + chunkPosition.x + ", " + chunkPosition.y + ")");
+        newChunk.transform.position = new Vector3(chunkPosition.x, chunkPosition.y, 0f);
+        newChunk.transform.parent = chunksParent;
+        return newChunk;
     }
 }
