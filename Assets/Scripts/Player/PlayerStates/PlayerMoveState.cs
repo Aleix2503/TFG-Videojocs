@@ -10,6 +10,9 @@ public class PlayerMoveState : PlayerState
 
     private float currentRelativeVelocity;
 
+    private bool isTouchingFrontWall = false;
+    private bool hasTouchedFrontWall = false;
+
     public override void Enter()
     {
         base.Enter();
@@ -17,6 +20,8 @@ public class PlayerMoveState : PlayerState
         currentRelativeVelocity = playerController.m_rb2D.velocity.x/playerValues.moveMaxVelocity;
 
         playerController.SetPaintingState(PlayerPaintingState.moving);
+
+        hasTouchedFrontWall = false;
     }
 
 
@@ -28,6 +33,14 @@ public class PlayerMoveState : PlayerState
         playerController.CheckIfShouldFlip(playerController.m_playerInputHandler.absoluteMovementInput);
 
         playerController.SetVelocityX(CalculateNewVelocity());
+
+        if (isTouchingFrontWall && !hasTouchedFrontWall)
+        {
+            PaintManager._instance.PlaceSplat(playerController.transform.position + new Vector3(0.5f * playerController.facingDirection, 0, 0), 
+                Vector3.left * playerController.facingDirection, playerValues.defaultColor);
+
+            hasTouchedFrontWall = true;
+        }
 
         if (playerController.CheckIfCanDash())
         {
@@ -87,5 +100,11 @@ public class PlayerMoveState : PlayerState
         base.Exit();
 
         playerController.SetPaintingState(PlayerPaintingState.def);
+    }
+
+    public override void DoChecks()
+    {
+        base.DoChecks();
+        isTouchingFrontWall = playerController.checkIfTouchingFrontWall();
     }
 }
