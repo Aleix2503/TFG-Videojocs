@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0a513f88e7422448887137ec4a70bbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 6493722858751087089}
+  cameraTransform: {fileID: 6493722856985976180}
   chunksParent: {fileID: 937467729}
   chunkSize: 16
 --- !u!1 &1377108674293654843
@@ -408,6 +408,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3641801050012016723}
     m_Modifications:
+    - target: {fileID: 3736661429703974667, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
+      propertyPath: m_NormalizedViewPortRect.x
+      value: 0.006770834
+      objectReference: {fileID: 0}
+    - target: {fileID: 3736661429703974667, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
+      propertyPath: m_NormalizedViewPortRect.y
+      value: 0.18240741
+      objectReference: {fileID: 0}
     - target: {fileID: 3736661429977556969, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
       propertyPath: m_Name
       value: PlayerBundle
@@ -466,6 +474,11 @@ Transform:
 --- !u!198 &5980606200767052280 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 4267863142004210680, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
+  m_PrefabInstance: {fileID: 7621532361226928640}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6493722856985976180 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3736661429703974772, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
   m_PrefabInstance: {fileID: 7621532361226928640}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &6493722857257068010 stripped

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class DecalManager : MonoBehaviour
 {
@@ -28,12 +29,12 @@ public class DecalManager : MonoBehaviour
         }
     }
 
-    public Transform playerTransform;
+    public Transform cameraTransform;
     public Transform chunksParent; // Parent transform for organizing chunks
     public float chunkSize = 16f; // Size of each chunk in units
 
     Dictionary<Vector2Int, GameObject> allChunks = new Dictionary<Vector2Int, GameObject>();
-    Vector2Int lastPlayerChunkPos;
+    Vector2Int lastCameraChunkPos;
     List<GameObject> activeChunks = new List<GameObject>();
 
     // Ensure the instance is not destroyed when loading a new scene
@@ -51,18 +52,18 @@ public class DecalManager : MonoBehaviour
 
     void Update()
     {
-        // Check which chunk the player is in
-        Vector2Int playerChunkPos = GetChunkPosition(playerTransform.position);
+        // Check which chunk the camera is in
+        Vector2Int cameraChunkPos = GetChunkPosition(cameraTransform.position);
 
-        if (playerChunkPos != lastPlayerChunkPos)
+        if (cameraChunkPos != lastCameraChunkPos)
         {
             // Activate the new chunk and deactivate the previous ones
-            DeactivateChunks(activeChunks, playerChunkPos);
-            List<GameObject> newActiveChunks = ActivateNeighboringChunks(playerChunkPos);
+            DeactivateChunks(activeChunks);
+            List<GameObject> newActiveChunks = ActivateNeighboringChunks(cameraChunkPos);
             activeChunks = newActiveChunks;
 
-            // Update the last player chunk position
-            lastPlayerChunkPos = playerChunkPos;
+            // Update the last camera chunk position
+            lastCameraChunkPos = cameraChunkPos;
         }
     }
 
@@ -104,8 +105,6 @@ public class DecalManager : MonoBehaviour
             allChunks[chunkPosition].SetActive(true);
             return allChunks[chunkPosition];
         }
-        else
-        {
             // Instantiate a new empty GameObject as the chunk and set its position
             GameObject newChunk = new GameObject("Chunk (" + chunkPosition.x + ", " + chunkPosition.y + ")");
             newChunk.transform.position = new Vector3(chunkPosition.x, chunkPosition.y, 0f);
@@ -115,34 +114,18 @@ public class DecalManager : MonoBehaviour
             allChunks.Add(chunkPosition, newChunk);
             newChunk.SetActive(true);
             return newChunk;
-        }
+        
     }
 
-    void DeactivateChunks(List<GameObject> chunks, Vector2Int newChunkPos)
+    void DeactivateChunks(List<GameObject> chunks)
     {
         // Deactivate all chunks in the list except those neighboring the new chunk
         foreach (GameObject chunk in chunks)
         {
-            Vector2Int chunkPos = GetChunkPosition(chunk.transform.position);
-            if (chunkPos != newChunkPos && !IsNeighbor(chunkPos, newChunkPos))
-            {
-                chunk.SetActive(false);
-            }
+            chunk.SetActive(false);
         }
     }
-
-    bool IsNeighbor(Vector2Int chunkPos, Vector2Int newChunkPos)
-    {
-        int dx = Mathf.Abs(chunkPos.x - newChunkPos.x);
-        int dy = Mathf.Abs(chunkPos.y - newChunkPos.y);
     
-        // Check if the chunks are adjacent horizontally, vertically, or diagonally
-        return (dx == chunkSize && dy == 0) || (dy == chunkSize && dx == 0) ||
-               (dx == chunkSize && dy == chunkSize);
-    }
-
-
-
     public GameObject GetActiveChunk(Transform transform)
     {
         Vector2Int chunkPosition = GetChunkPosition(transform.position);
@@ -155,6 +138,9 @@ public class DecalManager : MonoBehaviour
         GameObject newChunk = new GameObject("Chunk (" + chunkPosition.x + ", " + chunkPosition.y + ")");
         newChunk.transform.position = new Vector3(chunkPosition.x, chunkPosition.y, 0f);
         newChunk.transform.parent = chunksParent;
+        
+        allChunks.Add(chunkPosition, newChunk);
+        newChunk.SetActive(true);
         return newChunk;
     }
 }
