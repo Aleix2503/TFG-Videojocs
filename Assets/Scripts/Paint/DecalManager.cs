@@ -145,6 +145,14 @@ public class DecalManager : MonoBehaviour
 
     public GameObject GetActiveChunk()
     {
+        if (activeChunks.Count == 0)
+        {
+            Vector2Int playerChunkPos = GetChunkPosition(playerTransform.position);
+
+            GameObject preloadedChunk = ActivateSingleChunk(playerChunkPos);
+
+            activeChunks.Add(preloadedChunk);
+        }
         // Return the last chunk in the list (which is the current chunk)
         return activeChunks[0];
     }
