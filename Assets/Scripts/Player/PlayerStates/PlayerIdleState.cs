@@ -15,6 +15,7 @@ public class PlayerIdleState : PlayerState
         playerController.SetVelocityX(0);
 
         PaintManager._instance.PlaceOnFallTrace();
+        PaintManager._instance.PlaceBackgroundTrace(playerController.transform.position);
     }
 
     public override void Update()
