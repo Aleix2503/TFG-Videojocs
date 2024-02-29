@@ -172,6 +172,7 @@ MonoBehaviour:
   collider2D: {fileID: 8627862820778861495}
   animator: {fileID: 6068912642617275843}
   rb2D: {fileID: 6043347381660453854}
+  explosionColor: {r: 0.9525862, g: 0, b: 1, a: 1}
   upwardsForce: 10
   deletionDelay: 1
 --- !u!50 &6043347381660453854

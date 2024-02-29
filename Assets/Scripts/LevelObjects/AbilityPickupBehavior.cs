@@ -10,8 +10,9 @@ public class AbilityPickupBehavior : MonoBehaviour
     public Animator animator;
     public Rigidbody2D rb2D;
 
-    public float upwardsForce = 5f;
+    public Color explosionColor;
 
+    public float upwardsForce = 5f;
     public float deletionDelay = 1f;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -41,7 +42,12 @@ public class AbilityPickupBehavior : MonoBehaviour
     private IEnumerator DeleteAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-
+        Explode();
         Destroy(gameObject);
+    }
+
+    private void Explode()
+    {
+        PaintManager._instance.InstanceExplosion(transform.position, abilityToUnlock);
     }
 }

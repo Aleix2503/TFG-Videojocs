@@ -512,6 +512,11 @@ public class PaintManager : MonoBehaviour
     {
         return DecalManager.Instance.GetActiveChunk(decalTransform).transform;
     }
+
+    public void InstanceExplosion(Vector3 position, PlayerController.AbilityType ability)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 #if UNITY_EDITOR
