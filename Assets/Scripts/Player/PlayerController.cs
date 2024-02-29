@@ -273,6 +273,11 @@ public class PlayerController : MonoBehaviour
         m_spriteRenderer.color = toColor;
     }
 
+    public void SetPaintingState(PlayerPaintingState paintingState)
+    {
+        PaintManager._instance.SetPaintingState(paintingState);
+    }
+
     #endregion
 
     #region Physics checks

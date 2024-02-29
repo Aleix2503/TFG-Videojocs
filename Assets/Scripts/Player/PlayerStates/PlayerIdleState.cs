@@ -13,6 +13,8 @@ public class PlayerIdleState : PlayerState
         base.Enter();
         playerController.ResetGroundFlags();
         playerController.SetVelocityX(0);
+
+        PaintManager._instance.PlaceOnFallTrace();
     }
 
     public override void Update()

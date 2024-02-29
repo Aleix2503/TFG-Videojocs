@@ -27,6 +27,7 @@ public class PlayerDashState : PlayerState
         playerController.FadePlayerColor(playerValues.dashColor, playerValues.dashColorFadeInTime);
         
         PaintManager._instance.EmitDashParticles();
+        playerController.SetPaintingState(PlayerPaintingState.dashing);
     }
 
     public override void Exit()
@@ -36,6 +37,8 @@ public class PlayerDashState : PlayerState
         playerController.SetLinearDrag(playerValues.defaultLinearDrag);
 
         playerController.FadePlayerColor(playerValues.defaultColor, playerValues.dashColorFadeOutTime);
+
+        playerController.SetPaintingState(PlayerPaintingState.def);
     }
 
     public override void Update()

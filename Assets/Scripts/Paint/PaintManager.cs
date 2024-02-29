@@ -7,6 +7,8 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
+public enum PlayerPaintingState { def, moving, dashing, expanded }
+
 public class PaintManager : MonoBehaviour
 {
     //MonoBehaviour. Es un gameobject presente en la escena.
@@ -14,7 +16,7 @@ public class PaintManager : MonoBehaviour
     //Singleton, para que solo haya uno activo a la vez
     public static PaintManager _instance;
     
-    public enum PlayerPaintingState { def, moving, dashing, expanded}
+    
 
     public PlayerPaintingState playerPaintingState = PlayerPaintingState.def;
     public PlayerPaintingState lastState = PlayerPaintingState.def;
@@ -521,6 +523,11 @@ public class PaintManager : MonoBehaviour
     public void SetPaintingStateToExpanded()
     {
         playerPaintingState = PlayerPaintingState.expanded;
+    }
+
+    public void SetPaintingState(PlayerPaintingState paintingState)
+    {
+        playerPaintingState = paintingState;
     }
 
     public Transform GetDecalChunk()

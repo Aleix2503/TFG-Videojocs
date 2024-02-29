@@ -28,6 +28,8 @@ public class PlayerExpandedState : PlayerState
         playerController.SetGravityScale(playerValues.defaultGravity * playerValues.expandGravityMultiplier);
 
         canBreakGround = false;
+
+        playerController.SetPaintingState(PlayerPaintingState.expanded);
     }
 
     public override void Exit()
@@ -35,8 +37,9 @@ public class PlayerExpandedState : PlayerState
         base.Exit();
         playerController.SetColliderDimensions(playerValues.defaultCollisionBox, playerValues.defaultCollisionBoxOffset, playerValues.defaultCollisionEdgeRadius);
         playerController.SetGravityScale(playerValues.defaultGravity);
-        PaintManager._instance.EmitExpandedParticles();
-        PaintManager._instance.PlaceOnExpandedTrace();
+        
+
+        playerController.SetPaintingState(PlayerPaintingState.def);
 
     }
 
@@ -62,9 +65,13 @@ public class PlayerExpandedState : PlayerState
         }
         else if (expandedIsTouchingGround || expandedIsGrounded)
         {
+            PaintManager._instance.EmitExpandedParticles();
+            PaintManager._instance.PlaceOnExpandedTrace();
             playerStateMachine.ChangeState(playerController.endExpandState);
         } else if (expandedIsTouchingHazard)
         {
+            PaintManager._instance.EmitExpandedParticles();
+            PaintManager._instance.PlaceOnExpandedTrace();
             playerStateMachine.ChangeState(playerController.deathState); //TODO special death state?
         }
 

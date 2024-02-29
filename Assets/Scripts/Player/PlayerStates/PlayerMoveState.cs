@@ -15,7 +15,11 @@ public class PlayerMoveState : PlayerState
         base.Enter();
         playerController.ResetGroundFlags();
         currentRelativeVelocity = playerController.m_rb2D.velocity.x/playerValues.moveMaxVelocity;
+
+        playerController.SetPaintingState(PlayerPaintingState.moving);
     }
+
+
 
     public override void Update()
     {
@@ -78,4 +82,10 @@ public class PlayerMoveState : PlayerState
         return playerValues.moveMaxVelocity * currentRelativeVelocity;
     }
 
+    public override void Exit()
+    {
+        base.Exit();
+
+        playerController.SetPaintingState(PlayerPaintingState.def);
+    }
 }
