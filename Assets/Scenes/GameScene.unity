@@ -256,6 +256,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelUtilitiesBundle
       objectReference: {fileID: 0}
+    - target: {fileID: 6493722856985976075, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6493722856985976075, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6493722856985976075, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6493722856985976075, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
+      propertyPath: m_NormalizedViewPortRect.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6493722856985976075, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
+      propertyPath: m_NormalizedViewPortRect.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6493722856985976075, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
+      propertyPath: m_NormalizedViewPortRect.width
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6493722856985976075, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
+      propertyPath: m_NormalizedViewPortRect.height
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
 --- !u!1001 &7534376819938507563
