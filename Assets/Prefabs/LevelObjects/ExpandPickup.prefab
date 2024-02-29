@@ -116,6 +116,7 @@ GameObject:
   - component: {fileID: 8627862820778861493}
   - component: {fileID: 8627862820778861495}
   - component: {fileID: 8627862820778861488}
+  - component: {fileID: 6043347381660453854}
   m_Layer: 0
   m_Name: ExpandPickup
   m_TagString: Untagged
@@ -170,3 +171,27 @@ MonoBehaviour:
   abilityToUnlock: 2
   collider2D: {fileID: 8627862820778861495}
   animator: {fileID: 6068912642617275843}
+  rb2D: {fileID: 6043347381660453854}
+  upwardsForce: 10
+  deletionDelay: 1
+--- !u!50 &6043347381660453854
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8627862820778861489}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 2
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

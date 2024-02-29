@@ -8,7 +8,11 @@ public class AbilityPickupBehavior : MonoBehaviour
     PlayerController.AbilityType abilityToUnlock;
     public Collider2D collider2D;
     public Animator animator;
+    public Rigidbody2D rb2D;
 
+    public float upwardsForce = 5f;
+
+    public float deletionDelay = 1f;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -20,6 +24,24 @@ public class AbilityPickupBehavior : MonoBehaviour
 
             animator.SetTrigger("PickUpTrigger");
             collider2D.enabled = false;
+
+            AnimationMovement();
         }
+    }
+
+    private void AnimationMovement()
+    {
+        rb2D.bodyType = RigidbodyType2D.Dynamic;
+
+        rb2D.AddForce(new Vector2(0, upwardsForce), ForceMode2D.Impulse);
+
+        StartCoroutine(DeleteAfterDelay(deletionDelay));
+    }
+
+    private IEnumerator DeleteAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        Destroy(gameObject);
     }
 }
