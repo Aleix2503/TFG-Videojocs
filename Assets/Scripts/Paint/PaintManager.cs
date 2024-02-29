@@ -460,8 +460,6 @@ public class PaintManager : MonoBehaviour
 
     public void PlaceSplat(Vector3 position, Vector3 normal, Color color)
     {
-        Debug.Log("aadwedefhj");
-        //Debug.Log(collisionEvents[i].normal);
         GameObject splat =
             Instantiate(splatPrefab, position, Quaternion.identity) as GameObject;
         splat.transform.SetParent(GetDecalChunk(), true);
