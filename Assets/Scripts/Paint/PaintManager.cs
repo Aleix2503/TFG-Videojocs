@@ -505,26 +505,6 @@ public class PaintManager : MonoBehaviour
         return layersPerSecond;
     }
 
-    public void SetPaintingStateToMoving()
-    {
-        playerPaintingState = PlayerPaintingState.moving;
-    }
-    
-    public void SetPaintingStateToDashing()
-    {
-        playerPaintingState = PlayerPaintingState.dashing;
-    }
-    
-    public void SetPaintingStateToDefault()
-    {
-        playerPaintingState = PlayerPaintingState.def;
-    }
-
-    public void SetPaintingStateToExpanded()
-    {
-        playerPaintingState = PlayerPaintingState.expanded;
-    }
-
     public void SetPaintingState(PlayerPaintingState paintingState)
     {
         playerPaintingState = paintingState;
@@ -534,8 +514,6 @@ public class PaintManager : MonoBehaviour
     {
         return DecalManager.Instance.GetActiveChunk().transform;
     }
-
-    //Todo el tema de pintar la pintura debería estar aquí. Tambien se puede poner el tema de cargar/descargar pintura tambien en esta clase.
 }
 
 #if UNITY_EDITOR
