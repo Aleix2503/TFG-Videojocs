@@ -34,6 +34,8 @@ public class PlayerController : MonoBehaviour
     public bool isBubbleUnlocked = false;
     public bool isExpandUnlocked = false;
 
+    public Color currentPlayerColor => m_spriteRenderer.color;
+
     #region State machine setup
 
     /// <summary>
