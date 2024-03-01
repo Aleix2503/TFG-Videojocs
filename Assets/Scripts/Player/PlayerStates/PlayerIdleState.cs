@@ -13,7 +13,6 @@ public class PlayerIdleState : PlayerState
         base.Enter();
         playerController.ResetGroundFlags();
         playerController.SetVelocityX(0);
-
         PaintManager._instance.PlaceSplat(playerController.transform.position + new Vector3(0, -0.5f, 0),
                 Vector3.up, playerController.currentPlayerColor);
     }
