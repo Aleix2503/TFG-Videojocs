@@ -3875,7 +3875,7 @@ ParticleSystem:
     radiusScale: 0.05
     collidesWith:
       serializedVersion: 2
-      m_Bits: 1024
+      m_Bits: 1088
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
@@ -8795,7 +8795,7 @@ ParticleSystem:
     radiusScale: 0.05
     collidesWith:
       serializedVersion: 2
-      m_Bits: 1024
+      m_Bits: 1088
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
@@ -13809,7 +13809,7 @@ ParticleSystem:
     radiusScale: 0.05
     collidesWith:
       serializedVersion: 2
-      m_Bits: 1024
+      m_Bits: 1088
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
@@ -18636,7 +18636,7 @@ ParticleSystem:
     radiusScale: 0.05
     collidesWith:
       serializedVersion: 2
-      m_Bits: 1024
+      m_Bits: 1088
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
@@ -19732,7 +19732,7 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0.022395834
-    y: 0.20092592
+    y: 0.20925926
     width: 0.16666667
     height: 0.16666666
   near clip plane: 0.3
@@ -23697,7 +23697,7 @@ ParticleSystem:
     radiusScale: 0.05
     collidesWith:
       serializedVersion: 2
-      m_Bits: 1024
+      m_Bits: 1088
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
