@@ -23,11 +23,11 @@ public class PlayerDeathState : PlayerState
         PaintManager._instance.PlaceSplat(playerController.transform.position + new Vector3(0, -0.5f, 0),
                 Vector3.up, playerController.currentPlayerColor);
         PaintManager._instance.PlaceSplat(playerController.transform.position + new Vector3(0.5f, 0, 0),
-                Vector3.up, playerController.currentPlayerColor);
+                Vector3.left, playerController.currentPlayerColor);
         PaintManager._instance.PlaceSplat(playerController.transform.position + new Vector3(0, 0.5f, 0),
-                Vector3.up, playerController.currentPlayerColor);
+                Vector3.down, playerController.currentPlayerColor);
         PaintManager._instance.PlaceSplat(playerController.transform.position + new Vector3(-0.5f, 0, 0),
-            Vector3.up, playerController.currentPlayerColor);
+            Vector3.right, playerController.currentPlayerColor);
 
         playerController.FreezePlayerPosition(true);
     }
