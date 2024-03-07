@@ -11,6 +11,7 @@ public class Trace : MonoBehaviour
     public float minSizeMod = 0.8f;
     public float maxSizeMod = 1.5f;
     public Sprite[] sprites;
+    public Animator animator;
     private SplatLoacation splatLocation;
     private SpriteRenderer spriteRenderer;
 
@@ -28,6 +29,14 @@ public class Trace : MonoBehaviour
         SetColor(color);
         SetLocationProperties(layer);
         GetComponent<Animator>().SetTrigger("Init");
+        StartCoroutine(DisableAnimatorAfterAnimation());
+    }
+
+    private IEnumerator DisableAnimatorAfterAnimation()
+    {
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
+
+        animator.enabled = false;
     }
 
     private void SetSprite()

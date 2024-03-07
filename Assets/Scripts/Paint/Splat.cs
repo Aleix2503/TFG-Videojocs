@@ -14,6 +14,7 @@ public class Splat : MonoBehaviour
     public float minColorRange = -0.2f;
     public float maxColorRange = 0.2f; 
     public Sprite[] sprites;
+    public Animator animator;
     private SplatLoacation splatLocation;
     private SpriteRenderer spriteRenderer;
 
@@ -32,6 +33,14 @@ public class Splat : MonoBehaviour
         SetColor(color);
         SetLocationProperties(layer);
         GetComponent<Animator>().SetTrigger("Init");
+        StartCoroutine(DisableAnimatorAfterAnimation());
+    }
+
+    private IEnumerator DisableAnimatorAfterAnimation()
+    {
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
+
+        animator.enabled = false;
     }
 
     private void SetSprite()
