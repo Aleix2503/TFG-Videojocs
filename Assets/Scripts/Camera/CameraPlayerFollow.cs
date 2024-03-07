@@ -40,6 +40,9 @@ public class CameraPlayerFollow : MonoBehaviour
     [SerializeField] private float boundsTransitionTime = 0.5f;
     private float transitionElapsedTime = 0f;
 
+    private bool freeCameraMode = false;
+    [SerializeField] private bool isFreeCameraAllowed = false;
+    [SerializeField] private float freeCameraSpeed = 5f;
 
     private void Start()
     {
@@ -50,9 +53,57 @@ public class CameraPlayerFollow : MonoBehaviour
         halfWidth = currentWidth / 2f;
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Keypad5) && isFreeCameraAllowed)
+        {
+            freeCameraMode = !freeCameraMode;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Keypad7) && isFreeCameraAllowed)
+        {
+            if (Time.timeScale == 0)
+            {
+                Time.timeScale = 1;
+            } else
+            {
+                Time.timeScale = 0;
+            }
+            
+        }
+
+        if (freeCameraMode)
+        {
+            HandleFreeCameraMovement();
+        }
+    }
+
+    private void HandleFreeCameraMovement()
+    {
+        Vector3 movement = Vector3.zero;
+        if (Input.GetKey(KeyCode.Keypad8))
+        {
+            movement += Vector3.up;
+        }
+        if (Input.GetKey(KeyCode.Keypad2))
+        {
+            movement += Vector3.down;
+        }
+        if (Input.GetKey(KeyCode.Keypad4))
+        {
+            movement += Vector3.left;
+        }
+        if (Input.GetKey(KeyCode.Keypad6))
+        {
+            movement += Vector3.right;
+        }
+
+        transform.position += movement * freeCameraSpeed * Time.deltaTime;
+    }
+
     void FixedUpdate()
     {
-        if (target != null)
+        if (target != null && !freeCameraMode)
         {
             Vector3 cameraTransformPosition = new Vector3(transform.position.x + XOffset, transform.position.y + YOffset, targetZ);
 

@@ -19731,8 +19731,8 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.022395834
-    y: 0.20925926
+    x: 0.0421875
+    y: 0.18333334
     width: 0.16666667
     height: 0.16666666
   near clip plane: 0.3
@@ -24801,6 +24801,8 @@ MonoBehaviour:
   cameraBoundariesSize: {x: 71.28, y: 41.2}
   cameraBoundariesPosition: {x: 15.7, y: 0.7}
   boundsTransitionTime: 0.3
+  isFreeCameraAllowed: 1
+  freeCameraSpeed: 5
 --- !u!1001 &3736661429145936711
 PrefabInstance:
   m_ObjectHideFlags: 0
