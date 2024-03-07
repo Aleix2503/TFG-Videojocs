@@ -51,7 +51,7 @@ public class DecalManager : MonoBehaviour
     }
 
     void Update()
-    {
+    {/*
         // Check which chunk the camera is in
         Vector2Int cameraChunkPos = GetChunkPosition(cameraTransform.position);
 
@@ -64,7 +64,7 @@ public class DecalManager : MonoBehaviour
 
             // Update the last camera chunk position
             lastCameraChunkPos = cameraChunkPos;
-        }
+        }*/
     }
 
     Vector2Int GetChunkPosition(Vector3 position)
