@@ -53,7 +53,7 @@ AnimationClip:
   m_Events:
   - time: 15
     functionName: GoToScene
-    data: MainMenuScene
+    data: CreditsScene
     objectReferenceParameter: {fileID: 11500000, guid: fc6707e6eeff58d42b24679c9fa475e0, type: 3}
     floatParameter: 0
     intParameter: 0
