@@ -267,7 +267,7 @@ public class PaintManager : MonoBehaviour
 
         GameObject trace = Instantiate(tracePrefab, position, Quaternion.identity);
         Trace traceScript = trace.GetComponent<Trace>();
-        trace.transform.SetParent(GetDecalChunk(trace.transform), true);
+        GetDecalChunk(trace.transform);
         traceScript.Initialize(Trace.SplatLoacation.Foreground, currentLayer, traceColor);
     }
     
@@ -289,7 +289,7 @@ public class PaintManager : MonoBehaviour
 
         GameObject trace = Instantiate(tracePrefab, onFallTraceSpawnPosition.position, Quaternion.identity);
         Trace traceScript = trace.GetComponent<Trace>();
-        trace.transform.SetParent(GetDecalChunk(trace.transform), true);
+        GetDecalChunk(trace.transform);
         traceScript.Initialize(Trace.SplatLoacation.Foreground, currentLayer, traceColor);
     }
     
@@ -311,7 +311,7 @@ public class PaintManager : MonoBehaviour
 
         GameObject trace = Instantiate(tracePrefab, onFallTraceSpawnPosition.position, Quaternion.identity);
         Trace traceScript = trace.GetComponent<Trace>();
-        trace.transform.SetParent(GetDecalChunk(trace.transform), true);
+        GetDecalChunk(trace.transform);
         traceScript.Initialize(Trace.SplatLoacation.Foreground, currentLayer, expandedPaintColor);
     }
     
@@ -333,7 +333,7 @@ public class PaintManager : MonoBehaviour
 
         GameObject trace = Instantiate(backgroundTracePrefab, position, Quaternion.identity);
         Trace traceScript = trace.GetComponent<Trace>();
-        trace.transform.SetParent(GetDecalChunk(trace.transform), true);
+        GetDecalChunk(trace.transform);
         Color color = traceColor;
         Color backgroundColor = new Color(color.r / 2f, color.g / 2f, color.b / 2f, 1f);
         
@@ -358,7 +358,7 @@ public class PaintManager : MonoBehaviour
 
         GameObject trace = Instantiate(tracePrefab, position, Quaternion.identity);
         Trace traceScript = trace.GetComponent<Trace>();
-        trace.transform.SetParent(GetDecalChunk(trace.transform), true);
+        GetDecalChunk(trace.transform);
         traceScript.Initialize(Trace.SplatLoacation.Foreground, currentLayer, dashPaintColor);
     }
     
@@ -380,7 +380,7 @@ public class PaintManager : MonoBehaviour
 
         GameObject trace = Instantiate(backgroundTracePrefab, position, Quaternion.identity);
         Trace traceScript = trace.GetComponent<Trace>();
-        trace.transform.SetParent(GetDecalChunk(trace.transform), true);
+        GetDecalChunk(trace.transform);
         Color color = dashPaintColor;
         Color backgroundColor = new Color(color.r / 2f, color.g / 2f, color.b / 2f, 1f);
         
@@ -405,7 +405,7 @@ public class PaintManager : MonoBehaviour
 
         GameObject trace = Instantiate(backgroundTracePrefab, position, Quaternion.identity);
         Trace traceScript = trace.GetComponent<Trace>();
-        trace.transform.SetParent(GetDecalChunk(trace.transform), true);
+        GetDecalChunk(trace.transform);
         Color color = expandedPaintColor;
         Color backgroundColor = new Color(color.r / 2f, color.g / 2f, color.b / 2f, 1f);
         
@@ -430,7 +430,7 @@ public class PaintManager : MonoBehaviour
 
         GameObject trace = Instantiate(backgroundTracePrefab, position, Quaternion.identity);
         Trace traceScript = trace.GetComponent<Trace>();
-        trace.transform.SetParent(GetDecalChunk(trace.transform), true);
+        GetDecalChunk(trace.transform);
         Color color = bubblePaintColor;
         Color backgroundColor = new Color(color.r / 2f, color.g / 2f, color.b / 2f, 1f);
         
@@ -462,7 +462,7 @@ public class PaintManager : MonoBehaviour
     {
         GameObject splat =
             Instantiate(splatPrefab, position, Quaternion.identity) as GameObject;
-        splat.transform.SetParent(GetDecalChunk(splat.transform), true);
+        GetDecalChunk(splat.transform);
         Splat splatScript = splat.GetComponent<Splat>();
         splatScript.Initialize(Splat.SplatLoacation.Foreground, currentLayer, color, normal);
 
@@ -508,9 +508,14 @@ public class PaintManager : MonoBehaviour
         playerPaintingState = paintingState;
     }
 
-    public Transform GetDecalChunk(Transform decalTransform)
+    public void GetDecalChunk(Transform decalTransform)
     {
-        return DecalManager.Instance.GetActiveChunk(decalTransform).transform;
+        Transform parent = DecalManager.Instance.GetActiveChunk(decalTransform).transform;
+        if (parent != null)
+        {
+            decalTransform.SetParent(parent,true);
+        }
+        
     }
 
     public void InstanceExplosion(Vector3 position, PlayerController.AbilityType ability)
