@@ -2188,9 +2188,54 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: 1, y: 2}
+        - {x: 1, y: 1}
+        - {x: 0, y: 1}
+        - {x: 0, y: 0}
+        - {x: -2, y: 0}
+        - {x: -2, y: 2}
+        - {x: -3, y: 2}
+        - {x: -3, y: 4}
+        - {x: -4, y: 4}
+        - {x: -4, y: 5}
+        - {x: -8, y: 5}
+        - {x: -8, y: 4}
+        - {x: -5, y: 4}
+        - {x: -5, y: 3}
+        - {x: -4, y: 3}
+        - {x: -4, y: 1}
+        - {x: -3, y: 1}
+        - {x: -3, y: 0}
+        - {x: 0, y: 0}
+        - {x: 1, y: 0}
+        - {x: 1, y: -2}
+        - {x: 0, y: -2}
+        - {x: 0, y: -3}
+        - {x: -2, y: -3}
+        - {x: -2, y: -4}
+        - {x: -5, y: -4}
+        - {x: -5, y: -3}
+        - {x: -8, y: -3}
+        - {x: -8, y: -4}
+        - {x: -6, y: -4}
+        - {x: -6, y: -5}
+        - {x: -1, y: -5}
+        - {x: -1, y: -4}
+        - {x: 1, y: -4}
+        - {x: 1, y: -3}
+        - {x: 2, y: -3}
+        - {x: 2, y: 0}
+        - {x: 1, y: 0}
+        - {x: 1, y: 1}
+        - {x: 3, y: 1}
+        - {x: 3, y: 0}
+        - {x: 4, y: 0}
+        - {x: 4, y: 1}
+        - {x: 3, y: 1}
+        - {x: 3, y: 2}
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: 1
       bones: []
       spriteID: 31451e0853e1f214cb7c6c78be8f059a
       internalID: 856527429
@@ -2749,13 +2794,13 @@ TextureImporter:
       Tileset_32: -222754978
       Tileset_22: -1971313712
       Tileset_9: -651897518
+      Tileset_34: 801862775
       Tileset_0: 640559739
-      Tileset_39: 532509478
-      Tileset_42: -1574864578
       Tileset_41: 300208514
+      Tileset_42: -1574864578
       Tileset_7: 251909282
       Tileset_12: -596807460
-      Tileset_34: 801862775
+      Tileset_39: 532509478
       Tileset_4: -1196272980
       Tileset_37: -1686604405
       Tileset_28: -1610341396
