@@ -91,4 +91,4 @@ MonoBehaviour:
   whatIsBubble:
     serializedVersion: 2
     m_Bits: 128
-  unlockAllAbilities: 1
+  unlockAllAbilities: 0

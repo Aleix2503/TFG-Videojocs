@@ -292,6 +292,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 15.2
       objectReference: {fileID: 0}
+    - target: {fileID: 8671845885170571706, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
+      propertyPath: isFreeCameraAllowed
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
 --- !u!1001 &7534376819938507563
