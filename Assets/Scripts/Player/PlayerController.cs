@@ -179,7 +179,6 @@ public class PlayerController : MonoBehaviour
     {
         if (m_playerInputHandler.dashInput && isDashUnlocked && Time.time > lastDashTime + m_playerValues.dashCooldownSeconds && didPlayerTouchGroundSinceLastDash)
         {
-            m_playerInputHandler.UseDashInput();
             lastDashTime = Time.time;
             didPlayerTouchGroundSinceLastDash = false;
             return true;
@@ -197,7 +196,6 @@ public class PlayerController : MonoBehaviour
     {
         if (m_playerInputHandler.bubbleInput && isBubbleUnlocked && bubbleController.isActive == false)
         {
-            m_playerInputHandler.UseBubbleInput();
             return true;
         }
         return false;
@@ -207,7 +205,6 @@ public class PlayerController : MonoBehaviour
     {
         if (m_playerInputHandler.expandInput && isExpandUnlocked && didPlayerTouchGroundSinceLastExpand)
         {
-            m_playerInputHandler.UseExpandInput();
             didPlayerTouchGroundSinceLastExpand = false;
             return true;
         }

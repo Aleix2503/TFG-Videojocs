@@ -71,7 +71,6 @@ public class PlayerFallState : PlayerAirState
         if (isCoyoteTimeActive && playerController.m_playerInputHandler.jumpInput)
         {
             isCoyoteTimeActive = false;
-            playerController.m_playerInputHandler.UseJumpInput();
             playerStateMachine.ChangeState(playerController.jumpState);
         }
         

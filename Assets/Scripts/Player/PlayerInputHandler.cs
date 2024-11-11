@@ -108,9 +108,4 @@ public class PlayerInputHandler : MonoBehaviour
         inputAction_bubble.Disable();
         inputAction_expand.Disable();
     }
-
-    public void UseJumpInput() => jumpInput = false;
-    public void UseDashInput() => dashInput = false;
-    public void UseBubbleInput() => bubbleInput = false;
-    public void UseExpandInput() => expandInput = false;
 }
