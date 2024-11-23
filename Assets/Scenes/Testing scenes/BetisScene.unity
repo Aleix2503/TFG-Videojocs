@@ -22816,9 +22816,9 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.16492693
+    x: 0.06284153
     y: 0.32562622
-    width: 0.66805845
+    width: 0.87431693
     height: 0.3468208
   near clip plane: 0.3
   far clip plane: 1000
@@ -29598,6 +29598,7 @@ GameObject:
   - component: {fileID: 2054329434}
   - component: {fileID: 2054329433}
   - component: {fileID: 2054329432}
+  - component: {fileID: 2054329436}
   m_Layer: 0
   m_Name: Tonto
   m_TagString: Untagged
@@ -29748,6 +29749,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2054329436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054329429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 652b10b121b00ec42858c76495e0c072, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionType: 2
+  detectionRadius: 5
+  coneAngle: 10
+  coneDistance: 7
 --- !u!1 &2084895878
 GameObject:
   m_ObjectHideFlags: 0
