@@ -29599,6 +29599,8 @@ GameObject:
   - component: {fileID: 2054329433}
   - component: {fileID: 2054329432}
   - component: {fileID: 2054329436}
+  - component: {fileID: 2054329437}
+  - component: {fileID: 2054329438}
   m_Layer: 0
   m_Name: Tonto
   m_TagString: Untagged
@@ -29765,6 +29767,30 @@ MonoBehaviour:
   detectionRadius: 5
   coneAngle: 10
   coneDistance: 7
+--- !u!114 &2054329437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054329429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f6946ec14e6fbf488661be36169e032, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2054329438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054329429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f559e316cd537ee4a8141464dce976d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2084895878
 GameObject:
   m_ObjectHideFlags: 0

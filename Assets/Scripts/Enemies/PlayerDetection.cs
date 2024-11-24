@@ -22,12 +22,14 @@ public class PlayerDetection : MonoBehaviour
     [HideInInspector] public float coneDistance = 10f;
 
     private Transform player;
+    private FSMEnemies fsmEnemies;
 
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindWithTag("Player").GetComponent<Transform>();
+        fsmEnemies = GetComponent<FSMEnemies>();
     }
 
     // Update is called once per frame
@@ -51,7 +53,7 @@ public class PlayerDetection : MonoBehaviour
         float distance = Vector2.Distance(transform.position, player.position);
         if (distance <= detectionRadius)
         {
-            Debug.Log("Jugador detectado en el círculo de visión");
+            fsmEnemies.state = FSMEnemies.State.Alert;
         }
     }
 
@@ -66,7 +68,7 @@ public class PlayerDetection : MonoBehaviour
         if (angleToPlayer <= coneAngle / 2 &&
             Vector2.Distance(transform.position, player.position) <= coneDistance)
         {
-            Debug.Log("Jugador detectado en el cono de visión");
+            fsmEnemies.state = FSMEnemies.State.Alert;
         }
     }
 
