@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class PauseController : MonoBehaviour
@@ -56,6 +57,11 @@ public class PauseController : MonoBehaviour
         pauseMenu.SetActive(false);
         isPaused = false;
         playerController.EnablePlayerControls();
+    }
+
+    public void SetSelectedButton(GameObject button)
+    {
+        EventSystem.current.SetSelectedGameObject(button);
     }
 }
 
