@@ -94,6 +94,9 @@ public class PlayerController : MonoBehaviour
         facingDirection = 1;
         respawnPosition = Vector3.zero;
 
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
         SetColliderDimensions(m_playerValues.defaultCollisionBox, m_playerValues.defaultCollisionBoxOffset, m_playerValues.defaultCollisionEdgeRadius);
         SetGravityScale(m_playerValues.defaultGravity);
 

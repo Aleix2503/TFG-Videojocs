@@ -50,6 +50,9 @@ public class PauseController : MonoBehaviour
         pauseMenu.SetActive(true);
         isPaused = true;
         playerController.DisablePlayerControls();
+
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void ResumeGame()
@@ -57,6 +60,9 @@ public class PauseController : MonoBehaviour
         pauseMenu.SetActive(false);
         isPaused = false;
         playerController.EnablePlayerControls();
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void SetSelectedButton(GameObject button)
