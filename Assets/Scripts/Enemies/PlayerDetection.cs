@@ -53,7 +53,19 @@ public class PlayerDetection : MonoBehaviour
         float distance = Vector2.Distance(transform.position, player.position);
         if (distance <= detectionRadius)
         {
-            fsmEnemies.state = FSMEnemies.State.Alert;
+            if (fsmEnemies.state != FSMEnemies.State.Alert)
+                fsmEnemies.state = FSMEnemies.State.Alert;
+        }
+        else
+        {
+            if (GetComponent<Patrol>() != null && fsmEnemies.state != FSMEnemies.State.Patrol)
+                fsmEnemies.state = FSMEnemies.State.Patrol;
+            else if (GetComponent<Patrol>() == null && fsmEnemies.state != FSMEnemies.State.Idle)
+            {
+                GetComponent<Idle>().SetAlreadyArrivedFalse();
+                fsmEnemies.state = FSMEnemies.State.Idle;
+            }
+                
         }
     }
 
@@ -68,7 +80,18 @@ public class PlayerDetection : MonoBehaviour
         if (angleToPlayer <= coneAngle / 2 &&
             Vector2.Distance(transform.position, player.position) <= coneDistance)
         {
-            fsmEnemies.state = FSMEnemies.State.Alert;
+            if (fsmEnemies.state != FSMEnemies.State.Alert)
+                fsmEnemies.state = FSMEnemies.State.Alert;
+        }
+        else
+        {
+            if (GetComponent<Patrol>() != null && fsmEnemies.state != FSMEnemies.State.Patrol)
+                fsmEnemies.state = FSMEnemies.State.Patrol;
+            else if (GetComponent<Patrol>() == null && fsmEnemies.state != FSMEnemies.State.Idle)
+            {
+                GetComponent<Idle>().SetAlreadyArrivedFalse();
+                fsmEnemies.state = FSMEnemies.State.Idle;
+            }
         }
     }
 

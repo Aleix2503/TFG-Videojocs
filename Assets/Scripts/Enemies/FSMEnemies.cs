@@ -6,6 +6,7 @@ public class FSMEnemies : MonoBehaviour
 {
     public enum State
     {
+        Idle,
         Patrol,
         Alert,
         Attack,
@@ -22,7 +23,7 @@ public class FSMEnemies : MonoBehaviour
 
     void Start()
     {
-        state = State.Patrol;
+        //state = State.Idle;
 
         // Obtener el componente del script de detección
         playerDetection = GetComponent<PlayerDetection>();
@@ -34,15 +35,16 @@ public class FSMEnemies : MonoBehaviour
     {
         StateBehaviour behaviour = GetComponent(state.ToString()) as StateBehaviour;
         behaviour.Behaviour();
+        
         UpdateDetectionState();
     }
 
     void UpdateDetectionState()
     {
-        // Solo activar PlayerDetection si el estado es Patrol
+        // Solo activar PlayerDetection si el estado es Patrol o Alert
         if (playerDetection != null)
         {
-            playerDetection.enabled = (state == State.Patrol);
+            playerDetection.enabled = (state == State.Patrol || state == State.Alert || state == State.Idle);
         }
     }
 }
