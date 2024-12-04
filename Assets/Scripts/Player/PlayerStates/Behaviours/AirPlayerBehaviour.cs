@@ -14,12 +14,11 @@ public class AirPlayerBehaviour : PlayerBehaviour
     public override void Update()
     {
         base.Update();
-        _playerPhysics.Move(_playerController.m_playerInputHandler.absoluteMovementInput, currentRelativeVelocity);
+        currentRelativeVelocity = _playerPhysics.AirMove(_playerController.m_playerInputHandler.absoluteMovementInput, currentRelativeVelocity);
     }
     public override void FixedUpdate()
     {
         base.FixedUpdate();
-        
     }
 
 }

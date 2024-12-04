@@ -141,8 +141,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPhysicsValues: {fileID: 11400000, guid: 97aeb30f48ee88649b9995df6030e670, type: 2}
-  rb2D: {fileID: 0}
-  bCollider: {fileID: 0}
+  rb2D: {fileID: 477271805}
+  bCollider: {fileID: 477271809}
+--- !u!50 &477271805 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 6493722858751087091, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
+  m_PrefabInstance: {fileID: 1690083532}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &477271809 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 6493722858751087090, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
+  m_PrefabInstance: {fileID: 1690083532}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &613262433
 GameObject:
   m_ObjectHideFlags: 0

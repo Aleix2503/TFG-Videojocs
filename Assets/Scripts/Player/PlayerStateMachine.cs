@@ -28,10 +28,16 @@ public class PlayerStateMachine: ScriptableObject
     {
         switch(currentBehaviour){
             case IdlePlayerBehaviour:
-                _animator.Play("Idle");
+                _animator.SetBool("isMoving", false);
                 break;
             case MovePlayerBehaviour:
-                _animator.Play("Move");
+                _animator.SetBool("isMoving", true);
+                break;
+            case JumpPlayerBehaviour:
+                _animator.SetTrigger("isJumping");
+                break;
+            case FallPlayerBehaviour:
+                _animator.SetBool("isFalling", true);
                 break;
         }
     }

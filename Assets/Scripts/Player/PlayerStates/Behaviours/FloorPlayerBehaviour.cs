@@ -14,7 +14,8 @@ public class FloorPlayerBehaviour : PlayerBehaviour
     }
     public override void Update()
     {
-        _playerPhysics.Move(_playerController.m_playerInputHandler.absoluteMovementInput, currentRelativeVelocity);
+        base.Update();
+        currentRelativeVelocity = _playerPhysics.FloorMove(_playerController.m_playerInputHandler.absoluteMovementInput, currentRelativeVelocity);
     }
     public override void FixedUpdate()
     {

@@ -15,10 +15,9 @@ public class PlayerPhysics : MonoBehaviour
 
     public void Start()
     {
-        rb2D = GetComponent<Rigidbody2D>();
-        bCollider = GetComponent<BoxCollider2D>();
         SetGravityScale(playerPhysicsValues.defaultGravity);
         SetColliderDimensions(playerPhysicsValues.defaultCollisionBox, playerPhysicsValues.defaultCollisionBoxOffset, playerPhysicsValues.defaultCollisionEdgeRadius);
+        
         facingDirection = 1;
     }
     #region Physics Settings
@@ -71,7 +70,7 @@ public class PlayerPhysics : MonoBehaviour
         SetVelocityX(0);
         SetVelocityY(0);
     }
-    public void Move(float movementDir,float currentRelativeVelocity)
+    public float AirMove(float movementDir,float currentRelativeVelocity)
     {
         
         if (currentRelativeVelocity * movementDir < 0 || movementDir == 0)
@@ -85,6 +84,25 @@ public class PlayerPhysics : MonoBehaviour
 
         currentRelativeVelocity = Mathf.Clamp(currentRelativeVelocity, -1, 1);
         SetVelocityX(playerPhysicsValues.airMoveMaxVelocity * currentRelativeVelocity);
+        return currentRelativeVelocity;
+    }
+    public float FloorMove(float movementDir, float currentRelativeVelocity)
+    {
+
+
+        if (currentRelativeVelocity * movementDir < 0)
+        {
+            currentRelativeVelocity = 0;
+        }
+        else
+        {
+            currentRelativeVelocity += (Time.deltaTime / playerPhysicsValues.moveAccelerationSeconds) * movementDir;
+        }
+
+        currentRelativeVelocity = Mathf.Clamp(currentRelativeVelocity, -1, 1);
+
+        SetVelocityX(playerPhysicsValues.moveMaxVelocity * currentRelativeVelocity);
+        return currentRelativeVelocity;
     }
 
     public void Jump()

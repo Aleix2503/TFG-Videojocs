@@ -8,6 +8,7 @@ public abstract class PlayerBehaviour : MonoBehaviour
     protected PlayerPhysics _playerPhysics;
     protected PlayerController _playerController;
     public float startingTime;
+    
     public PlayerBehaviour (PlayerStateMachine playerStateMachine, PlayerPhysics playerPhysics,PlayerController playerController)
     {
         _playerStateMachine = playerStateMachine;
@@ -25,11 +26,12 @@ public abstract class PlayerBehaviour : MonoBehaviour
     }
     public virtual void FixedUpdate()
     {
+        DoChecks();
         
     }
     public virtual void DoChecks()
     {
-
+        _playerPhysics.checkIfGrounded();
     }
     
 }
