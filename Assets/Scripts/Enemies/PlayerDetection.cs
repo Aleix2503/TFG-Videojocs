@@ -59,7 +59,10 @@ public class PlayerDetection : MonoBehaviour
         else
         {
             if (GetComponent<Patrol>() != null && fsmEnemies.state != FSMEnemies.State.Patrol)
+            {
+                GetComponent<Patrol>().RotateTowardsPoint();
                 fsmEnemies.state = FSMEnemies.State.Patrol;
+            }
             else if (GetComponent<Patrol>() == null && fsmEnemies.state != FSMEnemies.State.Idle)
             {
                 GetComponent<Idle>().SetAlreadyArrivedFalse();
@@ -86,7 +89,10 @@ public class PlayerDetection : MonoBehaviour
         else
         {
             if (GetComponent<Patrol>() != null && fsmEnemies.state != FSMEnemies.State.Patrol)
+            {
+                GetComponent<Patrol>().RotateTowardsPoint();
                 fsmEnemies.state = FSMEnemies.State.Patrol;
+            }
             else if (GetComponent<Patrol>() == null && fsmEnemies.state != FSMEnemies.State.Idle)
             {
                 GetComponent<Idle>().SetAlreadyArrivedFalse();

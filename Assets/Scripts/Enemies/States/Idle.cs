@@ -76,8 +76,6 @@ public class Idle : StateBehaviour
             transform.Rotate(0, 180, 0);
         }
 
-        Debug.Log("SIUUUUUUUUUUU");
-
         alreadyArrived = false;
     }
 

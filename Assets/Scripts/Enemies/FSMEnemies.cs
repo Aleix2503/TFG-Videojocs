@@ -23,8 +23,6 @@ public class FSMEnemies : MonoBehaviour
 
     void Start()
     {
-        //state = State.Idle;
-
         // Obtener el componente del script de detección
         playerDetection = GetComponent<PlayerDetection>();
         // Asegurar que el script está activo solo si el estado es Patrol
@@ -41,7 +39,7 @@ public class FSMEnemies : MonoBehaviour
 
     void UpdateDetectionState()
     {
-        // Solo activar PlayerDetection si el estado es Patrol o Alert
+        // Solo activar PlayerDetection si el estado es Patrol o Alert o Idle
         if (playerDetection != null)
         {
             playerDetection.enabled = (state == State.Patrol || state == State.Alert || state == State.Idle);

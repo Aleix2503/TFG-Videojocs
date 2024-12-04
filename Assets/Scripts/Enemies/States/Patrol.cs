@@ -12,6 +12,8 @@ public class Patrol : StateBehaviour
     private int currentPointIndex = 0;
     private Rigidbody2D rb;
 
+    [SerializeField]
+    private float rotationSpeed = 5;
 
     void Start()
     {
@@ -21,6 +23,8 @@ public class Patrol : StateBehaviour
         {
             Debug.LogError("No patrol points have been assigned");
         }
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         Flip();
     }
@@ -45,48 +49,20 @@ public class Patrol : StateBehaviour
         if (Vector2.Distance(transform.position, targetPosition) < 0.1f)
         {
             currentPointIndex = (currentPointIndex + 1) % patrolPoints.Count;
+            
             Flip();
+
+            Quaternion targetRotation = Quaternion.Euler(0, 0, 0);
+            transform.rotation = targetRotation;
         }
     }
 
     private void Flip()
     {
-        float rotationY = RoundToZero(transform.rotation.eulerAngles.y);
-
-        if (transform.position.x > patrolPoints[currentPointIndex].transform.position.x && rotationY == 0)
-        {
-            transform.Rotate(0, 180, 0);
-        } else if (transform.position.x < patrolPoints[currentPointIndex].transform.position.x && rotationY == 180)
-        {
-            transform.Rotate(0, 180, 0);
-        }
-
-        // Corregir la rotación si es necesario
-        CorrectRotation();
-    }
-
-    float RoundToZero(float value, float epsilon = 0.01f)
-    {
-        return Mathf.Abs(value) < epsilon ? 0f : value;
-    }
-
-    void CorrectRotation()
-    {
-        // Obtener los ángulos de rotación actuales
-        Vector3 rotation = transform.rotation.eulerAngles;
-
-        // Normalizar la rotación a valores exactos de 0 o 180
-        if (Mathf.Abs(rotation.y % 360) < 1f) // Cerca de 0
-        {
-            rotation.y = 0f;
-        }
-        else if (Mathf.Abs((rotation.y - 180f) % 360) < 1f) // Cerca de 180
-        {
-            rotation.y = 180f;
-        }
-
-        // Aplicar la corrección de rotación
-        transform.rotation = Quaternion.Euler(rotation);
+        if (transform.position.x > patrolPoints[currentPointIndex].transform.position.x && !spriteRenderer.flipX)
+            spriteRenderer.flipX = true;
+        else if (transform.position.x < patrolPoints[currentPointIndex].transform.position.x && spriteRenderer.flipX)
+            spriteRenderer.flipX = false;
     }
 
     void OnDrawGizmos()
@@ -107,5 +83,20 @@ public class Patrol : StateBehaviour
             Gizmos.color = Color.red; // Cambiar color para los puntos
             Gizmos.DrawSphere(current, 0.2f); // Dibujar esfera con un radio pequeño
         }
+    }
+
+    public void RotateTowardsPoint()
+    {
+        Debug.Log("Rotate");
+        // Calcular la dirección hacia el jugador
+        Vector2 direction = patrolPoints[currentPointIndex].transform.position - transform.position;
+
+        // Calcular el ángulo en radianes y convertirlo a grados
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        // Crear una rotación en Z hacia el ángulo calculado
+        Quaternion targetRotation = Quaternion.Euler(0, 0, angle);
+
+        transform.rotation = targetRotation;
     }
 }
