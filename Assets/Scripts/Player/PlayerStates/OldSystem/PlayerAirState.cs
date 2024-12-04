@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAirState : PlayerState
+/*public class PlayerAirState : PlayerState
 {
     public PlayerAirState(PlayerController playerController, PlayerStateMachine playerStateMachine, PlayerValues playerValues, string animBoolName) : base(playerController, playerStateMachine, playerValues, animBoolName)
     {
@@ -75,4 +75,4 @@ public class PlayerAirState : PlayerState
             lastWallPaintTime = Time.time;
         }
     }
-}
+}*/

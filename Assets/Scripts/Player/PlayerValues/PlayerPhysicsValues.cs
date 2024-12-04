@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class PlayerPhysicsValues : MonoBehaviour
+[CreateAssetMenu(fileName = "newPlayerPhysicsValues", menuName = "PlayerPhysicsValues")]
+public class PlayerPhysicsValues : ScriptableObject
 {
     [Header("General")]
     public float defaultGravity = 5f;

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerEndExpandState : PlayerState
+/*public class PlayerEndExpandState : PlayerState
 {
     public PlayerEndExpandState(PlayerController playerController, PlayerStateMachine playerStateMachine, PlayerValues playerValues, string animBoolName) : base(playerController, playerStateMachine, playerValues, animBoolName)
     {
@@ -45,4 +45,4 @@ public class PlayerEndExpandState : PlayerState
             }
         }
     }
-}
+}*/

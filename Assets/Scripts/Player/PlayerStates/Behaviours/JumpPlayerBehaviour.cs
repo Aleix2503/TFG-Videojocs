@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JumpPlayerBehaviour : MovePlayerBehaviour
+public class JumpPlayerBehaviour : AirPlayerBehaviour
 {
     public JumpPlayerBehaviour(PlayerStateMachine playerStateMachine, PlayerPhysics playerPhysics, PlayerController playerController) : base(playerStateMachine, playerPhysics, playerController)
     {
@@ -15,7 +15,15 @@ public class JumpPlayerBehaviour : MovePlayerBehaviour
     public override void Update()
     {
         base.Update();
-        
+        if(_playerController.CheckIfCanDash())
+        {
+            //Add bubble and expansion
+            _playerStateMachine.ChangeState(_playerController.abilityState);
+        }
+        if (!_playerController.m_playerInputHandler.jumpInputHeld||_playerPhysics.rb2D.velocity.y<=0)
+        {
+            _playerStateMachine.ChangeState(_playerController.fallState);
+        }
     }
 
 }

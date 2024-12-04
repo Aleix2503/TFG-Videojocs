@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerJumpState : PlayerAirState
+/*public class PlayerJumpState : PlayerAirState
 {
     public PlayerJumpState(PlayerController playerController, PlayerStateMachine playerStateMachine, PlayerValues playerValues, string animBoolName) : base(playerController, playerStateMachine, playerValues, animBoolName)
     {
@@ -42,4 +42,4 @@ public class PlayerJumpState : PlayerAirState
             playerStateMachine.ChangeState(playerController.fallState);
         }
     }
-}
+}*/

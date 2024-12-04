@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStartExpandState : PlayerState
+/*public class PlayerStartExpandState : PlayerState
 {
     public PlayerStartExpandState(PlayerController playerController, PlayerStateMachine playerStateMachine, PlayerValues playerValues, string animBoolName) : base(playerController, playerStateMachine, playerValues, animBoolName)
     {
@@ -52,4 +52,4 @@ public class PlayerStartExpandState : PlayerState
             }
         }
     }
-}
+}*/

@@ -8,7 +8,7 @@ public abstract class PlayerBehaviour : MonoBehaviour
     protected PlayerPhysics _playerPhysics;
     protected PlayerController _playerController;
     public float startingTime;
-    protected PlayerBehaviour (PlayerStateMachine playerStateMachine, PlayerPhysics playerPhysics,PlayerController playerController)
+    public PlayerBehaviour (PlayerStateMachine playerStateMachine, PlayerPhysics playerPhysics,PlayerController playerController)
     {
         _playerStateMachine = playerStateMachine;
         _playerPhysics = playerPhysics;
@@ -21,13 +21,15 @@ public abstract class PlayerBehaviour : MonoBehaviour
     }
     public virtual void Update()
     {
+
     }
     public virtual void FixedUpdate()
     {
-        DoChecks();
+        
     }
     public virtual void DoChecks()
     {
 
     }
+    
 }

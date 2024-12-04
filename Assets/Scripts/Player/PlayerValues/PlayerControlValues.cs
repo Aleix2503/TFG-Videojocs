@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "newPlayerValues", menuName = "PlayerValues")]
+[CreateAssetMenu(fileName = "newPlayerControlValues", menuName = "PlayerControlValues")]
 public class PlayerControlValues : ScriptableObject
 {
     [Header("General")]

@@ -12,13 +12,13 @@ public class BreakablePlatformBehavior : MonoBehaviour
             Rigidbody2D rb2D = collision.gameObject.GetComponent<Rigidbody2D>();
             PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
             print(rb2D.velocity.y);
-            if (playerController.stateMachine.currentBehaviour is PlayerExpandedState) {
+            /*if (playerController.stateMachine.currentBehaviour is PlayerExpandedState) {
                 PlayerExpandedState expandedState = (PlayerExpandedState)playerController.stateMachine.currentBehaviour;
                 if (expandedState.canBreakGround)
                 {
                     Destroy(gameObject);
                 }
-            }
+            }*/
         }
     }
 }

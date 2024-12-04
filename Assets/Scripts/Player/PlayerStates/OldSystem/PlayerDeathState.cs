@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerDeathState : PlayerState
+/*public class PlayerDeathState : PlayerState
 {
     public PlayerDeathState(PlayerController playerController, PlayerStateMachine playerStateMachine, PlayerValues playerValues, string animBoolName) : base(playerController, playerStateMachine, playerValues, animBoolName)
     {
@@ -39,4 +39,4 @@ public class PlayerDeathState : PlayerState
             playerStateMachine.ChangeState(playerController.respawnState);
         }
     }
-}
+}*/

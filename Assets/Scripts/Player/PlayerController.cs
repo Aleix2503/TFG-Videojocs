@@ -9,19 +9,17 @@ public class PlayerController : MonoBehaviour
     public PlayerControlValues playerControlValues;
     public SpriteRenderer m_spriteRenderer;
     public PlayerInputHandler m_playerInputHandler;
-    public PlayerStateMachine stateMachine { get; private set; }
-    
-    public Animator animator;
+    public PlayerStateMachine stateMachine;
 
-    public GameObject bubbleInstance;
+    /*public GameObject bubbleInstance;
     public Transform instancedBubbleTransform;
-    public BubbleController bubbleController;
-
-    public int facingDirection { get; private set; }
+    public BubbleController bubbleController;*/
 
     public Vector3 respawnPosition { get; private set; }
 
     public float lastDashTime { get; private set; }
+
+    public bool isCoyoteTimeActive = false;
 
     public bool didPlayerTouchGroundSinceLastDash = true;
     public bool didPlayerTouchGroundSinceLastExpand = true;
@@ -51,24 +49,21 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region Unity callback functions
-    private void Awake()
-    {
-        stateMachine = new PlayerStateMachine();
 
-        idleState = new IdlePlayerBehaviour(stateMachine, playerPhysics,this);
+    void Start()
+    {
+        playerPhysics = GetComponent<PlayerPhysics>();
+        stateMachine = new();
+
+        idleState = new IdlePlayerBehaviour(stateMachine, playerPhysics, this);
         moveState = new MovePlayerBehaviour(stateMachine, playerPhysics, this);
         jumpState = new JumpPlayerBehaviour(stateMachine, playerPhysics, this);
         fallState = new FallPlayerBehaviour(stateMachine, playerPhysics, this);
         abilityState = new AbilityPlayerBehaviour(stateMachine, playerPhysics, this);
-    }
 
-
-    void Start()
-    {
-        facingDirection = 1;
         respawnPosition = Vector3.zero;
 
-        stateMachine.Initialize();
+        stateMachine.Initialize(this,GetComponentInChildren<Animator>());
         SetPlayerNoMoveForSeconds(playerControlValues.initialNoControlTime);
 
         m_playerInputHandler.Initialize(playerControlValues);
@@ -102,30 +97,6 @@ public class PlayerController : MonoBehaviour
     /// For example, you can set the horizontal velocity to walk, or an initial vertical velocity to jump.
     /// </summary>
 
-    public void SetPosition(Vector3 position)
-    {
-        transform.position = position;
-    }
-
-
-    public void CheckIfShouldFlip(float movementInput)
-    {
-        if (movementInput == 0) return;
-
-        int direction = movementInput > 0 ? 1 : -1;
-
-        if (direction != facingDirection)
-        {
-            Flip();
-        }
-    }
-
-    private void Flip()
-    {
-        facingDirection *= -1;
-        transform.Rotate(0, 180, 0);
-    }
-
     public bool CheckIfCanDash()
     {
         if (m_playerInputHandler.dashInput && isDashUnlocked && Time.time > lastDashTime + playerControlValues.dashCooldownSeconds && didPlayerTouchGroundSinceLastDash)
@@ -136,14 +107,14 @@ public class PlayerController : MonoBehaviour
         }
         return false;
     }
-
     public void ResetGroundFlags()
     {
         didPlayerTouchGroundSinceLastDash = true;
         didPlayerTouchGroundSinceLastExpand = true;
     }
 
-    public bool CheckIfCanBubble()
+
+    /*public bool CheckIfCanBubble()
     {
         if (m_playerInputHandler.bubbleInput && isBubbleUnlocked && bubbleController.isActive == false)
         {
@@ -172,7 +143,7 @@ public class PlayerController : MonoBehaviour
     public void DestroyBubble()
     {
         bubbleController.PopBubble();
-    }
+    }*/
 
     public void Respawn()
     {
@@ -214,6 +185,14 @@ public class PlayerController : MonoBehaviour
 
     #region Player altering functions called outside states
 
+    public void CheckCoyoteTime(float startTime)
+    {
+        if (isCoyoteTimeActive && Time.time > startTime + playerControlValues.coyoteTime)
+        {
+            isCoyoteTimeActive = false;
+        }
+    }
+    public void StartCoyoteTime() => isCoyoteTimeActive = true;
     public void SetRespawnPosition(Vector3 position)
     {
         respawnPosition = position;

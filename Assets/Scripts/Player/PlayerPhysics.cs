@@ -15,10 +15,17 @@ public class PlayerPhysics : MonoBehaviour
 
     public void Start()
     {
+        rb2D = GetComponent<Rigidbody2D>();
+        bCollider = GetComponent<BoxCollider2D>();
         SetGravityScale(playerPhysicsValues.defaultGravity);
         SetColliderDimensions(playerPhysicsValues.defaultCollisionBox, playerPhysicsValues.defaultCollisionBoxOffset, playerPhysicsValues.defaultCollisionEdgeRadius);
+        facingDirection = 1;
     }
     #region Physics Settings
+    public void SetPosition(Vector3 position)
+    {
+        transform.position = position;
+    }
     public void SetVelocityX(float velocity)
     {
         Vector2 newVelocity = new(velocity, rb2D.velocity.y);
@@ -61,19 +68,65 @@ public class PlayerPhysics : MonoBehaviour
     }
     public void Stop()
     {
-
+        SetVelocityX(0);
+        SetVelocityY(0);
     }
-    public void Move()
+    public void Move(float movementDir,float currentRelativeVelocity)
     {
+        
+        if (currentRelativeVelocity * movementDir < 0 || movementDir == 0)
+        {
+            currentRelativeVelocity = 0;
+        }
+        else
+        {
+            currentRelativeVelocity += (Time.deltaTime / playerPhysicsValues.airMoveAccelerationSeconds) * movementDir;
+        }
 
+        currentRelativeVelocity = Mathf.Clamp(currentRelativeVelocity, -1, 1);
+        SetVelocityX(playerPhysicsValues.airMoveMaxVelocity * currentRelativeVelocity);
     }
 
     public void Jump()
     {
+        SetVelocityY(playerPhysicsValues.jumpVelocity);
+    }
+    public void Fall()
+    {
+        rb2D.AddForce(new Vector2(0, playerPhysicsValues.fallForce));
+    }
+    public void BackToEarth()
+    {
+        rb2D.AddForce(new Vector2(0, playerPhysicsValues.fallForceWhenGoingUp));
+        if (rb2D.velocity.y < 0)
+        {
+            SetVelocityY(0);
+        }
+    }
+    public void FallMaxSpeed()
+    {
+        SetVelocityY(playerPhysicsValues.fallTerminalVelocity);
+    }
 
+    private void Flip()
+    {
+        facingDirection *= -1;
+        transform.Rotate(0, 180, 0);
     }
     #endregion
     #region Physics Checks
+    
+    public void CheckIfShouldFlip(float movementInput)
+    {
+        if (movementInput == 0) return;
+
+        int direction = movementInput > 0 ? 1 : -1;
+
+        if (direction != facingDirection)
+        {
+            Flip();
+        }
+    }
     public bool checkIfGrounded()
     {
         return Physics2D.OverlapBox((Vector2)transform.position + playerPhysicsValues.groundCheckOffset, playerPhysicsValues.groundCheckBox, 0, playerPhysicsValues.whatIsGround);
@@ -109,6 +162,7 @@ public class PlayerPhysics : MonoBehaviour
     {
         return Physics2D.OverlapBox((Vector2)transform.position + playerPhysicsValues.hazardCheckOffset, playerPhysicsValues.hazardCheckBox, 0, playerPhysicsValues.whatIsHazard);
     }
+    
 
     /*public bool checkIfTouchingBubble()
     {

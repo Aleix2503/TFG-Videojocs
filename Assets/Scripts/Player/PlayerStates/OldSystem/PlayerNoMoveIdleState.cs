@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerNoMoveIdleState : PlayerState
+/*public class PlayerNoMoveIdleState : PlayerState
 {
     public PlayerNoMoveIdleState(PlayerController playerController, PlayerStateMachine playerStateMachine, PlayerValues playerValues, string animBoolName) : base(playerController, playerStateMachine, playerValues, animBoolName)
     {
@@ -33,4 +33,4 @@ public class PlayerNoMoveIdleState : PlayerState
             playerStateMachine.ChangeState(playerController.idleState);
         }
     }
-}
+}*/

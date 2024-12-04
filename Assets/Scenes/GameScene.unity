@@ -123,6 +123,26 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &477271796 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6493722858751087088, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
+  m_PrefabInstance: {fileID: 1690083532}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &477271804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477271796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d1768b55a585de4484163ff088cb32b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPhysicsValues: {fileID: 11400000, guid: 97aeb30f48ee88649b9995df6030e670, type: 2}
+  rb2D: {fileID: 0}
+  bCollider: {fileID: 0}
 --- !u!1 &613262433
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,6 +312,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 15.2
       objectReference: {fileID: 0}
+    - target: {fileID: 6493722858751087101, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
+      propertyPath: playerControlValues
+      value: 
+      objectReference: {fileID: 11400000, guid: 9c429f0168e82624a89779ddd67a3c85, type: 2}
     - target: {fileID: 8671845885170571706, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
       propertyPath: isFreeCameraAllowed
       value: 0
