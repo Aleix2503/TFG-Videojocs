@@ -34,7 +34,7 @@ MonoBehaviour:
   fallCanPlayerFlip: 1
   coyoteTime: 0.05
   fallForce: -5
-  fallForceWhenGoingUp: -50
+  fallForceWhenGoingUp: -15
   fallTerminalVelocity: -15
   dashCooldownSeconds: 0.5
   dashVelocity: 80
