@@ -2,22 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStateMachine
+public class PlayerStateMachine: MonoBehaviour
 {
-    public PlayerState currentState { get; private set; }
+    public PlayerBehaviour currentBehaviour { get; private set; }
+    private Animator _animator;
+    private PlayerPhysics _playerPhysics;
+    private PlayerController _playerController;
 
-    public void Initialize(PlayerState state)
+    public void Initialize()
     {
-        currentState = state;
-        currentState.Enter();
+        _playerPhysics = GetComponent<PlayerPhysics>();
+        _playerController = GetComponent<PlayerController>();
+        currentBehaviour = new IdlePlayerBehaviour(this,_playerPhysics,_playerController);
+        currentBehaviour.Enter();
+        _animator = GetComponent<Animator>();
     }
 
-    public void ChangeState(PlayerState state)
+    public void ChangeState(PlayerBehaviour behaviour)
     {
-        currentState.Exit();
-
-        currentState = state;
-
-        currentState.Enter();
+        currentBehaviour = behaviour;
+    }
+    public void SetAnim()
+    {
+        switch(currentBehaviour){
+            case IdlePlayerBehaviour:
+                _animator.Play("Idle");
+                break;
+            case MovePlayerBehaviour:
+                _animator.Play("Move");
+                break;
+        }
     }
 }

@@ -1,0 +1,33 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public abstract class PlayerBehaviour : MonoBehaviour
+{
+    protected PlayerStateMachine _playerStateMachine;
+    protected PlayerPhysics _playerPhysics;
+    protected PlayerController _playerController;
+    public float startingTime;
+    protected PlayerBehaviour (PlayerStateMachine playerStateMachine, PlayerPhysics playerPhysics,PlayerController playerController)
+    {
+        _playerStateMachine = playerStateMachine;
+        _playerPhysics = playerPhysics;
+        _playerController = playerController;
+    }
+    public virtual void Enter()
+    {
+        startingTime = Time.time;
+        DoChecks();
+    }
+    public virtual void Update()
+    {
+    }
+    public virtual void FixedUpdate()
+    {
+        DoChecks();
+    }
+    public virtual void DoChecks()
+    {
+
+    }
+}
