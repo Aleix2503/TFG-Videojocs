@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerIdleState : PlayerState
+/*public class PlayerIdleState : PlayerState
 {
     public PlayerIdleState(PlayerController playerController, PlayerStateMachine playerStateMachine, PlayerValues playerValues, string animBoolName) : base(playerController, playerStateMachine, playerValues, animBoolName)
     {
@@ -55,4 +55,4 @@ public class PlayerIdleState : PlayerState
             playerStateMachine.ChangeState(playerController.fallState);
         }
     }
-}
+}*/

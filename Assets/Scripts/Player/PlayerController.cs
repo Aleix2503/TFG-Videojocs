@@ -5,25 +5,21 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public PlayerValues m_playerValues;
-
-    public Rigidbody2D m_rb2D;
-    public BoxCollider2D m_collider2D;
+    public PlayerPhysics playerPhysics;
+    public PlayerControlValues playerControlValues;
     public SpriteRenderer m_spriteRenderer;
     public PlayerInputHandler m_playerInputHandler;
-    public PlayerStateMachine stateMachine { get; private set; }
-    
-    public Animator animator;
+    public PlayerStateMachine stateMachine;
 
-    public GameObject bubbleInstance;
+    /*public GameObject bubbleInstance;
     public Transform instancedBubbleTransform;
-    public BubbleController bubbleController;
-
-    public int facingDirection { get; private set; }
+    public BubbleController bubbleController;*/
 
     public Vector3 respawnPosition { get; private set; }
 
     public float lastDashTime { get; private set; }
+
+    public bool isCoyoteTimeActive = false;
 
     public bool didPlayerTouchGroundSinceLastDash = true;
     public bool didPlayerTouchGroundSinceLastExpand = true;
@@ -34,6 +30,7 @@ public class PlayerController : MonoBehaviour
     public bool isBubbleUnlocked = false;
     public bool isExpandUnlocked = false;
 
+
     public Color currentPlayerColor => m_spriteRenderer.color;
 
     #region State machine setup
@@ -43,71 +40,37 @@ public class PlayerController : MonoBehaviour
     /// Whenever a state change happens, it gets replaced by one of these.
     /// The name of the animation parameter is set when instantiating the state in the "Awake" method.
     /// </summary>
-    public PlayerIdleState idleState { get; private set; }
-    public PlayerMoveState moveState { get; private set; }
-    public PlayerJumpState jumpState { get; private set; }
-    public PlayerFallState fallState { get; private set; }
-    public PlayerDeathState deathState { get; private set; }
-    public PlayerRespawnState respawnState { get; private set; }
+    public IdlePlayerBehaviour idleState { get; private set; }
+    public MovePlayerBehaviour moveState { get; private set; }
+    public JumpPlayerBehaviour jumpState { get; private set; }
+    public FallPlayerBehaviour fallState { get; private set; }
+    public AbilityPlayerBehaviour abilityState { get; private set; }
 
-    public PlayerDashState dashState { get; private set; }
-
-    public PlayerSummonBubbleState summonBubbleState { get; private set; }
-    public PlayerBubbledState bubbledState { get; private set; }
-
-    public PlayerStartExpandState startExpandState { get; private set; }
-    public PlayerExpandedState expandedState { get; private set; }
-    public PlayerEndExpandState endExpandState { get; private set; }
-
-    public PlayerNoMoveFallState noMoveFallState { get; private set; }
-    public PlayerNoMoveIdleState noMoveIdleState { get; private set; }
     #endregion
 
     #region Unity callback functions
-    private void Awake()
-    {
-        stateMachine = new PlayerStateMachine();
-
-        idleState = new PlayerIdleState(this, stateMachine, m_playerValues, "idle");
-        moveState = new PlayerMoveState(this, stateMachine, m_playerValues, "move");
-        jumpState = new PlayerJumpState(this, stateMachine, m_playerValues, "jump");
-        fallState = new PlayerFallState(this, stateMachine, m_playerValues, "fall");
-        deathState = new PlayerDeathState(this, stateMachine, m_playerValues, "death");
-        respawnState = new PlayerRespawnState(this, stateMachine, m_playerValues, "respawn");
-
-        dashState = new PlayerDashState(this, stateMachine, m_playerValues, "dash");
-
-        summonBubbleState = new PlayerSummonBubbleState(this, stateMachine, m_playerValues, "summonBubble");
-        bubbledState = new PlayerBubbledState(this, stateMachine, m_playerValues, "bubbled");
-
-        startExpandState = new PlayerStartExpandState(this, stateMachine, m_playerValues, "startExpand");
-        expandedState = new PlayerExpandedState(this, stateMachine, m_playerValues, "expanded");
-        endExpandState = new PlayerEndExpandState(this, stateMachine, m_playerValues, "endExpand");
-
-        noMoveIdleState = new PlayerNoMoveIdleState(this, stateMachine, m_playerValues, "idle");
-        noMoveFallState = new PlayerNoMoveFallState(this, stateMachine, m_playerValues, "fall");
-    }
-
 
     void Start()
     {
-        facingDirection = 1;
+        playerPhysics = GetComponent<PlayerPhysics>();
+        stateMachine = new();
+
+        idleState = new IdlePlayerBehaviour(stateMachine, playerPhysics, this);
+        moveState = new MovePlayerBehaviour(stateMachine, playerPhysics, this);
+        jumpState = new JumpPlayerBehaviour(stateMachine, playerPhysics, this);
+        fallState = new FallPlayerBehaviour(stateMachine, playerPhysics, this);
+        abilityState = new AbilityPlayerBehaviour(stateMachine, playerPhysics, this);
+
         respawnPosition = Vector3.zero;
 
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        stateMachine.Initialize(this,GetComponentInChildren<Animator>());
+        SetPlayerNoMoveForSeconds(playerControlValues.initialNoControlTime);
 
-        SetColliderDimensions(m_playerValues.defaultCollisionBox, m_playerValues.defaultCollisionBoxOffset, m_playerValues.defaultCollisionEdgeRadius);
-        SetGravityScale(m_playerValues.defaultGravity);
+        m_playerInputHandler.Initialize(playerControlValues);
 
-        stateMachine.Initialize(idleState);
-        SetPlayerNoMoveForSeconds(m_playerValues.initialNoControlTime);
+        //bubbleController.Initialize(this, transform, playerPhysics.playerValues);
 
-        m_playerInputHandler.Initialize(m_playerValues);
-
-        bubbleController.Initialize(this, transform, m_playerValues);
-
-        if (m_playerValues.unlockAllAbilities)
+        if (playerControlValues.unlockAllAbilities)
         {
             isDashUnlocked = true;
             isBubbleUnlocked = true;
@@ -118,12 +81,12 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        stateMachine.currentState.Update();
+        stateMachine.currentBehaviour.Update();
     }
 
     private void FixedUpdate()
     {
-        stateMachine.currentState.FixedUpdate();
+        stateMachine.currentBehaviour.FixedUpdate();
     }
     #endregion
 
@@ -134,53 +97,9 @@ public class PlayerController : MonoBehaviour
     /// For example, you can set the horizontal velocity to walk, or an initial vertical velocity to jump.
     /// </summary>
 
-    public void SetPosition(Vector3 position)
-    {
-        transform.position = position;
-    }
-    public void SetVelocityX(float velocity)
-    {
-        Vector2 newVelocity = new Vector2(velocity, m_rb2D.velocity.y);
-        m_rb2D.velocity = newVelocity;
-    }
-
-    public void SetVelocityY(float velocity)
-    {
-        Vector2 newVelocity = new Vector2(m_rb2D.velocity.x, velocity);
-        m_rb2D.velocity = newVelocity;
-    }
-
-    public void SetGravityScale(float gravity)
-    {
-        m_rb2D.gravityScale = gravity;
-    }
-
-    public void SetLinearDrag(float linearDrag)
-    {
-        m_rb2D.drag = linearDrag;
-    }
-
-    public void CheckIfShouldFlip(float movementInput)
-    {
-        if (movementInput == 0) return;
-
-        int direction = movementInput > 0 ? 1 : -1;
-
-        if (direction != facingDirection)
-        {
-            Flip();
-        }
-    }
-
-    private void Flip()
-    {
-        facingDirection *= -1;
-        transform.Rotate(0, 180, 0);
-    }
-
     public bool CheckIfCanDash()
     {
-        if (m_playerInputHandler.dashInput && isDashUnlocked && Time.time > lastDashTime + m_playerValues.dashCooldownSeconds && didPlayerTouchGroundSinceLastDash)
+        if (m_playerInputHandler.dashInput && isDashUnlocked && Time.time > lastDashTime + playerControlValues.dashCooldownSeconds && didPlayerTouchGroundSinceLastDash)
         {
             lastDashTime = Time.time;
             didPlayerTouchGroundSinceLastDash = false;
@@ -188,14 +107,14 @@ public class PlayerController : MonoBehaviour
         }
         return false;
     }
-
     public void ResetGroundFlags()
     {
         didPlayerTouchGroundSinceLastDash = true;
         didPlayerTouchGroundSinceLastExpand = true;
     }
 
-    public bool CheckIfCanBubble()
+
+    /*public bool CheckIfCanBubble()
     {
         if (m_playerInputHandler.bubbleInput && isBubbleUnlocked && bubbleController.isActive == false)
         {
@@ -213,13 +132,6 @@ public class PlayerController : MonoBehaviour
         }
         return false;
     }
-
-    public void SetColliderDimensions(Vector2 size, Vector2 offset, float edgeRadius)
-    {
-        m_collider2D.size = size;
-        m_collider2D.offset = offset;
-        m_collider2D.edgeRadius = edgeRadius;
-    }
  
     public void InstantiateBubble()
     {
@@ -231,22 +143,11 @@ public class PlayerController : MonoBehaviour
     public void DestroyBubble()
     {
         bubbleController.PopBubble();
-    }
+    }*/
 
     public void Respawn()
     {
         transform.position = respawnPosition;
-    }
-
-    public void FreezePlayerPosition(bool isPlayerFrozen)
-    {
-        if (isPlayerFrozen)
-        {
-            m_rb2D.constraints = RigidbodyConstraints2D.FreezeAll;
-        } else
-        {
-            m_rb2D.constraints = RigidbodyConstraints2D.FreezeRotation;
-        }
     }
 
     private Coroutine fadePlayerCoroutine;
@@ -282,68 +183,16 @@ public class PlayerController : MonoBehaviour
 
     #endregion
 
-    #region Physics checks
-
-    public bool checkIfGrounded()
-    {
-        return Physics2D.OverlapBox((Vector2)transform.position + m_playerValues.groundCheckOffset, m_playerValues.groundCheckBox, 0, m_playerValues.whatIsGround);
-    }
-
-    public bool checkIfTouchingFrontWall()
-    {
-        if (facingDirection == 1)
-        {
-            return checkIfTouchingRightWall();
-        } else
-        {
-            return checkIfTouchingLeftWall();
-        }
-    }
-
-    public bool checkIfTouchingRightWall()
-    {
-        return Physics2D.OverlapBox((Vector2)transform.position + m_playerValues.rightWallCheckOffset, m_playerValues.rightWallCheckBox, 0, m_playerValues.whatIsGround);
-    }
-
-    public bool checkIfTouchingLeftWall()
-    {
-        return Physics2D.OverlapBox((Vector2)transform.position + m_playerValues.leftWallCheckOffset, m_playerValues.leftWallCheckBox, 0, m_playerValues.whatIsGround);
-    }
-
-    public bool checkIfTouchingCeiling()
-    {
-        return Physics2D.OverlapBox((Vector2)transform.position + m_playerValues.ceilingCheckOffset, m_playerValues.ceilingCheckBox, 0, m_playerValues.whatIsGround);
-    }
-
-    public bool checkIfTouchingHazard()
-    {
-        return Physics2D.OverlapBox((Vector2)transform.position + m_playerValues.hazardCheckOffset, m_playerValues.hazardCheckBox, 0, m_playerValues.whatIsHazard);
-    }
-    
-    public bool checkIfTouchingBubble()
-    {
-        return Physics2D.OverlapBox((Vector2)transform.position + m_playerValues.bubbleCheckOffset, m_playerValues.bubbleCheckBox, 0, m_playerValues.whatIsBubble);
-    }
-
-    public bool checkIfExpandedCollision()
-    {
-        return Physics2D.OverlapBox((Vector2)transform.position + m_playerValues.expandedCollisionBoxOffset, m_playerValues.expandedCollisionBox, 0, m_playerValues.whatIsGround);
-    }
-
-    public bool checkIfExpandedTouchingHazard()
-    {
-        return Physics2D.OverlapBox((Vector2)transform.position + m_playerValues.expandedHazardCollisionBoxOffset, m_playerValues.expandedHazardCollisionBox, 0, m_playerValues.whatIsHazard);
-    }
-
-    public bool checkIfExpandedTouchingGround()
-    {
-        return Physics2D.OverlapBox((Vector2)transform.position + m_playerValues.expandedGroundCheckBoxOffset, m_playerValues.expandedGroundCheckBox, 0, m_playerValues.whatIsGround);
-    }
-
-    #endregion
-
     #region Player altering functions called outside states
 
+    public void CheckCoyoteTime(float startTime)
+    {
+        if (isCoyoteTimeActive && Time.time > startTime + playerControlValues.coyoteTime)
+        {
+            isCoyoteTimeActive = false;
+        }
+    }
+    public void StartCoyoteTime() => isCoyoteTimeActive = true;
     public void SetRespawnPosition(Vector3 position)
     {
         respawnPosition = position;
@@ -351,14 +200,14 @@ public class PlayerController : MonoBehaviour
 
     public void SetPlayerNoMoveForSeconds(float seconds)
     {
-        if (checkIfGrounded())
+        if (playerPhysics.isGrounded)
         {
-            noMoveIdleState.secondsLeft = seconds;
-            stateMachine.ChangeState(noMoveIdleState);
+            //noMoveIdleState.secondsLeft = seconds;
+            //stateMachine.ChangeState(noMoveIdleState);
         } else
         {
-            noMoveFallState.secondsLeft = seconds;
-            stateMachine.ChangeState(noMoveFallState);
+            //noMoveFallState.secondsLeft = seconds;
+            //stateMachine.ChangeState(noMoveFallState);
         }
     }
 
@@ -374,7 +223,7 @@ public class PlayerController : MonoBehaviour
 
     public void UnlockAbility(AbilityType ability)
     {
-        SetPlayerNoMoveForSeconds(m_playerValues.abilityUnlockNoControlTime);
+        SetPlayerNoMoveForSeconds(playerControlValues.abilityUnlockNoControlTime);
 
         switch (ability)
         {
@@ -403,7 +252,7 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region Gizmos
-    void OnDrawGizmos()
+    /*void OnDrawGizmos()
     {
         if (m_playerValues == null) return;
         if (!m_playerValues.showGizmos) return;
@@ -445,7 +294,7 @@ public class PlayerController : MonoBehaviour
             Gizmos.color = new Color(0, 0, 1, 0.2f);
             Gizmos.DrawWireCube((Vector2)transform.position + m_playerValues.expandedGroundCheckBoxOffset, m_playerValues.expandedGroundCheckBox);
         }
-    }
+    }*/
     #endregion
 
 }

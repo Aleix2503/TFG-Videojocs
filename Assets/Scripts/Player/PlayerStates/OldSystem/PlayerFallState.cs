@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerFallState : PlayerAirState
+/*public class PlayerFallState : PlayerAirState
 {
 
     public PlayerFallState(PlayerController playerController, PlayerStateMachine playerStateMachine, PlayerValues playerValues, string animBoolName) : base(playerController, playerStateMachine, playerValues, animBoolName)
@@ -102,4 +102,4 @@ public class PlayerFallState : PlayerAirState
     }
 
     public void StartCoyoteTime() => isCoyoteTimeActive = true;
-}
+}*/

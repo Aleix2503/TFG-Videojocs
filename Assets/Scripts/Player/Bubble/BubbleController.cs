@@ -15,7 +15,7 @@ public class BubbleController : MonoBehaviour
 
     private PlayerController playerController;
     private Transform playerTransform;
-    private PlayerValues playerValues;
+    /*private PlayerValues playerValues;
 
     private float startTime;
     private float maxLifetime;
@@ -110,5 +110,5 @@ public class BubbleController : MonoBehaviour
         spriteRenderer.color = Color.clear; //TODO cambiar esto cuando haya animaci�n
         
         
-    }
+    }*/
 }

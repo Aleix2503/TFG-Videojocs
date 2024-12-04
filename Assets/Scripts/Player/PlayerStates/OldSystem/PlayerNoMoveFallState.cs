@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerNoMoveFallState : PlayerAirState
+/*public class PlayerNoMoveFallState : PlayerAirState
 {
     public PlayerNoMoveFallState(PlayerController playerController, PlayerStateMachine playerStateMachine, PlayerValues playerValues, string animBoolName) : base(playerController, playerStateMachine, playerValues, animBoolName)
     {
@@ -53,4 +53,4 @@ public class PlayerNoMoveFallState : PlayerAirState
     }
 
     
-}
+}*/

@@ -24,7 +24,7 @@ public class PlayerInputHandler : MonoBehaviour
     private float lastJumpTime = 0f;
 
     public PlayerInputActions m_playerControls;
-    private PlayerValues playerValues;
+    private PlayerControlValues playerValues;
 
     private InputAction inputAction_move;
     private InputAction inputAction_jump;
@@ -37,7 +37,7 @@ public class PlayerInputHandler : MonoBehaviour
         m_playerControls = new PlayerInputActions();
     }
 
-    public void Initialize(PlayerValues playerValues)
+    public void Initialize(PlayerControlValues playerValues)
     {
         this.playerValues = playerValues;
     }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMoveState : PlayerState
+/*public class PlayerMoveState : PlayerState
 {
     public PlayerMoveState(PlayerController playerController, PlayerStateMachine playerStateMachine, PlayerValues playerValues, string animBoolName) : base(playerController, playerStateMachine, playerValues, animBoolName)
     {
@@ -106,4 +106,4 @@ public class PlayerMoveState : PlayerState
         base.DoChecks();
         isTouchingFrontWall = playerController.checkIfTouchingFrontWall();
     }
-}
+}*/

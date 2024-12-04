@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerBubbledState : PlayerState
+/*public class PlayerBubbledState : PlayerState
 {
     public PlayerBubbledState(PlayerController playerController, PlayerStateMachine playerStateMachine, PlayerValues playerValues, string animBoolName) : base(playerController, playerStateMachine, playerValues, animBoolName)
     {
@@ -71,4 +71,4 @@ public class PlayerBubbledState : PlayerState
             return;
         }
     }
-}
+}*/

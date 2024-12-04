@@ -2,22 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStateMachine
+public class PlayerStateMachine: ScriptableObject
 {
-    public PlayerState currentState { get; private set; }
+    public PlayerBehaviour currentBehaviour { get; private set; }
+    private Animator _animator;
+    public PlayerPhysics _playerPhysics;
+    private PlayerController _playerController;
 
-    public void Initialize(PlayerState state)
+    public void Initialize(PlayerController playerController,Animator animator)
     {
-        currentState = state;
-        currentState.Enter();
+        _playerController = playerController;
+        _animator = animator;
+        _playerPhysics = playerController.playerPhysics;
+        currentBehaviour = new IdlePlayerBehaviour(this, _playerPhysics, _playerController);
+        currentBehaviour.Enter();
     }
 
-    public void ChangeState(PlayerState state)
+    public void ChangeState(PlayerBehaviour behaviour)
     {
-        currentState.Exit();
-
-        currentState = state;
-
-        currentState.Enter();
+        currentBehaviour = behaviour;
+        currentBehaviour.Enter();
+        SetAnim();
+    }
+    public void SetAnim()
+    {
+        switch(currentBehaviour){
+            case IdlePlayerBehaviour:
+                _animator.SetBool("isMoving", false);
+                break;
+            case MovePlayerBehaviour:
+                _animator.SetBool("isMoving", true);
+                break;
+            case JumpPlayerBehaviour:
+                _animator.SetTrigger("isJumping");
+                break;
+            case FallPlayerBehaviour:
+                _animator.SetBool("isFalling", true);
+                break;
+        }
     }
 }

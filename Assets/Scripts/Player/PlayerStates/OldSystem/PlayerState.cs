@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerState
+/*public class PlayerState
 {
     protected PlayerController playerController;
     protected PlayerStateMachine playerStateMachine;
@@ -61,4 +61,4 @@ public class PlayerState
         isGrounded = playerController.checkIfGrounded();
         isTouchingHazard = playerController.checkIfTouchingHazard();
     }
-}
+}*/

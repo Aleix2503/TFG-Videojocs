@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerDashState : PlayerState
+/*public class PlayerDashState : PlayerState
 {
     public PlayerDashState(PlayerController playerController, PlayerStateMachine playerStateMachine, PlayerValues playerValues, string animBoolName) : base(playerController, playerStateMachine, playerValues, animBoolName)
     {
@@ -67,4 +67,4 @@ public class PlayerDashState : PlayerState
             playerStateMachine.ChangeState(playerController.fallState);
         }
     }
-}
+}*/

@@ -117,7 +117,7 @@ public class PaintManager : MonoBehaviour
         }
 
         
-        if (bubble.isActive)
+        /*if (bubble.isActive)
         {
             if (!bubbleWasActive)
             {
@@ -135,7 +135,7 @@ public class PaintManager : MonoBehaviour
                 timeSinceLastBubblePaint = 0f;
             }
         }
-        bubbleWasActive = bubble.isActive;
+        bubbleWasActive = bubble.isActive;*/
         
 
 
