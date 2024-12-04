@@ -20,14 +20,14 @@ ScriptedImporter:
   _useParallax: 1
   _intGridValues:
   - _key: IntGrid_layer_1
-    _asset: {instanceID: 0}
+    _asset: {fileID: 11400000, guid: 8dfc9ce03c232764494cd5bf26d79176, type: 2}
   - _key: IntGrid_layer_2
     _asset: {instanceID: 0}
   - _key: IntGrid_layer_3
     _asset: {instanceID: 0}
   _entities:
   - _key: PainT
-    _asset: {instanceID: 0}
+    _asset: {fileID: 3945630413489457966, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
   - _key: Tonto
     _asset: {instanceID: 0}
   - _key: Roomba
