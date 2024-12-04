@@ -22,7 +22,7 @@ public abstract class PlayerBehaviour : MonoBehaviour
     }
     public virtual void Update()
     {
-
+       _playerPhysics.CheckIfShouldFlip(_playerController.m_playerInputHandler.absoluteMovementInput);
     }
     public virtual void FixedUpdate()
     {
