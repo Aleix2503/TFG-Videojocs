@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class Patrol : StateBehaviour
 {
+    [Header("PatrolValues")]
     [SerializeField]
-    private List<GameObject> patrolPoints;
+    protected List<GameObject> patrolPoints;
 
     [SerializeField]
-    private float patrolSpeed = 3;
-    private int currentPointIndex = 0;
-    private Rigidbody2D rb;
-
-    [SerializeField]
-    private float rotationSpeed = 5;
+    protected float patrolSpeed = 3;
+    protected int currentPointIndex = 0;
+    protected Rigidbody2D rb;
 
     void Start()
     {
@@ -37,7 +35,7 @@ public class Patrol : StateBehaviour
         MoveToPoint();
     }
 
-    void MoveToPoint()
+    private void MoveToPoint()
     {
         Vector3 targetPosition = patrolPoints[currentPointIndex].transform.position;
 
@@ -65,6 +63,21 @@ public class Patrol : StateBehaviour
             spriteRenderer.flipX = false;
     }
 
+    public void RotateTowardsPoint()
+    {
+        Debug.Log("Rotate");
+        // Calcular la dirección hacia el jugador
+        Vector2 direction = patrolPoints[currentPointIndex].transform.position - transform.position;
+
+        // Calcular el ángulo en radianes y convertirlo a grados
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        // Crear una rotación en Z hacia el ángulo calculado
+        Quaternion targetRotation = Quaternion.Euler(0, 0, angle);
+
+        transform.rotation = targetRotation;
+    }
+
     void OnDrawGizmos()
     {
         // Dibujar las líneas entre puntos de patrulla para visualizarlos en la escena
@@ -83,20 +96,5 @@ public class Patrol : StateBehaviour
             Gizmos.color = Color.red; // Cambiar color para los puntos
             Gizmos.DrawSphere(current, 0.2f); // Dibujar esfera con un radio pequeño
         }
-    }
-
-    public void RotateTowardsPoint()
-    {
-        Debug.Log("Rotate");
-        // Calcular la dirección hacia el jugador
-        Vector2 direction = patrolPoints[currentPointIndex].transform.position - transform.position;
-
-        // Calcular el ángulo en radianes y convertirlo a grados
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-        // Crear una rotación en Z hacia el ángulo calculado
-        Quaternion targetRotation = Quaternion.Euler(0, 0, angle);
-
-        transform.rotation = targetRotation;
     }
 }
