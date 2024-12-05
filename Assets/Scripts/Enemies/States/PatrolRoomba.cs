@@ -77,6 +77,7 @@ public class PatrolRoomba : Patrol
         if (Vector2.Distance(transform.position, targetPosition) < 0.005f)
         {
             currentPointIndex = (currentPointIndex + 1) % patrolPoints.Count;
+            rotating = false;
         }
     }
 
@@ -124,7 +125,12 @@ public class PatrolRoomba : Patrol
         Quaternion endRotation = transform.rotation * Quaternion.Euler(new Vector3(0, 0, -90)); // Rotación final
 
         float totalAngle = Quaternion.Angle(startRotation, endRotation); // Ángulo total de rotación
-        float duration = totalAngle / rotationSpeed; // Tiempo requerido para completar la rotación
+        float duration = 0;
+
+        if (patrolSpeed < 2)
+            duration = totalAngle / (rotationSpeed / 2); // Tiempo requerido para completar la rotación
+        else 
+            duration = totalAngle / rotationSpeed;
 
         float elapsedTime = 0f;
 
@@ -139,6 +145,5 @@ public class PatrolRoomba : Patrol
 
         // Asegurarnos de que la rotación final sea exacta
         transform.rotation = endRotation;
-        rotating = false;
     }
 }

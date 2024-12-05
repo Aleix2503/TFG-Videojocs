@@ -9,7 +9,7 @@ public class Patrol : StateBehaviour
     protected List<GameObject> patrolPoints;
 
     [SerializeField]
-    protected float patrolSpeed = 3;
+    public float patrolSpeed = 3;
     protected int currentPointIndex = 0;
     protected Rigidbody2D rb;
 

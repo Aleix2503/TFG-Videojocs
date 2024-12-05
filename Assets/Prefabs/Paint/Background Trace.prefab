@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3599915309634892715}
   - component: {fileID: 8741388231476960769}
   - component: {fileID: 1817961889584530379}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Background Trace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4412447120390475733}
   - component: {fileID: 8942192563927632820}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TraceSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
