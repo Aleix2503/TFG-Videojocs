@@ -14,9 +14,8 @@ public class IdlePlayerBehaviour : PlayerBehaviour
     public override void Update()
     {
         base.Update();
-        if (_playerController.CheckIfCanDash())
+        if (_playerController.CheckIfCanDash()||_playerController.CheckIfCanBubble()||_playerController.CheckIfCanExpand())
         {
-            //Add bubble and expansion
             _playerStateMachine.ChangeState(_playerController.abilityState);
         }
         if (_playerController.m_playerInputHandler.jumpInput == true)

@@ -11,9 +11,8 @@ public class FallPlayerBehaviour : AirPlayerBehaviour
     {
         _playerController.CheckCoyoteTime(startingTime);
 
-        if (_playerController.CheckIfCanDash()) 
+        if (_playerController.CheckIfCanDash() || _playerController.CheckIfCanBubble() || _playerController.CheckIfCanExpand())
         {
-            //Add expand and bubble
             _playerStateMachine.ChangeState(_playerController.abilityState);
         }
 

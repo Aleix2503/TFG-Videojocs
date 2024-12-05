@@ -37,8 +37,6 @@ public class PlayerPhysicsValues : ScriptableObject
     public float dashVelocity = 30f;
     public float dashTime = 0.3f;
     public float dashLinearDrag = 8f;
-    public float dashColorFadeInTime = 0.1f;
-    public float dashColorFadeOutTime = 0.5f;
     [Space]
 
     //[Header("Bubble State")]

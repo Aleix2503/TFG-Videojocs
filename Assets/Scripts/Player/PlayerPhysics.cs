@@ -104,7 +104,6 @@ public class PlayerPhysics : MonoBehaviour
         SetVelocityX(playerPhysicsValues.moveMaxVelocity * currentRelativeVelocity);
         return currentRelativeVelocity;
     }
-
     public void Jump()
     {
         SetVelocityY(playerPhysicsValues.jumpVelocity);
@@ -125,15 +124,26 @@ public class PlayerPhysics : MonoBehaviour
     {
         SetVelocityY(playerPhysicsValues.fallTerminalVelocity);
     }
-
     private void Flip()
     {
         facingDirection *= -1;
         transform.Rotate(0, 180, 0);
     }
+    public void DashIn()
+    {
+        SetVelocityY(0);
+        SetGravityScale(0);
+        SetVelocityX(playerPhysicsValues.dashVelocity * facingDirection);
+        SetLinearDrag(playerPhysicsValues.dashLinearDrag);
+    }
+    public void DashOut()
+    {
+        SetGravityScale(1);
+        SetLinearDrag(playerPhysicsValues.defaultLinearDrag);
+    }
     #endregion
     #region Physics Checks
-    
+
     public void CheckIfShouldFlip(float movementInput)
     {
         if (movementInput == 0) return;

@@ -26,7 +26,9 @@ public class PlayerControlValues : ScriptableObject
     [Space]
 
     [Header("Dash State")]
-    public float dashCooldownSeconds = 0.5f;    
+    public float dashCooldownSeconds = 0.5f;
+    public float dashColorFadeInTime = 0.1f;
+    public float dashColorFadeOutTime = 0.5f;
     [Space]
 
     /*[Header("Bubble Summon State")]

@@ -50,10 +50,10 @@ public class PlayerController : MonoBehaviour
 
     #region Unity callback functions
 
-    void Start()
+    public void Start()
     {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
         playerPhysics = GetComponent<PlayerPhysics>();
         stateMachine = new();
 
@@ -62,10 +62,10 @@ public class PlayerController : MonoBehaviour
         jumpState = new JumpPlayerBehaviour(stateMachine, playerPhysics, this);
         fallState = new FallPlayerBehaviour(stateMachine, playerPhysics, this);
         abilityState = new AbilityPlayerBehaviour(stateMachine, playerPhysics, this);
-
+        
         respawnPosition = Vector3.zero;
 
-        stateMachine.Initialize(this,GetComponentInChildren<Animator>());
+        stateMachine.Initialize(this, GetComponentInChildren<Animator>());
         SetPlayerNoMoveForSeconds(playerControlValues.initialNoControlTime);
 
         m_playerInputHandler.Initialize(playerControlValues);
@@ -98,15 +98,17 @@ public class PlayerController : MonoBehaviour
     /// All functions that the states can call on the PlayerController to alter it.
     /// For example, you can set the horizontal velocity to walk, or an initial vertical velocity to jump.
     /// </summary>
-
+    public bool canDash = false;
     public bool CheckIfCanDash()
     {
         if (m_playerInputHandler.dashInput && isDashUnlocked && Time.time > lastDashTime + playerControlValues.dashCooldownSeconds && didPlayerTouchGroundSinceLastDash)
         {
             lastDashTime = Time.time;
             didPlayerTouchGroundSinceLastDash = false;
+            canDash = true;
             return true;
         }
+        canDash = false;
         return false;
     }
     public void ResetGroundFlags()
@@ -115,27 +117,39 @@ public class PlayerController : MonoBehaviour
         didPlayerTouchGroundSinceLastExpand = true;
     }
 
-
-    /*public bool CheckIfCanBubble()
+    public bool canBubble = false;
+    public bool CheckIfCanBubble()
     {
-        if (m_playerInputHandler.bubbleInput && isBubbleUnlocked && bubbleController.isActive == false)
+        /*if (m_playerInputHandler.bubbleInput && isBubbleUnlocked && bubbleController.isActive == false)
         {
+            canBubble = true;
             return true;
-        }
+        }*/
+        canBubble = false;
         return false;
     }
-
+    public bool canExpand = false;
     public bool CheckIfCanExpand()
     {
         if (m_playerInputHandler.expandInput && isExpandUnlocked && didPlayerTouchGroundSinceLastExpand)
         {
             didPlayerTouchGroundSinceLastExpand = false;
+            canExpand = true;
             return true;
         }
+        canExpand = false;
         return false;
     }
- 
-    public void InstantiateBubble()
+    public void DashIn()
+    {
+        FadePlayerColor(playerControlValues.dashColor, playerControlValues.dashColorFadeInTime);
+    }
+    public void DashOut()
+    {
+        FadePlayerColor(playerControlValues.defaultColor, playerControlValues.dashColorFadeOutTime);
+    }
+
+    /*public void InstantiateBubble()
     {
         bubbleController.SummonBubble();
         instancedBubbleTransform = bubbleInstance.transform;

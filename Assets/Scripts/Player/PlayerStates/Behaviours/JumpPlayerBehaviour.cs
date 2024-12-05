@@ -15,9 +15,8 @@ public class JumpPlayerBehaviour : AirPlayerBehaviour
     public override void Update()
     {
         base.Update();
-        if(_playerController.CheckIfCanDash())
+        if (_playerController.CheckIfCanDash() || _playerController.CheckIfCanBubble() || _playerController.CheckIfCanExpand())
         {
-            //Add bubble and expansion
             _playerStateMachine.ChangeState(_playerController.abilityState);
         }
         if (!_playerController.m_playerInputHandler.jumpInputHeld||_playerPhysics.rb2D.velocity.y<=0)
