@@ -317,6 +317,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 517991295802016484, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 517991295802016484, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -2086448749
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251338943627777622, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251338943627777622, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -2086448749
+      objectReference: {fileID: 0}
+    - target: {fileID: 3271832097577571392, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3271832097577571392, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -2086448749
+      objectReference: {fileID: 0}
     - target: {fileID: 3641801050012016723, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -513,7 +537,8 @@ PrefabInstance:
       propertyPath: isFreeCameraAllowed
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8862319756633959598, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
 --- !u!1001 &7534376819938507563
 PrefabInstance:
