@@ -44,7 +44,10 @@ public class PlayerController : MonoBehaviour
     public MovePlayerBehaviour moveState { get; private set; }
     public JumpPlayerBehaviour jumpState { get; private set; }
     public FallPlayerBehaviour fallState { get; private set; }
-    public AbilityPlayerBehaviour abilityState { get; private set; }
+    public DashPlayerBehaviour dashState { get; private set; }
+    public BubblePlayerBehaviour bubbleState { get; private set; }
+    public ExpandPlayerBehaviour expandState { get; private set; }
+
 
     #endregion
 
@@ -61,8 +64,11 @@ public class PlayerController : MonoBehaviour
         moveState = new MovePlayerBehaviour(stateMachine, playerPhysics, this);
         jumpState = new JumpPlayerBehaviour(stateMachine, playerPhysics, this);
         fallState = new FallPlayerBehaviour(stateMachine, playerPhysics, this);
-        abilityState = new AbilityPlayerBehaviour(stateMachine, playerPhysics, this);
-        
+        dashState = new DashPlayerBehaviour(stateMachine, playerPhysics, this);
+        bubbleState = new BubblePlayerBehaviour(stateMachine, playerPhysics, this);
+        expandState = new ExpandPlayerBehaviour(stateMachine, playerPhysics, this);
+
+
         respawnPosition = Vector3.zero;
 
         stateMachine.Initialize(this, GetComponentInChildren<Animator>());
@@ -83,12 +89,12 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        stateMachine.currentBehaviour.Update();
+        stateMachine.currentBehaviour.Logic();
     }
 
     private void FixedUpdate()
     {
-        stateMachine.currentBehaviour.FixedUpdate();
+        stateMachine.currentBehaviour.Physics();
     }
     #endregion
 
@@ -98,17 +104,14 @@ public class PlayerController : MonoBehaviour
     /// All functions that the states can call on the PlayerController to alter it.
     /// For example, you can set the horizontal velocity to walk, or an initial vertical velocity to jump.
     /// </summary>
-    public bool canDash = false;
     public bool CheckIfCanDash()
     {
         if (m_playerInputHandler.dashInput && isDashUnlocked && Time.time > lastDashTime + playerControlValues.dashCooldownSeconds && didPlayerTouchGroundSinceLastDash)
         {
             lastDashTime = Time.time;
             didPlayerTouchGroundSinceLastDash = false;
-            canDash = true;
             return true;
         }
-        canDash = false;
         return false;
     }
     public void ResetGroundFlags()

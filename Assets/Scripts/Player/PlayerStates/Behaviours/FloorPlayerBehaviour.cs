@@ -12,14 +12,14 @@ public class FloorPlayerBehaviour : PlayerBehaviour
         _playerController.ResetGroundFlags();
         currentRelativeVelocity = _playerPhysics.rb2D.velocity.x / _playerPhysics.playerPhysicsValues.moveMaxVelocity;
     }
-    public override void Update()
+    public override void Logic()
     {
-        base.Update();
+        base.Logic();
         currentRelativeVelocity = _playerPhysics.FloorMove(_playerController.m_playerInputHandler.absoluteMovementInput, currentRelativeVelocity);
     }
-    public override void FixedUpdate()
+    public override void Physics()
     {
-        base.FixedUpdate();
+        base.Physics();
         
     }
 }

@@ -9,10 +9,6 @@ public class PlayerStateMachine: ScriptableObject
     public PlayerPhysics _playerPhysics;
     private PlayerController _playerController;
 
-    public DashPlayerAbility dashPlayerAbility;
-    public BubblePlayerAbility bubblePlayerAbility;
-    public ExpandPlayerAbility expandPlayerAbility;
-
     public void Initialize(PlayerController playerController,Animator animator)
     {
         _playerController = playerController;
@@ -20,11 +16,6 @@ public class PlayerStateMachine: ScriptableObject
         _playerPhysics = playerController.playerPhysics;
         currentBehaviour = new IdlePlayerBehaviour(this, _playerPhysics, _playerController);
         currentBehaviour.Enter();
-
-
-        dashPlayerAbility = new DashPlayerAbility(this, _playerPhysics, playerController,_playerController.abilityState);
-        bubblePlayerAbility = new BubblePlayerAbility(this, _playerPhysics, playerController,_playerController.abilityState);
-        expandPlayerAbility = new ExpandPlayerAbility(this, _playerPhysics, playerController,_playerController.abilityState);
     }
 
     public void ChangeState(PlayerBehaviour behaviour)
@@ -54,6 +45,15 @@ public class PlayerStateMachine: ScriptableObject
                     break;
                 case FallPlayerBehaviour:
                     _animator.SetTrigger("isFalling");
+                    break;
+                case DashPlayerBehaviour:
+                    _animator.SetTrigger("isDashing");
+                    break;
+                case BubblePlayerBehaviour:
+                    _animator.SetTrigger("isBubbling");
+                    break;
+                case ExpandPlayerBehaviour:
+                    _animator.SetTrigger("isExpanding");
                     break;
             }
         }else if(num == 1)

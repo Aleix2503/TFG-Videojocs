@@ -72,7 +72,7 @@ public class PlayerPhysics : MonoBehaviour
     }
     public float AirMove(float movementDir,float currentRelativeVelocity)
     {
-        
+        CheckIfShouldFlip(movementDir);
         if (currentRelativeVelocity * movementDir < 0 || movementDir == 0)
         {
             currentRelativeVelocity = 0;
@@ -88,7 +88,7 @@ public class PlayerPhysics : MonoBehaviour
     }
     public float FloorMove(float movementDir, float currentRelativeVelocity)
     {
-
+        CheckIfShouldFlip(movementDir);
 
         if (currentRelativeVelocity * movementDir < 0)
         {

@@ -526,6 +526,14 @@ PrefabInstance:
       value: 15.2
       objectReference: {fileID: 0}
     - target: {fileID: 6493722858751087101, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
+      propertyPath: isDashUnlocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6493722858751087101, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
+      propertyPath: m_spriteRenderer
+      value: 
+      objectReference: {fileID: 1740433232}
+    - target: {fileID: 6493722858751087101, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
       propertyPath: playerControlValues
       value: 
       objectReference: {fileID: 11400000, guid: 9c429f0168e82624a89779ddd67a3c85, type: 2}
@@ -540,6 +548,11 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 8862319756633959598, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
+--- !u!212 &1740433232 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3271832097577571392, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
+  m_PrefabInstance: {fileID: 1690083532}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7534376819938507563
 PrefabInstance:
   m_ObjectHideFlags: 0

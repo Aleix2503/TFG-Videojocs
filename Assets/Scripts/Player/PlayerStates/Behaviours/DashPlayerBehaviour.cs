@@ -2,38 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DashPlayerAbility : PlayerAbility
+public class DashPlayerBehaviour : PlayerBehaviour
 {
-    public DashPlayerAbility(PlayerStateMachine playerStateMachine, PlayerPhysics playerPhysics, PlayerController playerController, AbilityPlayerBehaviour abilityPlayerBehaviour) : base(playerStateMachine, playerPhysics, playerController, abilityPlayerBehaviour)
+    public DashPlayerBehaviour(PlayerStateMachine playerStateMachine, PlayerPhysics playerPhysics, PlayerController playerController) : base(playerStateMachine, playerPhysics, playerController)
     {
     }
 
-    public override void Activate()
+    public override void Enter()
     {
-        base.Activate();
+        base.Enter();
         _playerPhysics.DashIn();
         _playerController.DashIn();
     }
-    public override void Deactivate()
+    public override void Logic()
     {
-        base.Deactivate();
-        _playerPhysics.DashOut();
-        _playerController.DashOut();
-    }
-    public override void Update()
-    {
-        base.Update();
+        base.Logic();
         _playerPhysics.SetVelocityY(0);
         float elapsedTime = Time.time - startingTime;
         float dashDuration = _playerPhysics.playerPhysicsValues.dashTime;
         float fraction = elapsedTime / dashDuration;
 
         float currentDrag = Mathf.Lerp(_playerPhysics.playerPhysicsValues.dashLinearDrag, _playerPhysics.playerPhysicsValues.defaultLinearDrag, fraction);
+
         _playerPhysics.SetLinearDrag(currentDrag);
 
         if(elapsedTime > dashDuration)
         {
-            _abilityPlayerBehaviour.AbilityOut();
+            _playerPhysics.DashOut();
+            _playerController.DashOut();
+            _playerStateMachine.ChangeState(_playerController.idleState);
         }
         
     }

@@ -12,12 +12,20 @@ public class MovePlayerBehaviour : FloorPlayerBehaviour
         base.Enter();
 
     }
-    public override void Update()
+    public override void Logic()
     {
-        base.Update();
-        if (_playerController.CheckIfCanDash() || _playerController.CheckIfCanBubble() || _playerController.CheckIfCanExpand())
+        base.Logic();
+        if (_playerController.CheckIfCanDash())
         {
-            _playerStateMachine.ChangeState(_playerController.abilityState);
+            _playerStateMachine.ChangeState(_playerController.dashState);
+        }
+        if (_playerController.CheckIfCanBubble())
+        {
+            _playerStateMachine.ChangeState(_playerController.bubbleState);
+        }
+        if (_playerController.CheckIfCanExpand())
+        {
+            _playerStateMachine.ChangeState(_playerController.expandState);
         }
         if (_playerController.m_playerInputHandler.jumpInput == true)
         {
@@ -33,9 +41,9 @@ public class MovePlayerBehaviour : FloorPlayerBehaviour
             _playerStateMachine.ChangeState(_playerController.fallState);
         }
     }
-    public override void FixedUpdate()
+    public override void Physics()
     {
-        base.FixedUpdate();
+        base.Physics();
         
     }
 }

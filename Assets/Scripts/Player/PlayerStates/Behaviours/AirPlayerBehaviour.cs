@@ -11,14 +11,14 @@ public class AirPlayerBehaviour : PlayerBehaviour
         base.Enter();
         currentRelativeVelocity = _playerPhysics.rb2D.velocity.x / _playerPhysics.playerPhysicsValues.airMoveMaxVelocity;
     }
-    public override void Update()
+    public override void Logic()
     {
-        base.Update();
+        base.Logic();
         currentRelativeVelocity = _playerPhysics.AirMove(_playerController.m_playerInputHandler.absoluteMovementInput, currentRelativeVelocity);
     }
-    public override void FixedUpdate()
+    public override void Physics()
     {
-        base.FixedUpdate();
+        base.Physics();
     }
 
 }

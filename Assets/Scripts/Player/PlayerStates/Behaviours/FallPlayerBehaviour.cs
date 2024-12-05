@@ -7,13 +7,21 @@ public class FallPlayerBehaviour : AirPlayerBehaviour
     public FallPlayerBehaviour(PlayerStateMachine playerStateMachine, PlayerPhysics playerPhysics, PlayerController playerController) : base(playerStateMachine, playerPhysics, playerController)
     {
     }
-    public override void Update()
+    public override void Logic()
     {
         _playerController.CheckCoyoteTime(startingTime);
 
-        if (_playerController.CheckIfCanDash() || _playerController.CheckIfCanBubble() || _playerController.CheckIfCanExpand())
+        if (_playerController.CheckIfCanDash())
         {
-            _playerStateMachine.ChangeState(_playerController.abilityState);
+            _playerStateMachine.ChangeState(_playerController.dashState);
+        }
+        if (_playerController.CheckIfCanBubble())
+        {
+            _playerStateMachine.ChangeState(_playerController.bubbleState);
+        }
+        if (_playerController.CheckIfCanExpand())
+        {
+            _playerStateMachine.ChangeState(_playerController.expandState);
         }
 
         if (_playerPhysics.rb2D.velocity.y > 0) {_playerPhysics.BackToEarth();}

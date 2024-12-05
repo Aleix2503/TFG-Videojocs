@@ -20,11 +20,10 @@ public abstract class PlayerBehaviour : MonoBehaviour
         startingTime = Time.time;
         DoChecks();
     }
-    public virtual void Update()
+    public virtual void Logic()
     {
-
     }
-    public virtual void FixedUpdate()
+    public virtual void Physics()
     {
         DoChecks();
         
