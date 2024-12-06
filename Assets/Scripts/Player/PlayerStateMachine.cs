@@ -24,6 +24,7 @@ public class PlayerStateMachine: ScriptableObject
         {
             SetAnim(1);
         }
+        _playerController.SetPaintingState(PlayerPaintingState.def);
         currentBehaviour = behaviour;
         currentBehaviour.Enter();
         SetAnim(0);

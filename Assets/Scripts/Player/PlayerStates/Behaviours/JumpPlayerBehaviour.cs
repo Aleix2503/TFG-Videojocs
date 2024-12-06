@@ -11,7 +11,7 @@ public class JumpPlayerBehaviour : AirPlayerBehaviour
     {
         base.Enter();
         _playerPhysics.Jump();
-        Debug.Log("Jump");
+        PaintManager._instance.EmitJumpParticles();
     }
     public override void Logic()
     {

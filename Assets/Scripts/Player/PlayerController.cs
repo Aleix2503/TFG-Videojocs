@@ -146,10 +146,12 @@ public class PlayerController : MonoBehaviour
     public void DashIn()
     {
         FadePlayerColor(playerControlValues.dashColor, playerControlValues.dashColorFadeInTime);
+        SetPaintingState(PlayerPaintingState.dashing);
     }
     public void DashOut()
     {
         FadePlayerColor(playerControlValues.defaultColor, playerControlValues.dashColorFadeOutTime);
+        SetPaintingState(PlayerPaintingState.def);
     }
 
     /*public void InstantiateBubble()

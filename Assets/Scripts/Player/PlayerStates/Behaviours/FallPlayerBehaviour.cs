@@ -4,12 +4,26 @@ using UnityEngine;
 
 public class FallPlayerBehaviour : AirPlayerBehaviour
 {
+    private bool isTouchingCeiling = false;
+    private bool hasTouchedCeiling = false;
     public FallPlayerBehaviour(PlayerStateMachine playerStateMachine, PlayerPhysics playerPhysics, PlayerController playerController) : base(playerStateMachine, playerPhysics, playerController)
     {
+    }
+    public void Enter()
+    {
+        base.Enter();
+        hasTouchedCeiling = false;
     }
     public override void Logic()
     {
         _playerController.CheckCoyoteTime(startingTime);
+
+        if (isTouchingCeiling && !hasTouchedCeiling)
+        {
+            PaintManager._instance.PlaceSplat(_playerPhysics.transform.position + new Vector3(0, 0.3f, 0), Vector3.down, _playerController.playerControlValues.defaultColor);
+
+            hasTouchedCeiling = true;
+        }
 
         if (_playerController.CheckIfCanDash())
         {
@@ -38,6 +52,7 @@ public class FallPlayerBehaviour : AirPlayerBehaviour
         }
         if (_playerPhysics.isGrounded)
         {
+            PaintManager._instance.PlaceOnFallTrace();
             if (_playerController.m_playerInputHandler.absoluteMovementInput == 0)
             {
                 _playerStateMachine.ChangeState(_playerController.idleState);
@@ -49,4 +64,10 @@ public class FallPlayerBehaviour : AirPlayerBehaviour
         }
 
     }
+    public override void DoChecks()
+    {
+        base.DoChecks();
+        isTouchingCeiling = _playerPhysics.checkIfTouchingCeiling();
+    }
+
 }

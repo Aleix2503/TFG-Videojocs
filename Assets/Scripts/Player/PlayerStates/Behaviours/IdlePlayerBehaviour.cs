@@ -10,6 +10,8 @@ public class IdlePlayerBehaviour : PlayerBehaviour
     {
         base.Enter();
         _playerPhysics.Stop();
+        PaintManager._instance.PlaceSplat(_playerPhysics.transform.position + new Vector3(0, -0.5f, 0),
+                Vector3.up, _playerController.currentPlayerColor);
     }
     public override void Logic()
     {

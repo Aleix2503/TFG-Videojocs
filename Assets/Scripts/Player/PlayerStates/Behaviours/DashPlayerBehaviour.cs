@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DashPlayerBehaviour : PlayerBehaviour
 {
+    bool isTouchingFrontWall;
     public DashPlayerBehaviour(PlayerStateMachine playerStateMachine, PlayerPhysics playerPhysics, PlayerController playerController) : base(playerStateMachine, playerPhysics, playerController)
     {
     }
@@ -13,6 +14,8 @@ public class DashPlayerBehaviour : PlayerBehaviour
         base.Enter();
         _playerPhysics.DashIn();
         _playerController.DashIn();
+        PaintManager._instance.EmitDashParticles();
+
     }
     public override void Logic()
     {
@@ -32,6 +35,20 @@ public class DashPlayerBehaviour : PlayerBehaviour
             _playerController.DashOut();
             _playerStateMachine.ChangeState(_playerController.idleState);
         }
-        
+        if(isTouchingFrontWall)
+        {
+            PaintManager._instance.PlaceSplat(_playerPhysics.transform.position + new Vector3(0.5f * _playerPhysics.facingDirection, 0, 0),
+                Vector3.left * _playerPhysics.facingDirection, _playerController.playerControlValues.dashColor);
+            _playerPhysics.DashOut();
+            _playerController.DashOut();
+            _playerStateMachine.ChangeState(_playerController.idleState);
+        }
+
+    }
+    public override void DoChecks()
+    {
+        base.DoChecks();
+        isTouchingFrontWall = _playerPhysics.checkIfTouchingFrontWall();
     }
 }
+
