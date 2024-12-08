@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BubbleController : MonoBehaviour
 {
-    public LayerMask platformLayer;
+    /*public LayerMask platformLayer;
     public LayerMask hazardLayer;
 
     public Rigidbody2D rb2D;
@@ -15,7 +15,7 @@ public class BubbleController : MonoBehaviour
 
     private PlayerController playerController;
     private Transform playerTransform;
-    /*private PlayerValues playerValues;
+    private PlayerValues playerValues;
 
     private float startTime;
     private float maxLifetime;

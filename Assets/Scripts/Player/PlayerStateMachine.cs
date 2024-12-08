@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStateMachine: ScriptableObject
+public class PlayerStateMachine : ScriptableObject
 {
     public PlayerBehaviour currentBehaviour { get; private set; }
     public Animator _animator;
     public PlayerPhysics _playerPhysics;
     private PlayerController _playerController;
 
-    public void Initialize(PlayerController playerController,Animator animator)
+    public void Initialize(PlayerController playerController, Animator animator)
     {
         _playerController = playerController;
         _animator = animator;
@@ -20,10 +20,7 @@ public class PlayerStateMachine: ScriptableObject
 
     public void ChangeState(PlayerBehaviour behaviour)
     {
-        if(currentBehaviour is FallPlayerBehaviour)
-        {
-            SetAnim(1);
-        }
+        _playerController.SetPaintingState(PlayerPaintingState.def);
         currentBehaviour = behaviour;
         currentBehaviour.Enter();
         SetAnim(0);
@@ -50,15 +47,20 @@ public class PlayerStateMachine: ScriptableObject
                     _animator.SetTrigger("isDashing");
                     break;
                 case BubblePlayerBehaviour:
-                    _animator.SetTrigger("isBubbling");
+                    _animator.SetBool("isBubbling", true);
                     break;
                 case ExpandPlayerBehaviour:
                     _animator.SetTrigger("isExpanding");
                     break;
             }
-        }else if(num == 1)
+        }
+        else if (num == 1)
         {
             _animator.SetTrigger("hasLanded");
         }
-    }
+        else if (num == 2)
+        {
+            _animator.SetBool("isBubbling", false);
+        }
+        }
 }

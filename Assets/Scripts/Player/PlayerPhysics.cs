@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -138,8 +139,59 @@ public class PlayerPhysics : MonoBehaviour
     }
     public void DashOut()
     {
-        SetGravityScale(1);
+        SetGravityScale(playerPhysicsValues.defaultGravity);
         SetLinearDrag(playerPhysicsValues.defaultLinearDrag);
+    }
+    public void BubbleIn()
+    {
+        FreezePlayerPosition(true);
+        StartCoroutine(BubbleInCoroutine());
+    }
+    private IEnumerator BubbleInCoroutine()
+    {
+        yield return new WaitForSeconds(playerPhysicsValues.bubbleTransformationTime);
+        SetGravityScale(playerPhysicsValues.bubbleGravityScale);
+        FreezePlayerPosition(false);
+    }
+    public void BubbleOut()
+    {
+        FreezePlayerPosition(true);
+    }
+    public void ImpulseBubble()
+    {
+        rb2D.AddForce(new Vector2(0, playerPhysicsValues.floatForceWhenGoingDown));
+    }
+    public void Float()
+    {
+        rb2D.AddForce(new Vector2(0, playerPhysicsValues.floatForce));
+    }
+    public void BubbleMaxSpeed()
+    {
+        SetVelocityY(playerPhysicsValues.floatTerminalVelocity);
+    }
+    public float BubbleMove(int movementDir,float currentRelativeVelocity)
+    {
+        CheckIfShouldFlip(movementDir);
+        if (currentRelativeVelocity * movementDir < 0 || movementDir == 0)
+        {
+            currentRelativeVelocity = 0;
+        }
+        else
+        {
+            currentRelativeVelocity += (Time.deltaTime / playerPhysicsValues.bubbleHorizontalAccelerationSeconds) * movementDir;
+        }
+
+        currentRelativeVelocity = Mathf.Clamp(currentRelativeVelocity, -1, 1);
+        SetVelocityX(playerPhysicsValues.bubbleHorizontalVelocity * currentRelativeVelocity);
+        return currentRelativeVelocity;
+    }
+    public void BounceHorizontal()
+    {
+        SetVelocityX(facingDirection * -playerPhysicsValues.bubbleBounceVelocity);
+    }
+    public void BounceVertical()
+    {
+        SetVelocityY(-playerPhysicsValues.bubbleBounceVelocity);
     }
     #endregion
     #region Physics Checks

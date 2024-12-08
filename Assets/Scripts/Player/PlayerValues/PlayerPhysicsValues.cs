@@ -39,7 +39,15 @@ public class PlayerPhysicsValues : ScriptableObject
     public float dashLinearDrag = 8f;
     [Space]
 
-    //[Header("Bubble State")]
+    [Header("Bubble State")]
+    public float bubbleHorizontalVelocity = 5f;
+    public float bubbleHorizontalAccelerationSeconds = 0.3f;
+    public float floatForce = 5f;
+    public float floatForceWhenGoingDown = 15f;
+    public float floatTerminalVelocity = 10f;
+    public float bubbleGravityScale = -1f;
+    public float bubbleTransformationTime = 1f;
+    public float bubbleBounceVelocity = 5f;
     //[Header("Expansion State")]
 
     [Header("Checks")]

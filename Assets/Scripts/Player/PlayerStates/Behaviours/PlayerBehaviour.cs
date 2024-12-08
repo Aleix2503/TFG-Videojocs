@@ -22,11 +22,11 @@ public abstract class PlayerBehaviour : MonoBehaviour
     }
     public virtual void Logic()
     {
+
     }
     public virtual void Physics()
     {
         DoChecks();
-        
     }
     public virtual void DoChecks()
     {
