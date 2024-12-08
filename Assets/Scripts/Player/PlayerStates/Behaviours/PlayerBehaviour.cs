@@ -27,6 +27,10 @@ public abstract class PlayerBehaviour
     public virtual void Physics()
     {
         DoChecks();
+        if (_playerPhysics.isGrounded)
+        {
+            _playerController.ResetGroundFlags();
+        }
     }
     public virtual void DoChecks()
     {

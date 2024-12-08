@@ -9,7 +9,6 @@ public class FloorPlayerBehaviour : PlayerBehaviour
     public override void Enter()
     {
         base.Enter();
-        _playerController.ResetGroundFlags();
         currentRelativeVelocity = _playerPhysics.rb2D.velocity.x / _playerPhysics.playerPhysicsValues.moveMaxVelocity;
     }
     public override void Logic()
