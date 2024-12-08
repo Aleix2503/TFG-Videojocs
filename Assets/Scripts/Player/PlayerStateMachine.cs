@@ -20,6 +20,10 @@ public class PlayerStateMachine : ScriptableObject
 
     public void ChangeState(PlayerBehaviour behaviour)
     {
+        if(currentBehaviour is FallPlayerBehaviour&&behaviour!=currentBehaviour)
+        {
+            _animator.SetBool("isFalling", false);
+        }
         _playerController.SetPaintingState(PlayerPaintingState.def);
         currentBehaviour = behaviour;
         currentBehaviour.Enter();
@@ -39,6 +43,9 @@ public class PlayerStateMachine : ScriptableObject
                     break;
                 case JumpPlayerBehaviour:
                     _animator.SetTrigger("isJumping");
+                    break;
+                case FallPlayerBehaviour:
+                    if (!_playerController.isCoyoteTimeActive) { _animator.SetTrigger("isFalling"); }
                     break;
                 case DashPlayerBehaviour:
                     _animator.SetTrigger("isDashing");

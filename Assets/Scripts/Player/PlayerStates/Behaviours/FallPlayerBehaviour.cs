@@ -13,12 +13,14 @@ public class FallPlayerBehaviour : AirPlayerBehaviour
     {
         base.Enter();
         hasTouchedCeiling = false;
+        isFalling = false;
     }
     public override void DoChecks()
     {
         base.DoChecks();
         isTouchingCeiling = _playerPhysics.checkIfTouchingCeiling();
     }
+    private bool isFalling = false;
     public override void Logic()
     {
         base.Logic();
@@ -45,10 +47,12 @@ public class FallPlayerBehaviour : AirPlayerBehaviour
             _playerStateMachine.ChangeState(_playerController.jumpState);
             return;
         }
-        if(!_playerController.isCoyoteTimeActive)
+        else if (!_playerController.isCoyoteTimeActive&&!isFalling)
         {
             _playerStateMachine.SetAnim(3);
+            isFalling = true;
         }
+
         if (_playerPhysics.isGrounded)
         {
             _playerStateMachine.SetAnim(1);
