@@ -40,12 +40,15 @@ public class BubblePlayerBehaviour : PlayerBehaviour
     private float bubbleOutTimer;
     private float bounceTimer;
     private bool hasExploded;
+
+    private PlayerBehaviour _nextBehaviour;
     public override void Logic()
     {
         base.Logic();
         if((!_playerController.m_playerInputHandler.bubbleInputHeld ||hasExploded)&&!isBubblingOut)
         {
             PreparePop();
+            if (!hasExploded) { _nextBehaviour = _playerController.idleState;}
         }
         bubbleOutTimer -= Time.deltaTime;
         bounceTimer -= Time.deltaTime;
@@ -53,7 +56,7 @@ public class BubblePlayerBehaviour : PlayerBehaviour
         {
             _playerPhysics.FreezePlayerPosition(false);
             _playerPhysics.SetGravityScale(_playerPhysics.playerPhysicsValues.defaultGravity);
-            _playerStateMachine.ChangeState(_playerController.idleState);
+            _playerStateMachine.ChangeState(_nextBehaviour);
             return;
         }
         if (_playerPhysics.rb2D.velocity.y < 0&&!isTouchingCeiling) { _playerPhysics.ImpulseBubble(); }
@@ -79,6 +82,17 @@ public class BubblePlayerBehaviour : PlayerBehaviour
         else if(bounceCounter > _playerController.playerControlValues.bubbleMaxBounces)
         {
             hasExploded = true;
+            _nextBehaviour = _playerController.idleState;
+        }
+        if (_playerController.CheckIfCanDash())
+        {
+            hasExploded = true;
+            _nextBehaviour = _playerController.dashState;
+        }
+        if(_playerController.CheckIfCanExpand())
+        {
+            hasExploded = true;
+            _nextBehaviour = _playerController.expandState;
         }
     }
     public override void DoChecks()
