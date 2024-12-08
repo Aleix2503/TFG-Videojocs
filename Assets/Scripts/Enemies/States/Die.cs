@@ -2,17 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Die : MonoBehaviour
+public class Die : StateBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void Behaviour()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Destroy(transform.parent.gameObject);
     }
 }

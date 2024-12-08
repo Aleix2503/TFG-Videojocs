@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class FSMEnemies : MonoBehaviour
 {
+    [SerializeField]
+    public int life;
+
     public enum State
     {
         Idle,

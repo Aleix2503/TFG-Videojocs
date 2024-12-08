@@ -76,6 +76,11 @@ public class SuckRoomba : MonoBehaviour
             foreach (var splatter in raycastHit)
             {
                 Destroy(splatter.gameObject);
+
+                if (fSMEnemies.life <= 0)
+                    fSMEnemies.state = FSMEnemies.State.Die;
+                else
+                    fSMEnemies.life--;
             }
                 
         }

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1741693600401413208}
   - component: {fileID: 1741693600401413209}
   - component: {fileID: 1741693600401413211}
+  - component: {fileID: 3901951779362071044}
   m_Layer: 0
   m_Name: Roomba
   m_TagString: Untagged
@@ -148,6 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df8bec0d0567f4c4dbd6242fb0d6af13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  life: 5
   state: 1
 --- !u!114 &1741693600401413209
 MonoBehaviour:
@@ -191,6 +193,18 @@ MonoBehaviour:
   suckingVelocity: 1
   suckingTimer: 1
   suckAgainTimer: 0.8
+--- !u!114 &3901951779362071044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1741693600401413202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11279bd6843a5d945aaa4b60a37f4765, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1741693600953939862
 GameObject:
   m_ObjectHideFlags: 0
