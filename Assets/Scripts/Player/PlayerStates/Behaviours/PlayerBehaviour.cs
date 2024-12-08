@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class PlayerBehaviour : MonoBehaviour
+public abstract class PlayerBehaviour 
 {
     protected PlayerStateMachine _playerStateMachine;
     protected PlayerPhysics _playerPhysics;
