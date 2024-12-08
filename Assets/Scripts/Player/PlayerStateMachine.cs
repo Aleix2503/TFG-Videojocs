@@ -40,9 +40,6 @@ public class PlayerStateMachine : ScriptableObject
                 case JumpPlayerBehaviour:
                     _animator.SetTrigger("isJumping");
                     break;
-                case FallPlayerBehaviour:
-                    _animator.SetTrigger("isFalling");
-                    break;
                 case DashPlayerBehaviour:
                     _animator.SetTrigger("isDashing");
                     break;
@@ -62,5 +59,9 @@ public class PlayerStateMachine : ScriptableObject
         {
             _animator.SetBool("isBubbling", false);
         }
+        else if (num == 3)
+        {
+            _animator.SetTrigger("isFalling");
         }
+    }
 }

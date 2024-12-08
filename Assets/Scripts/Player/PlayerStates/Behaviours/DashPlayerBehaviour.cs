@@ -27,7 +27,7 @@ public class DashPlayerBehaviour : PlayerBehaviour
     {
         _playerPhysics.DashOut();
         _playerController.DashOut();
-        _playerStateMachine.ChangeState(_playerController.fallState);
+        _playerStateMachine.ChangeState(_playerController.idleState);
     }
     public override void Logic()
     {

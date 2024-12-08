@@ -45,6 +45,10 @@ public class FallPlayerBehaviour : AirPlayerBehaviour
             _playerStateMachine.ChangeState(_playerController.jumpState);
             return;
         }
+        if(!_playerController.isCoyoteTimeActive)
+        {
+            _playerStateMachine.SetAnim(3);
+        }
         if (_playerPhysics.isGrounded)
         {
             _playerStateMachine.SetAnim(1);

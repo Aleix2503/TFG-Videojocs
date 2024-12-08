@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
         //Cursor.visible = false;
         //Cursor.lockState = CursorLockMode.Locked;
         playerPhysics = GetComponent<PlayerPhysics>();
-        stateMachine = new();
+        stateMachine = ScriptableObject.CreateInstance<PlayerStateMachine>();
 
         idleState = new IdlePlayerBehaviour(stateMachine, playerPhysics, this);
         moveState = new MovePlayerBehaviour(stateMachine, playerPhysics, this);
