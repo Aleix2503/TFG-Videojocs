@@ -20,27 +20,30 @@ public class IdlePlayerBehaviour : PlayerBehaviour
         {
             _playerStateMachine.ChangeState(_playerController.dashState);
         }
-        if (_playerController.CheckIfCanBubble())
+        else if (_playerController.CheckIfCanBubble())
         {
             _playerStateMachine.ChangeState(_playerController.bubbleState);
         }
-        if (_playerController.CheckIfCanExpand())
+        else if (_playerController.CheckIfCanExpand())
         {
             _playerStateMachine.ChangeState(_playerController.expandState);
         }
-        if (_playerController.m_playerInputHandler.jumpInput == true)
+        else
         {
-            _playerStateMachine.ChangeState(_playerController.jumpState);
-        }
+            if (_playerController.m_playerInputHandler.jumpInput == true)
+            {
+                _playerStateMachine.ChangeState(_playerController.jumpState);
+            }
 
-        if (_playerController.m_playerInputHandler.absoluteMovementInput != 0)
-        {
-            _playerStateMachine.ChangeState(_playerController.moveState);
-        }
-        if (!_playerPhysics.isGrounded)
-        {
-            _playerController.StartCoyoteTime();
-            _playerStateMachine.ChangeState(_playerController.fallState);
+            if (_playerController.m_playerInputHandler.absoluteMovementInput != 0)
+            {
+                _playerStateMachine.ChangeState(_playerController.moveState);
+            }
+            if (!_playerPhysics.isGrounded)
+            {
+                _playerController.StartCoyoteTime();
+                _playerStateMachine.ChangeState(_playerController.fallState);
+            }
         }
     }
 }

@@ -11,7 +11,6 @@ public class JumpPlayerBehaviour : AirPlayerBehaviour
     {
         base.Enter();
         _playerPhysics.Jump();
-        PaintManager._instance.EmitJumpParticles();
     }
     public override void Logic()
     {
@@ -20,15 +19,15 @@ public class JumpPlayerBehaviour : AirPlayerBehaviour
         {
             _playerStateMachine.ChangeState(_playerController.dashState);
         }
-        if (_playerController.CheckIfCanBubble())
+        else if (_playerController.CheckIfCanBubble())
         {
             _playerStateMachine.ChangeState(_playerController.bubbleState);
         }
-        if (_playerController.CheckIfCanExpand())
+        else if (_playerController.CheckIfCanExpand())
         {
             _playerStateMachine.ChangeState(_playerController.expandState);
         }
-        if (!_playerController.m_playerInputHandler.jumpInputHeld||_playerPhysics.rb2D.velocity.y<=0)
+        else if (!_playerController.m_playerInputHandler.jumpInputHeld||_playerPhysics.rb2D.velocity.y<=0)
         {
             _playerStateMachine.ChangeState(_playerController.fallState);
         }

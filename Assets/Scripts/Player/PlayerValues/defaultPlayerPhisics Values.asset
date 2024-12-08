@@ -28,8 +28,14 @@ MonoBehaviour:
   dashVelocity: 80
   dashTime: 0.2
   dashLinearDrag: 12
-  dashColorFadeInTime: 0.05
-  dashColorFadeOutTime: 0.5
+  bubbleHorizontalVelocity: 10
+  bubbleHorizontalAccelerationSeconds: 0.6
+  floatForce: 1
+  floatForceWhenGoingDown: 3
+  floatTerminalVelocity: 2
+  bubbleGravityScale: -0.02
+  bubbleTransformationTime: 0.5
+  bubbleBounceVelocity: 80
   groundCheckBox: {x: 0.85, y: 0.1}
   groundCheckOffset: {x: 0, y: -0.5}
   rightWallCheckBox: {x: 0.1, y: 0.5}

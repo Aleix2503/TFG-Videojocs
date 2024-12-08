@@ -31,23 +31,12 @@ public class PlayerControlValues : ScriptableObject
     public float dashColorFadeOutTime = 0.5f;
     [Space]
 
-    /*[Header("Bubble Summon State")]
-    public float bubbleSummonDelay = 0.5f;
-    public float bubbleSummonFinishTime = 1;
-    public float bubbleSummonColorFadeInTime = 0.3f;
-    public float bubbleSummonColorFadeOutTime = 0.5f;
-
     [Header("Bubble")]
-    public Vector2 bubbleInitialSpawnOffset;
-    public Vector2 bubbleInitialVelocity;
-    public float bubbleGravityScale = -1f;
-    public float bubbleLinearDrag = 8;
-    public float bubbleMaxLifetimeSeconds = 10f;
-    public float bubbledColorFadeInTime = 0.05f;
-    public float bubbledColorFadeOutTime = 0.05f;
+    public float bubbleTransformationTime = 1f;
+    public int bubbleMaxBounces = 2;
     [Space]
 
-    [Header("StartExpand State")]
+    /*[Header("StartExpand State")]
     public float startExpandTime = 0.5f;
     public float startExpandColorFadeInTime = 0.5f;
     [Space]

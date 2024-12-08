@@ -18,6 +18,7 @@ public class PlayerInputHandler : MonoBehaviour
     public bool dashInput { get; private set; }
 
     public bool bubbleInput { get; private set; }
+    public bool bubbleInputHeld { get; private set; }
 
     public bool expandInput { get; private set; }
 
@@ -85,6 +86,7 @@ public class PlayerInputHandler : MonoBehaviour
         }
 
         jumpInputHeld = inputAction_jump.ReadValue<float>() > 0.5f ? true : false;
+        bubbleInputHeld = inputAction_bubble.ReadValue<float>() > 0.5f ? true : false;
 
         dashInput = inputAction_dash.WasPressedThisFrame();
         bubbleInput = inputAction_bubble.WasPressedThisFrame();

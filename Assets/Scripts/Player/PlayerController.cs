@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
 
     public bool didPlayerTouchGroundSinceLastDash = true;
     public bool didPlayerTouchGroundSinceLastExpand = true;
+    public bool didPlayerTouchGroundSinceLastBubble = true;
 
     public bool isPlayerLocked = false;
 
@@ -118,29 +119,25 @@ public class PlayerController : MonoBehaviour
     {
         didPlayerTouchGroundSinceLastDash = true;
         didPlayerTouchGroundSinceLastExpand = true;
+        didPlayerTouchGroundSinceLastBubble = true;
     }
 
-    public bool canBubble = false;
     public bool CheckIfCanBubble()
     {
-        /*if (m_playerInputHandler.bubbleInput && isBubbleUnlocked && bubbleController.isActive == false)
+        if (m_playerInputHandler.bubbleInputHeld && isBubbleUnlocked && didPlayerTouchGroundSinceLastBubble)
         {
-            canBubble = true;
+            didPlayerTouchGroundSinceLastBubble = false;
             return true;
-        }*/
-        canBubble = false;
+        }
         return false;
     }
-    public bool canExpand = false;
     public bool CheckIfCanExpand()
     {
         if (m_playerInputHandler.expandInput && isExpandUnlocked && didPlayerTouchGroundSinceLastExpand)
         {
             didPlayerTouchGroundSinceLastExpand = false;
-            canExpand = true;
             return true;
         }
-        canExpand = false;
         return false;
     }
     public void DashIn()
@@ -153,18 +150,14 @@ public class PlayerController : MonoBehaviour
         FadePlayerColor(playerControlValues.defaultColor, playerControlValues.dashColorFadeOutTime);
         SetPaintingState(PlayerPaintingState.def);
     }
-
-    /*public void InstantiateBubble()
+    public void BubbleIn()
     {
-        bubbleController.SummonBubble();
-        instancedBubbleTransform = bubbleInstance.transform;
-        bubbleController = bubbleInstance.GetComponent<BubbleController>();
+        FadePlayerColor(playerControlValues.bubbleColor, playerControlValues.bubbleTransformationTime);
     }
-
-    public void DestroyBubble()
+    public void BubbleOut()
     {
-        bubbleController.PopBubble();
-    }*/
+        FadePlayerColor(playerControlValues.defaultColor, playerControlValues.bubbleTransformationTime);
+    }
 
     public void Respawn()
     {
