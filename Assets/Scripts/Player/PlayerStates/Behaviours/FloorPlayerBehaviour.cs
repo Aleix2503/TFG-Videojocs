@@ -19,6 +19,10 @@ public class FloorPlayerBehaviour : PlayerBehaviour
     public override void Physics()
     {
         base.Physics();
-        
+        if (_playerPhysics.isGrounded)
+        {
+            _playerController.ResetGroundFlags();
+        }
+
     }
 }

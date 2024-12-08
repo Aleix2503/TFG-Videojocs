@@ -49,4 +49,12 @@ public class IdlePlayerBehaviour : PlayerBehaviour
             return;
         }
     }
+    public override void Physics()
+    {
+        base.Physics();
+        if (_playerPhysics.isGrounded)
+        {
+            _playerController.ResetGroundFlags();
+        }
+    }
 }

@@ -52,7 +52,7 @@ public class BubblePlayerBehaviour : PlayerBehaviour
         if((!_playerController.m_playerInputHandler.bubbleInputHeld ||hasExploded)&&!isBubblingOut)
         {
             PreparePop();
-            if (!hasExploded) { _nextBehaviour = _playerController.fallState;}
+            if (!hasExploded) { _nextBehaviour = _playerController.idleState;}
         }
         bubbleOutTimer -= Time.deltaTime;
         bounceTimer -= Time.deltaTime;
@@ -92,7 +92,7 @@ public class BubblePlayerBehaviour : PlayerBehaviour
         else if(bounceCounter > _playerController.playerControlValues.bubbleMaxBounces)
         {
             hasExploded = true;
-            _nextBehaviour = _playerController.fallState;
+            _nextBehaviour = _playerController.idleState;
         }
         if (_playerController.CheckIfCanDash())
         {
