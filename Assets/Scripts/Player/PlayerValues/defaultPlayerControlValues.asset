@@ -13,82 +13,20 @@ MonoBehaviour:
   m_Name: defaultPlayerControlValues
   m_EditorClassIdentifier: 
   showGizmos: 1
-  defaultGravity: 5
-  defaultLinearDrag: 0
   initialNoControlTime: 1
   abilityUnlockNoControlTime: 2
-  defaultCollisionBox: {x: 0.75, y: 0.4}
-  defaultCollisionBoxOffset: {x: 0, y: -0.2}
-  defaultCollisionEdgeRadius: 0.1
   defaultColor: {r: 1, g: 1, b: 1, a: 1}
   dashColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   bubbleColor: {r: 0, g: 1, b: 1, a: 1}
   expandColor: {r: 1, g: 0, b: 1, a: 1}
-  moveMaxVelocity: 10
-  moveAccelerationSeconds: 0.1
-  airMoveMaxVelocity: 10
-  airMoveAccelerationSeconds: 0.3
   jumpBufferTime: 0.2
-  jumpCanPlayerFlip: 1
-  jumpVelocity: 18
   fallCanPlayerFlip: 1
   coyoteTime: 0.05
-  fallForce: -5
-  fallForceWhenGoingUp: -15
-  fallTerminalVelocity: -15
   dashCooldownSeconds: 0.5
-  dashVelocity: 80
-  dashTime: 0.2
-  dashLinearDrag: 12
   dashColorFadeInTime: 0.05
   dashColorFadeOutTime: 0.5
-  bubbleSummonDelay: 0.3
-  bubbleSummonFinishTime: 0.6
-  bubbleSummonColorFadeInTime: 0.3
-  bubbleSummonColorFadeOutTime: 0.5
-  bubbleInitialSpawnOffset: {x: 0, y: 1}
-  bubbleInitialVelocity: {x: 0, y: 1}
-  bubbleGravityScale: -1
-  bubbleLinearDrag: 10
-  bubbleMaxLifetimeSeconds: 15
-  bubbledColorFadeInTime: 0.05
-  bubbledColorFadeOutTime: 0.5
-  startExpandTime: 0.5
-  startExpandColorFadeInTime: 0.5
-  expandMaxFallTime: 5
-  expandGravityMultiplier: 3
-  expandBreakPlatformVelocityThreshold: -30
-  expandedShowGizmos: 1
-  expandedCollisionBox: {x: 1.4, y: 1.2}
-  expandedCollisionBoxOffset: {x: 0, y: 0.2}
-  expandedCollisionEdgeRadius: 0.1
-  expandedGroundCheckBox: {x: 1.4, y: 0.1}
-  expandedGroundCheckBoxOffset: {x: 0, y: -0.45}
-  expandedHazardCollisionBox: {x: 1.2, y: 1}
-  expandedHazardCollisionBoxOffset: {x: 0, y: 0.15}
-  endExpandTime: 0.5
-  endExpandColorFadeOutTime: 0.5
+  bubbleTransformationTime: 1
+  bubbleMaxBounces: 2
   deathToRespawnSeconds: 1
   respawnToIdleSeconds: 0.5
-  groundCheckBox: {x: 0.85, y: 0.1}
-  groundCheckOffset: {x: 0, y: -0.5}
-  rightWallCheckBox: {x: 0.1, y: 0.5}
-  rightWallCheckOffset: {x: 0.5, y: -0.2}
-  leftWallCheckBox: {x: 0.1, y: 0.5}
-  leftWallCheckOffset: {x: -0.5, y: -0.2}
-  ceilingCheckBox: {x: 0.85, y: 0.25}
-  ceilingCheckOffset: {x: 0, y: 0.18}
-  hazardCheckBox: {x: 0.8, y: 0.4}
-  hazardCheckOffset: {x: 0, y: -0.2}
-  bubbleCheckBox: {x: 0.1, y: 0.1}
-  bubbleCheckOffset: {x: 0, y: 0}
-  whatIsHazard:
-    serializedVersion: 2
-    m_Bits: 64
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 1025
-  whatIsBubble:
-    serializedVersion: 2
-    m_Bits: 128
   unlockAllAbilities: 0

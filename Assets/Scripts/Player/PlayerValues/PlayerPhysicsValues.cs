@@ -48,6 +48,8 @@ public class PlayerPhysicsValues : ScriptableObject
     public float bubbleGravityScale = -1f;
     public float bubbleTransformationTime = 1f;
     public float bubbleBounceVelocity = 5f;
+    public float bubbleBounceTime = 0.3f;
+    public float bubbleBounciness = 1f;
     //[Header("Expansion State")]
 
     [Header("Checks")]

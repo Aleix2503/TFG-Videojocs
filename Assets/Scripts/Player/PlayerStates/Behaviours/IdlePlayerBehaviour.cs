@@ -10,6 +10,7 @@ public class IdlePlayerBehaviour : PlayerBehaviour
     {
         base.Enter();
         _playerPhysics.Stop();
+        _playerController.ResetGroundFlags();
         PaintManager._instance.PlaceSplat(_playerPhysics.transform.position + new Vector3(0, -0.5f, 0),
                 Vector3.up, _playerController.currentPlayerColor);
     }
@@ -19,31 +20,34 @@ public class IdlePlayerBehaviour : PlayerBehaviour
         if (_playerController.CheckIfCanDash())
         {
             _playerStateMachine.ChangeState(_playerController.dashState);
+            return;
         }
-        else if (_playerController.CheckIfCanBubble())
+        if (_playerController.CheckIfCanBubble())
         {
             _playerStateMachine.ChangeState(_playerController.bubbleState);
+            return;
         }
-        else if (_playerController.CheckIfCanExpand())
+        if (_playerController.CheckIfCanExpand())
         {
             _playerStateMachine.ChangeState(_playerController.expandState);
+            return;
         }
-        else
+        if (_playerController.m_playerInputHandler.jumpInput == true)
         {
-            if (_playerController.m_playerInputHandler.jumpInput == true)
-            {
-                _playerStateMachine.ChangeState(_playerController.jumpState);
-            }
+            _playerStateMachine.ChangeState(_playerController.jumpState);
+            return;
+        }
 
-            if (_playerController.m_playerInputHandler.absoluteMovementInput != 0)
-            {
-                _playerStateMachine.ChangeState(_playerController.moveState);
-            }
-            if (!_playerPhysics.isGrounded)
-            {
-                _playerController.StartCoyoteTime();
-                _playerStateMachine.ChangeState(_playerController.fallState);
-            }
+        if (_playerController.m_playerInputHandler.absoluteMovementInput != 0)
+        {
+            _playerStateMachine.ChangeState(_playerController.moveState);
+            return;
+        }
+        if (!_playerPhysics.isGrounded)
+        {
+            _playerController.StartCoyoteTime();
+            _playerStateMachine.ChangeState(_playerController.fallState);
+            return;
         }
     }
 }

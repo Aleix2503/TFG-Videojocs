@@ -5,9 +5,17 @@ using UnityEngine;
 public class BubblePlayerBehaviour : PlayerBehaviour
 {
     private float currentRelativeVelocity;
+
     private bool isTouchingWall;
     private bool isTouchingCeiling;
+
     private int bounceCounter;
+
+    private bool isBubblingOut;
+    private float bubbleOutTimer;
+
+    private float bounceTimer;
+    private bool hasExploded;
     public BubblePlayerBehaviour(PlayerStateMachine playerStateMachine, PlayerPhysics playerPhysics, PlayerController playerController) : base(playerStateMachine, playerPhysics, playerController)
     {
 
@@ -36,10 +44,6 @@ public class BubblePlayerBehaviour : PlayerBehaviour
         isBubblingOut = true;
         _playerStateMachine.SetAnim(3);
     }
-    private bool isBubblingOut;
-    private float bubbleOutTimer;
-    private float bounceTimer;
-    private bool hasExploded;
 
     private PlayerBehaviour _nextBehaviour;
     public override void Logic()
@@ -48,7 +52,7 @@ public class BubblePlayerBehaviour : PlayerBehaviour
         if((!_playerController.m_playerInputHandler.bubbleInputHeld ||hasExploded)&&!isBubblingOut)
         {
             PreparePop();
-            if (!hasExploded) { _nextBehaviour = _playerController.idleState;}
+            if (!hasExploded) { _nextBehaviour = _playerController.fallState;}
         }
         bubbleOutTimer -= Time.deltaTime;
         bounceTimer -= Time.deltaTime;
@@ -59,17 +63,23 @@ public class BubblePlayerBehaviour : PlayerBehaviour
             _playerStateMachine.ChangeState(_nextBehaviour);
             return;
         }
+
+        //Fall Behaviour Backwards
         if (_playerPhysics.rb2D.velocity.y < 0&&!isTouchingCeiling) { _playerPhysics.ImpulseBubble(); }
         else if(!isTouchingCeiling) { _playerPhysics.Float(); }
         if(_playerPhysics.rb2D.velocity.y <= _playerPhysics.playerPhysicsValues.floatTerminalVelocity&&!isTouchingCeiling)
         {
             _playerPhysics.BubbleMaxSpeed();
         }
-        if(!isTouchingWall)currentRelativeVelocity = _playerPhysics.BubbleMove(_playerController.m_playerInputHandler.absoluteMovementInput, currentRelativeVelocity);
+
+        //Move Behaviour
+        currentRelativeVelocity = _playerPhysics.BubbleMove(_playerController.m_playerInputHandler.absoluteMovementInput, currentRelativeVelocity);
+
+
         if(bounceCounter<= _playerController.playerControlValues.bubbleMaxBounces&&(isTouchingCeiling||isTouchingWall)&&bounceTimer<=0)
         {
             bounceCounter++;
-            bounceTimer = 0.5f;
+            bounceTimer = 0.2f;
             if (isTouchingWall)
             {
                 _playerPhysics.BounceHorizontal();
@@ -82,7 +92,7 @@ public class BubblePlayerBehaviour : PlayerBehaviour
         else if(bounceCounter > _playerController.playerControlValues.bubbleMaxBounces)
         {
             hasExploded = true;
-            _nextBehaviour = _playerController.idleState;
+            _nextBehaviour = _playerController.fallState;
         }
         if (_playerController.CheckIfCanDash())
         {

@@ -10,6 +10,9 @@ public class PlayerPhysics : MonoBehaviour
     public Rigidbody2D rb2D;
     public BoxCollider2D bCollider;
 
+    public PhysicsMaterial2D bounceMaterial;
+    public PhysicsMaterial2D defaultMaterial;
+
     public int facingDirection { get; private set; }
     public bool isGrounded => checkIfGrounded();
 
@@ -187,11 +190,11 @@ public class PlayerPhysics : MonoBehaviour
     }
     public void BounceHorizontal()
     {
-        SetVelocityX(facingDirection * -playerPhysicsValues.bubbleBounceVelocity);
+
     }
     public void BounceVertical()
     {
-        SetVelocityY(-playerPhysicsValues.bubbleBounceVelocity);
+
     }
     #endregion
     #region Physics Checks
