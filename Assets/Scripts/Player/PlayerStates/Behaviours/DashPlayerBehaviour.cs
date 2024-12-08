@@ -8,18 +8,26 @@ public class DashPlayerBehaviour : PlayerBehaviour
     public DashPlayerBehaviour(PlayerStateMachine playerStateMachine, PlayerPhysics playerPhysics, PlayerController playerController) : base(playerStateMachine, playerPhysics, playerController)
     {
     }
+    public override void DoChecks()
+    {
+        base.DoChecks();
+        isTouchingFrontWall = _playerPhysics.checkIfTouchingFrontWall();
+    }
 
     public override void Enter()
     {
         base.Enter();
         _playerPhysics.DashIn();
         _playerController.DashIn();
+        isTouchingFrontWall = false;
+        PaintManager._instance.EmitDashParticles();
+
     }
     public void Exit()
     {
         _playerPhysics.DashOut();
         _playerController.DashOut();
-        _playerStateMachine.ChangeState(_playerController.idleState);
+        _playerStateMachine.ChangeState(_playerController.fallState);
     }
     public override void Logic()
     {

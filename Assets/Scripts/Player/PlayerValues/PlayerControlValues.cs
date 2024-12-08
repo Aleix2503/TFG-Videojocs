@@ -17,7 +17,6 @@ public class PlayerControlValues : ScriptableObject
     
     [Header("Jump State")]
     public float jumpBufferTime = 0.2f;
-    public bool jumpCanPlayerFlip = true;
     [Space]
 
     [Header("Fall State")]

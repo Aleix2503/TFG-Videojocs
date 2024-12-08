@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class FallPlayerBehaviour : AirPlayerBehaviour
 {
-    private bool hasTouchedCeiling;
+    private bool hasTouchedCeiling = false;
+    private bool isTouchingCeiling = false;
     public FallPlayerBehaviour(PlayerStateMachine playerStateMachine, PlayerPhysics playerPhysics, PlayerController playerController) : base(playerStateMachine, playerPhysics, playerController)
     {
     }
@@ -13,10 +14,15 @@ public class FallPlayerBehaviour : AirPlayerBehaviour
         base.Enter();
         hasTouchedCeiling = false;
     }
+    public override void DoChecks()
+    {
+        base.DoChecks();
+        isTouchingCeiling = _playerPhysics.checkIfTouchingCeiling();
+    }
     public override void Logic()
     {
         base.Logic();
-        if (_playerPhysics.checkIfTouchingCeiling())
+        if (isTouchingCeiling&&!hasTouchedCeiling)
         {
             PaintManager._instance.PlaceSplat(_playerPhysics.transform.position + new Vector3(0, 0.3f, 0), Vector3.down, _playerController.playerControlValues.defaultColor);
             hasTouchedCeiling = true;
@@ -24,45 +30,50 @@ public class FallPlayerBehaviour : AirPlayerBehaviour
         _playerController.CheckCoyoteTime(startingTime);
 
 
+        if (_playerPhysics.rb2D.velocity.y > 0) { _playerPhysics.BackToEarth(); }
+        else { _playerPhysics.Fall(); }
+
+        if (_playerPhysics.rb2D.velocity.y <= _playerPhysics.playerPhysicsValues.fallTerminalVelocity)
+        {
+            _playerPhysics.FallMaxSpeed();
+        }
+
+
+        if (_playerController.isCoyoteTimeActive && _playerController.m_playerInputHandler.jumpInput)
+        {
+            _playerController.isCoyoteTimeActive = false;
+            _playerStateMachine.ChangeState(_playerController.jumpState);
+            return;
+        }
+        if (_playerPhysics.isGrounded)
+        {
+            _playerStateMachine.SetAnim(1);
+            PaintManager._instance.PlaceOnFallTrace();
+            if (_playerController.m_playerInputHandler.absoluteMovementInput == 0)
+            {
+                _playerStateMachine.ChangeState(_playerController.idleState);
+                return;
+            }
+            else
+            {
+                _playerStateMachine.ChangeState(_playerController.moveState);
+                return;
+            }
+        }
         if (_playerController.CheckIfCanDash())
         {
             _playerStateMachine.ChangeState(_playerController.dashState);
+            return;
         }
-        else if (_playerController.CheckIfCanBubble())
+        if (_playerController.CheckIfCanBubble())
         {
             _playerStateMachine.ChangeState(_playerController.bubbleState);
+            return;
         }
-        else if (_playerController.CheckIfCanExpand())
+        if (_playerController.CheckIfCanExpand())
         {
             _playerStateMachine.ChangeState(_playerController.expandState);
-        }
-        else
-        {
-            if (_playerPhysics.rb2D.velocity.y > 0) { _playerPhysics.BackToEarth(); }
-            else { _playerPhysics.Fall(); }
-
-            if (_playerPhysics.rb2D.velocity.y <= _playerPhysics.playerPhysicsValues.fallTerminalVelocity)
-            {
-                _playerPhysics.FallMaxSpeed();
-            }
-            if (_playerController.isCoyoteTimeActive && _playerController.m_playerInputHandler.jumpInput)
-            {
-                _playerController.isCoyoteTimeActive = false;
-                _playerStateMachine.ChangeState(_playerController.jumpState);
-            }
-            if (_playerPhysics.isGrounded)
-            {
-                _playerStateMachine.SetAnim(1);
-                PaintManager._instance.PlaceOnFallTrace();
-                if (_playerController.m_playerInputHandler.absoluteMovementInput == 0)
-                {
-                    _playerStateMachine.ChangeState(_playerController.idleState);
-                }
-                else
-                {
-                    _playerStateMachine.ChangeState(_playerController.moveState);
-                }
-            }
+            return;
         }
 
     }

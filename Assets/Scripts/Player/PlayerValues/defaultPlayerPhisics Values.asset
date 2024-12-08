@@ -36,6 +36,8 @@ MonoBehaviour:
   bubbleGravityScale: -0.02
   bubbleTransformationTime: 0.5
   bubbleBounceVelocity: 80
+  bubbleBounceTime: 0.3
+  bubbleBounciness: 5
   groundCheckBox: {x: 0.85, y: 0.1}
   groundCheckOffset: {x: 0, y: -0.5}
   rightWallCheckBox: {x: 0.1, y: 0.5}

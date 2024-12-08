@@ -24,31 +24,39 @@ public class MovePlayerBehaviour : FloorPlayerBehaviour
 
             hasTouchedFrontWall = true;
         }
-        if (_playerController.CheckIfCanDash())
+        if (!_playerPhysics.isGrounded)
         {
-            _playerStateMachine.ChangeState(_playerController.dashState);
-        }
-        if (_playerController.CheckIfCanBubble())
-        {
-            _playerStateMachine.ChangeState(_playerController.bubbleState);
-        }
-        if (_playerController.CheckIfCanExpand())
-        {
-            _playerStateMachine.ChangeState(_playerController.expandState);
+            _playerController.StartCoyoteTime();
+            _playerStateMachine.ChangeState(_playerController.fallState);
+            return;
         }
         if (_playerController.m_playerInputHandler.jumpInput == true)
         {
             _playerStateMachine.ChangeState(_playerController.jumpState);
+            return;
         }
-        if(_playerController.m_playerInputHandler.absoluteMovementInput == 0)
+        if (_playerController.CheckIfCanDash())
+        {
+            _playerStateMachine.ChangeState(_playerController.dashState);
+            return;
+        }
+        if (_playerController.CheckIfCanBubble())
+        {
+            _playerStateMachine.ChangeState(_playerController.bubbleState);
+            return;
+        }
+        if (_playerController.CheckIfCanExpand())
+        {
+            _playerStateMachine.ChangeState(_playerController.expandState);
+            return;
+        }
+        if (_playerController.m_playerInputHandler.absoluteMovementInput == 0)
         {
             _playerStateMachine.ChangeState(_playerController.idleState);
+            return;
         }
-        if(!_playerPhysics.isGrounded)
-        {
-            _playerController.StartCoyoteTime();
-            _playerStateMachine.ChangeState(_playerController.fallState);
-        }
+
+
     }
     public override void Physics()
     {
