@@ -15,7 +15,14 @@ public class FallPlayerBehaviour : AirPlayerBehaviour
     }
     public override void Logic()
     {
+        base.Logic();
+        if (_playerPhysics.checkIfTouchingCeiling())
+        {
+            PaintManager._instance.PlaceSplat(_playerPhysics.transform.position + new Vector3(0, 0.3f, 0), Vector3.down, _playerController.playerControlValues.defaultColor);
+            hasTouchedCeiling = true;
+        }
         _playerController.CheckCoyoteTime(startingTime);
+
 
         if (_playerController.CheckIfCanDash())
         {
