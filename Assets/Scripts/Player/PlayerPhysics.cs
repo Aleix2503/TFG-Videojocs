@@ -209,6 +209,27 @@ public class PlayerPhysics : MonoBehaviour
         }
         return false;
     }
+    public void ExpandIn()
+    {
+        FreezePlayerPosition(true);
+        SetColliderDimensions(playerPhysicsValues.expandedCollisionBox, playerPhysicsValues.expandedCollisionBoxOffset, playerPhysicsValues.expandedCollisionEdgeRadius);
+        StartCoroutine(ExpandCoroutine());
+    }
+    private IEnumerator ExpandCoroutine()
+    {
+        yield return new WaitForSeconds(playerPhysicsValues.expandTime);
+        FreezePlayerPosition(false);
+    }
+    public void ExpandOut()
+    {
+        FreezePlayerPosition(true);
+        SetColliderDimensions(playerPhysicsValues.defaultCollisionBox, playerPhysicsValues.defaultCollisionBoxOffset, playerPhysicsValues.defaultCollisionEdgeRadius);
+        StartCoroutine(ExpandCoroutine());
+    }
+    public void ExpandedFall()
+    {
+        SetVelocityY(-playerPhysicsValues.expandVerticalVelocity);
+    }
     #endregion
     #region Physics Checks
 
@@ -258,12 +279,6 @@ public class PlayerPhysics : MonoBehaviour
     {
         return Physics2D.OverlapBox((Vector2)transform.position + playerPhysicsValues.hazardCheckOffset, playerPhysicsValues.hazardCheckBox, 0, playerPhysicsValues.whatIsHazard);
     }
-    
-
-    /*public bool checkIfTouchingBubble()
-    {
-        return Physics2D.OverlapBox((Vector2)transform.position + playerPhysicsValues.bubbleCheckOffset, playerPhysicsValues.bubbleCheckBox, 0, playerPhysicsValues.whatIsBubble);
-    }
 
     public bool checkIfExpandedCollision()
     {
@@ -278,6 +293,6 @@ public class PlayerPhysics : MonoBehaviour
     public bool checkIfExpandedTouchingGround()
     {
         return Physics2D.OverlapBox((Vector2)transform.position + playerPhysicsValues.expandedGroundCheckBoxOffset, playerPhysicsValues.expandedGroundCheckBox, 0, playerPhysicsValues.whatIsGround);
-    }*/
+    }
     #endregion
 }

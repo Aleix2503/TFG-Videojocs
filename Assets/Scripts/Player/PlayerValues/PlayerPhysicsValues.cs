@@ -49,7 +49,13 @@ public class PlayerPhysicsValues : ScriptableObject
     public float bubbleBounceTime = 0.3f;
     public float bubbleVerticalBounceForce;
     public float bubbleHorizontalBounceForce;
-    //[Header("Expansion State")]
+    [Space]
+    [Header("Expansion State")]
+    public float expandTime = 0.5f;
+    public float expandVerticalVelocity = 15f;
+    public float expandedCollisionEdgeRadius = 0.1f;
+
+
 
     [Header("Checks")]
     public Vector2 groundCheckBox;
@@ -69,6 +75,15 @@ public class PlayerPhysicsValues : ScriptableObject
 
     public Vector2 bubbleCheckBox = new Vector2(1, 1);
     public Vector2 bubbleCheckOffset = new Vector2(0, 0);
+
+    public Vector2 expandedCollisionBox = Vector2.one;
+    public Vector2 expandedCollisionBoxOffset = Vector2.zero;
+
+    public Vector2 expandedGroundCheckBox = Vector2.one;
+    public Vector2 expandedGroundCheckBoxOffset = Vector2.zero;
+
+    public Vector2 expandedHazardCollisionBox = Vector2.one;
+    public Vector2 expandedHazardCollisionBoxOffset = Vector2.zero;
 
     public LayerMask whatIsHazard;
     public LayerMask whatIsGround;

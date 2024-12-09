@@ -158,6 +158,16 @@ public class PlayerController : MonoBehaviour
     {
         FadePlayerColor(playerControlValues.defaultColor, playerControlValues.bubbleTransformationTime);
     }
+    public void ExpandIn()
+    {
+        FadePlayerColor(playerControlValues.expandColor, playerControlValues.expandColorFadeTime);
+        SetPaintingState(PlayerPaintingState.expanded);
+    }
+    public void ExpandOut()
+    {
+        FadePlayerColor(playerControlValues.defaultColor, playerControlValues.expandColorFadeTime);
+        SetPaintingState(PlayerPaintingState.def);
+    }
 
     public void Respawn()
     {

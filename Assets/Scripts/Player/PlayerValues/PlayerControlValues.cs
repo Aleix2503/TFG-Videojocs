@@ -35,32 +35,11 @@ public class PlayerControlValues : ScriptableObject
     public int bubbleMaxBounces = 2;
     [Space]
 
-    /*[Header("StartExpand State")]
-    public float startExpandTime = 0.5f;
-    public float startExpandColorFadeInTime = 0.5f;
-    [Space]
-
     [Header("Expand State")]
-    public float expandMaxFallTime = 5;
-    public float expandGravityMultiplier = 2;
+    public float expandColorFadeTime = 0.5f;
     public float expandBreakPlatformVelocityThreshold = -15;
-    [Space]
     public bool expandedShowGizmos = false;
-    public Vector2 expandedCollisionBox = Vector2.one;
-    public Vector2 expandedCollisionBoxOffset = Vector2.zero;
-    public float expandedCollisionEdgeRadius = 0.1f;
-
-    public Vector2 expandedGroundCheckBox = Vector2.one;
-    public Vector2 expandedGroundCheckBoxOffset = Vector2.zero;
-
-    public Vector2 expandedHazardCollisionBox = Vector2.one;
-    public Vector2 expandedHazardCollisionBoxOffset = Vector2.zero;
     [Space]
-
-    [Header("EndExpand State")]
-    public float endExpandTime = 0.5f;
-    public float endExpandColorFadeOutTime = 0.5f;
-    [Space]*/
 
     [Header("Death State")]
     public float deathToRespawnSeconds = 1f;
