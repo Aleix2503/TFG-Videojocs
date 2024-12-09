@@ -212,19 +212,24 @@ public class PlayerPhysics : MonoBehaviour
     public void ExpandIn()
     {
         FreezePlayerPosition(true);
-        SetColliderDimensions(playerPhysicsValues.expandedCollisionBox, playerPhysicsValues.expandedCollisionBoxOffset, playerPhysicsValues.expandedCollisionEdgeRadius);
-        StartCoroutine(ExpandCoroutine());
+        StartCoroutine(ExpandInCoroutine());
     }
-    private IEnumerator ExpandCoroutine()
+    private IEnumerator ExpandInCoroutine()
     {
         yield return new WaitForSeconds(playerPhysicsValues.expandTime);
         FreezePlayerPosition(false);
+        SetColliderDimensions(playerPhysicsValues.expandedCollisionBox, playerPhysicsValues.expandedCollisionBoxOffset, playerPhysicsValues.expandedCollisionEdgeRadius);
+    }
+    private IEnumerator ExpandOutCoroutine()
+    {
+        yield return new WaitForSeconds(playerPhysicsValues.expandTime);
+        FreezePlayerPosition(false);
+        SetColliderDimensions(playerPhysicsValues.defaultCollisionBox, playerPhysicsValues.defaultCollisionBoxOffset, playerPhysicsValues.defaultCollisionEdgeRadius);
     }
     public void ExpandOut()
     {
         FreezePlayerPosition(true);
-        SetColliderDimensions(playerPhysicsValues.defaultCollisionBox, playerPhysicsValues.defaultCollisionBoxOffset, playerPhysicsValues.defaultCollisionEdgeRadius);
-        StartCoroutine(ExpandCoroutine());
+        StartCoroutine(ExpandOutCoroutine());
     }
     public void ExpandedFall()
     {

@@ -4,20 +4,17 @@ using UnityEngine;
 
 public class ExpandPlayerBehaviour : PlayerBehaviour
 {
-    private bool isInsidePlatform;
-    private bool expandedIsGrounded;
     private bool expandedIsTouchingHazard;
 
-    private bool canBreakGround;
+    public bool canBreakGround;
+    private float transitionTime;
     public ExpandPlayerBehaviour(PlayerStateMachine playerStateMachine, PlayerPhysics playerPhysics, PlayerController playerController) : base(playerStateMachine, playerPhysics, playerController)
     {
     }
     public override void DoChecks()
     {
         base.DoChecks();
-        isInsidePlatform = _playerPhysics.checkIfExpandedCollision();
         expandedIsTouchingHazard = _playerPhysics.checkIfExpandedTouchingHazard();
-        expandedIsGrounded = _playerPhysics.checkIfExpandedTouchingGround();
     }
 
     public override void Enter()
@@ -26,6 +23,7 @@ public class ExpandPlayerBehaviour : PlayerBehaviour
         _playerController.ExpandIn();
         _playerPhysics.ExpandIn();
         canBreakGround = false;
+        transitionTime = _playerPhysics.playerPhysicsValues.expandTime;
     }
     public void Exit()
     {
@@ -37,7 +35,8 @@ public class ExpandPlayerBehaviour : PlayerBehaviour
     {
         base.Logic();
         _playerPhysics.ExpandedFall();
-        if (expandedIsGrounded || isInsidePlatform)
+        transitionTime -= Time.deltaTime;
+        if ((_playerPhysics.checkIfExpandedTouchingGround() || _playerPhysics.checkIfExpandedCollision()||_playerPhysics.checkIfGrounded())&&transitionTime<=0)
         {
             PaintManager._instance.EmitExpandedParticles();
             PaintManager._instance.PlaceOnExpandedTrace();

@@ -27,6 +27,9 @@ MonoBehaviour:
   dashColorFadeOutTime: 0.5
   bubbleTransformationTime: 1
   bubbleMaxBounces: 2
+  expandColorFadeTime: 0.5
+  expandBreakPlatformVelocityThreshold: -7
+  expandedShowGizmos: 0
   deathToRespawnSeconds: 1
   respawnToIdleSeconds: 0.5
   unlockAllAbilities: 0

@@ -288,6 +288,10 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: 87d587791eece0642a477cab456128d9, type: 2}
+    - target: {fileID: 6493722858751087101, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
+      propertyPath: isExpandUnlocked
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
 --- !u!1001 &7534376819938507563
@@ -340,6 +344,26 @@ PrefabInstance:
     - target: {fileID: 4632289562476528513, guid: 1ba559027c9775f498d5248a25d86615, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4946337228531704607, guid: 1ba559027c9775f498d5248a25d86615, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4946337228531704607, guid: 1ba559027c9775f498d5248a25d86615, type: 3}
+      propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[0].y
+      value: -15.725
+      objectReference: {fileID: 0}
+    - target: {fileID: 4946337228531704607, guid: 1ba559027c9775f498d5248a25d86615, type: 3}
+      propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[1].y
+      value: -15.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4946337228531704607, guid: 1ba559027c9775f498d5248a25d86615, type: 3}
+      propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[2].y
+      value: -15.100029
+      objectReference: {fileID: 0}
+    - target: {fileID: 4946337228531704607, guid: 1ba559027c9775f498d5248a25d86615, type: 3}
+      propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[3].y
+      value: -15.725
       objectReference: {fileID: 0}
     - target: {fileID: 7401970409237088017, guid: 1ba559027c9775f498d5248a25d86615, type: 3}
       propertyPath: m_Name
