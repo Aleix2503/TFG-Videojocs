@@ -69,6 +69,7 @@ public class PaintManager : MonoBehaviour
     
     public int currentLayer = 3;
 
+    public PlayerController playerController;
 
     public TMP_Text debugText;
     private int previousLayer; // Variable to store the previous layer value for comparison
@@ -117,7 +118,7 @@ public class PaintManager : MonoBehaviour
         }
 
         
-        /*if (bubble.isActive)
+        if (playerController.stateMachine.currentBehaviour is BubblePlayerBehaviour)
         {
             if (!bubbleWasActive)
             {
@@ -130,12 +131,12 @@ public class PaintManager : MonoBehaviour
             // Check if enough time has passed to paint another bubble
             if (timeSinceLastBubblePaint >= 1f / buublePaintingRate)
             {
-                PlaceBackgroundBubbleTrace(bubble.transform.position);
+                PlaceBackgroundBubbleTrace(playerController.transform.position);
                 // Reset the timer
                 timeSinceLastBubblePaint = 0f;
             }
         }
-        bubbleWasActive = bubble.isActive;*/
+        bubbleWasActive = playerController.stateMachine.currentBehaviour is BubblePlayerBehaviour;
         
 
 

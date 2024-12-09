@@ -206,6 +206,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6440193028415017704, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
   m_PrefabInstance: {fileID: 1690083532}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1179096838 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6493722858751087101, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
+  m_PrefabInstance: {fileID: 1690083532}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5f4923c56b5bdb4cab6800352239e43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1690083532
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -221,6 +232,10 @@ PrefabInstance:
       propertyPath: defaultMaterial
       value: 
       objectReference: {fileID: 6200000, guid: 87d587791eece0642a477cab456128d9, type: 2}
+    - target: {fileID: 1065585399483427149, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 1179096838}
     - target: {fileID: 3641801050012016723, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
       propertyPath: m_RootOrder
       value: 0

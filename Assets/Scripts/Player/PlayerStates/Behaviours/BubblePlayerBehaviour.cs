@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class BubblePlayerBehaviour : PlayerBehaviour
 {
@@ -31,6 +32,8 @@ public class BubblePlayerBehaviour : PlayerBehaviour
         isBubblingOut = false;
         bounceCounter = 0;
         hasExploded = false;
+        isBouncingH = false;
+        isBouncingV = false;
     }
     public void Exit()
     {
@@ -42,10 +45,14 @@ public class BubblePlayerBehaviour : PlayerBehaviour
         Exit();
         bubbleOutTimer = _playerPhysics.playerPhysicsValues.bubbleTransformationTime;
         isBubblingOut = true;
-        _playerStateMachine.SetAnim(3);
+        _playerStateMachine.SetAnim(4);
     }
 
     private PlayerBehaviour _nextBehaviour;
+    private bool isBouncingH;
+    private bool isBouncingV;
+    private float Ydestiny;
+    private float Xdestiny;
     public override void Logic()
     {
         base.Logic();
@@ -75,19 +82,50 @@ public class BubblePlayerBehaviour : PlayerBehaviour
         //Move Behaviour
         currentRelativeVelocity = _playerPhysics.BubbleMove(_playerController.m_playerInputHandler.absoluteMovementInput, currentRelativeVelocity);
 
-
-        if(bounceCounter<= _playerController.playerControlValues.bubbleMaxBounces&&(isTouchingCeiling||isTouchingWall)&&bounceTimer<=0)
+        if(isBouncingH)
+        {
+            isBouncingH = _playerPhysics.BounceHorizontal(Xdestiny);
+            if(_playerPhysics.facingDirection == 1)
+            {
+                if (_playerPhysics.checkIfTouchingLeftWall())
+                {
+                    isBouncingH = false;
+                }
+            }
+            else
+            {
+                if (_playerPhysics.checkIfTouchingRightWall())
+                {
+                    isBouncingH = false;
+                }
+            }
+        }
+        if (isBouncingV)
+        {
+            isBouncingV = _playerPhysics.BounceVertical(Ydestiny);
+            if (_playerPhysics.isGrounded)
+            {
+                isBouncingV = false;
+            }
+        }
+        if (bounceCounter<= _playerController.playerControlValues.bubbleMaxBounces&&isTouchingCeiling&&bounceTimer<=0&&!isBouncingV)
         {
             bounceCounter++;
-            bounceTimer = 0.2f;
-            if (isTouchingWall)
-            {
-                _playerPhysics.BounceHorizontal();
-            }
-            if (isTouchingCeiling)
-            {
-                _playerPhysics.BounceVertical();
-            }
+            bounceTimer = 0.05f;
+            PaintManager._instance.PlaceSplat(_playerPhysics.transform.position + new Vector3(0, 0.3f, 0), Vector3.down, _playerController.playerControlValues.bubbleColor);
+
+            Ydestiny = _playerPhysics.rb2D.position.y - (_playerPhysics.playerPhysicsValues.bubbleVerticalBounceForce * (_playerPhysics.playerPhysicsValues.bubbleBounceTime / 2));
+            isBouncingV = _playerPhysics.BounceVertical(Ydestiny);
+        }if(bounceCounter <= _playerController.playerControlValues.bubbleMaxBounces&&isTouchingWall&&bounceTimer <= 0&& !isBouncingH)
+        {
+            bounceCounter++;
+            bounceTimer = 0.05f;
+            PaintManager._instance.PlaceSplat(_playerController.transform.position + new Vector3(0.5f * _playerPhysics.facingDirection, 0, 0),
+                Vector3.left * _playerPhysics.facingDirection, _playerController.playerControlValues.bubbleColor);
+
+            Xdestiny = _playerPhysics.rb2D.position.x - (_playerPhysics.playerPhysicsValues.bubbleHorizontalBounceForce * (_playerPhysics.playerPhysicsValues.bubbleBounceTime / 2) * _playerPhysics.facingDirection);
+            isBouncingH = _playerPhysics.BounceHorizontal(Xdestiny);
+
         }
         else if(bounceCounter > _playerController.playerControlValues.bubbleMaxBounces)
         {

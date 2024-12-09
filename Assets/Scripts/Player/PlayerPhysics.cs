@@ -153,7 +153,7 @@ public class PlayerPhysics : MonoBehaviour
     private IEnumerator BubbleInCoroutine()
     {
         yield return new WaitForSeconds(playerPhysicsValues.bubbleTransformationTime);
-        SetGravityScale(playerPhysicsValues.bubbleGravityScale);
+        SetGravityScale(0);
         FreezePlayerPosition(false);
     }
     public void BubbleOut()
@@ -162,11 +162,11 @@ public class PlayerPhysics : MonoBehaviour
     }
     public void ImpulseBubble()
     {
-        rb2D.AddForce(new Vector2(0, playerPhysicsValues.floatForceWhenGoingDown));
+        rb2D.AddForce(new Vector2(0, playerPhysicsValues.floatForceWhenGoingDown),ForceMode2D.Impulse);
     }
     public void Float()
     {
-        rb2D.AddForce(new Vector2(0, playerPhysicsValues.floatForce));
+        rb2D.AddForce(new Vector2(0, playerPhysicsValues.floatForce), ForceMode2D.Impulse);
     }
     public void BubbleMaxSpeed()
     {
@@ -188,13 +188,26 @@ public class PlayerPhysics : MonoBehaviour
         SetVelocityX(playerPhysicsValues.bubbleHorizontalVelocity * currentRelativeVelocity);
         return currentRelativeVelocity;
     }
-    public void BounceHorizontal()
+    public bool BounceHorizontal(float destiny)
     {
-
+        float position = rb2D.position.x;
+        while (Math.Abs(position - destiny) > 0)
+        {
+            position = rb2D.position.x;
+            rb2D.AddForce(new Vector2(-facingDirection * playerPhysicsValues.bubbleHorizontalBounceForce, 0),ForceMode2D.Impulse);
+            return true;
+        }
+        return false;
     }
-    public void BounceVertical()
+    public bool BounceVertical(float destiny)
     {
-
+        float position = rb2D.position.y;
+        if (position - destiny > 0)
+        {
+            rb2D.AddForce(new(0, -playerPhysicsValues.bubbleVerticalBounceForce),ForceMode2D.Impulse);
+            return true;
+        }
+        return false;
     }
     #endregion
     #region Physics Checks

@@ -30,14 +30,13 @@ MonoBehaviour:
   dashLinearDrag: 12
   bubbleHorizontalVelocity: 10
   bubbleHorizontalAccelerationSeconds: 0.6
-  floatForce: 1
-  floatForceWhenGoingDown: 3
-  floatTerminalVelocity: 2
-  bubbleGravityScale: -0.02
+  floatForce: 0.03
+  floatForceWhenGoingDown: 0.1
+  floatTerminalVelocity: 0.05
   bubbleTransformationTime: 0.5
-  bubbleBounceVelocity: 80
-  bubbleBounceTime: 0.3
-  bubbleBounciness: 5
+  bubbleBounceTime: 2
+  bubbleVerticalBounceForce: 5
+  bubbleHorizontalBounceForce: 2
   groundCheckBox: {x: 0.85, y: 0.1}
   groundCheckOffset: {x: 0, y: -0.5}
   rightWallCheckBox: {x: 0.1, y: 0.5}
