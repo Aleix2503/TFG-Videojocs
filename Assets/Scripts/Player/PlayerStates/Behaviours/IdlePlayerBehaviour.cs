@@ -31,7 +31,7 @@ public class IdlePlayerBehaviour : PlayerBehaviour
             _playerStateMachine.ChangeState(_playerController.expandState);
             return;
         }
-        if (_playerController.m_playerInputHandler.jumpInput == true)
+        if (_playerController.CheckIfCanJump())
         {
             _playerStateMachine.ChangeState(_playerController.jumpState);
             return;
@@ -44,7 +44,7 @@ public class IdlePlayerBehaviour : PlayerBehaviour
         }
         if (!_playerPhysics.isGrounded)
         {
-            _playerController.StartCoyoteTime();
+            if(_playerController.didPlayerTouchGroundSinceLastJump)_playerController.StartCoyoteTime();
             _playerStateMachine.ChangeState(_playerController.fallState);
             return;
         }

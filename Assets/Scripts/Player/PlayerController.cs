@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     public bool didPlayerTouchGroundSinceLastDash = true;
     public bool didPlayerTouchGroundSinceLastExpand = true;
     public bool didPlayerTouchGroundSinceLastBubble = true;
+    public bool didPlayerTouchGroundSinceLastJump = true;
 
     public bool isPlayerLocked = false;
 
@@ -120,6 +121,7 @@ public class PlayerController : MonoBehaviour
         didPlayerTouchGroundSinceLastDash = true;
         didPlayerTouchGroundSinceLastExpand = true;
         didPlayerTouchGroundSinceLastBubble = true;
+        didPlayerTouchGroundSinceLastJump = true;
     }
 
     public bool CheckIfCanBubble()
@@ -136,6 +138,15 @@ public class PlayerController : MonoBehaviour
         if (m_playerInputHandler.expandInput && isExpandUnlocked && didPlayerTouchGroundSinceLastExpand)
         {
             didPlayerTouchGroundSinceLastExpand = false;
+            return true;
+        }
+        return false;
+    }
+    
+    public bool CheckIfCanJump() {
+        if(m_playerInputHandler.jumpInput && didPlayerTouchGroundSinceLastJump)
+        {
+            didPlayerTouchGroundSinceLastJump = false;
             return true;
         }
         return false;

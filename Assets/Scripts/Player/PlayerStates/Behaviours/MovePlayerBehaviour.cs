@@ -30,7 +30,7 @@ public class MovePlayerBehaviour : FloorPlayerBehaviour
             _playerStateMachine.ChangeState(_playerController.fallState);
             return;
         }
-        if (_playerController.m_playerInputHandler.jumpInput == true)
+        if (_playerController.CheckIfCanJump())
         {
             _playerStateMachine.ChangeState(_playerController.jumpState);
             return;

@@ -41,7 +41,7 @@ public class FallPlayerBehaviour : AirPlayerBehaviour
         }
 
 
-        if (_playerController.isCoyoteTimeActive && _playerController.m_playerInputHandler.jumpInput)
+        if (_playerController.isCoyoteTimeActive && _playerController.CheckIfCanJump())
         {
             _playerController.isCoyoteTimeActive = false;
             _playerStateMachine.ChangeState(_playerController.jumpState);
