@@ -425,7 +425,7 @@ public class PaintManager : MonoBehaviour
                 break;
             case ColorOption.RandomBetweenTwoColors:
                 // Use a random color between color1 and color2
-                traceColor = Color.Lerp(color1, color2, Random.Range(0f, 1f));
+                traceColor = Color.Lerp(color1, color2, Random.Range(0f, 0.5f));
                 break;
         }
 
