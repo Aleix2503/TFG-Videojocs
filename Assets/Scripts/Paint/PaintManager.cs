@@ -176,7 +176,7 @@ public class PaintManager : MonoBehaviour
         }
         else
         {
-            if (Mathf.Abs(distanceMoved.magnitude) >= moveThreshold)
+            if (Mathf.Abs(distanceMoved.magnitude) >= moveThreshold&&!(playerController.stateMachine.currentBehaviour is BubblePlayerBehaviour))
             {
                 // Increment the time since the last instantiation
                 timeSinceLastBackgroundTraceInstantiation += Time.deltaTime;
