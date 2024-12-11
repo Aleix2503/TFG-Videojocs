@@ -218,6 +218,21 @@ public class PlayerController : MonoBehaviour
     {
         PaintManager._instance.SetPaintingState(paintingState);
     }
+    public List<Material> inkstinctMaterials;
+    public void StartInkstinct()
+    {
+        foreach(Material material in inkstinctMaterials)
+        {
+            material.SetFloat("_isActive", 1);
+        }
+    }
+    public void StopInkstinct()
+    {
+        foreach (Material material in inkstinctMaterials)
+        {
+            material.SetFloat("_isActive", 0);
+        }
+    }
 
     #endregion
 

@@ -3,6 +3,8 @@ Shader "Unlit/Tileset"
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
+        [Toggle] _isActive("Active", Float) = 0
+        _Color ("Color",Color) = (1,1,1,1)
     }
     SubShader
     {
@@ -39,6 +41,8 @@ Shader "Unlit/Tileset"
 
             sampler2D _MainTex;
             float4 _MainTex_ST;
+            float4 _Color;
+            float _isActive;
 
             v2f vert (appdata v)
             {
@@ -55,7 +59,9 @@ Shader "Unlit/Tileset"
                 fixed4 col = tex2D(_MainTex, i.uv);
                 // apply fog
                 UNITY_APPLY_FOG(i.fogCoord, col);
-                return col*0;
+
+                if(_isActive==1){return _Color;}
+                else{return col*0;}
             }
             ENDCG
         }

@@ -49,6 +49,10 @@ public class PlayerControlValues : ScriptableObject
     public float respawnToIdleSeconds = 0.5f;
     [Space]
 
+    [Header("Inkstinct")]
+    public float inkstinctTime = 5f;
+    [Space]
+
     [Header("Cheats")]
     public bool unlockAllAbilities = false;
 }
