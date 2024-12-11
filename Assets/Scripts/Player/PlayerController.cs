@@ -50,6 +50,8 @@ public class PlayerController : MonoBehaviour
     public BubblePlayerBehaviour bubbleState { get; private set; }
     public ExpandPlayerBehaviour expandState { get; private set; }
 
+    public DeathPlayerBehaviour deathState { get; private set; }
+
 
     #endregion
 
@@ -69,6 +71,7 @@ public class PlayerController : MonoBehaviour
         dashState = new DashPlayerBehaviour(stateMachine, playerPhysics, this);
         bubbleState = new BubblePlayerBehaviour(stateMachine, playerPhysics, this);
         expandState = new ExpandPlayerBehaviour(stateMachine, playerPhysics, this);
+        deathState = new DeathPlayerBehaviour(stateMachine, playerPhysics, this);
 
 
         respawnPosition = Vector3.zero;

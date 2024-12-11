@@ -8,7 +8,9 @@ public abstract class PlayerBehaviour
     protected PlayerPhysics _playerPhysics;
     protected PlayerController _playerController;
     public float startingTime;
-    
+
+    public bool isTouchingHazard;
+
     public PlayerBehaviour (PlayerStateMachine playerStateMachine, PlayerPhysics playerPhysics,PlayerController playerController)
     {
         _playerStateMachine = playerStateMachine;
@@ -27,10 +29,15 @@ public abstract class PlayerBehaviour
     public virtual void Physics()
     {
         DoChecks();
+        if(isTouchingHazard)
+        {
+            _playerStateMachine.ChangeState(_playerController.deathState);
+        }
     }
     public virtual void DoChecks()
     {
         _playerPhysics.checkIfGrounded();
+        isTouchingHazard = _playerPhysics.checkIfTouchingHazard();
     }
     
 }
