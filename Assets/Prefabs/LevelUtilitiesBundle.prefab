@@ -475,10 +475,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7621532360680745529}
     - target: {fileID: 6113617590756229459, guid: 476ec2c0f61381c4ca5e0c6707773d5d, type: 3}
-      propertyPath: dashingInstantiationInterval
-      value: 0.005
-      objectReference: {fileID: 0}
-    - target: {fileID: 6113617590756229459, guid: 476ec2c0f61381c4ca5e0c6707773d5d, type: 3}
       propertyPath: backgroundExpandedTraceSpawnPosition
       value: 
       objectReference: {fileID: 7621532360074489077}
@@ -700,6 +696,8 @@ MonoBehaviour:
   playerPhysicsValues: {fileID: 11400000, guid: 97aeb30f48ee88649b9995df6030e670, type: 2}
   rb2D: {fileID: 6493722858751087091}
   bCollider: {fileID: 6493722858751087090}
+  bounceMaterial: {fileID: 0}
+  defaultMaterial: {fileID: 0}
 --- !u!4 &6493722858751087089 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3736661429019874289, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}

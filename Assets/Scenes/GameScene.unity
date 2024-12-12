@@ -236,18 +236,6 @@ PrefabInstance:
       propertyPath: playerController
       value: 
       objectReference: {fileID: 1179096838}
-    - target: {fileID: 1065585399483427149, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
-      propertyPath: buublePaintingRate
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1065585399483427149, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
-      propertyPath: instantiationInterval
-      value: 0.005
-      objectReference: {fileID: 0}
-    - target: {fileID: 1065585399483427149, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
-      propertyPath: dashingInstantiationInterval
-      value: 0.0001
-      objectReference: {fileID: 0}
     - target: {fileID: 3641801050012016723, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
       propertyPath: m_RootOrder
       value: 0

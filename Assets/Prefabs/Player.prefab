@@ -546,6 +546,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6633866426074027160}
   - component: {fileID: 4315961072501275484}
+  - component: {fileID: 5753489227878904325}
   m_Layer: 3
   m_Name: AttackHitbox
   m_TagString: Untagged
@@ -594,3 +595,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &5753489227878904325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7698512924262928659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92b109c2401c10842847b59e9e7bdd31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

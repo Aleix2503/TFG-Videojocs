@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 3901951779362071044}
   m_Layer: 0
   m_Name: Roomba
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df8bec0d0567f4c4dbd6242fb0d6af13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 5
+  life: 25
   state: 1
 --- !u!114 &1741693600401413209
 MonoBehaviour:

@@ -65,7 +65,6 @@ public class Patrol : StateBehaviour
 
     public void RotateTowardsPoint()
     {
-        Debug.Log("Rotate");
         // Calcular la dirección hacia el jugador
         Vector2 direction = patrolPoints[currentPointIndex].transform.position - transform.position;
 
