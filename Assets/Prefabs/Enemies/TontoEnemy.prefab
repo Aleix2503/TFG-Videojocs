@@ -115,6 +115,8 @@ GameObject:
   - component: {fileID: 1077118717844779413}
   - component: {fileID: 1077118717844779414}
   - component: {fileID: 1077118717844779434}
+  - component: {fileID: 5211058685009174038}
+  - component: {fileID: 6771430526199168950}
   m_Layer: 0
   m_Name: Tonto
   m_TagString: Enemy
@@ -280,6 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df8bec0d0567f4c4dbd6242fb0d6af13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  life: 0
   state: 0
 --- !u!114 &1077118717844779432
 MonoBehaviour:
@@ -308,6 +311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f6946ec14e6fbf488661be36169e032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationSpeed: 5
   type: 0
   chasingSpeed: 5
 --- !u!114 &1077118717844779414
@@ -337,3 +341,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeRecover: 3
+--- !u!114 &5211058685009174038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077118717844779421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34cc56c69f4139a4992ff3e93e856eb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitDamage: 2
+--- !u!114 &6771430526199168950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077118717844779421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11279bd6843a5d945aaa4b60a37f4765, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
