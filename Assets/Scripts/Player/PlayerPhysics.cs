@@ -16,11 +16,15 @@ public class PlayerPhysics : MonoBehaviour
     public int facingDirection { get; private set; }
     public bool isGrounded => checkIfGrounded();
 
+    private AttackPlayer attackPlayer;
+
 
     public void Start()
     {
         SetGravityScale(playerPhysicsValues.defaultGravity);
         SetColliderDimensions(playerPhysicsValues.defaultCollisionBox, playerPhysicsValues.defaultCollisionBoxOffset, playerPhysicsValues.defaultCollisionEdgeRadius);
+
+        attackPlayer = GetComponent<AttackPlayer>();
         
         facingDirection = 1;
     }
@@ -244,7 +248,7 @@ public class PlayerPhysics : MonoBehaviour
 
         int direction = movementInput > 0 ? 1 : -1;
 
-        if (direction != facingDirection)
+        if (direction != facingDirection && !attackPlayer.isAttacking)
         {
             Flip();
         }
