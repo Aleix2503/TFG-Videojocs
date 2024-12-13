@@ -117,7 +117,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3945630413489457966}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.13332438, y: 1.2590456, z: -4.799379}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -431,6 +431,10 @@ PrefabInstance:
       value: 0.9433962
       objectReference: {fileID: 0}
     - target: {fileID: 6113617590756229459, guid: 476ec2c0f61381c4ca5e0c6707773d5d, type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 6493722858751087101}
+    - target: {fileID: 6113617590756229459, guid: 476ec2c0f61381c4ca5e0c6707773d5d, type: 3}
       propertyPath: dashParticleSystem
       value: 
       objectReference: {fileID: 5980606200767052280}
@@ -540,10 +544,6 @@ PrefabInstance:
       propertyPath: isFreeCameraAllowed
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3736661429019874289, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 15.2
-      objectReference: {fileID: 0}
     - target: {fileID: 3736661429019874301, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
       propertyPath: isDashUnlocked
       value: 1
@@ -586,15 +586,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3736661429977556970, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.57451665
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3736661429977556970, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.80829585
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3736661429977556970, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.7306247
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3736661429977556970, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
       propertyPath: m_LocalRotation.w
@@ -713,6 +713,17 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 3736661429019874291, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
   m_PrefabInstance: {fileID: 7621532361226928640}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6493722858751087101 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3736661429019874301, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
+  m_PrefabInstance: {fileID: 7621532361226928640}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6493722858751087088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5f4923c56b5bdb4cab6800352239e43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &6552464040249665121 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 3686785741843162209, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
