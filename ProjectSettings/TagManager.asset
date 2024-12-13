@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Bubble
+  - Enemy
+  - Splatter
   layers:
   - Default
   - TransparentFX
@@ -14,7 +16,7 @@ TagManager:
   - UI
   - Hazard
   - Bubble
-  - 
+  - Splatters
   - 
   - Obstacle
   - Background

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BubbleController : MonoBehaviour
 {
-    public LayerMask platformLayer;
+    /*public LayerMask platformLayer;
     public LayerMask hazardLayer;
 
     public Rigidbody2D rb2D;
@@ -110,5 +110,5 @@ public class BubbleController : MonoBehaviour
         spriteRenderer.color = Color.clear; //TODO cambiar esto cuando haya animaci�n
         
         
-    }
+    }*/
 }

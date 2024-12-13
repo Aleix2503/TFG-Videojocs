@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f42c0ffd2cafa654a9f50dff35b1c52d, type: 3}
+  m_Name: defaultPlayerControlValues
+  m_EditorClassIdentifier: 
+  showGizmos: 1
+  initialNoControlTime: 1
+  abilityUnlockNoControlTime: 2
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  dashColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  bubbleColor: {r: 0, g: 1, b: 1, a: 1}
+  expandColor: {r: 1, g: 0, b: 1, a: 1}
+  jumpBufferTime: 0.2
+  fallCanPlayerFlip: 1
+  coyoteTime: 0.05
+  dashCooldownSeconds: 0.5
+  dashColorFadeInTime: 0.05
+  dashColorFadeOutTime: 0.5
+  bubbleTransformationTime: 1
+  bubbleMaxBounces: 2
+  expandColorFadeTime: 0.5
+  expandBreakPlatformVelocityThreshold: -7
+  expandedShowGizmos: 0
+  deathToRespawnSeconds: 1
+  respawnToIdleSeconds: 0.5
+  unlockAllAbilities: 0

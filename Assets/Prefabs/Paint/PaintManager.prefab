@@ -69,13 +69,14 @@ MonoBehaviour:
   timeSinceLastInstantiation: 0
   timeSinceLastBackgroundTraceInstantiation: 0
   moveThreshold: 0.1
-  instantiationInterval: 0.02
+  instantiationInterval: 0.005
   dashThreshold: 0.1
-  dashingInstantiationInterval: 0.1
+  dashingInstantiationInterval: 0.0001
   distanceMoved: {x: 0, y: 0, z: 0}
   playerTransform: {fileID: 0}
   bubbleTransform: {fileID: 0}
   currentLayer: 3
+  playerController: {fileID: 0}
   debugText: {fileID: 0}
   bubble: {fileID: 0}
   buublePaintingRate: 2
