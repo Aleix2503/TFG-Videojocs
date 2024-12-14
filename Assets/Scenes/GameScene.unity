@@ -232,6 +232,14 @@ PrefabInstance:
       propertyPath: defaultMaterial
       value: 
       objectReference: {fileID: 6200000, guid: 87d587791eece0642a477cab456128d9, type: 2}
+    - target: {fileID: 306041613864301777, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3703a4eb4e5c26d47bdb57636ea205ea, type: 2}
+    - target: {fileID: 344207900404564835, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.57
+      objectReference: {fileID: 0}
     - target: {fileID: 1065585399483427149, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
       propertyPath: playerController
       value: 
@@ -283,6 +291,22 @@ PrefabInstance:
     - target: {fileID: 3945630413489457966, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
       propertyPath: m_Name
       value: LevelUtilitiesBundle
+      objectReference: {fileID: 0}
+    - target: {fileID: 5564032951692772279, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5564032951692772279, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5564032951692772279, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6303169754901421195, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
+      propertyPath: m_SortingLayer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6493722858751087090, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
       propertyPath: m_Material
