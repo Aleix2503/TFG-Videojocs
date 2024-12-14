@@ -201,6 +201,24 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 0
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
+--- !u!1 &716302884 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6493722856985976073, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
+  m_PrefabInstance: {fileID: 1690083532}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &716302888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716302884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
 --- !u!1 &1005598783 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6440193028415017704, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
@@ -312,7 +330,8 @@ PrefabInstance:
       propertyPath: inkstinctMaterials.Array.data[3]
       value: 
       objectReference: {fileID: 2100000, guid: df507d44677da444191356c57e743e90, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6493722856985976074, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
 --- !u!1001 &7534376819938507563
 PrefabInstance:
