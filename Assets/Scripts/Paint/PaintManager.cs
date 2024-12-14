@@ -28,6 +28,7 @@ public class PaintManager : MonoBehaviour
     public ParticleSystem jumpParticleSystem;
     public ParticleSystem expandedParticleSystem;
     public ParticleSystem bubbleParticleSystem;
+    public ParticleSystem attackParticleSystem;
     
     public ColorOption colorOption;
     
@@ -457,6 +458,11 @@ public class PaintManager : MonoBehaviour
     {
         bubbleParticleSystem.transform.position = bubbleTransform.position;
         bubbleParticleSystem.Emit(5);   
+    }
+
+    public void EmitAttackParticles(int count)
+    {
+        attackParticleSystem.Emit(count);
     }
 
     public void PlaceSplat(Vector3 position, Vector3 normal, Color color)
