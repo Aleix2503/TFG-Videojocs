@@ -29,11 +29,12 @@ public class Recover : StateBehaviour
 
         if (GetComponent<Patrol>() != null)
             fsmEnemies.state = FSMEnemies.State.Patrol;
-        else
+        else if (GetComponent<Idle>() != null)
         {
             fsmEnemies.state = FSMEnemies.State.Idle;
             GetComponent<Idle>().SetAlreadyArrivedFalse();
-        }
+        } 
+        else fsmEnemies.state = FSMEnemies.State.Attack;
 
         alreadyCalled = false;
     }

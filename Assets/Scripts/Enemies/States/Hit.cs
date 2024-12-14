@@ -18,6 +18,12 @@ public class Hit : StateBehaviour
     public override void Behaviour()
     {
         fsmEnemies.life -= hitDamage;
-        fsmEnemies.state = GetComponent<Idle>() != null ? FSMEnemies.State.Idle : FSMEnemies.State.Patrol; 
+
+        if (GetComponent<Patrol>() != null)
+            fsmEnemies.state = FSMEnemies.State.Patrol;
+        else if (GetComponent<Idle>() != null)
+            fsmEnemies.state = FSMEnemies.State.Idle;
+        else 
+            fsmEnemies.state = FSMEnemies.State.Attack;
     }
 }
