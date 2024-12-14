@@ -1375,7 +1375,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1741693600953939862, guid: 73eb10aa074d3784eb9baa33c60361d3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1741693600953939865, guid: 73eb10aa074d3784eb9baa33c60361d3, type: 3}
       propertyPath: m_RootOrder
@@ -1480,7 +1480,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6800976739110238974, guid: 9dbd2244dc2553a4cb11bc4c4a5ba3ea, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6800976740162509533, guid: 9dbd2244dc2553a4cb11bc4c4a5ba3ea, type: 3}
       propertyPath: detectionRadius

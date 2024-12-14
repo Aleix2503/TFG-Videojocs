@@ -25,6 +25,11 @@ public class AttackPlayer : MonoBehaviour
     [Header("Animator")]
     [SerializeField]
     private Animator animator;
+    [Space]
+
+    [Header("Partciles")]
+    [SerializeField]
+    private int numberOfEmissions = 5;
 
     [HideInInspector]
     public bool isAttacking = false;
@@ -55,12 +60,14 @@ public class AttackPlayer : MonoBehaviour
             {
                 animator.SetTrigger("isAttacking2");
                 attackedFirst = false;
+                PaintManager._instance.EmitAttackParticles(numberOfEmissions);
                 StartCoroutine(hitboxActive(durationNormalAttack, 0));
             }
             else if (attackTimer >= cooldownAttack)
             {
                 animator.SetTrigger("isAttacking");
                 attackedFirst = true;
+                PaintManager._instance.EmitAttackParticles(numberOfEmissions);
                 StartCoroutine(hitboxActive(durationNormalAttack, 0));
             }
         }

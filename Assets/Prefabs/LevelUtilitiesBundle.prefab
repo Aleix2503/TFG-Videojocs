@@ -443,6 +443,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7621532361161711953}
     - target: {fileID: 6113617590756229459, guid: 476ec2c0f61381c4ca5e0c6707773d5d, type: 3}
+      propertyPath: attackParticleSystem
+      value: 
+      objectReference: {fileID: 7316741255186394415}
+    - target: {fileID: 6113617590756229459, guid: 476ec2c0f61381c4ca5e0c6707773d5d, type: 3}
       propertyPath: bubbleParticleSystem
       value: 
       objectReference: {fileID: 7621532361121133314}

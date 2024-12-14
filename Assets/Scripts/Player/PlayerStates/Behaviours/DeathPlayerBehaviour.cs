@@ -26,6 +26,7 @@ public class DeathPlayerBehaviour : PlayerBehaviour
     {
         _playerController.FadePlayerColor(_playerController.playerControlValues.defaultColor, 0);
         _playerController.Respawn();
+        _playerStateMachine.SetAnim(4);
     }
     public override void Logic()
     {
