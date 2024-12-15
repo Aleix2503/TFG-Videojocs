@@ -30,6 +30,7 @@ public class Alert : StateBehaviour
         player = GameObject.FindWithTag("Player").GetComponent<Transform>();
 
         fsmEnemies = GetComponent<FSMEnemies>();
+        animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         playerDetection = GetComponent<PlayerDetection>();
@@ -42,12 +43,11 @@ public class Alert : StateBehaviour
 
         if (type == ChasingType.Terrestrial)
             direction = new Vector2(direction.x, 0);
+        else if (type == ChasingType.Flying)
+            RotateTowardsPlayer();
 
         if (playerDetection.detectionType == PlayerDetection.DetectionType.Circle)
             Flip();
-
-        if (type == ChasingType.Flying)
-            RotateTowardsPlayer();
 
         // Aplicar movimiento al Rigidbody2D
         rb.velocity = direction * chasingSpeed;
@@ -63,6 +63,7 @@ public class Alert : StateBehaviour
     {
         if (collision.gameObject.CompareTag("Player") && fsmEnemies.state == FSMEnemies.State.Alert)
         {
+            animator.SetTrigger("isAttacked");
             fsmEnemies.state = FSMEnemies.State.Attack; 
         }
     }

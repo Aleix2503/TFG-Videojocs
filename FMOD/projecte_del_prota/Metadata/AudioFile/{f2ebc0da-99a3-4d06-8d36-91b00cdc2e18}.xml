@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{f2ebc0da-99a3-4d06-8d36-91b00cdc2e18}">
+		<property name="assetPath">
+			<value>EditedSounds/SALT.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.83333333333333337</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{307e42f6-d328-47f5-be68-fa78f47bda3c}</destination>
+		</relationship>
+	</object>
+</objects>

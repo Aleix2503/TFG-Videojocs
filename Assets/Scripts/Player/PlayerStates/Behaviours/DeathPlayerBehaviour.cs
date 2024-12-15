@@ -26,6 +26,7 @@ public class DeathPlayerBehaviour : PlayerBehaviour
     {
         _playerController.FadePlayerColor(_playerController.playerControlValues.defaultColor, 0);
         _playerController.Respawn();
+        _playerStateMachine.SetAnimTrigger("isRespawning");
     }
     public override void Logic()
     {
@@ -39,6 +40,8 @@ public class DeathPlayerBehaviour : PlayerBehaviour
         {
             _playerStateMachine.ChangeState(_playerController.idleState);
             _playerPhysics.FreezePlayerPosition(false);
+            _playerPhysics.SetGravityScale(_playerPhysics.playerPhysicsValues.defaultGravity);
+            _playerPhysics.SetLinearDrag(_playerPhysics.playerPhysicsValues.defaultLinearDrag);
         }
     }
     public override void Physics()

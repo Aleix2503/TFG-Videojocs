@@ -11,7 +11,9 @@ public class PlayerInputHandler : MonoBehaviour
     /// </summary>
 
     public float rawMovementInput { get; private set; }
+    private float rawAtackDirection;
     public int absoluteMovementInput { get; private set; }
+    public int absoluteAttackDirection { get; private set; }
     public bool jumpInput { get; private set; }
     public bool jumpInputHeld { get; private set; }
 
@@ -20,7 +22,7 @@ public class PlayerInputHandler : MonoBehaviour
     public bool bubbleInput { get; private set; }
     public bool bubbleInputHeld { get; private set; }
 
-    public bool expandInput { get; private set; }
+    public bool cubeInput { get; private set; }
 
     private float lastJumpTime = 0f;
 
@@ -32,6 +34,8 @@ public class PlayerInputHandler : MonoBehaviour
     private InputAction inputAction_dash;
     private InputAction inputAction_bubble;
     private InputAction inputAction_expand;
+    private InputAction inputAction_attackDirection;
+    private InputAction inputAction_attack;
 
     private void Awake()
     {
@@ -59,6 +63,12 @@ public class PlayerInputHandler : MonoBehaviour
 
         inputAction_expand = m_playerControls.Player.Expand;
         inputAction_expand.Enable();
+
+        inputAction_attackDirection = m_playerControls.Player.AttackDirection;
+        inputAction_attackDirection.Enable();
+
+        inputAction_attack = m_playerControls.Player.Attack;
+        inputAction_attack.Enable();
     }
 
     private void OnDisable()
@@ -71,6 +81,9 @@ public class PlayerInputHandler : MonoBehaviour
     {
         rawMovementInput = inputAction_move.ReadValue<float>();
         absoluteMovementInput = Mathf.RoundToInt(rawMovementInput);
+
+        rawAtackDirection = inputAction_attackDirection.ReadValue<float>();
+        absoluteAttackDirection = Mathf.RoundToInt(rawAtackDirection);
 
         if (inputAction_jump.WasPressedThisFrame())
         {
@@ -90,7 +103,7 @@ public class PlayerInputHandler : MonoBehaviour
 
         dashInput = inputAction_dash.WasPressedThisFrame();
         bubbleInput = inputAction_bubble.WasPressedThisFrame();
-        expandInput = inputAction_expand.WasPressedThisFrame();
+        cubeInput = inputAction_expand.WasPressedThisFrame();
     }
 
     public void EnablePlayerInput()
@@ -100,6 +113,8 @@ public class PlayerInputHandler : MonoBehaviour
         inputAction_dash.Enable();
         inputAction_bubble.Enable();
         inputAction_expand.Enable();
+        inputAction_attackDirection.Enable();
+        inputAction_attack.Enable();
     }
 
     public void DisablePlayerInput()
@@ -109,5 +124,7 @@ public class PlayerInputHandler : MonoBehaviour
         inputAction_dash.Disable();
         inputAction_bubble.Disable();
         inputAction_expand.Disable();
+        inputAction_attackDirection.Disable();
+        inputAction_attack.Disable();
     }
 }

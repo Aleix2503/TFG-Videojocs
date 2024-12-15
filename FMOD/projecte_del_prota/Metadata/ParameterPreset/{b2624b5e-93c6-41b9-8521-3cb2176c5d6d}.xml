@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{b2624b5e-93c6-41b9-8521-3cb2176c5d6d}">
+		<property name="name">
+			<value>isFalling</value>
+		</property>
+		<relationship name="folder">
+			<destination>{ca788b03-4c75-4c99-b24f-cf553b32f04b}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{eb968a87-1501-470b-bde9-644951a5a60e}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{eb968a87-1501-470b-bde9-644951a5a60e}">
+		<property name="parameterType">
+			<value>2</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="enumerationLabels">
+			<value>OnAir</value>
+			<value>OnLanded</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

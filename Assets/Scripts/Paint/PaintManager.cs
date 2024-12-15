@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
-public enum PlayerPaintingState { def, moving, dashing, expanded }
+public enum PlayerPaintingState { def, moving, dashing, cubed }
 
 public class PaintManager : MonoBehaviour
 {
@@ -26,8 +26,9 @@ public class PaintManager : MonoBehaviour
     public ParticleSystem particleSystem;
     public ParticleSystem dashParticleSystem;
     public ParticleSystem jumpParticleSystem;
-    public ParticleSystem expandedParticleSystem;
+    public ParticleSystem cubedParticleSystem;
     public ParticleSystem bubbleParticleSystem;
+    public ParticleSystem attackParticleSystem;
     
     public ColorOption colorOption;
     
@@ -39,12 +40,12 @@ public class PaintManager : MonoBehaviour
     public Color color2;
     
     public Color dashPaintColor;
-    public Color expandedPaintColor;
+    public Color cubedPaintColor;
     public Color bubblePaintColor;
 
     public Transform traceSpawnPosition;
     public Transform backgroundTraceSpawnPosition;
-    public Transform backgroundExpandedTraceSpawnPosition;
+    public Transform backgroundCubedTraceSpawnPosition;
     public Transform onFallTraceSpawnPosition;
 
     public GameObject splatPrefab;
@@ -108,8 +109,8 @@ public class PaintManager : MonoBehaviour
 
         if ((playerPaintingState == PlayerPaintingState.dashing && 
          lastState != PlayerPaintingState.dashing) ||
-            (playerPaintingState == PlayerPaintingState.expanded && 
-             lastState != PlayerPaintingState.expanded) ||
+            (playerPaintingState == PlayerPaintingState.cubed && 
+             lastState != PlayerPaintingState.cubed) ||
             (playerPaintingState == PlayerPaintingState.moving || playerPaintingState == PlayerPaintingState.def) &&
             (lastState != PlayerPaintingState.moving && lastState != PlayerPaintingState.def))
         {
@@ -157,7 +158,7 @@ public class PaintManager : MonoBehaviour
             
             }
         }
-        else if (playerPaintingState == PlayerPaintingState.expanded)
+        else if (playerPaintingState == PlayerPaintingState.cubed)
         {
             if (Mathf.Abs(distanceMoved.magnitude) >= dashThreshold)
             {
@@ -167,7 +168,7 @@ public class PaintManager : MonoBehaviour
                 // Check if enough time has passed since the last instantiation
                 if (timeSinceLastBackgroundTraceInstantiation >= dashingInstantiationInterval)
                 {
-                    PlaceBackgroundExpandedTrace(backgroundExpandedTraceSpawnPosition.position);
+                    PlaceBackgroundCubedTrace(backgroundCubedTraceSpawnPosition.position);
                     // Reset the time since the last instantiation
                     timeSinceLastBackgroundTraceInstantiation = 0f;
                 }
@@ -176,7 +177,7 @@ public class PaintManager : MonoBehaviour
         }
         else
         {
-            if (Mathf.Abs(distanceMoved.magnitude) >= moveThreshold)
+            if (Mathf.Abs(distanceMoved.magnitude) >= moveThreshold&&!(playerController.stateMachine.currentBehaviour is BubblePlayerBehaviour))
             {
                 // Increment the time since the last instantiation
                 timeSinceLastBackgroundTraceInstantiation += Time.deltaTime;
@@ -294,7 +295,7 @@ public class PaintManager : MonoBehaviour
         traceScript.Initialize(Trace.SplatLoacation.Foreground, currentLayer, traceColor);
     }
     
-    public void PlaceOnExpandedTrace()
+    public void PlaceOnCubedTrace()
     {
         Color traceColor = paintColor; // Default color is the single paint color
 
@@ -313,7 +314,7 @@ public class PaintManager : MonoBehaviour
         GameObject trace = Instantiate(tracePrefab, onFallTraceSpawnPosition.position, Quaternion.identity);
         Trace traceScript = trace.GetComponent<Trace>();
         GetDecalChunk(trace.transform);
-        traceScript.Initialize(Trace.SplatLoacation.Foreground, currentLayer, expandedPaintColor);
+        traceScript.Initialize(Trace.SplatLoacation.Foreground, currentLayer, cubedPaintColor);
     }
     
     public void PlaceBackgroundTrace(Vector3 position)
@@ -388,7 +389,7 @@ public class PaintManager : MonoBehaviour
         traceScript.Initialize(Trace.SplatLoacation.Background, currentLayer, backgroundColor);
     }
     
-    public void PlaceBackgroundExpandedTrace(Vector3 position)
+    public void PlaceBackgroundCubedTrace(Vector3 position)
     {
         Color traceColor = paintColor; // Default color is the single paint color
 
@@ -407,7 +408,7 @@ public class PaintManager : MonoBehaviour
         GameObject trace = Instantiate(backgroundTracePrefab, position, Quaternion.identity);
         Trace traceScript = trace.GetComponent<Trace>();
         GetDecalChunk(trace.transform);
-        Color color = expandedPaintColor;
+        Color color = cubedPaintColor;
         Color backgroundColor = new Color(color.r / 2f, color.g / 2f, color.b / 2f, 1f);
         
         traceScript.Initialize(Trace.SplatLoacation.Background, currentLayer, backgroundColor);
@@ -425,7 +426,7 @@ public class PaintManager : MonoBehaviour
                 break;
             case ColorOption.RandomBetweenTwoColors:
                 // Use a random color between color1 and color2
-                traceColor = Color.Lerp(color1, color2, Random.Range(0f, 1f));
+                traceColor = Color.Lerp(color1, color2, Random.Range(0f, 0.5f));
                 break;
         }
 
@@ -448,15 +449,20 @@ public class PaintManager : MonoBehaviour
         dashParticleSystem.Emit(5);   
     }
     
-    public void EmitExpandedParticles()
+    public void EmitCubedParticles()
     {
-        expandedParticleSystem.Emit(5);   
+        cubedParticleSystem.Emit(5);   
     }
     
     public void EmitBubbleParticles()
     {
         bubbleParticleSystem.transform.position = bubbleTransform.position;
         bubbleParticleSystem.Emit(5);   
+    }
+
+    public void EmitAttackParticles(int count)
+    {
+        attackParticleSystem.Emit(count);
     }
 
     public void PlaceSplat(Vector3 position, Vector3 normal, Color color)
@@ -533,11 +539,11 @@ public class PaintManager : MonoBehaviour
                 dashParticleSystem.Emit(5);
                 dashParticleSystem.transform.position = dashParticlesTransform.position;
                 break;
-            case PlayerController.AbilityType.Expand:
-                Transform expandedParticlesTransform = expandedParticleSystem.transform;
-                expandedParticleSystem.transform.position = position;
-                expandedParticleSystem.Emit(5);
-                expandedParticleSystem.transform.position = expandedParticlesTransform.position;
+            case PlayerController.AbilityType.Cube:
+                Transform cubedParticlesTransform = cubedParticleSystem.transform;
+                cubedParticleSystem.transform.position = position;
+                cubedParticleSystem.Emit(5);
+                cubedParticleSystem.transform.position = cubedParticlesTransform.position;
                 break;
         }
     }

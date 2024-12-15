@@ -144,9 +144,12 @@ GameObject:
   - component: {fileID: 6800976740162509530}
   - component: {fileID: 6800976740162509531}
   - component: {fileID: 6800976740162509534}
+  - component: {fileID: 1476185877280748723}
+  - component: {fileID: 7969158499969918447}
+  - component: {fileID: 2012954679078930114}
   m_Layer: 0
   m_Name: Libelula
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -283,6 +286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df8bec0d0567f4c4dbd6242fb0d6af13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  life: 0
   state: 1
 --- !u!114 &6800976740162509531
 MonoBehaviour:
@@ -315,3 +319,49 @@ MonoBehaviour:
   rotationSpeed: 5
   type: 1
   chasingSpeed: 5
+--- !u!114 &1476185877280748723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6800976740162509526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34cc56c69f4139a4992ff3e93e856eb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitDamage: 2
+  hitTime: 0.5
+--- !u!114 &7969158499969918447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6800976740162509526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11279bd6843a5d945aaa4b60a37f4765, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &2012954679078930114
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6800976740162509526}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5d217706f0f62d54184917a9cf16fe5e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

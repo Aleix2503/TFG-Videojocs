@@ -13,6 +13,7 @@ public class Recover : StateBehaviour
     void Start()
     {
         fsmEnemies = GetComponent<FSMEnemies>();
+        animator = GetComponent<Animator>();
     }
 
     public override void Behaviour()
@@ -29,11 +30,14 @@ public class Recover : StateBehaviour
 
         if (GetComponent<Patrol>() != null)
             fsmEnemies.state = FSMEnemies.State.Patrol;
-        else
+        else if (GetComponent<Idle>() != null)
         {
             fsmEnemies.state = FSMEnemies.State.Idle;
             GetComponent<Idle>().SetAlreadyArrivedFalse();
-        }
+
+            animator.SetTrigger("isIdled");
+        } 
+        else fsmEnemies.state = FSMEnemies.State.Attack;
 
         alreadyCalled = false;
     }

@@ -13,7 +13,7 @@ public class PlayerControlValues : ScriptableObject
     public Color defaultColor = Color.white;
     public Color dashColor = Color.yellow;
     public Color bubbleColor = Color.cyan;
-    public Color expandColor = Color.magenta;
+    public Color cubeColor = Color.magenta;
     
     [Header("Jump State")]
     public float jumpBufferTime = 0.2f;
@@ -35,10 +35,10 @@ public class PlayerControlValues : ScriptableObject
     public int bubbleMaxBounces = 2;
     [Space]
 
-    [Header("Expand State")]
-    public float expandColorFadeTime = 0.5f;
-    public float expandBreakPlatformVelocityThreshold = -15;
-    public bool expandedShowGizmos = false;
+    [Header("Cube State")]
+    public float cubeColorFadeTime = 0.5f;
+    public float cubedBreakPlatformVelocityThreshold = -15;
+    public bool cubedShowGizmos = false;
     [Space]
 
     [Header("Death State")]

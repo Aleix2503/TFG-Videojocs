@@ -1,0 +1,49 @@
+fileFormatVersion: 2
+guid: 513a0bdd7195ece44bf06b193720d24c
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: aaa16bfc62c086f4fb45da87b6acf9b1, type: 3}
+  _reimportOnDependencyChange: 1
+  _jsonFile: {fileID: -164016180542632921, guid: 513a0bdd7195ece44bf06b193720d24c, type: 3}
+  _pixelsPerUnit: 8
+  _customLevelPrefab: {instanceID: 0}
+  _intGridValueColorsVisible: 0
+  _useCompositeCollider: 1
+  _geometryType: 0
+  _createBackgroundColor: 1
+  _createLevelBoundsTrigger: 0
+  _useParallax: 1
+  _intGridValues:
+  - _key: IntGrid_layer_1
+    _asset: {fileID: 11400000, guid: 8dfc9ce03c232764494cd5bf26d79176, type: 2}
+  - _key: IntGrid_layer_2
+    _asset: {instanceID: 0}
+  - _key: IntGrid_layer_3
+    _asset: {instanceID: 0}
+  _entities:
+  - _key: PainT
+    _asset: {fileID: 3945630413489457966, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
+  - _key: Tonto
+    _asset: {instanceID: 0}
+  - _key: Roomba
+    _asset: {instanceID: 0}
+  - _key: Mosca
+    _asset: {instanceID: 0}
+  - _key: RectRegion
+    _asset: {instanceID: 0}
+  - _key: MINI_BOSS
+    _asset: {instanceID: 0}
+  - _key: BOSS
+    _asset: {instanceID: 0}
+  - _key: PUZZLE_Pintura
+    _asset: {instanceID: 0}
+  - _key: PowerUp
+    _asset: {instanceID: 0}
+  _enumGenerate: 0
+  _enumPath: 
+  _enumNamespace: 
