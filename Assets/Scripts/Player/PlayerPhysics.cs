@@ -16,11 +16,15 @@ public class PlayerPhysics : MonoBehaviour
     public int facingDirection { get; private set; }
     public bool isGrounded => checkIfGrounded();
 
+    private AttackPlayer attackPlayer;
+
 
     public void Start()
     {
         SetGravityScale(playerPhysicsValues.defaultGravity);
         SetColliderDimensions(playerPhysicsValues.defaultCollisionBox, playerPhysicsValues.defaultCollisionBoxOffset, playerPhysicsValues.defaultCollisionEdgeRadius);
+
+        attackPlayer = GetComponent<AttackPlayer>();
         
         facingDirection = 1;
     }
@@ -209,31 +213,32 @@ public class PlayerPhysics : MonoBehaviour
         }
         return false;
     }
-    public void ExpandIn()
+    public void CubeIn()
     {
         FreezePlayerPosition(true);
-        StartCoroutine(ExpandInCoroutine());
+        StartCoroutine(CubeInCoroutine());
     }
-    private IEnumerator ExpandInCoroutine()
+    private IEnumerator CubeInCoroutine()
     {
-        yield return new WaitForSeconds(playerPhysicsValues.expandTime);
+        yield return new WaitForSeconds(playerPhysicsValues.cubedTime);
         FreezePlayerPosition(false);
-        SetColliderDimensions(playerPhysicsValues.expandedCollisionBox, playerPhysicsValues.expandedCollisionBoxOffset, playerPhysicsValues.expandedCollisionEdgeRadius);
+        SetColliderDimensions(playerPhysicsValues.cubedCollisionBox, playerPhysicsValues.cubedCollisionBoxOffset, playerPhysicsValues.cubedCollisionEdgeRadius);
     }
-    private IEnumerator ExpandOutCoroutine()
+    private IEnumerator CubeOutCoroutine()
     {
-        yield return new WaitForSeconds(playerPhysicsValues.expandTime);
+        yield return new WaitForSeconds(playerPhysicsValues.cubedTime);
         FreezePlayerPosition(false);
         SetColliderDimensions(playerPhysicsValues.defaultCollisionBox, playerPhysicsValues.defaultCollisionBoxOffset, playerPhysicsValues.defaultCollisionEdgeRadius);
     }
-    public void ExpandOut()
+    public void CubeOut()
     {
         FreezePlayerPosition(true);
-        StartCoroutine(ExpandOutCoroutine());
+        StartCoroutine(CubeOutCoroutine());
     }
-    public void ExpandedFall()
+    public void CubedFall()
     {
-        SetVelocityY(-playerPhysicsValues.expandVerticalVelocity);
+        SetVelocityY(-playerPhysicsValues.cubedVerticalVelocity);
+        SetVelocityY(-playerPhysicsValues.cubedVerticalVelocity);
     }
     #endregion
     #region Physics Checks
@@ -244,7 +249,7 @@ public class PlayerPhysics : MonoBehaviour
 
         int direction = movementInput > 0 ? 1 : -1;
 
-        if (direction != facingDirection)
+        if (direction != facingDirection && !attackPlayer.isAttacking)
         {
             Flip();
         }
@@ -285,19 +290,19 @@ public class PlayerPhysics : MonoBehaviour
         return Physics2D.OverlapBox((Vector2)transform.position + playerPhysicsValues.hazardCheckOffset, playerPhysicsValues.hazardCheckBox, 0, playerPhysicsValues.whatIsHazard);
     }
 
-    public bool checkIfExpandedCollision()
+    public bool checkIfCubedCollision()
     {
-        return Physics2D.OverlapBox((Vector2)transform.position + playerPhysicsValues.expandedCollisionBoxOffset, playerPhysicsValues.expandedCollisionBox, 0, playerPhysicsValues.whatIsGround);
+        return Physics2D.OverlapBox((Vector2)transform.position + playerPhysicsValues.cubedCollisionBoxOffset, playerPhysicsValues.cubedCollisionBox, 0, playerPhysicsValues.whatIsGround);
     }
 
-    public bool checkIfExpandedTouchingHazard()
+    public bool checkIfCubedTouchingHazard()
     {
-        return Physics2D.OverlapBox((Vector2)transform.position + playerPhysicsValues.expandedHazardCollisionBoxOffset, playerPhysicsValues.expandedHazardCollisionBox, 0, playerPhysicsValues.whatIsHazard);
+        return Physics2D.OverlapBox((Vector2)transform.position + playerPhysicsValues.cubedHazardCollisionBoxOffset, playerPhysicsValues.cubedHazardCollisionBox, 0, playerPhysicsValues.whatIsHazard);
     }
 
-    public bool checkIfExpandedTouchingGround()
+    public bool checkIfCubedTouchingGround()
     {
-        return Physics2D.OverlapBox((Vector2)transform.position + playerPhysicsValues.expandedGroundCheckBoxOffset, playerPhysicsValues.expandedGroundCheckBox, 0, playerPhysicsValues.whatIsGround);
+        return Physics2D.OverlapBox((Vector2)transform.position + playerPhysicsValues.cubedGroundCheckBoxOffset, playerPhysicsValues.cubedGroundCheckBox, 0, playerPhysicsValues.whatIsGround);
     }
     #endregion
 }

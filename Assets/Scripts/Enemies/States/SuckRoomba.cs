@@ -25,12 +25,15 @@ public class SuckRoomba : MonoBehaviour
 
     private Patrol patrol;
     private float previousPatrolSpeed;
+    private Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
         fSMEnemies = GetComponent<FSMEnemies>();
         patrol = GetComponent<Patrol>();
+        animator = GetComponent<Animator>();
+
         previousPatrolSpeed = patrol.patrolSpeed;
     }
 
@@ -55,6 +58,7 @@ public class SuckRoomba : MonoBehaviour
     {
         sucking = true;
         patrol.patrolSpeed = suckingVelocity;
+        animator.SetTrigger("isSucked");
 
         yield return new WaitForSeconds(suckingTimer);
 

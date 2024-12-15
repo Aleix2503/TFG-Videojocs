@@ -34,9 +34,14 @@ public class FSMEnemies : MonoBehaviour
 
     void Update()
     {
+        if (life <= 0) 
+        { 
+            state = State.Die;
+        }
+
         StateBehaviour behaviour = GetComponent(state.ToString()) as StateBehaviour;
         behaviour.Behaviour();
-        
+
         UpdateDetectionState();
     }
 

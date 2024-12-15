@@ -45,9 +45,9 @@ public class MovePlayerBehaviour : FloorPlayerBehaviour
             _playerStateMachine.ChangeState(_playerController.bubbleState);
             return;
         }
-        if (_playerController.CheckIfCanExpand())
+        if (_playerController.CheckIfCanCube())
         {
-            _playerStateMachine.ChangeState(_playerController.expandState);
+            _playerStateMachine.ChangeState(_playerController.cubeState);
             return;
         }
         if (_playerController.m_playerInputHandler.absoluteMovementInput == 0)
