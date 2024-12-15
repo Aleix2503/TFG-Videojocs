@@ -13,7 +13,7 @@ public class Recover : StateBehaviour
     void Start()
     {
         fsmEnemies = GetComponent<FSMEnemies>();
-        animator = GetComponent<Animator>();
+        animator = GetComponentInParent<Animator>();
     }
 
     public override void Behaviour()

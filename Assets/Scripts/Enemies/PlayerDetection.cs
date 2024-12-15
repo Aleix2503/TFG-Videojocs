@@ -31,7 +31,7 @@ public class PlayerDetection : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player").GetComponent<Transform>();
         fsmEnemies = GetComponent<FSMEnemies>();
-        animator = GetComponent<Animator>();
+        animator = GetComponentInParent<Animator>();
     }
 
     // Update is called once per frame
