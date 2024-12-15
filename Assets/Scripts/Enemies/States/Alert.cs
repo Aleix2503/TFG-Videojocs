@@ -59,15 +59,6 @@ public class Alert : StateBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player") && fsmEnemies.state == FSMEnemies.State.Alert)
-        {
-            animator.SetTrigger("isAttacked");
-            fsmEnemies.state = FSMEnemies.State.Attack; 
-        }
-    }
-
     private void Flip()
     {
         if (transform.position.x > player.position.x && !spriteRenderer.flipX)
