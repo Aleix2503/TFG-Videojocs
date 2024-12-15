@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     public bool isCoyoteTimeActive = false;
 
     public bool didPlayerTouchGroundSinceLastDash = true;
-    public bool didPlayerTouchGroundSinceLastExpand = true;
+    public bool didPlayerTouchGroundSinceLastCube = true;
     public bool didPlayerTouchGroundSinceLastBubble = true;
     public bool didPlayerTouchGroundSinceLastJump = true;
 
@@ -30,10 +30,12 @@ public class PlayerController : MonoBehaviour
 
     public bool isDashUnlocked = false;
     public bool isBubbleUnlocked = false;
-    public bool isExpandUnlocked = false;
+    public bool isCubeUnlocked = false;
 
 
     public Color currentPlayerColor => m_spriteRenderer.color;
+
+    public PlayerSoundReferences playerSoundReferences;
 
     #region State machine setup
 
@@ -48,7 +50,7 @@ public class PlayerController : MonoBehaviour
     public FallPlayerBehaviour fallState { get; private set; }
     public DashPlayerBehaviour dashState { get; private set; }
     public BubblePlayerBehaviour bubbleState { get; private set; }
-    public ExpandPlayerBehaviour expandState { get; private set; }
+    public CubedPlayerBehaviour cubeState { get; private set; }
 
     public DeathPlayerBehaviour deathState { get; private set; }
 
@@ -70,24 +72,22 @@ public class PlayerController : MonoBehaviour
         fallState = new FallPlayerBehaviour(stateMachine, playerPhysics, this);
         dashState = new DashPlayerBehaviour(stateMachine, playerPhysics, this);
         bubbleState = new BubblePlayerBehaviour(stateMachine, playerPhysics, this);
-        expandState = new ExpandPlayerBehaviour(stateMachine, playerPhysics, this);
+        cubeState = new CubedPlayerBehaviour(stateMachine, playerPhysics, this);
         deathState = new DeathPlayerBehaviour(stateMachine, playerPhysics, this);
 
 
         respawnPosition = Vector3.zero;
 
-        stateMachine.Initialize(this, GetComponentInChildren<Animator>());
+        stateMachine.Initialize(this, GetComponentInChildren<Animator>(),playerSoundReferences);
         SetPlayerNoMoveForSeconds(playerControlValues.initialNoControlTime);
 
         m_playerInputHandler.Initialize(playerControlValues);
-
-        //bubbleController.Initialize(this, transform, playerPhysics.playerValues);
 
         if (playerControlValues.unlockAllAbilities)
         {
             isDashUnlocked = true;
             isBubbleUnlocked = true;
-            isExpandUnlocked = true;
+            isCubeUnlocked = true;
         }
     }
 
@@ -122,7 +122,7 @@ public class PlayerController : MonoBehaviour
     public void ResetGroundFlags()
     {
         didPlayerTouchGroundSinceLastDash = true;
-        didPlayerTouchGroundSinceLastExpand = true;
+        didPlayerTouchGroundSinceLastCube = true;
         didPlayerTouchGroundSinceLastBubble = true;
         didPlayerTouchGroundSinceLastJump = true;
     }
@@ -136,11 +136,11 @@ public class PlayerController : MonoBehaviour
         }
         return false;
     }
-    public bool CheckIfCanExpand()
+    public bool CheckIfCanCube()
     {
-        if (m_playerInputHandler.expandInput && isExpandUnlocked && didPlayerTouchGroundSinceLastExpand)
+        if (m_playerInputHandler.cubeInput && isCubeUnlocked && didPlayerTouchGroundSinceLastCube)
         {
-            didPlayerTouchGroundSinceLastExpand = false;
+            didPlayerTouchGroundSinceLastCube = false;
             return true;
         }
         return false;
@@ -172,14 +172,14 @@ public class PlayerController : MonoBehaviour
     {
         FadePlayerColor(playerControlValues.defaultColor, playerControlValues.bubbleTransformationTime);
     }
-    public void ExpandIn()
+    public void CubeIn()
     {
-        FadePlayerColor(playerControlValues.expandColor, playerControlValues.expandColorFadeTime);
-        SetPaintingState(PlayerPaintingState.expanded);
+        FadePlayerColor(playerControlValues.cubeColor, playerControlValues.cubeColorFadeTime);
+        SetPaintingState(PlayerPaintingState.cubed);
     }
-    public void ExpandOut()
+    public void CubeOut()
     {
-        FadePlayerColor(playerControlValues.defaultColor, playerControlValues.expandColorFadeTime);
+        FadePlayerColor(playerControlValues.defaultColor, playerControlValues.cubeColorFadeTime);
         SetPaintingState(PlayerPaintingState.def);
     }
 
@@ -286,8 +286,8 @@ public class PlayerController : MonoBehaviour
             case AbilityType.Bubble:
                 isBubbleUnlocked = true;
                 break;
-            case AbilityType.Expand:
-                isExpandUnlocked = true;
+            case AbilityType.Cube:
+                isCubeUnlocked = true;
                 break;
             default:
                 print("Non-existing ability?: " + ability.ToString());
@@ -299,7 +299,7 @@ public class PlayerController : MonoBehaviour
     {
         Dash,
         Bubble,
-        Expand
+        Cube
     }
 
     #endregion

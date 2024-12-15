@@ -36,11 +36,11 @@ public class IdlePlayerBehaviour : PlayerBehaviour
             _playerStateMachine.ChangeState(_playerController.bubbleState);
             return;
         }
-        if (_playerController.CheckIfCanExpand())
+        if (_playerController.CheckIfCanCube())
         {
             _playerController.StopInkstinct();
             isInkstinctActive = false;
-            _playerStateMachine.ChangeState(_playerController.expandState);
+            _playerStateMachine.ChangeState(_playerController.cubeState);
             return;
         }
         if (_playerController.CheckIfCanJump())

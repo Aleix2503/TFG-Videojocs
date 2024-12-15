@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{fa778a2e-c2c9-4061-aad5-958b2411390a}">
+		<property name="name">
+			<value>Attack_num</value>
+		</property>
+		<relationship name="folder">
+			<destination>{ca788b03-4c75-4c99-b24f-cf553b32f04b}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{78888c2e-8ac5-4297-8c7f-4f6208955080}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{78888c2e-8ac5-4297-8c7f-4f6208955080}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="minimum">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>3</value>
+		</property>
+		<property name="initialValue">
+			<value>1</value>
+		</property>
+	</object>
+</objects>

@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65e8ba197a9176d46ad82ecafef60464, type: 3}
+  m_Name: defaultPlayerSoundReferences
+  m_EditorClassIdentifier: 
+  jumpSound:
+    Guid:
+      Data1: 1369246482
+      Data2: 1258226606
+      Data3: -199905352
+      Data4: 109507911
+    Path: event:/PlayerSounds/Jump_player
+  dashSound:
+    Guid:
+      Data1: -1693893061
+      Data2: 1228762760
+      Data3: 2119274927
+      Data4: 743589959
+    Path: event:/PlayerSounds/Dash_player
+  bubbleSound:
+    Guid:
+      Data1: -1449756884
+      Data2: 1232228821
+      Data3: -536059468
+      Data4: -944056264
+    Path: event:/PlayerSounds/Bubble_player
+  cubedSound:
+    Guid:
+      Data1: -742270053
+      Data2: 1239407071
+      Data3: -33738852
+      Data4: 106146274
+    Path: event:/PlayerSounds/Cubed_player
+  deathSound:
+    Guid:
+      Data1: -1271640856
+      Data2: 1323742616
+      Data3: -700184132
+      Data4: 2147164381
+    Path: event:/PlayerSounds/Death_player
+  hitAttack:
+    Guid:
+      Data1: -633578817
+      Data2: 1250677163
+      Data3: 321433251
+      Data4: 1320190772
+    Path: event:/PlayerSounds/HitAttack_player
+  missAttack:
+    Guid:
+      Data1: -1669793925
+      Data2: 1331170427
+      Data3: -451507270
+      Data4: 2064089035
+    Path: event:/PlayerSounds/MissedAttack_player
+  inkstinctSound:
+    Guid:
+      Data1: -1959525082
+      Data2: 1170620301
+      Data3: 673868984
+      Data4: 60618909
+    Path: event:/PlayerSounds/Inkstink_player
+  landSound:
+    Guid:
+      Data1: 329078150
+      Data2: 1191199154
+      Data3: 198448001
+      Data4: 58272194
+    Path: event:/PlayerSounds/Land_player
+  bounceBubbleSound:
+    Guid:
+      Data1: 1606727134
+      Data2: 1094049794
+      Data3: -1098887521
+      Data4: -2031620275
+    Path: event:/PlayerSounds/BubbleBounce_player

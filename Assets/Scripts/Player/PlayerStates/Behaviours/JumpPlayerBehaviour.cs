@@ -31,9 +31,9 @@ public class JumpPlayerBehaviour : AirPlayerBehaviour
             _playerStateMachine.ChangeState(_playerController.bubbleState);
             return;
         }
-        if (_playerController.CheckIfCanExpand())
+        if (_playerController.CheckIfCanCube())
         {
-            _playerStateMachine.ChangeState(_playerController.expandState);
+            _playerStateMachine.ChangeState(_playerController.cubeState);
             return;
         }
         

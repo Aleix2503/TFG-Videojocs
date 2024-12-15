@@ -22,7 +22,7 @@ public class PlayerInputHandler : MonoBehaviour
     public bool bubbleInput { get; private set; }
     public bool bubbleInputHeld { get; private set; }
 
-    public bool expandInput { get; private set; }
+    public bool cubeInput { get; private set; }
 
     private float lastJumpTime = 0f;
 
@@ -103,7 +103,7 @@ public class PlayerInputHandler : MonoBehaviour
 
         dashInput = inputAction_dash.WasPressedThisFrame();
         bubbleInput = inputAction_bubble.WasPressedThisFrame();
-        expandInput = inputAction_expand.WasPressedThisFrame();
+        cubeInput = inputAction_expand.WasPressedThisFrame();
     }
 
     public void EnablePlayerInput()

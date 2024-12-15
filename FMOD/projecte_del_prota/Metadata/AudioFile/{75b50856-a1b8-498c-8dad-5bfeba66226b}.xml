@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{75b50856-a1b8-498c-8dad-5bfeba66226b}">
+		<property name="assetPath">
+			<value>EditedSounds/ENEMIC DIE.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.54166666666666663</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{307e42f6-d328-47f5-be68-fa78f47bda3c}</destination>
+		</relationship>
+	</object>
+</objects>
