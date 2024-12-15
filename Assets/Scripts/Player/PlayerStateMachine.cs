@@ -56,6 +56,9 @@ public class PlayerStateMachine : ScriptableObject
                 case ExpandPlayerBehaviour:
                     _animator.SetTrigger("isExpanding");
                     break;
+                case DeathPlayerBehaviour:
+                    _animator.SetTrigger("isDying");
+                    break;
             }
         }
         else if (num == 1)
@@ -69,6 +72,10 @@ public class PlayerStateMachine : ScriptableObject
         else if (num == 3)
         {
             _animator.SetTrigger("isFalling");
+        }
+        else if (num == 4)
+        {
+            _animator.SetTrigger("isRespawning");
         }
     }
 }
