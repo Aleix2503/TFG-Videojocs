@@ -311,6 +311,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6493722858751087101, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
+      propertyPath: playerSoundReferences
+      value: 
+      objectReference: {fileID: 11400000, guid: 2ddada8255c73e44c92728abb3ef96e5, type: 2}
+    - target: {fileID: 6493722858751087101, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
       propertyPath: inkstinctMaterials.Array.size
       value: 4
       objectReference: {fileID: 0}
