@@ -11,7 +11,7 @@ public class HitRoomba : Hit
     {
         fsmEnemies = GetComponent<FSMEnemies>();
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+        animator = GetComponentInParent<Animator>();
     }
 
     public override void Behaviour()

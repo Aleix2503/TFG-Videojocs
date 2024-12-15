@@ -30,7 +30,7 @@ public class Alert : StateBehaviour
         player = GameObject.FindWithTag("Player").GetComponent<Transform>();
 
         fsmEnemies = GetComponent<FSMEnemies>();
-        animator = GetComponent<Animator>();
+        animator = GetComponentInParent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         playerDetection = GetComponent<PlayerDetection>();
