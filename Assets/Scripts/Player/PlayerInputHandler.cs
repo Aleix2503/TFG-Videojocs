@@ -61,7 +61,7 @@ public class PlayerInputHandler : MonoBehaviour
         inputAction_bubble = m_playerControls.Player.Bubble;
         inputAction_bubble.Enable();
 
-        inputAction_expand = m_playerControls.Player.Expand;
+        inputAction_expand = m_playerControls.Player.Cube;
         inputAction_expand.Enable();
 
         inputAction_attackDirection = m_playerControls.Player.AttackDirection;

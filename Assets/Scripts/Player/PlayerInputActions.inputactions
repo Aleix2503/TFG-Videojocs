@@ -60,7 +60,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Expand",
+                    "name": "Cube",
                     "type": "Button",
                     "id": "ac0e919f-9c26-462b-9699-27a085469076",
                     "expectedControlType": "Button",
@@ -75,6 +75,24 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "InkstinkIn",
+                    "type": "Button",
+                    "id": "274c8e8c-325f-4011-95eb-3b16460a4647",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "InkstinkOut",
+                    "type": "Button",
+                    "id": "83e0a455-abb5-4ce4-b2e8-590ff40acf30",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)",
                     "initialStateCheck": false
                 }
             ],
@@ -251,7 +269,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Expand",
+                    "action": "Cube",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -262,7 +280,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Expand",
+                    "action": "Cube",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -273,7 +291,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Expand",
+                    "action": "Cube",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -373,6 +391,50 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3c8e252f-83f0-48b8-b92b-0cc56a4a6d28",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "InkstinkIn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a9901326-0466-4605-ae54-c7cabcf224e0",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "InkstinkIn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "63b33a08-8075-4608-b37a-bc6ccf9a18bb",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "InkstinkOut",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "373c0641-961f-488b-bbbb-5b33adefbdbb",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "InkstinkOut",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

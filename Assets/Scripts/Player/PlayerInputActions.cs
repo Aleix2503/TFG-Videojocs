@@ -82,7 +82,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Expand"",
+                    ""name"": ""Cube"",
                     ""type"": ""Button"",
                     ""id"": ""ac0e919f-9c26-462b-9699-27a085469076"",
                     ""expectedControlType"": ""Button"",
@@ -97,6 +97,24 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""InkstinkIn"",
+                    ""type"": ""Button"",
+                    ""id"": ""274c8e8c-325f-4011-95eb-3b16460a4647"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""InkstinkOut"",
+                    ""type"": ""Button"",
+                    ""id"": ""83e0a455-abb5-4ce4-b2e8-590ff40acf30"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=1)"",
                     ""initialStateCheck"": false
                 }
             ],
@@ -273,7 +291,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Expand"",
+                    ""action"": ""Cube"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -284,7 +302,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Expand"",
+                    ""action"": ""Cube"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -295,7 +313,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Expand"",
+                    ""action"": ""Cube"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -395,6 +413,50 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3c8e252f-83f0-48b8-b92b-0cc56a4a6d28"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""InkstinkIn"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a9901326-0466-4605-ae54-c7cabcf224e0"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""InkstinkIn"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""63b33a08-8075-4608-b37a-bc6ccf9a18bb"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""InkstinkOut"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""373c0641-961f-488b-bbbb-5b33adefbdbb"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""InkstinkOut"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -988,8 +1050,10 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_Bubble = m_Player.FindAction("Bubble", throwIfNotFound: true);
-        m_Player_Expand = m_Player.FindAction("Expand", throwIfNotFound: true);
+        m_Player_Cube = m_Player.FindAction("Cube", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
+        m_Player_InkstinkIn = m_Player.FindAction("InkstinkIn", throwIfNotFound: true);
+        m_Player_InkstinkOut = m_Player.FindAction("InkstinkOut", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1067,8 +1131,10 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_Dash;
     private readonly InputAction m_Player_Bubble;
-    private readonly InputAction m_Player_Expand;
+    private readonly InputAction m_Player_Cube;
     private readonly InputAction m_Player_Pause;
+    private readonly InputAction m_Player_InkstinkIn;
+    private readonly InputAction m_Player_InkstinkOut;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -1079,8 +1145,10 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
         public InputAction @Dash => m_Wrapper.m_Player_Dash;
         public InputAction @Bubble => m_Wrapper.m_Player_Bubble;
-        public InputAction @Expand => m_Wrapper.m_Player_Expand;
+        public InputAction @Cube => m_Wrapper.m_Player_Cube;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
+        public InputAction @InkstinkIn => m_Wrapper.m_Player_InkstinkIn;
+        public InputAction @InkstinkOut => m_Wrapper.m_Player_InkstinkOut;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1108,12 +1176,18 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Bubble.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBubble;
                 @Bubble.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBubble;
                 @Bubble.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBubble;
-                @Expand.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnExpand;
-                @Expand.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnExpand;
-                @Expand.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnExpand;
+                @Cube.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCube;
+                @Cube.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCube;
+                @Cube.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCube;
                 @Pause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @InkstinkIn.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInkstinkIn;
+                @InkstinkIn.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInkstinkIn;
+                @InkstinkIn.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInkstinkIn;
+                @InkstinkOut.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInkstinkOut;
+                @InkstinkOut.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInkstinkOut;
+                @InkstinkOut.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInkstinkOut;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1136,12 +1210,18 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Bubble.started += instance.OnBubble;
                 @Bubble.performed += instance.OnBubble;
                 @Bubble.canceled += instance.OnBubble;
-                @Expand.started += instance.OnExpand;
-                @Expand.performed += instance.OnExpand;
-                @Expand.canceled += instance.OnExpand;
+                @Cube.started += instance.OnCube;
+                @Cube.performed += instance.OnCube;
+                @Cube.canceled += instance.OnCube;
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
+                @InkstinkIn.started += instance.OnInkstinkIn;
+                @InkstinkIn.performed += instance.OnInkstinkIn;
+                @InkstinkIn.canceled += instance.OnInkstinkIn;
+                @InkstinkOut.started += instance.OnInkstinkOut;
+                @InkstinkOut.performed += instance.OnInkstinkOut;
+                @InkstinkOut.canceled += instance.OnInkstinkOut;
             }
         }
     }
@@ -1304,8 +1384,10 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
         void OnBubble(InputAction.CallbackContext context);
-        void OnExpand(InputAction.CallbackContext context);
+        void OnCube(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnInkstinkIn(InputAction.CallbackContext context);
+        void OnInkstinkOut(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
