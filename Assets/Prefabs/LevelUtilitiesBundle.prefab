@@ -548,6 +548,10 @@ PrefabInstance:
       propertyPath: isFreeCameraAllowed
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3183751061790956141, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
+      propertyPath: playerPhysics
+      value: 
+      objectReference: {fileID: 1145063650}
     - target: {fileID: 3736661429019874301, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
       propertyPath: isDashUnlocked
       value: 1
@@ -700,8 +704,9 @@ MonoBehaviour:
   playerPhysicsValues: {fileID: 11400000, guid: 97aeb30f48ee88649b9995df6030e670, type: 2}
   rb2D: {fileID: 6493722858751087091}
   bCollider: {fileID: 6493722858751087090}
-  bounceMaterial: {fileID: 0}
-  defaultMaterial: {fileID: 0}
+  bounceMaterial: {fileID: 6200000, guid: 45f2cadd8f0378c42a05debf3e0727de, type: 2}
+  defaultMaterial: {fileID: 6200000, guid: 87d587791eece0642a477cab456128d9, type: 2}
+  isInkstink: 0
 --- !u!4 &6493722858751087089 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3736661429019874289, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
