@@ -21,6 +21,9 @@ public class DeathPlayerBehaviour : PlayerBehaviour
             Vector3.right, _playerController.currentPlayerColor);
         _playerPhysics.FreezePlayerPosition(true);
         isDying = true;
+
+        EnemyManager.Instance?.HealAllEnemies();
+        EnemyManager.Instance?.ReviveAllEnemies();
     }
     public void Exit()
     {
