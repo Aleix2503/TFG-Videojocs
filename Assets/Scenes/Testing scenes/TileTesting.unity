@@ -2101,12 +2101,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -5995575192966356554, guid: 513a0bdd7195ece44bf06b193720d24c, type: 3}
       propertyPath: m_ColliderPaths.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -5995575192966356554, guid: 513a0bdd7195ece44bf06b193720d24c, type: 3}
       propertyPath: m_ColliderPaths.Array.data[0].m_Collider
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 329155527}
     - target: {fileID: -5995575192966356554, guid: 513a0bdd7195ece44bf06b193720d24c, type: 3}
       propertyPath: m_ColliderPaths.Array.data[1].m_Collider
       value: 
@@ -4618,6 +4618,14 @@ PrefabInstance:
     - target: {fileID: -4226672357745305279, guid: 513a0bdd7195ece44bf06b193720d24c, type: 3}
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[1].Array.data[55].X
       value: 570000000
+      objectReference: {fileID: 0}
+    - target: {fileID: -3644310502525873163, guid: 513a0bdd7195ece44bf06b193720d24c, type: 3}
+      propertyPath: m_ChunkCullingBounds.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -3644310502525873163, guid: 513a0bdd7195ece44bf06b193720d24c, type: 3}
+      propertyPath: m_ChunkCullingBounds.y
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -1615805643459279937, guid: 513a0bdd7195ece44bf06b193720d24c, type: 3}
       propertyPath: m_ColliderPaths.Array.size
@@ -15610,6 +15618,10 @@ PrefabInstance:
     - target: {fileID: -649129571560595302, guid: 513a0bdd7195ece44bf06b193720d24c, type: 3}
       propertyPath: m_ColliderPaths.Array.data[1].m_ColliderPaths.Array.data[0].Array.data[93].X
       value: 260000000
+      objectReference: {fileID: 0}
+    - target: {fileID: -280502821871125891, guid: 513a0bdd7195ece44bf06b193720d24c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1969174615358697199, guid: 513a0bdd7195ece44bf06b193720d24c, type: 3}
       propertyPath: m_ColliderPaths.Array.size
