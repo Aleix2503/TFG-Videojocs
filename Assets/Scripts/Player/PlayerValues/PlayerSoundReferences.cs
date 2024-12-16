@@ -8,7 +8,6 @@ using FMODUnity;
 public class PlayerSoundReferences : ScriptableObject
 {   
     [Header("Player")]
-
     public EventReference jumpSound;
 
     public EventReference dashSound;
