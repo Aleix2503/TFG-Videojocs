@@ -1,0 +1,1784 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8989205485076477439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Alert_moth/Sound_volume
+  m_EditorClassIdentifier: 
+  Name: Sound_volume
+  StudioPath: 
+  Min: 0
+  Max: 100
+  Default: 50
+  ID:
+    data1: 4010738332
+    data2: 669549784
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &-8832883372347731601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Death_Critter/Sound_mode
+  m_EditorClassIdentifier: 
+  Name: Sound_mode
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2294634188
+    data2: 3639294430
+  Type: 2
+  IsGlobal: 1
+  Labels:
+  - On
+  - Off
+  Exists: 1
+--- !u!114 &-8677315222332008172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Dash_miniboss/Sound_mode
+  m_EditorClassIdentifier: 
+  Name: Sound_mode
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2294634188
+    data2: 3639294430
+  Type: 2
+  IsGlobal: 1
+  Labels:
+  - On
+  - Off
+  Exists: 1
+--- !u!114 &-8620400214240418750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/BubbleBounce_player/Sound_mode
+  m_EditorClassIdentifier: 
+  Name: Sound_mode
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2294634188
+    data2: 3639294430
+  Type: 2
+  IsGlobal: 1
+  Labels:
+  - On
+  - Off
+  Exists: 1
+--- !u!114 &-8548320573901621122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Bubble_player/Sound_mode
+  m_EditorClassIdentifier: 
+  Name: Sound_mode
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2294634188
+    data2: 3639294430
+  Type: 2
+  IsGlobal: 1
+  Labels:
+  - On
+  - Off
+  Exists: 1
+--- !u!114 &-8485912586425287759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PlayerSounds/Land_player
+  m_EditorClassIdentifier: 
+  Path: event:/PlayerSounds/Land_player
+  Guid:
+    Data1: 329078150
+    Data2: 1191199154
+    Data3: 198448001
+    Data4: 58272194
+  Banks:
+  - {fileID: -889238478110841250}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 8458073692949152853}
+  - {fileID: -2055569149006505978}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 468
+--- !u!114 &-8327943689188013876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/EnemySound/Moth/Patrol_moth
+  m_EditorClassIdentifier: 
+  Path: event:/EnemySound/Moth/Patrol_moth
+  Guid:
+    Data1: -346245265
+    Data2: 1099342638
+    Data3: 1224594591
+    Data4: -451829334
+  Banks:
+  - {fileID: -889238478110841250}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 4555053469191737849}
+  - {fileID: -212253226781717745}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3291
+--- !u!114 &-7335355511179885277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PlayerSounds/Cubed_player
+  m_EditorClassIdentifier: 
+  Path: event:/PlayerSounds/Cubed_player
+  Guid:
+    Data1: -742270053
+    Data2: 1239407071
+    Data3: -33738852
+    Data4: 106146274
+  Banks:
+  - {fileID: -889238478110841250}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 6312947533664337321}
+  - {fileID: -2592522958389414484}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 638
+--- !u!114 &-6384493636767329043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/projecte_del_prota/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638698935634748282
+  FileSizes:
+  - Name: Desktop
+    Value: 1400
+  Exists: 1
+--- !u!114 &-6166949074241319332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/HitAttack_player/Sound_volume
+  m_EditorClassIdentifier: 
+  Name: Sound_volume
+  StudioPath: 
+  Min: 0
+  Max: 100
+  Default: 50
+  ID:
+    data1: 4010738332
+    data2: 669549784
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &-5527065577100563321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Inkstink_player/Sound_mode
+  m_EditorClassIdentifier: 
+  Name: Sound_mode
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2294634188
+    data2: 3639294430
+  Type: 2
+  IsGlobal: 1
+  Labels:
+  - On
+  - Off
+  Exists: 1
+--- !u!114 &-5235850321435552665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/AmbientSounds/Beach_ambient
+  m_EditorClassIdentifier: 
+  Path: event:/AmbientSounds/Beach_ambient
+  Guid:
+    Data1: 855896185
+    Data2: 1171041191
+    Data3: 1423589796
+    Data4: 2117589975
+  Banks:
+  - {fileID: -889238478110841250}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -4003337004552098850}
+  - {fileID: 1487642322061660761}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 6583
+--- !u!114 &-5028667649013385257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PlayerSounds/MissedAttack_player
+  m_EditorClassIdentifier: 
+  Path: event:/PlayerSounds/MissedAttack_player
+  Guid:
+    Data1: -1669793925
+    Data2: 1331170427
+    Data3: -451507270
+    Data4: 2064089035
+  Banks:
+  - {fileID: -889238478110841250}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 7404883304084941856}
+  - {fileID: -2928722990352253270}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 958
+--- !u!114 &-5000384564349686707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Dash_miniboss/Sound_volume
+  m_EditorClassIdentifier: 
+  Name: Sound_volume
+  StudioPath: 
+  Min: 0
+  Max: 100
+  Default: 50
+  ID:
+    data1: 4010738332
+    data2: 669549784
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &-4902091418695995593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Idle_roomba/Sound_mode
+  m_EditorClassIdentifier: 
+  Name: Sound_mode
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2294634188
+    data2: 3639294430
+  Type: 2
+  IsGlobal: 1
+  Labels:
+  - On
+  - Off
+  Exists: 1
+--- !u!114 &-4071072597388138108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/EnemySound/Roomba/Absorb_roomba
+  m_EditorClassIdentifier: 
+  Path: event:/EnemySound/Roomba/Absorb_roomba
+  Guid:
+    Data1: 163135976
+    Data2: 1218540718
+    Data3: 1532538502
+    Data4: 1268059125
+  Banks:
+  - {fileID: -889238478110841250}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 4031776124190623640}
+  - {fileID: 4732227685664823171}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1625
+--- !u!114 &-4003337004552098850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Beach_ambient/Sound_volume
+  m_EditorClassIdentifier: 
+  Name: Sound_volume
+  StudioPath: 
+  Min: 0
+  Max: 100
+  Default: 50
+  ID:
+    data1: 4010738332
+    data2: 669549784
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &-3956706234244422140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/EnemySound/Moth/Alert_moth
+  m_EditorClassIdentifier: 
+  Path: event:/EnemySound/Moth/Alert_moth
+  Guid:
+    Data1: -433681630
+    Data2: 1152248144
+    Data3: 1945791626
+    Data4: 1404492869
+  Banks:
+  - {fileID: -889238478110841250}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -8989205485076477439}
+  - {fileID: -3744531343555354999}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 583
+--- !u!114 &-3872037218682186436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Dash_player/Sound_mode
+  m_EditorClassIdentifier: 
+  Name: Sound_mode
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2294634188
+    data2: 3639294430
+  Type: 2
+  IsGlobal: 1
+  Labels:
+  - On
+  - Off
+  Exists: 1
+--- !u!114 &-3744531343555354999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Alert_moth/Sound_mode
+  m_EditorClassIdentifier: 
+  Name: Sound_mode
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2294634188
+    data2: 3639294430
+  Type: 2
+  IsGlobal: 1
+  Labels:
+  - On
+  - Off
+  Exists: 1
+--- !u!114 &-3029296366963689832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Jump_player/Sound_mode
+  m_EditorClassIdentifier: 
+  Name: Sound_mode
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2294634188
+    data2: 3639294430
+  Type: 2
+  IsGlobal: 1
+  Labels:
+  - On
+  - Off
+  Exists: 1
+--- !u!114 &-2928722990352253270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MissedAttack_player/Sound_mode
+  m_EditorClassIdentifier: 
+  Name: Sound_mode
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2294634188
+    data2: 3639294430
+  Type: 2
+  IsGlobal: 1
+  Labels:
+  - On
+  - Off
+  Exists: 1
+--- !u!114 &-2592522958389414484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Cubed_player/Sound_volume
+  m_EditorClassIdentifier: 
+  Name: Sound_volume
+  StudioPath: 
+  Min: 0
+  Max: 100
+  Default: 50
+  ID:
+    data1: 4010738332
+    data2: 669549784
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &-2055569149006505978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Land_player/Sound_volume
+  m_EditorClassIdentifier: 
+  Name: Sound_volume
+  StudioPath: 
+  Min: 0
+  Max: 100
+  Default: 50
+  ID:
+    data1: 4010738332
+    data2: 669549784
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &-1976490294018875966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/projecte_del_prota/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638699741890605897
+  FileSizes:
+  - Name: Desktop
+    Value: 2034
+  Exists: 1
+--- !u!114 &-1896218688425775838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/SaltCave_ambient/Sound_mode
+  m_EditorClassIdentifier: 
+  Name: Sound_mode
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2294634188
+    data2: 3639294430
+  Type: 2
+  IsGlobal: 1
+  Labels:
+  - On
+  - Off
+  Exists: 1
+--- !u!114 &-1171628244969692961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Bubble_player/Sound_volume
+  m_EditorClassIdentifier: 
+  Name: Sound_volume
+  StudioPath: 
+  Min: 0
+  Max: 100
+  Default: 50
+  ID:
+    data1: 4010738332
+    data2: 669549784
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &-889238478110841250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Sounds.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/projecte_del_prota/Build/Desktop/Sounds.bank
+  Name: Sounds
+  StudioPath: bank:/Sounds
+  lastModified: 638699741890625901
+  FileSizes:
+  - Name: Desktop
+    Value: 467616
+  Exists: 1
+--- !u!114 &-726412156815269292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Death_player/Sound_volume
+  m_EditorClassIdentifier: 
+  Name: Sound_volume
+  StudioPath: 
+  Min: 0
+  Max: 100
+  Default: 50
+  ID:
+    data1: 4010738332
+    data2: 669549784
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &-411872857079695322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Death_player/Sound_mode
+  m_EditorClassIdentifier: 
+  Name: Sound_mode
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2294634188
+    data2: 3639294430
+  Type: 2
+  IsGlobal: 1
+  Labels:
+  - On
+  - Off
+  Exists: 1
+--- !u!114 &-212253226781717745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Patrol_moth/Sound_mode
+  m_EditorClassIdentifier: 
+  Name: Sound_mode
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2294634188
+    data2: 3639294430
+  Type: 2
+  IsGlobal: 1
+  Labels:
+  - On
+  - Off
+  Exists: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  EditorBanks:
+  - {fileID: -1976490294018875966}
+  - {fileID: -6384493636767329043}
+  - {fileID: 7934345837540508637}
+  - {fileID: -889238478110841250}
+  EditorEvents:
+  - {fileID: 3293077651114358202}
+  - {fileID: -3956706234244422140}
+  - {fileID: 6713077356020666335}
+  - {fileID: 8316716763462826482}
+  - {fileID: 5368598846970786815}
+  - {fileID: 4829700986721782396}
+  - {fileID: 2243064321310481930}
+  - {fileID: -8327943689188013876}
+  - {fileID: 6491034440802463356}
+  - {fileID: -5235850321435552665}
+  - {fileID: -5028667649013385257}
+  - {fileID: -8485912586425287759}
+  - {fileID: -7335355511179885277}
+  - {fileID: 780069936578639162}
+  - {fileID: 3709508021880564931}
+  - {fileID: 8924715299659531674}
+  - {fileID: 7078597516716855773}
+  - {fileID: -4071072597388138108}
+  - {fileID: 8533294017166033130}
+  - {fileID: 3996062557875578146}
+  EditorParameters:
+  - {fileID: 7500443175434985583}
+  - {fileID: 4990221160563209952}
+  MasterBanks:
+  - {fileID: -6384493636767329043}
+  StringsBanks:
+  - {fileID: -1976490294018875966}
+  cacheTime: 638699741890625901
+  cacheVersion: 131619
+--- !u!114 &299453199787911891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Idle_roomba/Sound_volume
+  m_EditorClassIdentifier: 
+  Name: Sound_volume
+  StudioPath: 
+  Min: 0
+  Max: 100
+  Default: 50
+  ID:
+    data1: 4010738332
+    data2: 669549784
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &656550886129108140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/BubbleBounce_player/Sound_volume
+  m_EditorClassIdentifier: 
+  Name: Sound_volume
+  StudioPath: 
+  Min: 0
+  Max: 100
+  Default: 50
+  ID:
+    data1: 4010738332
+    data2: 669549784
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &780069936578639162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/AmbientSounds/SaltCave_ambient
+  m_EditorClassIdentifier: 
+  Path: event:/AmbientSounds/SaltCave_ambient
+  Guid:
+    Data1: 1019051168
+    Data2: 1198622835
+    Data3: -1431817304
+    Data4: -644328730
+  Banks:
+  - {fileID: -889238478110841250}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -1896218688425775838}
+  - {fileID: 1256879989583375809}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4041
+--- !u!114 &1256879989583375809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/SaltCave_ambient/Sound_volume
+  m_EditorClassIdentifier: 
+  Name: Sound_volume
+  StudioPath: 
+  Min: 0
+  Max: 100
+  Default: 50
+  ID:
+    data1: 4010738332
+    data2: 669549784
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &1487642322061660761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Beach_ambient/Sound_mode
+  m_EditorClassIdentifier: 
+  Name: Sound_mode
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2294634188
+    data2: 3639294430
+  Type: 2
+  IsGlobal: 1
+  Labels:
+  - On
+  - Off
+  Exists: 1
+--- !u!114 &2243064321310481930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/EnemySound/Dumb/Idle_dumb
+  m_EditorClassIdentifier: 
+  Path: event:/EnemySound/Dumb/Idle_dumb
+  Guid:
+    Data1: 1240385882
+    Data2: 1141617504
+    Data3: -1536968800
+    Data4: 818625121
+  Banks:
+  - {fileID: -889238478110841250}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 3764895980581961660}
+  - {fileID: 6345910110769408134}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4833
+--- !u!114 &2565995896046704895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Alert_dumb/Sound_volume
+  m_EditorClassIdentifier: 
+  Name: Sound_volume
+  StudioPath: 
+  Min: 0
+  Max: 100
+  Default: 50
+  ID:
+    data1: 4010738332
+    data2: 669549784
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &3293077651114358202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PlayerSounds/Jump_player
+  m_EditorClassIdentifier: 
+  Path: event:/PlayerSounds/Jump_player
+  Guid:
+    Data1: 1369246482
+    Data2: 1258226606
+    Data3: -199905352
+    Data4: 109507911
+  Banks:
+  - {fileID: -889238478110841250}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 8073349476041956511}
+  - {fileID: -3029296366963689832}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 833
+--- !u!114 &3709508021880564931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PlayerSounds/HitAttack_player
+  m_EditorClassIdentifier: 
+  Path: event:/PlayerSounds/HitAttack_player
+  Guid:
+    Data1: -633578817
+    Data2: 1250677163
+    Data3: 321433251
+    Data4: 1320190772
+  Banks:
+  - {fileID: -889238478110841250}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 5381072154929397586}
+  - {fileID: 5771401948974273908}
+  - {fileID: -6166949074241319332}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1125
+--- !u!114 &3764895980581961660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Idle_dumb/Sound_volume
+  m_EditorClassIdentifier: 
+  Name: Sound_volume
+  StudioPath: 
+  Min: 0
+  Max: 100
+  Default: 50
+  ID:
+    data1: 4010738332
+    data2: 669549784
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &3996062557875578146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/EnemySound/Death_Critter
+  m_EditorClassIdentifier: 
+  Path: event:/EnemySound/Death_Critter
+  Guid:
+    Data1: 525586482
+    Data2: 1338225696
+    Data3: 1483332797
+    Data4: -1732987112
+  Banks:
+  - {fileID: -889238478110841250}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 8665577759828636067}
+  - {fileID: -8832883372347731601}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 541
+--- !u!114 &4031776124190623640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Absorb_roomba/Sound_mode
+  m_EditorClassIdentifier: 
+  Name: Sound_mode
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2294634188
+    data2: 3639294430
+  Type: 2
+  IsGlobal: 1
+  Labels:
+  - On
+  - Off
+  Exists: 1
+--- !u!114 &4555053469191737849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Patrol_moth/Sound_volume
+  m_EditorClassIdentifier: 
+  Name: Sound_volume
+  StudioPath: 
+  Min: 0
+  Max: 100
+  Default: 50
+  ID:
+    data1: 4010738332
+    data2: 669549784
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &4732227685664823171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Absorb_roomba/Sound_volume
+  m_EditorClassIdentifier: 
+  Name: Sound_volume
+  StudioPath: 
+  Min: 0
+  Max: 100
+  Default: 50
+  ID:
+    data1: 4010738332
+    data2: 669549784
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &4829700986721782396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PlayerSounds/Dash_player
+  m_EditorClassIdentifier: 
+  Path: event:/PlayerSounds/Dash_player
+  Guid:
+    Data1: -1693893061
+    Data2: 1228762760
+    Data3: 2119274927
+    Data4: 743589959
+  Banks:
+  - {fileID: -889238478110841250}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 7965087991520462807}
+  - {fileID: -3872037218682186436}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 833
+--- !u!114 &4990221160563209952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Sound_mode
+  m_EditorClassIdentifier: 
+  Name: Sound_mode
+  StudioPath: parameter:/Sound_mode
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2294634188
+    data2: 3639294430
+  Type: 2
+  IsGlobal: 1
+  Labels:
+  - On
+  - Off
+  Exists: 1
+--- !u!114 &5368598846970786815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/EnemySound/Roomba/Idle_roomba
+  m_EditorClassIdentifier: 
+  Path: event:/EnemySound/Roomba/Idle_roomba
+  Guid:
+    Data1: -1023604686
+    Data2: 1296999020
+    Data3: -1296841070
+    Data4: -1689210744
+  Banks:
+  - {fileID: -889238478110841250}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 299453199787911891}
+  - {fileID: -4902091418695995593}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3500
+--- !u!114 &5381072154929397586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/HitAttack_player/Sound_mode
+  m_EditorClassIdentifier: 
+  Name: Sound_mode
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2294634188
+    data2: 3639294430
+  Type: 2
+  IsGlobal: 1
+  Labels:
+  - On
+  - Off
+  Exists: 1
+--- !u!114 &5771401948974273908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/HitAttack_player/Attack_num
+  m_EditorClassIdentifier: 
+  Name: Attack_num
+  StudioPath: 
+  Min: 1
+  Max: 2
+  Default: 1
+  ID:
+    data1: 2466500015
+    data2: 1548092171
+  Type: 1
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &6312947533664337321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Cubed_player/Sound_mode
+  m_EditorClassIdentifier: 
+  Name: Sound_mode
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2294634188
+    data2: 3639294430
+  Type: 2
+  IsGlobal: 1
+  Labels:
+  - On
+  - Off
+  Exists: 1
+--- !u!114 &6345910110769408134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Idle_dumb/Sound_mode
+  m_EditorClassIdentifier: 
+  Name: Sound_mode
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2294634188
+    data2: 3639294430
+  Type: 2
+  IsGlobal: 1
+  Labels:
+  - On
+  - Off
+  Exists: 1
+--- !u!114 &6491034440802463356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/EnemySound/Miniboss/Dash_miniboss
+  m_EditorClassIdentifier: 
+  Path: event:/EnemySound/Miniboss/Dash_miniboss
+  Guid:
+    Data1: -795661450
+    Data2: 1130095848
+    Data3: -975035230
+    Data4: -480357435
+  Banks:
+  - {fileID: -889238478110841250}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -5000384564349686707}
+  - {fileID: -8677315222332008172}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 833
+--- !u!114 &6713077356020666335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PlayerSounds/Inkstink_player
+  m_EditorClassIdentifier: 
+  Path: event:/PlayerSounds/Inkstink_player
+  Guid:
+    Data1: -1959525082
+    Data2: 1170620301
+    Data3: 673868984
+    Data4: 60618909
+  Banks:
+  - {fileID: -889238478110841250}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 8896079935162915452}
+  - {fileID: -5527065577100563321}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2250
+--- !u!114 &7078597516716855773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PlayerSounds/BubbleBounce_player
+  m_EditorClassIdentifier: 
+  Path: event:/PlayerSounds/BubbleBounce_player
+  Guid:
+    Data1: 1606727134
+    Data2: 1094049794
+    Data3: -1098887521
+    Data4: -2031620275
+  Banks:
+  - {fileID: -889238478110841250}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -8620400214240418750}
+  - {fileID: 656550886129108140}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 291
+--- !u!114 &7404883304084941856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MissedAttack_player/Sound_volume
+  m_EditorClassIdentifier: 
+  Name: Sound_volume
+  StudioPath: 
+  Min: 0
+  Max: 100
+  Default: 50
+  ID:
+    data1: 4010738332
+    data2: 669549784
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &7500443175434985583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Sound_volume
+  m_EditorClassIdentifier: 
+  Name: Sound_volume
+  StudioPath: parameter:/Sound_volume
+  Min: 0
+  Max: 100
+  Default: 50
+  ID:
+    data1: 4010738332
+    data2: 669549784
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &7934345837540508637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Music.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/projecte_del_prota/Build/Desktop/Music.bank
+  Name: Music
+  StudioPath: bank:/Music
+  lastModified: 638698935634758271
+  FileSizes:
+  - Name: Desktop
+    Value: 494
+  Exists: 1
+--- !u!114 &7965087991520462807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Dash_player/Sound_volume
+  m_EditorClassIdentifier: 
+  Name: Sound_volume
+  StudioPath: 
+  Min: 0
+  Max: 100
+  Default: 50
+  ID:
+    data1: 4010738332
+    data2: 669549784
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &8073349476041956511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Jump_player/Sound_volume
+  m_EditorClassIdentifier: 
+  Name: Sound_volume
+  StudioPath: 
+  Min: 0
+  Max: 100
+  Default: 50
+  ID:
+    data1: 4010738332
+    data2: 669549784
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &8171310864094030746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Alert_dumb/Sound_mode
+  m_EditorClassIdentifier: 
+  Name: Sound_mode
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2294634188
+    data2: 3639294430
+  Type: 2
+  IsGlobal: 1
+  Labels:
+  - On
+  - Off
+  Exists: 1
+--- !u!114 &8316716763462826482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PlayerSounds/Bubble_player
+  m_EditorClassIdentifier: 
+  Path: event:/PlayerSounds/Bubble_player
+  Guid:
+    Data1: -1449756884
+    Data2: 1232228821
+    Data3: -536059468
+    Data4: -944056264
+  Banks:
+  - {fileID: -889238478110841250}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -1171628244969692961}
+  - {fileID: -8548320573901621122}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 625
+--- !u!114 &8458073692949152853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Land_player/Sound_mode
+  m_EditorClassIdentifier: 
+  Name: Sound_mode
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2294634188
+    data2: 3639294430
+  Type: 2
+  IsGlobal: 1
+  Labels:
+  - On
+  - Off
+  Exists: 1
+--- !u!114 &8533294017166033130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PlayerSounds/Death_player
+  m_EditorClassIdentifier: 
+  Path: event:/PlayerSounds/Death_player
+  Guid:
+    Data1: -1271640856
+    Data2: 1323742616
+    Data3: -700184132
+    Data4: 2147164381
+  Banks:
+  - {fileID: -889238478110841250}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -411872857079695322}
+  - {fileID: -726412156815269292}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 916
+--- !u!114 &8665577759828636067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Death_Critter/Sound_volume
+  m_EditorClassIdentifier: 
+  Name: Sound_volume
+  StudioPath: 
+  Min: 0
+  Max: 100
+  Default: 50
+  ID:
+    data1: 4010738332
+    data2: 669549784
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &8896079935162915452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Inkstink_player/Sound_volume
+  m_EditorClassIdentifier: 
+  Name: Sound_volume
+  StudioPath: 
+  Min: 0
+  Max: 100
+  Default: 50
+  ID:
+    data1: 4010738332
+    data2: 669549784
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &8924715299659531674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/EnemySound/Dumb/Alert_dumb
+  m_EditorClassIdentifier: 
+  Path: event:/EnemySound/Dumb/Alert_dumb
+  Guid:
+    Data1: 1035743681
+    Data2: 1281380176
+    Data3: -1367793253
+    Data4: 1798110561
+  Banks:
+  - {fileID: -889238478110841250}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 8171310864094030746}
+  - {fileID: 2565995896046704895}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 791
