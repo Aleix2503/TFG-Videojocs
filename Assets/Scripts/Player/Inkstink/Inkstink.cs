@@ -4,15 +4,34 @@ using UnityEngine;
 
 public class Inkstink : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public PlayerPhysics playerPhysics;
 
-    // Update is called once per frame
-    void Update()
+    public List<Material> inkstinctMaterials;
+
+    private void OnInkstinkIn()
     {
-        
+        if (playerPhysics.isGrounded)
+        {
+            playerPhysics.isInkstink = true;
+            foreach (Material material in inkstinctMaterials)
+            {
+                material.SetFloat("_isActive", 1);
+            }
+        }
+    }
+    private void OnInkstinkOut()
+    {
+        playerPhysics.isInkstink = false;
+        foreach (Material material in inkstinctMaterials)
+        {
+            material.SetFloat("_isActive", 0);
+        }
+    }
+    private void FixedUpdate()
+    {
+        if (!playerPhysics.isGrounded)
+        {
+            OnInkstinkOut();
+        }
     }
 }
