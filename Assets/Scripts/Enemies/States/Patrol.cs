@@ -11,7 +11,6 @@ public class Patrol : StateBehaviour
     [SerializeField]
     public float patrolSpeed = 3;
     protected int currentPointIndex = 0;
-    protected Rigidbody2D rb;
 
     void Start()
     {

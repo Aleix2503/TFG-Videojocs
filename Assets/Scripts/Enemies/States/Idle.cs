@@ -9,8 +9,6 @@ public class Idle : StateBehaviour
     [SerializeField]
     private float idleSpeed;
 
-    private Rigidbody2D rb;
-
     private bool alreadyArrived = true;
     private bool alreadyIdleing = false;
 
