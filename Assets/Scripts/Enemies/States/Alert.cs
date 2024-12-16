@@ -18,7 +18,6 @@ public class Alert : StateBehaviour
     [SerializeField]
     private float chasingSpeed = 5;
 
-    private Rigidbody2D rb;
     private Transform player;
 
     private PlayerDetection playerDetection;
