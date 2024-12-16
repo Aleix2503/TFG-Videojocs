@@ -197,6 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitDamage: 2
+  hitTime: 0.5
 --- !u!114 &7663409040779188360
 MonoBehaviour:
   m_ObjectHideFlags: 0

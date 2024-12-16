@@ -4,26 +4,24 @@ using UnityEngine;
 
 public class HitRoomba : Hit
 {
-    [SerializeField]
-    private float hitTime = 0.8f;
-
-    private Rigidbody2D rb;
-
     // Start is called before the first frame update
     void Start()
     {
         fsmEnemies = GetComponent<FSMEnemies>();
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponentInParent<Animator>();
     }
 
     public override void Behaviour()
     {
-        StartCoroutine(hit());
+        if (!alreadyHit) StartCoroutine(hit());
     }
 
     private IEnumerator hit()
     {
+        alreadyHit = true;
         rb.velocity = Vector3.zero;
+        animator.SetTrigger("isHit");
 
         yield return new WaitForSeconds(hitTime);
 

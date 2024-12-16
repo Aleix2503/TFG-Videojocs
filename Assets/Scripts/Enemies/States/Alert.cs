@@ -18,7 +18,6 @@ public class Alert : StateBehaviour
     [SerializeField]
     private float chasingSpeed = 5;
 
-    private Rigidbody2D rb;
     private Transform player;
 
     private PlayerDetection playerDetection;
@@ -30,6 +29,7 @@ public class Alert : StateBehaviour
         player = GameObject.FindWithTag("Player").GetComponent<Transform>();
 
         fsmEnemies = GetComponent<FSMEnemies>();
+        animator = GetComponentInParent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         playerDetection = GetComponent<PlayerDetection>();
@@ -42,12 +42,11 @@ public class Alert : StateBehaviour
 
         if (type == ChasingType.Terrestrial)
             direction = new Vector2(direction.x, 0);
+        else if (type == ChasingType.Flying)
+            RotateTowardsPlayer();
 
         if (playerDetection.detectionType == PlayerDetection.DetectionType.Circle)
             Flip();
-
-        if (type == ChasingType.Flying)
-            RotateTowardsPlayer();
 
         // Aplicar movimiento al Rigidbody2D
         rb.velocity = direction * chasingSpeed;
@@ -56,14 +55,6 @@ public class Alert : StateBehaviour
         if (direction.x != 0)
         {
             transform.localScale = new Vector3(Mathf.Sign(direction.x), 1, 1); // Mirar hacia el jugador
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player") && fsmEnemies.state == FSMEnemies.State.Alert)
-        {
-            fsmEnemies.state = FSMEnemies.State.Attack; 
         }
     }
 

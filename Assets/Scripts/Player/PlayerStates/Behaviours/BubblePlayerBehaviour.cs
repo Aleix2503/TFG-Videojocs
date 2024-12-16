@@ -25,7 +25,6 @@ public class BubblePlayerBehaviour : PlayerBehaviour
     public override void Enter()
     {
         base.Enter();
-        _playerStateMachine.SetAnim(2);
         _playerPhysics.BubbleIn();
         _playerController.BubbleIn();
         currentRelativeVelocity = _playerPhysics.rb2D.velocity.x / _playerPhysics.playerPhysicsValues.bubbleHorizontalVelocity;
@@ -45,7 +44,18 @@ public class BubblePlayerBehaviour : PlayerBehaviour
         Exit();
         bubbleOutTimer = _playerPhysics.playerPhysicsValues.bubbleTransformationTime;
         isBubblingOut = true;
-        _playerStateMachine.SetAnim(4);
+        _playerStateMachine.SetAnimBool("isBubbling",false);
+        _playerStateMachine.SetSound("bubble");
+
+    }
+    private bool itSounded= false;
+    private void PlayBounceSound()
+    {
+        if (itSounded)
+        {
+            _playerStateMachine.SetSound("bounceBubble");
+            itSounded = false;
+        }
     }
 
     private PlayerBehaviour _nextBehaviour;
@@ -85,7 +95,7 @@ public class BubblePlayerBehaviour : PlayerBehaviour
         if(isBouncingH)
         {
             isBouncingH = _playerPhysics.BounceHorizontal(Xdestiny);
-            if(_playerPhysics.facingDirection == 1)
+            if (_playerPhysics.facingDirection == 1)
             {
                 if (_playerPhysics.checkIfTouchingLeftWall())
                 {
@@ -116,7 +126,10 @@ public class BubblePlayerBehaviour : PlayerBehaviour
 
             Ydestiny = _playerPhysics.rb2D.position.y - (_playerPhysics.playerPhysicsValues.bubbleVerticalBounceForce * (_playerPhysics.playerPhysicsValues.bubbleBounceTime / 2));
             isBouncingV = _playerPhysics.BounceVertical(Ydestiny);
-        }if(bounceCounter <= _playerController.playerControlValues.bubbleMaxBounces&&isTouchingWall&&bounceTimer <= 0&& !isBouncingH)
+            itSounded = true;
+            PlayBounceSound();
+        }
+        if(bounceCounter <= _playerController.playerControlValues.bubbleMaxBounces&&isTouchingWall&&bounceTimer <= 0&& !isBouncingH)
         {
             bounceCounter++;
             bounceTimer = 0.05f;
@@ -125,7 +138,8 @@ public class BubblePlayerBehaviour : PlayerBehaviour
 
             Xdestiny = _playerPhysics.rb2D.position.x - (_playerPhysics.playerPhysicsValues.bubbleHorizontalBounceForce * (_playerPhysics.playerPhysicsValues.bubbleBounceTime / 2) * _playerPhysics.facingDirection);
             isBouncingH = _playerPhysics.BounceHorizontal(Xdestiny);
-
+            itSounded = true;
+            PlayBounceSound();
         }
         else if(bounceCounter > _playerController.playerControlValues.bubbleMaxBounces)
         {
@@ -137,10 +151,10 @@ public class BubblePlayerBehaviour : PlayerBehaviour
             hasExploded = true;
             _nextBehaviour = _playerController.dashState;
         }
-        if(_playerController.CheckIfCanExpand())
+        if(_playerController.CheckIfCanCube())
         {
             hasExploded = true;
-            _nextBehaviour = _playerController.expandState;
+            _nextBehaviour = _playerController.cubeState;
         }
     }
     public override void DoChecks()
