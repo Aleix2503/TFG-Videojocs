@@ -11,6 +11,20 @@ ScriptedImporter:
   _reimportOnDependencyChange: 1
   _pixelsPerUnit: 8
   _overrideTexture: {instanceID: 0}
-  _sprites: []
+  _sprites:
+  - name: ProvaPaintura2_0
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 16
+      height: 16
+    spriteID: 6a2d825c08ebc544a8e10e4a3835389b
+    spriteOutline: []
+    tessellationDetail: 0
   _secondaryTextures: []
   _artifacts: {instanceID: 0}
