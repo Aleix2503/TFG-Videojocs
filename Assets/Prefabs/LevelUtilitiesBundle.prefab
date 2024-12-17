@@ -435,6 +435,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6493722858751087101}
     - target: {fileID: 6113617590756229459, guid: 476ec2c0f61381c4ca5e0c6707773d5d, type: 3}
+      propertyPath: buublePaintingRate
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6113617590756229459, guid: 476ec2c0f61381c4ca5e0c6707773d5d, type: 3}
       propertyPath: dashParticleSystem
       value: 
       objectReference: {fileID: 5980606200767052280}
@@ -446,6 +450,10 @@ PrefabInstance:
       propertyPath: traceSpawnPosition
       value: 
       objectReference: {fileID: 7621532361161711953}
+    - target: {fileID: 6113617590756229459, guid: 476ec2c0f61381c4ca5e0c6707773d5d, type: 3}
+      propertyPath: cubedParticleSystem
+      value: 
+      objectReference: {fileID: 7621532361905969121}
     - target: {fileID: 6113617590756229459, guid: 476ec2c0f61381c4ca5e0c6707773d5d, type: 3}
       propertyPath: attackParticleSystem
       value: 
@@ -482,6 +490,10 @@ PrefabInstance:
       propertyPath: backgroundTraceSpawnPosition
       value: 
       objectReference: {fileID: 7621532360680745529}
+    - target: {fileID: 6113617590756229459, guid: 476ec2c0f61381c4ca5e0c6707773d5d, type: 3}
+      propertyPath: backgroundCubedTraceSpawnPosition
+      value: 
+      objectReference: {fileID: 7621532360074489077}
     - target: {fileID: 6113617590756229459, guid: 476ec2c0f61381c4ca5e0c6707773d5d, type: 3}
       propertyPath: backgroundExpandedTraceSpawnPosition
       value: 
@@ -552,6 +564,10 @@ PrefabInstance:
       propertyPath: playerPhysics
       value: 
       objectReference: {fileID: 1145063650}
+    - target: {fileID: 3736661429019874290, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 87d587791eece0642a477cab456128d9, type: 2}
     - target: {fileID: 3736661429019874301, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
       propertyPath: isDashUnlocked
       value: 1
@@ -594,11 +610,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3736661429977556970, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -25.18
       objectReference: {fileID: 0}
     - target: {fileID: 3736661429977556970, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -12.1
       objectReference: {fileID: 0}
     - target: {fileID: 3736661429977556970, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
       propertyPath: m_LocalPosition.z
@@ -640,6 +656,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -2086448749
       objectReference: {fileID: 0}
+    - target: {fileID: 6468799598077305865, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7995394688181158116, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
       propertyPath: m_SortingLayer
       value: 4
@@ -674,6 +694,24 @@ ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 4267863142004210680, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
   m_PrefabInstance: {fileID: 7621532361226928640}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6493722856985976073 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3736661429703974665, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
+  m_PrefabInstance: {fileID: 7621532361226928640}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &716302888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6493722856985976073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
 --- !u!4 &6493722856985976180 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3736661429703974772, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
