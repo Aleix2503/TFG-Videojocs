@@ -1534,6 +1534,10 @@ PrefabInstance:
       propertyPath: playerController
       value: 
       objectReference: {fileID: 1099720699}
+    - target: {fileID: 3458999514525148681, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3641801050012016723, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1891,6 +1895,18 @@ PrefabInstance:
     - target: {fileID: 6800976740162509533, guid: 9dbd2244dc2553a4cb11bc4c4a5ba3ea, type: 3}
       propertyPath: detectionRadius
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480773067433931661, guid: 9dbd2244dc2553a4cb11bc4c4a5ba3ea, type: 3}
+      propertyPath: m_Size.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480773067433931661, guid: 9dbd2244dc2553a4cb11bc4c4a5ba3ea, type: 3}
+      propertyPath: m_Size.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480773067433931661, guid: 9dbd2244dc2553a4cb11bc4c4a5ba3ea, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9dbd2244dc2553a4cb11bc4c4a5ba3ea, type: 3}

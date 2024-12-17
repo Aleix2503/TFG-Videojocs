@@ -17,16 +17,14 @@ public class Hit : StateBehaviour
     [SerializeField]
     private float impulseStrength = 1.0f;
 
-    private FSMEnemies fSMEnemies;
     protected bool alreadyHit = false;
 
     private Vector2 hitDirection = Vector2.zero;
 
     // Start is called before the first frame update
-    void Start()
+    new void Start()
     {
-        fsmEnemies = GetComponent<FSMEnemies>();
-        rb = GetComponent<Rigidbody2D>();
+        base.Start();
     }
 
     public override void Behaviour()

@@ -12,12 +12,10 @@ public class AttackTonto : Attack
     private float jumpDistance = 5f; // Distancia horizontal del salto
 
     // Start is called before the first frame update
-    void Start()
+    new void Start()
     {
+        base.Start();
         player = GameObject.FindWithTag("Player").GetComponent<Transform>();
-        rb = GetComponent<Rigidbody2D>();
-
-        fsmEnemies = GetComponent<FSMEnemies>();
     }
 
     public override void Behaviour()
