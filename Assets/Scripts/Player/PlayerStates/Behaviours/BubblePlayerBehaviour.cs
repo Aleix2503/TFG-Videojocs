@@ -128,6 +128,7 @@ public class BubblePlayerBehaviour : PlayerBehaviour
             isBouncingV = _playerPhysics.BounceVertical(Ydestiny);
             itSounded = true;
             PlayBounceSound();
+            _playerStateMachine.SetAnimTrigger("isBouncing");
         }
         if(bounceCounter <= _playerController.playerControlValues.bubbleMaxBounces&&isTouchingWall&&bounceTimer <= 0&& !isBouncingH)
         {
@@ -140,6 +141,7 @@ public class BubblePlayerBehaviour : PlayerBehaviour
             isBouncingH = _playerPhysics.BounceHorizontal(Xdestiny);
             itSounded = true;
             PlayBounceSound();
+            _playerStateMachine.SetAnimTrigger("isBouncing");
         }
         else if(bounceCounter > _playerController.playerControlValues.bubbleMaxBounces)
         {

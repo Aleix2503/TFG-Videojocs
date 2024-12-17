@@ -41,6 +41,7 @@ public class CubedPlayerBehaviour : PlayerBehaviour
             PaintManager._instance.EmitCubedParticles();
             PaintManager._instance.PlaceOnCubedTrace();
             _playerStateMachine.SetSound("cube");
+            _playerStateMachine.SetAnimBool("isCubing", false);
             Exit();
         }
     }
