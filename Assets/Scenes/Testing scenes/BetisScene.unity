@@ -1655,7 +1655,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1077118716722742833, guid: 135235bad925eff4f907888c02a02a8f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1077118716722742834, guid: 135235bad925eff4f907888c02a02a8f, type: 3}
       propertyPath: m_RootOrder
@@ -1895,6 +1895,10 @@ PrefabInstance:
     - target: {fileID: 7663409041370782695, guid: b66abe03bacec2e4a9996ee2c1ae63b1, type: 3}
       propertyPath: m_Name
       value: MiniBossEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7663409041370782695, guid: b66abe03bacec2e4a9996ee2c1ae63b1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b66abe03bacec2e4a9996ee2c1ae63b1, type: 3}

@@ -49,13 +49,14 @@ public class FallPlayerBehaviour : AirPlayerBehaviour
         }
         else if (!_playerController.isCoyoteTimeActive&&!isFalling)
         {
-            _playerStateMachine.SetAnim(3);
+            _playerStateMachine.SetAnimTrigger("isFalling");
             isFalling = true;
         }
 
         if (_playerPhysics.isGrounded)
         {
-            _playerStateMachine.SetAnim(1);
+            _playerStateMachine.SetAnimTrigger("hasLanded");
+            _playerStateMachine.SetSound("land");
             PaintManager._instance.PlaceOnFallTrace();
             if (_playerController.m_playerInputHandler.absoluteMovementInput == 0)
             {
@@ -78,9 +79,9 @@ public class FallPlayerBehaviour : AirPlayerBehaviour
             _playerStateMachine.ChangeState(_playerController.bubbleState);
             return;
         }
-        if (_playerController.CheckIfCanExpand())
+        if (_playerController.CheckIfCanCube())
         {
-            _playerStateMachine.ChangeState(_playerController.expandState);
+            _playerStateMachine.ChangeState(_playerController.cubeState);
             return;
         }
 
