@@ -47,7 +47,7 @@ public class Patrol : StateBehaviour
         {
             currentPointIndex = (currentPointIndex + 1) % patrolPoints.Count;
             
-            //Flip();
+            Flip();
 
             Quaternion targetRotation = Quaternion.Euler(0, 0, 0);
             transform.rotation = targetRotation;
