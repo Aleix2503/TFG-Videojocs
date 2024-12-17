@@ -337,7 +337,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idlePoint: {fileID: 1077118716930235853}
   idleSpeed: 3
-  direction: 1
+  direction: 0
 --- !u!114 &1077118717844779413
 MonoBehaviour:
   m_ObjectHideFlags: 0
