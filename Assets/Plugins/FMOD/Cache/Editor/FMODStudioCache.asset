@@ -230,7 +230,7 @@ MonoBehaviour:
   Path: FMOD/projecte_del_prota/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638699775370080532
+  lastModified: 638699776684925661
   FileSizes:
   - Name: Desktop
     Value: 1400
@@ -642,7 +642,7 @@ MonoBehaviour:
   Path: FMOD/projecte_del_prota/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638699775370090532
+  lastModified: 638699776684925661
   FileSizes:
   - Name: Desktop
     Value: 2034
@@ -712,7 +712,7 @@ MonoBehaviour:
   Path: FMOD/projecte_del_prota/Build/Desktop/Sounds.bank
   Name: Sounds
   StudioPath: bank:/Sounds
-  lastModified: 638699775370150548
+  lastModified: 638699776684945799
   FileSizes:
   - Name: Desktop
     Value: 467616
@@ -838,7 +838,7 @@ MonoBehaviour:
   - {fileID: -6384493636767329043}
   StringsBanks:
   - {fileID: -1976490294018875966}
-  cacheTime: 638699775370150548
+  cacheTime: 638699776684945799
   cacheVersion: 131619
 --- !u!114 &299453199787911891
 MonoBehaviour:
@@ -1542,7 +1542,7 @@ MonoBehaviour:
   Path: FMOD/projecte_del_prota/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638699775370090532
+  lastModified: 638699776684925661
   FileSizes:
   - Name: Desktop
     Value: 494
