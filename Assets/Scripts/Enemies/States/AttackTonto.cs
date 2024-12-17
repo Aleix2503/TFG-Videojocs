@@ -11,17 +11,35 @@ public class AttackTonto : Attack
     [SerializeField]
     private float jumpDistance = 5f; // Distancia horizontal del salto
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        player = GameObject.FindWithTag("Player").GetComponent<Transform>();
-        rb = GetComponent<Rigidbody2D>();
+    private bool alreadyFalling = false;
+    private bool alreadyJumped = false;
 
-        fsmEnemies = GetComponent<FSMEnemies>();
+    // Start is called before the first frame update
+    new void Start()
+    {
+        base.Start();
+        player = GameObject.FindWithTag("Player").GetComponent<Transform>();
     }
 
     public override void Behaviour()
     {
+        if (!alreadyJumped) Jump();
+        else if (!alreadyFalling && rb.velocity.y < 0) {
+            animator.SetTrigger("isFalled");
+            alreadyFalling = true;
+        }
+        else if (alreadyFalling && rb.velocity.y == 0)
+        {
+            animator.SetTrigger("isLanded");
+            alreadyFalling = false;
+            alreadyJumped = false;
+            fsmEnemies.state = FSMEnemies.State.Recover;
+        }
+    }
+
+    private void Jump()
+    {
+        alreadyJumped = true;
         // Calcular dirección hacia el jugador
         Vector2 direction = (player.position - transform.position).normalized;
 
@@ -33,8 +51,6 @@ public class AttackTonto : Attack
 
         // Aplicar la velocidad al Rigidbody2D
         rb.velocity = jumpVelocity;
-
-        fsmEnemies.state = FSMEnemies.State.Recover;
     }
 
     Vector2 CalculateJumpVelocity(Vector2 start, Vector2 target, float height)
