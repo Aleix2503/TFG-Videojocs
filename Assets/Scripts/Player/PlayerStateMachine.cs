@@ -25,7 +25,7 @@ public class PlayerStateMachine : ScriptableObject
 
         inkstink = RuntimeManager.CreateInstance(_playerSoundReferences.inkstinctSound);
     }
-
+    private bool hasCubed=false;
     public void ChangeState(PlayerBehaviour behaviour)
     {
         if(currentBehaviour is FallPlayerBehaviour&&behaviour!=currentBehaviour)
@@ -35,6 +35,10 @@ public class PlayerStateMachine : ScriptableObject
         _playerController.SetPaintingState(PlayerPaintingState.def);
         currentBehaviour = behaviour;
         currentBehaviour.Enter();
+        if(currentBehaviour is CubedPlayerBehaviour)
+        {
+            hasCubed = true;
+        }
         SetAnim();
         SetSoundState();
     }
@@ -51,28 +55,37 @@ public class PlayerStateMachine : ScriptableObject
         switch (currentBehaviour)
         {
             case IdlePlayerBehaviour:
-                _animator.SetBool("isMoving", false);
+                if (!hasCubed)
+                {
+                    _animator.SetBool("isMoving", false);
+                }
                 break;
             case MovePlayerBehaviour:
                 _animator.SetBool("isMoving", true);
+                hasCubed = false;
                 break;
             case JumpPlayerBehaviour:
                 _animator.SetTrigger("isJumping");
+                hasCubed = false;
                 break;
             case FallPlayerBehaviour:
                 if (!_playerController.isCoyoteTimeActive) { _animator.SetTrigger("isFalling"); }
+                hasCubed = false;
                 break;
             case DashPlayerBehaviour:
                 _animator.SetTrigger("isDashing");
+                hasCubed = false;
                 break;
             case BubblePlayerBehaviour:
                 _animator.SetBool("isBubbling", true);
+                hasCubed = false;
                 break;
             case CubedPlayerBehaviour:
-                _animator.SetTrigger("isCubing");
+                _animator.SetBool("isCubing",true);
                 break;
             case DeathPlayerBehaviour:
                 _animator.SetTrigger("isDying");
+                hasCubed = false;
                 break;
         }
     }
