@@ -19731,10 +19731,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.0421875
-    y: 0.18333334
-    width: 0.16666667
-    height: 0.16666666
+    x: 0.21093751
+    y: 0
+    width: 0.33333334
+    height: 0.3333333
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -19848,7 +19848,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3736661429977556969}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.44119224, y: 0.45074975, z: -0.06875424}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -24927,11 +24927,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4672833244012665218, guid: 9a3b66ba7ec6a7a4780a2fa264b1cbaa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.46
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4672833244012665218, guid: 9a3b66ba7ec6a7a4780a2fa264b1cbaa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.28
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4672833244012665218, guid: 9a3b66ba7ec6a7a4780a2fa264b1cbaa, type: 3}
       propertyPath: m_LocalPosition.z

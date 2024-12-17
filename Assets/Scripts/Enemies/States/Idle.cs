@@ -9,8 +9,6 @@ public class Idle : StateBehaviour
     [SerializeField]
     private float idleSpeed;
 
-    private Rigidbody2D rb;
-
     private bool alreadyArrived = true;
     private bool alreadyIdleing = false;
 
@@ -22,12 +20,9 @@ public class Idle : StateBehaviour
     [SerializeField]
     private Direction direction;
 
-    void Start()
+    new void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-
-        fsmEnemies = GetComponent<FSMEnemies>();
-
+        base.Start();
         SetAlreadyArrivedFalse();
     }
 

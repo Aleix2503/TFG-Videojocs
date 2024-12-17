@@ -25,9 +25,9 @@ public class AttackMiniboss : Attack
     [SerializeField] 
     private LayerMask wallLayer;
 
-    void Start()
+    new void Start()
     {
-        fsmEnemies = GetComponent<FSMEnemies>();
+        base.Start();
     }
 
     public override void Behaviour()

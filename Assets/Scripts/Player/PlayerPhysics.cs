@@ -16,6 +16,8 @@ public class PlayerPhysics : MonoBehaviour
     public int facingDirection { get; private set; }
     public bool isGrounded => checkIfGrounded();
 
+    public bool isInkstink = false;
+
     private AttackPlayer attackPlayer;
 
 
@@ -108,8 +110,15 @@ public class PlayerPhysics : MonoBehaviour
         }
 
         currentRelativeVelocity = Mathf.Clamp(currentRelativeVelocity, -1, 1);
-
-        SetVelocityX(playerPhysicsValues.moveMaxVelocity * currentRelativeVelocity);
+        if(isInkstink)
+        {
+            SetVelocityX(playerPhysicsValues.moveMaxVelocity * currentRelativeVelocity*playerPhysicsValues.inkstinkMultiplier);
+        }
+        else
+        {
+            SetVelocityX(playerPhysicsValues.moveMaxVelocity * currentRelativeVelocity);
+        }
+        
         return currentRelativeVelocity;
     }
     public void Jump()

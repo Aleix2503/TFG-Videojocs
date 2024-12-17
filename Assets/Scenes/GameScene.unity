@@ -252,14 +252,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1145063650, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
-      propertyPath: bounceMaterial
-      value: 
-      objectReference: {fileID: 6200000, guid: 45f2cadd8f0378c42a05debf3e0727de, type: 2}
-    - target: {fileID: 1145063650, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
-      propertyPath: defaultMaterial
-      value: 
-      objectReference: {fileID: 6200000, guid: 87d587791eece0642a477cab456128d9, type: 2}
     - target: {fileID: 1065585399483427149, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
       propertyPath: playerController
       value: 
@@ -325,17 +317,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6200000, guid: 87d587791eece0642a477cab456128d9, type: 2}
     - target: {fileID: 6493722858751087101, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
-      propertyPath: isCubeUnlocked
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6493722858751087101, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
       propertyPath: isExpandUnlocked
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6493722858751087101, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
-      propertyPath: playerSoundReferences
-      value: 
-      objectReference: {fileID: 11400000, guid: 2ddada8255c73e44c92728abb3ef96e5, type: 2}
     - target: {fileID: 6493722858751087101, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
       propertyPath: inkstinctMaterials.Array.size
       value: 4

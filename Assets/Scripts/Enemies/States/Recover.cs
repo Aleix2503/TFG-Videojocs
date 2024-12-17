@@ -10,10 +10,9 @@ public class Recover : StateBehaviour
     private bool alreadyCalled = false;
 
     // Start is called before the first frame update
-    void Start()
+    new void Start()
     {
-        fsmEnemies = GetComponent<FSMEnemies>();
-        animator = GetComponent<Animator>();
+        base.Start();
     }
 
     public override void Behaviour()

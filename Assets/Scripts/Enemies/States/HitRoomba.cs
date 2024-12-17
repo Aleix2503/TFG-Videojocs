@@ -4,14 +4,10 @@ using UnityEngine;
 
 public class HitRoomba : Hit
 {
-    private Rigidbody2D rb;
-
     // Start is called before the first frame update
-    void Start()
+    new void Start()
     {
-        fsmEnemies = GetComponent<FSMEnemies>();
-        rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+        base.Start();
     }
 
     public override void Behaviour()

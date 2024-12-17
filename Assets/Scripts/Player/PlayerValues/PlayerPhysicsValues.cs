@@ -54,7 +54,9 @@ public class PlayerPhysicsValues : ScriptableObject
     public float cubedTime = 0.5f;
     public float cubedVerticalVelocity = 15f;
     public float cubedCollisionEdgeRadius = 0.1f;
-
+    [Space]
+    [Header("Inkstink")]
+    public float inkstinkMultiplier = 0.5f;
 
 
     [Header("Checks")]

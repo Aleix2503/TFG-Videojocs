@@ -32,7 +32,7 @@ public class SuckRoomba : MonoBehaviour
     {
         fSMEnemies = GetComponent<FSMEnemies>();
         patrol = GetComponent<Patrol>();
-        animator = GetComponent<Animator>();
+        animator = GetComponentInParent<Animator>();
 
         previousPatrolSpeed = patrol.patrolSpeed;
     }

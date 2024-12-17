@@ -11,18 +11,15 @@ public class Patrol : StateBehaviour
     [SerializeField]
     public float patrolSpeed = 3;
     protected int currentPointIndex = 0;
-    protected Rigidbody2D rb;
 
-    void Start()
+    new void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        base.Start();
 
         if (patrolPoints == null || patrolPoints.Count == 0)
         {
             Debug.LogError("No patrol points have been assigned");
         }
-
-        spriteRenderer = GetComponent<SpriteRenderer>();
 
         Flip();
     }
@@ -50,22 +47,28 @@ public class Patrol : StateBehaviour
             
             Flip();
 
-            Quaternion targetRotation = Quaternion.Euler(0, 0, 0);
-            transform.rotation = targetRotation;
+            /*Quaternion targetRotation = Quaternion.Euler(0, 0, 0);
+            transform.rotation = targetRotation;*/
         }
     }
 
     private void Flip()
     {
-        if (transform.position.x > patrolPoints[currentPointIndex].transform.position.x && !spriteRenderer.flipX)
-            spriteRenderer.flipX = true;
-        else if (transform.position.x < patrolPoints[currentPointIndex].transform.position.x && spriteRenderer.flipX)
-            spriteRenderer.flipX = false;
+        if (transform.position.x > patrolPoints[currentPointIndex].transform.position.x && spriteRenderer[0].flipX)
+        {
+            for (int i = 0; i < spriteRenderer.Length; i++)
+                spriteRenderer[i].flipX = false;
+        }
+        else if (transform.position.x < patrolPoints[currentPointIndex].transform.position.x && !spriteRenderer[0].flipX)
+        {
+            for (int i = 0; i < spriteRenderer.Length; i++)
+                spriteRenderer[i].flipX = true;
+        }
     }
 
     public void RotateTowardsPoint()
     {
-        // Calcular la dirección hacia el jugador
+        /*// Calcular la dirección hacia el jugador
         Vector2 direction = patrolPoints[currentPointIndex].transform.position - transform.position;
 
         // Calcular el ángulo en radianes y convertirlo a grados
@@ -74,7 +77,9 @@ public class Patrol : StateBehaviour
         // Crear una rotación en Z hacia el ángulo calculado
         Quaternion targetRotation = Quaternion.Euler(0, 0, angle);
 
-        transform.rotation = targetRotation;
+        transform.rotation = targetRotation;*/
+
+        Flip();
     }
 
     void OnDrawGizmos()
