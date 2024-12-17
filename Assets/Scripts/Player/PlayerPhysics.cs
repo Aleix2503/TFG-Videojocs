@@ -233,16 +233,11 @@ public class PlayerPhysics : MonoBehaviour
         FreezePlayerPosition(false);
         SetColliderDimensions(playerPhysicsValues.cubedCollisionBox, playerPhysicsValues.cubedCollisionBoxOffset, playerPhysicsValues.cubedCollisionEdgeRadius);
     }
-    private IEnumerator CubeOutCoroutine()
-    {
-        yield return new WaitForSeconds(playerPhysicsValues.cubedTime);
-        FreezePlayerPosition(false);
-        SetColliderDimensions(playerPhysicsValues.defaultCollisionBox, playerPhysicsValues.defaultCollisionBoxOffset, playerPhysicsValues.defaultCollisionEdgeRadius);
-    }
     public void CubeOut()
     {
         FreezePlayerPosition(true);
-        StartCoroutine(CubeOutCoroutine());
+        FreezePlayerPosition(false);
+        SetColliderDimensions(playerPhysicsValues.defaultCollisionBox, playerPhysicsValues.defaultCollisionBoxOffset, playerPhysicsValues.defaultCollisionEdgeRadius);
     }
     public void CubedFall()
     {
