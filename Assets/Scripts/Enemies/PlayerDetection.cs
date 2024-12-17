@@ -23,6 +23,7 @@ public class PlayerDetection : MonoBehaviour
 
     private Transform player;
     private FSMEnemies fsmEnemies;
+    private Animator animator;
 
 
     // Start is called before the first frame update
@@ -30,6 +31,7 @@ public class PlayerDetection : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player").GetComponent<Transform>();
         fsmEnemies = GetComponent<FSMEnemies>();
+        animator = GetComponentInParent<Animator>();
     }
 
     // Update is called once per frame
@@ -54,18 +56,23 @@ public class PlayerDetection : MonoBehaviour
         if (distance <= detectionRadius)
         {
             if (fsmEnemies.state != FSMEnemies.State.Alert)
+            {
+                animator.SetTrigger("isAlerted");
                 fsmEnemies.state = FSMEnemies.State.Alert;
+            }
         }
         else
         {
             if (GetComponent<Patrol>() != null && fsmEnemies.state != FSMEnemies.State.Patrol)
             {
                 GetComponent<Patrol>().RotateTowardsPoint();
+                animator.SetTrigger("isPatroled");
                 fsmEnemies.state = FSMEnemies.State.Patrol;
             }
             else if (GetComponent<Patrol>() == null && fsmEnemies.state != FSMEnemies.State.Idle)
             {
                 GetComponent<Idle>().SetAlreadyArrivedFalse();
+                animator.SetTrigger("isIdled");
                 fsmEnemies.state = FSMEnemies.State.Idle;
             }
                 
@@ -84,18 +91,23 @@ public class PlayerDetection : MonoBehaviour
             Vector2.Distance(transform.position, player.position) <= coneDistance)
         {
             if (fsmEnemies.state != FSMEnemies.State.Alert)
+            {
+                animator.SetTrigger("isAlerted");
                 fsmEnemies.state = FSMEnemies.State.Alert;
+            }
         }
         else
         {
             if (GetComponent<Patrol>() != null && fsmEnemies.state != FSMEnemies.State.Patrol)
             {
                 GetComponent<Patrol>().RotateTowardsPoint();
+                animator.SetTrigger("isPatroled");
                 fsmEnemies.state = FSMEnemies.State.Patrol;
             }
             else if (GetComponent<Patrol>() == null && fsmEnemies.state != FSMEnemies.State.Idle)
             {
                 GetComponent<Idle>().SetAlreadyArrivedFalse();
+                animator.SetTrigger("isIdled");
                 fsmEnemies.state = FSMEnemies.State.Idle;
             }
         }

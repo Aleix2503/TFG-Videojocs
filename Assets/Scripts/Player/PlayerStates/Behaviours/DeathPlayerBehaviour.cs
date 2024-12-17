@@ -21,12 +21,15 @@ public class DeathPlayerBehaviour : PlayerBehaviour
             Vector3.right, _playerController.currentPlayerColor);
         _playerPhysics.FreezePlayerPosition(true);
         isDying = true;
+
+        EnemyManager.Instance?.HealAllEnemies();
+        EnemyManager.Instance?.ReviveAllEnemies();
     }
     public void Exit()
     {
         _playerController.FadePlayerColor(_playerController.playerControlValues.defaultColor, 0);
         _playerController.Respawn();
-        _playerStateMachine.SetAnim(4);
+        _playerStateMachine.SetAnimTrigger("isRespawning");
     }
     public override void Logic()
     {

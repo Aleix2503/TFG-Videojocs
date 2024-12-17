@@ -9,9 +9,8 @@ public class Idle : StateBehaviour
     [SerializeField]
     private float idleSpeed;
 
-    private Rigidbody2D rb;
-
     private bool alreadyArrived = true;
+    private bool alreadyIdleing = false;
 
     private enum Direction
     {
@@ -21,23 +20,19 @@ public class Idle : StateBehaviour
     [SerializeField]
     private Direction direction;
 
-    void Start()
+    new void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-
-        fsmEnemies = GetComponent<FSMEnemies>();
-
+        base.Start();
         SetAlreadyArrivedFalse();
     }
 
     public override void Behaviour()
     {
-        if (GetComponent<Patrol>() != null)
+        if (!alreadyArrived) MoveToIdlePoint();
+        else if (!alreadyIdleing)
         {
-            fsmEnemies.state = FSMEnemies.State.Patrol;
-        } else if (!alreadyArrived)
-        {
-            MoveToIdlePoint();
+            alreadyIdleing = true;
+            animator.SetTrigger("isArrived");
         }
     }
 
@@ -77,6 +72,7 @@ public class Idle : StateBehaviour
         }
 
         alreadyArrived = false;
+        alreadyIdleing = false;
     }
 
     float RoundToZero(float value, float epsilon = 0.01f)

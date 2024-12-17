@@ -18,19 +18,15 @@ public class Alert : StateBehaviour
     [SerializeField]
     private float chasingSpeed = 5;
 
-    private Rigidbody2D rb;
     private Transform player;
 
     private PlayerDetection playerDetection;
 
     // Start is called before the first frame update
-    void Start()
+    new void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        base.Start();
         player = GameObject.FindWithTag("Player").GetComponent<Transform>();
-
-        fsmEnemies = GetComponent<FSMEnemies>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
 
         playerDetection = GetComponent<PlayerDetection>();
     }
@@ -42,37 +38,35 @@ public class Alert : StateBehaviour
 
         if (type == ChasingType.Terrestrial)
             direction = new Vector2(direction.x, 0);
+        /*else if (type == ChasingType.Flying)
+            RotateTowardsPlayer();*/
 
         if (playerDetection.detectionType == PlayerDetection.DetectionType.Circle)
             Flip();
 
-        if (type == ChasingType.Flying)
-            RotateTowardsPlayer();
-
         // Aplicar movimiento al Rigidbody2D
         rb.velocity = direction * chasingSpeed;
 
-        // Ajustar la orientación del enemigo
+        /*// Ajustar la orientación del enemigo
         if (direction.x != 0)
         {
             transform.localScale = new Vector3(Mathf.Sign(direction.x), 1, 1); // Mirar hacia el jugador
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player") && fsmEnemies.state == FSMEnemies.State.Alert)
-        {
-            fsmEnemies.state = FSMEnemies.State.Attack; 
-        }
+        }*/
     }
 
     private void Flip()
     {
-        if (transform.position.x > player.position.x && !spriteRenderer.flipX)
-            spriteRenderer.flipX = true;
-        else if (transform.position.x < player.position.x && spriteRenderer.flipX)
-            spriteRenderer.flipX = false;
+        if (transform.position.x > player.position.x && spriteRenderer[0].flipX)
+        {
+            Debug.Log("aqui");
+            for (int i = 0; i < spriteRenderer.Length; i++)
+                spriteRenderer[i].flipX = false;
+        }
+        else if (transform.position.x < player.position.x && !spriteRenderer[0].flipX)
+        {
+            for (int i = 0; i < spriteRenderer.Length; i++)
+                spriteRenderer[i].flipX = true;
+        }
     }
 
     void RotateTowardsPlayer()

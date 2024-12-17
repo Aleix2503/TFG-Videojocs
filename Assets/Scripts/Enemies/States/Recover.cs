@@ -10,9 +10,9 @@ public class Recover : StateBehaviour
     private bool alreadyCalled = false;
 
     // Start is called before the first frame update
-    void Start()
+    new void Start()
     {
-        fsmEnemies = GetComponent<FSMEnemies>();
+        base.Start();
     }
 
     public override void Behaviour()
@@ -29,11 +29,14 @@ public class Recover : StateBehaviour
 
         if (GetComponent<Patrol>() != null)
             fsmEnemies.state = FSMEnemies.State.Patrol;
-        else
+        else if (GetComponent<Idle>() != null)
         {
             fsmEnemies.state = FSMEnemies.State.Idle;
             GetComponent<Idle>().SetAlreadyArrivedFalse();
-        }
+
+            animator.SetTrigger("isIdled");
+        } 
+        else fsmEnemies.state = FSMEnemies.State.Attack;
 
         alreadyCalled = false;
     }

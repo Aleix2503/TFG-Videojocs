@@ -5,6 +5,8 @@ using UnityEngine;
 public class FSMEnemies : MonoBehaviour
 {
     [SerializeField]
+    private int maxLife = 5;
+    [HideInInspector]
     public int life;
 
     public enum State
@@ -24,6 +26,16 @@ public class FSMEnemies : MonoBehaviour
     // Referencia al script de detección
     private PlayerDetection playerDetection;
 
+    private void Awake()
+    {
+        EnemyManager.Instance?.RegisterEnemy(this);
+    }
+
+    private void OnEnable()
+    {
+        life = maxLife;
+    }
+
     void Start()
     {
         // Obtener el componente del script de detección
@@ -34,7 +46,10 @@ public class FSMEnemies : MonoBehaviour
 
     void Update()
     {
-        if (life <= 0) state = State.Die;
+        if (life <= 0)
+        {
+            state = State.Die;
+        }
 
         StateBehaviour behaviour = GetComponent(state.ToString()) as StateBehaviour;
         behaviour.Behaviour();
@@ -49,5 +64,10 @@ public class FSMEnemies : MonoBehaviour
         {
             playerDetection.enabled = (state == State.Patrol || state == State.Alert || state == State.Idle);
         }
+    }
+
+    public void Heal()
+    {
+        life = maxLife;
     }
 }
