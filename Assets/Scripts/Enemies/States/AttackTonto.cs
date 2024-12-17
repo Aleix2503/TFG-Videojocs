@@ -11,8 +11,6 @@ public class AttackTonto : Attack
     [SerializeField]
     private float jumpDistance = 5f; // Distancia horizontal del salto
 
-    private Rigidbody2D rb;
-
     // Start is called before the first frame update
     void Start()
     {

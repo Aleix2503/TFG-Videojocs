@@ -6,6 +6,6 @@ public class Die : StateBehaviour
 {
     public override void Behaviour()
     {
-        Destroy(transform.parent.gameObject);
+        transform.parent.gameObject.SetActive(false);
     }
 }
