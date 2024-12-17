@@ -41,9 +41,9 @@ public class PatrolRoomba : Patrol
     private bool rotating = false;
 
     // Start is called before the first frame update
-    void Start()
+    new void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        base.Start();
 
         if (patrolPoints == null || patrolPoints.Count == 0)
         {
@@ -91,11 +91,11 @@ public class PatrolRoomba : Patrol
 
     public void SetPatrolPoints()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponentsInChildren<SpriteRenderer>();
         Vector3 worldPosition = tilemap.CellToWorld(selectedTilePosition);
 
-        height = spriteRenderer.bounds.extents.y;
-        width = spriteRenderer.bounds.extents.x;
+        height = spriteRenderer[0].bounds.extents.y;
+        width = spriteRenderer[0].bounds.extents.x;
 
         offsetHeight = height + offset;
         offsetWidth = width + offset;

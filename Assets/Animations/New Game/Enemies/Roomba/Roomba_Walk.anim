@@ -36,7 +36,7 @@ AnimationClip:
     - time: 0.5833333
       value: {fileID: 21300000, guid: c73893b14f0a5844a8fe5f81d14d4bfe, type: 3}
     attribute: m_Sprite
-    path: Lineart
+    path: Roomba/Lineart
     classID: 212
     script: {fileID: 0}
   - curve:
@@ -57,7 +57,7 @@ AnimationClip:
     - time: 0.5833333
       value: {fileID: 21300000, guid: afce6fafcf40c8f4b950742d41b08292, type: 3}
     attribute: m_Sprite
-    path: Color
+    path: Roomba/Color
     classID: 212
     script: {fileID: 0}
   m_SampleRate: 24
