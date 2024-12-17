@@ -74,7 +74,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.09588528, y: -0.34342456}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -85,7 +85,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.99, y: 0.99}
+  m_Size: {x: 1.5764713, y: 1.6468492}
   m_EdgeRadius: 0
 --- !u!114 &1741693600401413208
 MonoBehaviour:
@@ -121,7 +121,7 @@ MonoBehaviour:
   - {fileID: 1741693602352187823}
   patrolSpeed: 3
   rotationSpeed: 180
-  offset: 0
+  offset: -1
   tile: {fileID: 11400000, guid: 053a02a7e7f781a48a66907a124ce6cb, type: 2}
   setPoint: 2
   pointNumber: 0
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectionRadius: 0.4
-  offset: {x: 0, y: -0.5}
+  offset: {x: 0, y: -1.2}
   suckingVelocity: 1
   suckingTimer: 1
   suckAgainTimer: 0.8
