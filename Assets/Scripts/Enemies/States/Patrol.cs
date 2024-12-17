@@ -23,7 +23,7 @@ public class Patrol : StateBehaviour
 
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        Flip();
+        //Flip();
     }
 
     public override void Behaviour()
