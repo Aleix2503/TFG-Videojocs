@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3686785741967786752, guid: ae68ceb65f7060f47bc34e69257a5736, type: 3}
       propertyPath: CollisionModule.collidesWith.m_Bits
-      value: 1024
+      value: 1536
       objectReference: {fileID: 0}
     - target: {fileID: 3686785741967786753, guid: ae68ceb65f7060f47bc34e69257a5736, type: 3}
       propertyPath: m_Pivot.x

@@ -44,6 +44,10 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 887022392268667484, guid: 717998d3837d67f4a935f94270b3269b, type: 3}
+      propertyPath: CollisionModule.collidesWith.m_Bits
+      value: 1536
+      objectReference: {fileID: 0}
+    - target: {fileID: 887022392268667484, guid: 717998d3837d67f4a935f94270b3269b, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
       value: 0.18431371
       objectReference: {fileID: 0}
@@ -69,6 +73,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 887022392268667484, guid: 717998d3837d67f4a935f94270b3269b, type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].cycleCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 887022392268667484, guid: 717998d3837d67f4a935f94270b3269b, type: 3}
+      propertyPath: CollisionModule.multiplyColliderForceByParticleSize
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 887022392268667484, guid: 717998d3837d67f4a935f94270b3269b, type: 3}
