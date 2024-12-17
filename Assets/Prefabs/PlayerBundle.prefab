@@ -24803,8 +24803,8 @@ MonoBehaviour:
   YDownLimit: -1
   YUpLimit: 2.5
   DownVelocityExtraOffsetMultiplier: 0
-  cameraBoundariesSize: {x: 71.28, y: 41.2}
-  cameraBoundariesPosition: {x: 15.7, y: 0.7}
+  cameraBoundariesSize: {x: 451.5, y: 317.22}
+  cameraBoundariesPosition: {x: 75.6, y: 39.2}
   boundsTransitionTime: 0.3
   isFreeCameraAllowed: 1
   freeCameraSpeed: 5
