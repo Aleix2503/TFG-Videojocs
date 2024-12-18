@@ -1,4 +1,4 @@
-Shader "Splater"
+Shader "Enemy Splater"
 {
     Properties
     {
@@ -13,7 +13,7 @@ Shader "Splater"
         Pass
         {
             Stencil{
-                Ref 1
+                Ref 3
                 Comp Equal
                 Pass Keep
             }

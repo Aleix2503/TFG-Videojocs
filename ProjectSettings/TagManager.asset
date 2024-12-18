@@ -62,6 +62,12 @@ TagManager:
   - name: Foreground Decals
     uniqueID: 161629431
     locked: 0
+  - name: Enemies
+    uniqueID: 520142483
+    locked: 0
+  - name: Enemies Decals
+    uniqueID: 590247695
+    locked: 0
   - name: Details on top of paint
     uniqueID: 2645970949
     locked: 0

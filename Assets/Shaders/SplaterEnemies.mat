@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Splater
-  m_Shader: {fileID: 4800000, guid: a9c815f5eb896e04d8ca6ce5318a614c, type: 3}
+  m_Name: SplaterEnemies
+  m_Shader: {fileID: 4800000, guid: 53ec06d72e7a645458f06743530dc739, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -27,5 +27,5 @@ Material:
     m_Ints: []
     m_Floats: []
     m_Colors:
-    - _Color: {r: 1, g: 0.018630719, b: 0, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

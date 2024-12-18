@@ -59,6 +59,8 @@ public class SplatParticles : MonoBehaviour
             if (other.CompareTag("Enemy"))
             {
                 go.transform.parent = other.transform;
+                go.GetComponentInChildren<SpriteRenderer>().sortingLayerName = "Enemies Decals";
+                go.GetComponentInChildren<SpriteRenderer>().material.shader = Shader.Find("Enemy Splater");
             }
         }
         

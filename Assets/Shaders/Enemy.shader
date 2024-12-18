@@ -1,8 +1,9 @@
-Shader "Splater"
+Shader "Enemy"
 {
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
+        [Toggle] _isActive("Active", Float) = 0
         _Color ("Color",Color) = (1,1,1,1)
     }
     SubShader
@@ -13,9 +14,9 @@ Shader "Splater"
         Pass
         {
             Stencil{
-                Ref 1
-                Comp Equal
-                Pass Keep
+                Ref 3
+                Comp Always
+                Pass Replace
             }
             CGPROGRAM
             #pragma vertex vert
@@ -41,6 +42,7 @@ Shader "Splater"
             sampler2D _MainTex;
             float4 _MainTex_ST;
             float4 _Color;
+            float _isActive;
 
             v2f vert (appdata v)
             {
@@ -57,7 +59,9 @@ Shader "Splater"
                 fixed4 col = tex2D(_MainTex, i.uv);
                 // apply fog
                 UNITY_APPLY_FOG(i.fogCoord, col);
-                return col*_Color;
+
+                if(_isActive==1){return _Color;}
+                else{return col*0;}
             }
             ENDCG
         }
