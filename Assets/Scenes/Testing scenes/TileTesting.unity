@@ -124846,11 +124846,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6703514347925627930, guid: 513a0bdd7195ece44bf06b193720d24c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5
+      value: -5.5
       objectReference: {fileID: 0}
     - target: {fileID: -6703514347925627930, guid: 513a0bdd7195ece44bf06b193720d24c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.87
+      value: -9.41
       objectReference: {fileID: 0}
     - target: {fileID: -6703514347925627930, guid: 513a0bdd7195ece44bf06b193720d24c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -348731,6 +348731,10 @@ PrefabInstance:
     - target: {fileID: 6403283163054085399, guid: 513a0bdd7195ece44bf06b193720d24c, type: 3}
       propertyPath: pointNumber
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6403283163054085399, guid: 513a0bdd7195ece44bf06b193720d24c, type: 3}
+      propertyPath: offsetTesting
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6403283163054085399, guid: 513a0bdd7195ece44bf06b193720d24c, type: 3}
       propertyPath: selectedTilePosition.x

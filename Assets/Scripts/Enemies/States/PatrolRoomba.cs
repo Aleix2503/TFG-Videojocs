@@ -15,6 +15,8 @@ public class PatrolRoomba : Patrol
 
     [SerializeField]
     private float rotationSpeed = 5;
+    [SerializeField]
+    private float offsetTesting = 0.01f;
 
     private float height;
     private float width;
@@ -74,7 +76,7 @@ public class PatrolRoomba : Patrol
             StartCoroutine(RotateSmoothly());
         }
 
-        if (Vector2.Distance(transform.position, targetPosition) < 0.005f)
+        if (Vector2.Distance(transform.position, targetPosition) < offsetTesting)
         {
             currentPointIndex = (currentPointIndex + 1) % patrolPoints.Count;
             rotating = false;
