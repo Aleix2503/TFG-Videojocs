@@ -24,6 +24,7 @@ public class Recover : StateBehaviour
     private IEnumerator jumpRecover()
     {
         alreadyCalled = true;
+        ResetAllTriggers(animator);
 
         yield return new WaitForSeconds(timeRecover);
 
@@ -38,6 +39,23 @@ public class Recover : StateBehaviour
         } 
         else fsmEnemies.state = FSMEnemies.State.Attack;
 
+        //ResetAllTriggers(animator);
         alreadyCalled = false;
+    }
+
+    public void setAlreadyCalled()
+    {
+        alreadyCalled = false;
+    }
+
+    void ResetAllTriggers(Animator animator)
+    {
+        foreach (AnimatorControllerParameter parameter in animator.parameters)
+        {
+            if (parameter.type == AnimatorControllerParameterType.Trigger)
+            {
+                animator.ResetTrigger(parameter.name);
+            }
+        }
     }
 }

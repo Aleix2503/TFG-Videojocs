@@ -54,4 +54,9 @@ public class Hit : StateBehaviour
     {
         hitDirection = direction;
     }
+
+    public void setAlreadyHit ()
+    {
+        alreadyHit = false;
+    }
 }

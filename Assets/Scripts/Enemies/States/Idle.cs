@@ -10,7 +10,7 @@ public class Idle : StateBehaviour
     private float idleSpeed;
 
     private bool alreadyArrived = true;
-    private bool alreadyIdleing = false;
+    private bool alreadyIdleing = true;
 
     private enum Direction
     {
@@ -24,6 +24,7 @@ public class Idle : StateBehaviour
     {
         base.Start();
         SetAlreadyArrivedFalse();
+        alreadyIdleing = true;
     }
 
     public override void Behaviour()
@@ -78,5 +79,11 @@ public class Idle : StateBehaviour
     float RoundToZero(float value, float epsilon = 0.01f)
     {
         return Mathf.Abs(value) < epsilon ? 0f : value;
+    }
+
+    public void setAlreadyIdleing()
+    {
+        alreadyArrived = false;
+        alreadyIdleing = false;
     }
 }

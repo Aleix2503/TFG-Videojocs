@@ -6,7 +6,7 @@ public class FSMEnemies : MonoBehaviour
 {
     [SerializeField]
     private int maxLife = 5;
-    [HideInInspector]
+
     public int life;
 
     public enum State
@@ -22,14 +22,10 @@ public class FSMEnemies : MonoBehaviour
 
     [SerializeField]
     public State state;
+    private State initialState;
 
     // Referencia al script de detección
     private PlayerDetection playerDetection;
-
-    private void Awake()
-    {
-        EnemyManager.Instance?.RegisterEnemy(this);
-    }
 
     private void OnEnable()
     {
@@ -38,6 +34,9 @@ public class FSMEnemies : MonoBehaviour
 
     void Start()
     {
+        EnemyManager.Instance?.RegisterEnemy(gameObject);
+
+        initialState = state;
         // Obtener el componente del script de detección
         playerDetection = GetComponent<PlayerDetection>();
         // Asegurar que el script está activo solo si el estado es Patrol
@@ -69,5 +68,15 @@ public class FSMEnemies : MonoBehaviour
     public void Heal()
     {
         life = maxLife;
+    }
+
+    public void Revive()
+    {
+        state = initialState;
+        GetComponent<Hit>()?.setAlreadyHit();
+        GetComponent<Recover>()?.setAlreadyCalled();
+        GetComponent<AttackTonto>()?.setAlreadyAttacked();
+        GetComponent<DieRoomba>()?.setAlredyDead();
+        GetComponent<Idle>()?.setAlreadyIdleing();
     }
 }

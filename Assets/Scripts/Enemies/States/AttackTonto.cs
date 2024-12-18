@@ -28,7 +28,7 @@ public class AttackTonto : Attack
             animator.SetTrigger("isFalled");
             alreadyFalling = true;
         }
-        else if (alreadyFalling && rb.velocity.y == 0)
+        else if (alreadyFalling && rb.velocity.y > -0.02)
         {
             animator.SetTrigger("isLanded");
             alreadyFalling = false;
@@ -90,5 +90,11 @@ public class AttackTonto : Attack
             Gizmos.color = Color.red;
             Gizmos.DrawSphere(targetPosition, 0.2f);
         }
+    }
+
+    public void setAlreadyAttacked()
+    {
+        alreadyFalling = false;
+        alreadyJumped = false;
     }
 }
