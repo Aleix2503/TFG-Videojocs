@@ -485,7 +485,7 @@ PrefabInstance:
     - target: {fileID: 6113617590756229459, guid: 476ec2c0f61381c4ca5e0c6707773d5d, type: 3}
       propertyPath: attackParticleSystem
       value: 
-      objectReference: {fileID: 7316741255186394415}
+      objectReference: {fileID: 2573169410038654761}
     - target: {fileID: 6113617590756229459, guid: 476ec2c0f61381c4ca5e0c6707773d5d, type: 3}
       propertyPath: bubbleParticleSystem
       value: 
@@ -727,6 +727,11 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 1384953163534347950, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
+--- !u!198 &2573169410038654761 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5363968286567572777, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
+  m_PrefabInstance: {fileID: 7621532361226928640}
+  m_PrefabAsset: {fileID: 0}
 --- !u!212 &3271832097577571392 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 4945795409177368128, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
