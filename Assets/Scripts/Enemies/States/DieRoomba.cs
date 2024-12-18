@@ -25,6 +25,7 @@ public class DieRoomba : Die
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
 
         alreadyDead = false;
+        Instantiate(dieParticles, transform.position, dieParticles.transform.rotation);
         gameObject.SetActive(false);
     }
 
