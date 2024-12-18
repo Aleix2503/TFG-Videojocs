@@ -61,7 +61,7 @@ Shader "Tileset"
                 UNITY_APPLY_FOG(i.fogCoord, col);
 
                 if(_isActive==1){return _Color;}
-                else{return col*0;}
+                else{return col*float4(0,0,0,1);}
             }
             ENDCG
         }

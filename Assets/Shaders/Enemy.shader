@@ -8,9 +8,11 @@ Shader "Enemy"
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
+        Tags { "RenderType"="Transparent" }
         LOD 100
-
+        Cull Off
+        ZWrite Off
+	    Blend SrcAlpha OneMinusSrcAlpha 
         Pass
         {
             Stencil{
@@ -61,7 +63,7 @@ Shader "Enemy"
                 UNITY_APPLY_FOG(i.fogCoord, col);
 
                 if(_isActive==1){return _Color;}
-                else{return col*0;}
+                else{return col*float4(0,0,0,1);}
             }
             ENDCG
         }

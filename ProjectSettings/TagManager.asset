@@ -68,6 +68,9 @@ TagManager:
   - name: Enemies Decals
     uniqueID: 590247695
     locked: 0
+  - name: Enemies Lineart
+    uniqueID: 310624355
+    locked: 0
   - name: Details on top of paint
     uniqueID: 2645970949
     locked: 0
