@@ -1,4 +1,4 @@
-Shader "Unlit/Splater"
+Shader "Splater"
 {
     Properties
     {
@@ -7,16 +7,16 @@ Shader "Unlit/Splater"
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" "Queue"="Transparent" } // Set the queue to Transparent
+        Tags { "RenderType"="Opaque" }
         LOD 100
 
         Pass
         {
-            ZTest Off
             Stencil{
                 Ref 1
                 Comp Equal
                 Pass Keep
+                Fail IncrSat
             }
             CGPROGRAM
             #pragma vertex vert

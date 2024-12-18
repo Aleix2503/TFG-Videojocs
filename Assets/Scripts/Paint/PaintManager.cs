@@ -465,14 +465,14 @@ public class PaintManager : MonoBehaviour
         attackParticleSystem.Emit(count);
     }
 
-    public void PlaceSplat(Vector3 position, Vector3 normal, Color color)
+    public GameObject PlaceSplat(Vector3 position, Vector3 normal, Color color)
     {
         GameObject splat =
             Instantiate(splatPrefab, position, Quaternion.identity) as GameObject;
         GetDecalChunk(splat.transform);
         Splat splatScript = splat.GetComponent<Splat>();
         splatScript.Initialize(Splat.SplatLoacation.Foreground, currentLayer, color, normal);
-
+        return splat;
     }
     
     private void UpdateDebugText()

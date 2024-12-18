@@ -1,4 +1,4 @@
-Shader "Unlit/Tileset"
+Shader "Tileset"
 {
     Properties
     {
