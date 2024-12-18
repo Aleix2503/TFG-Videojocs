@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df8bec0d0567f4c4dbd6242fb0d6af13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLife: 5
+  maxLife: 10
   life: 25
   state: 1
 --- !u!114 &1741693600401413209
