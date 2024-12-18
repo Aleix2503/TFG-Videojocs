@@ -17,8 +17,8 @@ MonoBehaviour:
   abilityUnlockNoControlTime: 2
   defaultColor: {r: 1, g: 1, b: 1, a: 1}
   dashColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  bubbleColor: {r: 0, g: 1, b: 1, a: 1}
-  expandColor: {r: 1, g: 0, b: 1, a: 1}
+  bubbleColor: {r: 0.36078432, g: 0.73333335, b: 1, a: 1}
+  cubeColor: {r: 0.68235296, g: 0.37254903, b: 1, a: 1}
   jumpBufferTime: 0.2
   fallCanPlayerFlip: 1
   coyoteTime: 0.05
@@ -27,9 +27,10 @@ MonoBehaviour:
   dashColorFadeOutTime: 0.5
   bubbleTransformationTime: 1
   bubbleMaxBounces: 2
-  expandColorFadeTime: 0.5
-  expandBreakPlatformVelocityThreshold: -7
-  expandedShowGizmos: 0
+  cubeColorFadeTime: 0.5
+  cubedBreakPlatformVelocityThreshold: -15
+  cubedShowGizmos: 0
   deathToRespawnSeconds: 1
   respawnToIdleSeconds: 0.5
+  inkstinctTime: 5
   unlockAllAbilities: 0

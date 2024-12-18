@@ -53,11 +53,11 @@ MonoBehaviour:
   minColorRange: -0.1
   maxColorRange: 0.1
   sprites:
-  - {fileID: -1827539284, guid: fe574bbc059022e48aca7fdbbe9dad22, type: 3}
-  - {fileID: -1291606906, guid: fe574bbc059022e48aca7fdbbe9dad22, type: 3}
-  - {fileID: 865498473, guid: fe574bbc059022e48aca7fdbbe9dad22, type: 3}
-  - {fileID: 95967736, guid: fe574bbc059022e48aca7fdbbe9dad22, type: 3}
-  - {fileID: -412967724, guid: fe574bbc059022e48aca7fdbbe9dad22, type: 3}
+  - {fileID: 1267174460, guid: b811f82f624650a4e84122cbb9742d14, type: 3}
+  - {fileID: -1022156019, guid: b811f82f624650a4e84122cbb9742d14, type: 3}
+  - {fileID: -1143522795, guid: b811f82f624650a4e84122cbb9742d14, type: 3}
+  - {fileID: 1520533376, guid: b811f82f624650a4e84122cbb9742d14, type: 3}
+  - {fileID: 173815939, guid: b811f82f624650a4e84122cbb9742d14, type: 3}
   animator: {fileID: 5449266303200526082}
 --- !u!95 &5449266303200526082
 Animator:

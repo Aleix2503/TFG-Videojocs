@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7663409040779188366}
   - component: {fileID: 7663409040779188363}
   - component: {fileID: 7663409040779188360}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MiniBoss
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df8bec0d0567f4c4dbd6242fb0d6af13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxLife: 5
   life: 200
   state: 4
 --- !u!114 &7663409040779188365
@@ -198,6 +199,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitDamage: 2
   hitTime: 0.5
+  hasRecoil: 0
+  impulseStrength: 1
 --- !u!114 &7663409040779188360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,13 +222,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7663409041370782694}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MiniBossEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7663409041370782694
 Transform:
   m_ObjectHideFlags: 0

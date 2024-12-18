@@ -55,7 +55,12 @@ public class SplatParticles : MonoBehaviour
         int count = collisionEvents.Count;
         for (int i = 0; i < count; i++)
         {
-            PaintManager._instance.PlaceSplat(collisionEvents[i].intersection, collisionEvents[i].normal, splatParticles.main.startColor.color);
+            GameObject go = PaintManager._instance.PlaceSplat(collisionEvents[i].intersection, collisionEvents[i].normal, splatParticles.main.startColor.color);
+            if (other.CompareTag("Enemy"))
+            {
+                go.transform.parent = other.transform;
+            }
         }
+        
     }
 }
