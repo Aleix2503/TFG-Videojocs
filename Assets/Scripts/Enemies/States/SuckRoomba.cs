@@ -17,10 +17,12 @@ public class SuckRoomba : MonoBehaviour
 
     [SerializeField]
     private float suckingTimer = 1.0f;
+    [SerializeField]
     private bool sucking = false;
 
     [SerializeField]
     private float suckAgainTimer = 0.8f;
+    [SerializeField]
     private bool canSuck = true;
 
     private Patrol patrol;
@@ -83,9 +85,6 @@ public class SuckRoomba : MonoBehaviour
 
                 if (fSMEnemies.life <= 0)
                 {
-                    patrol.patrolSpeed = previousPatrolSpeed;
-                    sucking = false;
-                    canSuck = true;
                     fSMEnemies.state = FSMEnemies.State.Die;
                 }
                 else
@@ -128,5 +127,12 @@ public class SuckRoomba : MonoBehaviour
 
         // Dibujar el círculo
         Gizmos.DrawWireSphere(detectionCenter, detectionRadius);
+    }
+
+    public void setAlreadySucking()
+    {
+        patrol.patrolSpeed = previousPatrolSpeed;
+        sucking = false;
+        canSuck = true;
     }
 }
