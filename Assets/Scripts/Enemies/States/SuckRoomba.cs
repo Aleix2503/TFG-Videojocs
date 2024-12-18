@@ -85,6 +85,7 @@ public class SuckRoomba : MonoBehaviour
                 {
                     patrol.patrolSpeed = previousPatrolSpeed;
                     sucking = false;
+                    canSuck = true;
                     fSMEnemies.state = FSMEnemies.State.Die;
                 }
                 else
