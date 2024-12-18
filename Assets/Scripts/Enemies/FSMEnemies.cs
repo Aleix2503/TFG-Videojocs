@@ -78,5 +78,6 @@ public class FSMEnemies : MonoBehaviour
         GetComponent<AttackTonto>()?.setAlreadyAttacked();
         GetComponent<DieRoomba>()?.setAlredyDead();
         GetComponent<Idle>()?.setAlreadyIdleing();
+        GetComponent<SuckRoomba>()?.setAlreadySucking();
     }
 }
