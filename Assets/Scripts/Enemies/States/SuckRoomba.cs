@@ -82,7 +82,11 @@ public class SuckRoomba : MonoBehaviour
                 Destroy(splatter.gameObject);
 
                 if (fSMEnemies.life <= 0)
+                {
+                    patrol.patrolSpeed = previousPatrolSpeed;
+                    sucking = false;
                     fSMEnemies.state = FSMEnemies.State.Die;
+                }
                 else
                     fSMEnemies.life--;
             }
