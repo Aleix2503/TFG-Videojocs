@@ -11,6 +11,7 @@ public class Die : StateBehaviour
 
     public override void Behaviour()
     {
-        transform.parent.gameObject.SetActive(false);
+        //transform.parent.gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
 }

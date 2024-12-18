@@ -39,7 +39,9 @@ public class EnemyManager : MonoBehaviour
     {
         foreach (FSMEnemies enemy in enemies)
         {
-            enemy.transform.parent.gameObject.SetActive(true);
+            Debug.Log(enemy.gameObject.name);
+           // enemy.transform.parent.gameObject.SetActive(true);
+            enemy.gameObject.SetActive(true);
         }
     }
 }

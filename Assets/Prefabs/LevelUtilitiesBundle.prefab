@@ -463,10 +463,6 @@ PrefabInstance:
       value: 0.23529412
       objectReference: {fileID: 0}
     - target: {fileID: 6113617590756229459, guid: 476ec2c0f61381c4ca5e0c6707773d5d, type: 3}
-      propertyPath: buublePaintingRate
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6113617590756229459, guid: 476ec2c0f61381c4ca5e0c6707773d5d, type: 3}
       propertyPath: dashParticleSystem
       value: 
       objectReference: {fileID: 5980606200767052280}

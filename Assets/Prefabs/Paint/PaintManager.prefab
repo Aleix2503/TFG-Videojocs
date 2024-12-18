@@ -49,18 +49,19 @@ MonoBehaviour:
   particleSystem: {fileID: 0}
   dashParticleSystem: {fileID: 0}
   jumpParticleSystem: {fileID: 0}
-  expandedParticleSystem: {fileID: 0}
+  cubedParticleSystem: {fileID: 0}
   bubbleParticleSystem: {fileID: 0}
+  attackParticleSystem: {fileID: 0}
   colorOption: 0
   paintColor: {r: 1, g: 1, b: 1, a: 1}
   color1: {r: 1, g: 1, b: 1, a: 1}
   color2: {r: 0.8490566, g: 0.8490566, b: 0.8490566, a: 1}
   dashPaintColor: {r: 0, g: 0, b: 0, a: 0}
-  expandedPaintColor: {r: 0, g: 0, b: 0, a: 0}
+  cubedPaintColor: {r: 0, g: 0, b: 0, a: 0}
   bubblePaintColor: {r: 0, g: 1, b: 1, a: 0}
   traceSpawnPosition: {fileID: 0}
   backgroundTraceSpawnPosition: {fileID: 0}
-  backgroundExpandedTraceSpawnPosition: {fileID: 0}
+  backgroundCubedTraceSpawnPosition: {fileID: 0}
   onFallTraceSpawnPosition: {fileID: 0}
   splatPrefab: {fileID: 0}
   tracePrefab: {fileID: 123533560605408097, guid: 85146b5edf67eaf42a5db468f9b91ddd, type: 3}
@@ -79,4 +80,4 @@ MonoBehaviour:
   playerController: {fileID: 0}
   debugText: {fileID: 0}
   bubble: {fileID: 0}
-  buublePaintingRate: 2
+  buublePaintingRate: 10
