@@ -463,10 +463,6 @@ PrefabInstance:
       value: 0.23529412
       objectReference: {fileID: 0}
     - target: {fileID: 6113617590756229459, guid: 476ec2c0f61381c4ca5e0c6707773d5d, type: 3}
-      propertyPath: buublePaintingRate
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6113617590756229459, guid: 476ec2c0f61381c4ca5e0c6707773d5d, type: 3}
       propertyPath: dashParticleSystem
       value: 
       objectReference: {fileID: 5980606200767052280}
@@ -651,14 +647,6 @@ PrefabInstance:
     - target: {fileID: 3736661429977556970, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3736661429977556970, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -25.18
-      objectReference: {fileID: 0}
-    - target: {fileID: 3736661429977556970, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -12.1
       objectReference: {fileID: 0}
     - target: {fileID: 3736661429977556970, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
       propertyPath: m_LocalPosition.z

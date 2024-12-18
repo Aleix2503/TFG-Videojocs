@@ -130,9 +130,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.15}
+  m_Offset: {x: -0.05668354, y: 0.147331}
   serializedVersion: 2
-  m_Radius: 0.85
+  m_Radius: 0.7651222
 --- !u!114 &3829599007500464084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -413,7 +413,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0026119947, y: 0.15457588}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -424,7 +424,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8, y: 0.8}
+  m_Size: {x: 1.1802604, y: 0.9837798}
   m_EdgeRadius: 0.1
 --- !u!114 &4672833244012665230
 MonoBehaviour:
@@ -509,7 +509,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitbox: {fileID: 7698512924262928659}
   posicions:
-  - {x: 1.35, y: 0.1}
+  - {x: 2.79, y: 0.1}
   - {x: 0, y: 1.5}
   - {x: 0, y: -1.2}
   cooldownAttack: 0.5
@@ -647,7 +647,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 4672833244012665218}
   m_RootOrder: 1
@@ -676,7 +676,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.76, y: 2.31}
   m_EdgeRadius: 0
 --- !u!114 &5753489227878904325
 MonoBehaviour:

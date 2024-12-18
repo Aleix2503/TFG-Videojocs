@@ -5,12 +5,10 @@ using UnityEngine;
 public class DieRoomba : Die
 {
     private bool alreadyDead = false;
-    private float previousSpeed;
 
     private new void Start()
     {
         base.Start();
-        previousSpeed = GetComponent<Patrol>().patrolSpeed;
     }
 
     public override void Behaviour()
@@ -27,7 +25,11 @@ public class DieRoomba : Die
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
 
         alreadyDead = false;
-        Instantiate(dieParticles, transform.position, dieParticles.transform.rotation);
-        transform.parent.gameObject.SetActive(false);
+        gameObject.SetActive(false);
+    }
+
+    public void setAlredyDead()
+    {
+        alreadyDead = false;
     }
 }
