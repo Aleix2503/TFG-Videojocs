@@ -23,6 +23,7 @@ public class HitRoomba : Hit
 
         yield return new WaitForSeconds(hitTime);
 
+        alreadyHit = false;
         fsmEnemies.state = FSMEnemies.State.Patrol;
     }
 }
