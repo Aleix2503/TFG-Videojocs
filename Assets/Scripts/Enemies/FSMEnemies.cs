@@ -23,10 +23,13 @@ public class FSMEnemies : MonoBehaviour
     [SerializeField]
     public State state;
 
-    private State initialState;
-
     // Referencia al script de detección
     private PlayerDetection playerDetection;
+
+    private void Awake()
+    {
+        EnemyManager.Instance?.RegisterEnemy(this);
+    }
 
     private void OnEnable()
     {
@@ -35,11 +38,8 @@ public class FSMEnemies : MonoBehaviour
 
     void Start()
     {
-        EnemyManager.Instance?.RegisterEnemy(gameObject);
-
         // Obtener el componente del script de detección
         playerDetection = GetComponent<PlayerDetection>();
-        initialState = state;
         // Asegurar que el script está activo solo si el estado es Patrol
         UpdateDetectionState();
     }

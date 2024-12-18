@@ -7,7 +7,7 @@ public class EnemyManager : MonoBehaviour
     [HideInInspector]
     public static EnemyManager Instance { get; private set; }
 
-    private List<GameObject> enemies = new List<GameObject>();
+    private List<FSMEnemies> enemies = new List<FSMEnemies>();
 
     private void Awake()
     {
@@ -19,7 +19,7 @@ public class EnemyManager : MonoBehaviour
         Instance = this;
     }
 
-    public void RegisterEnemy(GameObject enemy)
+    public void RegisterEnemy(FSMEnemies enemy)
     {
         if (!enemies.Contains(enemy))
         {
@@ -29,19 +29,19 @@ public class EnemyManager : MonoBehaviour
 
     public void HealAllEnemies()
     {
-        foreach (GameObject enemy in enemies)
+        foreach (FSMEnemies enemy in enemies)
         {
-            enemy.GetComponent<FSMEnemies>().Heal();
+            enemy.Heal();
         }
     }
 
     public void ReviveAllEnemies()
     {
-        foreach (GameObject enemy in enemies)
+        foreach (FSMEnemies enemy in enemies)
         {
-            Debug.Log(enemy.name);
-           
-            enemy.SetActive(true);
+            Debug.Log(enemy.gameObject.name);
+           // enemy.transform.parent.gameObject.SetActive(true);
+            enemy.gameObject.SetActive(true);
         }
     }
 }
