@@ -59,6 +59,7 @@ public class PlayerDetection : MonoBehaviour
             {
                 animator.SetTrigger("isAlerted");
                 fsmEnemies.state = FSMEnemies.State.Alert;
+                DetectSound();
             }
         }
         else
@@ -94,6 +95,7 @@ public class PlayerDetection : MonoBehaviour
             {
                 animator.SetTrigger("isAlerted");
                 fsmEnemies.state = FSMEnemies.State.Alert;
+                DetectSound();
             }
         }
         else
@@ -110,6 +112,21 @@ public class PlayerDetection : MonoBehaviour
                 animator.SetTrigger("isIdled");
                 fsmEnemies.state = FSMEnemies.State.Idle;
             }
+        }
+    }
+    void DetectSound()
+    {
+        EnemySoundEmitter soundEmitter = GetComponent<EnemySoundEmitter>();
+        switch (soundEmitter.enemyType)
+        {
+            case EnemySoundEmitter.EnemyType.Tonto:
+                soundEmitter.PlayAlertTonto();
+                break;
+            case EnemySoundEmitter.EnemyType.Mosca:
+                soundEmitter.PlayChaseMosca();
+                break;
+            default:
+                break;
         }
     }
 

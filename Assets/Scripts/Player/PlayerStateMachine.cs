@@ -85,6 +85,8 @@ public class PlayerStateMachine : ScriptableObject
                 break;
             case DeathPlayerBehaviour:
                 _animator.SetTrigger("isDying");
+                SetAnimBool("isCubing", false);
+                SetAnimBool("isBubbling", false);
                 hasCubed = false;
                 break;
         }

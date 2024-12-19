@@ -456,7 +456,6 @@ public class PaintManager : MonoBehaviour
     
     public void EmitBubbleParticles()
     {
-        bubbleParticleSystem.transform.position = bubbleTransform.position;
         bubbleParticleSystem.Emit(5);   
     }
 

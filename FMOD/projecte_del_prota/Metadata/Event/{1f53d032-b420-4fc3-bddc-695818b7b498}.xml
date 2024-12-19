@@ -5,7 +5,7 @@
 			<value>Death_Critter</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{c9fab00d-def4-4d1d-b118-9f1baa06d70b}</destination>
@@ -136,6 +136,7 @@
 	<object class="MixerBusEffectChain" id="{e75c177a-0645-46ba-992c-1995a603e17c}">
 		<relationship name="effects">
 			<destination>{26b5c8f8-fbae-468c-b645-18acc684cc0d}</destination>
+			<destination>{37e7722c-5649-4a94-a188-15620af4cdc2}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{ee922783-e4aa-4f7b-8938-022f6eef560b}" />
@@ -165,6 +166,23 @@
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{26b5c8f8-fbae-468c-b645-18acc684cc0d}" />
+	<object class="SpatialiserEffect" id="{37e7722c-5649-4a94-a188-15620af4cdc2}">
+		<property name="minimumDistance">
+			<value>0</value>
+		</property>
+		<property name="maximumDistance">
+			<value>100</value>
+		</property>
+		<property name="overrideRange">
+			<value>true</value>
+		</property>
+		<property name="extentMode">
+			<value>1</value>
+		</property>
+		<property name="soundSize">
+			<value>0.5</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{6e22cb9b-4454-436a-a49b-1bd1a0a942fc}" />
 	<object class="AutomationPoint" id="{9dcd3e03-cdf4-4bb4-affe-cbf319201ec1}">
 		<property name="position">
