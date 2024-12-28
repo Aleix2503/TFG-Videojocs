@@ -8,6 +8,9 @@ public class CubedPlayerBehaviour : PlayerBehaviour
 
     public bool canBreakGround;
     private float transitionTime;
+
+    private bool hasTouchedCeiling = false;
+    private bool isTouchingCeiling = false;
     public CubedPlayerBehaviour(PlayerStateMachine playerStateMachine, PlayerPhysics playerPhysics, PlayerController playerController) : base(playerStateMachine, playerPhysics, playerController)
     {
     }
@@ -23,6 +26,7 @@ public class CubedPlayerBehaviour : PlayerBehaviour
         _playerController.CubeIn();
         _playerPhysics.CubeIn();
         canBreakGround = false;
+        hasTouchedCeiling = false;
         transitionTime = _playerPhysics.playerPhysicsValues.cubedTime;
     }
     public void Exit()
@@ -36,7 +40,12 @@ public class CubedPlayerBehaviour : PlayerBehaviour
         base.Logic();
         _playerPhysics.CubedFall();
         transitionTime -= Time.deltaTime;
-        if ((_playerPhysics.checkIfCubedTouchingGround() || _playerPhysics.checkIfCubedCollision()||_playerPhysics.checkIfGrounded())&&transitionTime<=0)
+        if (isTouchingCeiling && !hasTouchedCeiling)
+        {
+            PaintManager._instance.PlaceSplat(_playerPhysics.transform.position + new Vector3(0, 0.3f, 0), Vector3.down, _playerController.playerControlValues.cubeColor);
+            hasTouchedCeiling = true;
+        }
+        if (_playerPhysics.checkIfGrounded()&&transitionTime<=0)
         {
             PaintManager._instance.EmitCubedParticles();
             PaintManager._instance.PlaceOnCubedTrace();
