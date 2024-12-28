@@ -512,8 +512,8 @@ MonoBehaviour:
   - {x: 2.79, y: 0.1}
   - {x: 0, y: 1.5}
   - {x: 0, y: -1.2}
-  cooldownAttack: 0.5
-  durationNormalAttack: 0.4
+  cooldownAttack: 0.4
+  durationNormalAttack: 0.2
   animator: {fileID: 4672833243578869615}
   numberOfEmissions: 5
   isAttacking: 0
