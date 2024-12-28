@@ -290,36 +290,36 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region Gizmos
-    /*void OnDrawGizmos()
+    void OnDrawGizmos()
     {
-        if (m_playerValues == null) return;
-        if (!m_playerValues.showGizmos) return;
+        if (playerPhysics.playerPhysicsValues == null) return;
+        if (!playerControlValues.showGizmos) return;
         
         Gizmos.color = new Color(0, 0, 1, 0.4f);
 
         //Ground check and wall check area gizmos
-        Gizmos.DrawCube((Vector2)transform.position + m_playerValues.groundCheckOffset, m_playerValues.groundCheckBox);
+        Gizmos.DrawCube((Vector2)transform.position + playerPhysics.playerPhysicsValues.groundCheckOffset, playerPhysics.playerPhysicsValues.groundCheckBox);
 
-        Gizmos.DrawCube((Vector2)transform.position + m_playerValues.rightWallCheckOffset, m_playerValues.rightWallCheckBox);
+        Gizmos.DrawCube((Vector2)transform.position + playerPhysics.playerPhysicsValues.rightWallCheckOffset, playerPhysics.playerPhysicsValues.rightWallCheckBox);
         
-        Gizmos.DrawCube((Vector2)transform.position + m_playerValues.leftWallCheckOffset, m_playerValues.leftWallCheckBox);
+        Gizmos.DrawCube((Vector2)transform.position + playerPhysics.playerPhysicsValues.leftWallCheckOffset, playerPhysics.playerPhysicsValues.leftWallCheckBox);
 
-        Gizmos.DrawCube((Vector2)transform.position + m_playerValues.ceilingCheckOffset, m_playerValues.ceilingCheckBox);
+        Gizmos.DrawCube((Vector2)transform.position + playerPhysics.playerPhysicsValues.ceilingCheckOffset, playerPhysics.playerPhysicsValues.ceilingCheckBox);
 
         //Hazard check area gizmo
         Gizmos.color = new Color(1, 0, 0, 0.4f);
-        Gizmos.DrawCube((Vector2)transform.position + m_playerValues.hazardCheckOffset, m_playerValues.hazardCheckBox);
+        Gizmos.DrawCube((Vector2)transform.position + playerPhysics.playerPhysicsValues.hazardCheckOffset, playerPhysics.playerPhysicsValues.hazardCheckBox);
 
         //Bubble check area gizmo
         Gizmos.color = new Color(0, 1, 1, 0.3f);
-        Gizmos.DrawCube((Vector2)transform.position + m_playerValues.bubbleCheckOffset, m_playerValues.bubbleCheckBox);
+        Gizmos.DrawCube((Vector2)transform.position + playerPhysics.playerPhysicsValues.bubbleCheckOffset, playerPhysics.playerPhysicsValues.bubbleCheckBox);
 
         //Collision gizmo
         Gizmos.color = new Color(0, 1, 0, 0.4f);
-        Gizmos.DrawCube((Vector2)transform.position + m_playerValues.defaultCollisionBoxOffset,
-            new Vector2(m_playerValues.defaultCollisionBox.x + m_playerValues.defaultCollisionEdgeRadius, m_playerValues.defaultCollisionBox.y + m_playerValues.defaultCollisionEdgeRadius));
+        Gizmos.DrawCube((Vector2)transform.position + playerPhysics.playerPhysicsValues.defaultCollisionBoxOffset,
+            new Vector2(playerPhysics.playerPhysicsValues.defaultCollisionBox.x + playerPhysics.playerPhysicsValues.defaultCollisionEdgeRadius, playerPhysics.playerPhysicsValues.defaultCollisionBox.y + playerPhysics.playerPhysicsValues.defaultCollisionEdgeRadius));
 
-        if (m_playerValues.expandedShowGizmos)
+        /*if (m_playerValues.expandedShowGizmos)
         {
             //Expanded collision gizmos
             Gizmos.color = new Color(0.5f, 1, 0, 0.2f);
@@ -331,8 +331,8 @@ public class PlayerController : MonoBehaviour
 
             Gizmos.color = new Color(0, 0, 1, 0.2f);
             Gizmos.DrawWireCube((Vector2)transform.position + m_playerValues.expandedGroundCheckBoxOffset, m_playerValues.expandedGroundCheckBox);
-        }
-    }*/
+        }*/
+    }
     #endregion
 
 }
