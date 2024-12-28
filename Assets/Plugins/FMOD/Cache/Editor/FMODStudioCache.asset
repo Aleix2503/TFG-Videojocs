@@ -589,7 +589,7 @@ MonoBehaviour:
   Path: FMOD/projecte_del_prota/Build/Desktop/Sounds.bank
   Name: Sounds
   StudioPath: bank:/Sounds
-  lastModified: 638709843245841778
+  lastModified: 638709872723209802
   FileSizes:
   - Name: Desktop
     Value: 469824
@@ -882,7 +882,7 @@ MonoBehaviour:
   - {fileID: 3214716861168167310}
   StringsBanks:
   - {fileID: -6798538194360740272}
-  cacheTime: 638709843245841778
+  cacheTime: 638709872723209802
   cacheVersion: 131619
 --- !u!114 &92906252503156646
 MonoBehaviour:
