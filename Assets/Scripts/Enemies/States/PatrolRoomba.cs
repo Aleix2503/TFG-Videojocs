@@ -51,6 +51,7 @@ public class PatrolRoomba : Patrol
         {
             Debug.LogError("No patrol points have been assigned");
         }
+        GetComponent<EnemySoundEmitter>().PlayIdleRoomba();
     }
 
     public override void Behaviour()

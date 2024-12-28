@@ -5,7 +5,7 @@
 			<value>Alert_dumb</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{54bca669-d247-4c17-b1c6-9440ba530ccc}</destination>
@@ -136,6 +136,7 @@
 	<object class="MixerBusEffectChain" id="{0769eeb4-9b24-4170-beba-b37efd5efec7}">
 		<relationship name="effects">
 			<destination>{1679d1ee-dd2a-4ed3-bae8-4589b24dbfd9}</destination>
+			<destination>{6834bb42-3a21-4858-bb83-c94447cad75c}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{d23007f0-e00b-4665-a4eb-d432700c86ea}" />
@@ -165,6 +166,23 @@
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{1679d1ee-dd2a-4ed3-bae8-4589b24dbfd9}" />
+	<object class="SpatialiserEffect" id="{6834bb42-3a21-4858-bb83-c94447cad75c}">
+		<property name="minimumDistance">
+			<value>0</value>
+		</property>
+		<property name="maximumDistance">
+			<value>100</value>
+		</property>
+		<property name="overrideRange">
+			<value>true</value>
+		</property>
+		<property name="extentMode">
+			<value>1</value>
+		</property>
+		<property name="soundSize">
+			<value>0.5</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{082ff6d4-3fcf-4da9-adb8-1e656b9ea5ac}" />
 	<object class="AutomationPoint" id="{f3e48825-ff92-4778-9b0b-f7150e7f1529}">
 		<property name="position">

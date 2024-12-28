@@ -44,6 +44,7 @@ public class AttackMiniboss : Attack
             targetPosition = new Vector3(targetPosition.x, startPosition.y, startPosition.z);
 
             isMoving = true;
+            GetComponent<EnemySoundEmitter>().PlayDashMiniBoss();
         }
 
         float step = velocity * Time.deltaTime;

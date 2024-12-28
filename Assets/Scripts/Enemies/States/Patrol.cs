@@ -22,6 +22,7 @@ public class Patrol : StateBehaviour
         }
 
         Flip();
+        GetComponent<EnemySoundEmitter>().PlayPatrolMosca();
     }
 
     public override void Behaviour()

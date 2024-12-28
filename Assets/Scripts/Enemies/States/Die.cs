@@ -16,5 +16,6 @@ public class Die : StateBehaviour
     {
         Instantiate(dieParticles, transform.position, dieParticles.transform.rotation);
         gameObject.SetActive(false);
+        GetComponent<EnemySoundEmitter>().PlayDieEnemy();
     }
 }

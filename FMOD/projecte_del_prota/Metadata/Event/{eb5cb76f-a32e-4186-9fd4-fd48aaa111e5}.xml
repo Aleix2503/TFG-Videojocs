@@ -5,7 +5,7 @@
 			<value>Patrol_moth</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{6f4df9e7-0e0f-45a3-9939-6ae69c189113}</destination>
@@ -191,6 +191,7 @@
 	<object class="MixerBusEffectChain" id="{b5dd3144-7dd5-4afa-83d7-0bce97116c52}">
 		<relationship name="effects">
 			<destination>{e9246627-3fac-41e5-87ca-a28ef9ccbf6a}</destination>
+			<destination>{396d11e0-9566-4b94-aecd-d9673ee07cf7}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{8fa8b424-e8c1-4357-a7d7-e51b6ed54b18}" />
@@ -253,6 +254,23 @@
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{e9246627-3fac-41e5-87ca-a28ef9ccbf6a}" />
+	<object class="SpatialiserEffect" id="{396d11e0-9566-4b94-aecd-d9673ee07cf7}">
+		<property name="minimumDistance">
+			<value>0</value>
+		</property>
+		<property name="maximumDistance">
+			<value>100</value>
+		</property>
+		<property name="overrideRange">
+			<value>true</value>
+		</property>
+		<property name="extentMode">
+			<value>1</value>
+		</property>
+		<property name="soundSize">
+			<value>0.5</value>
+		</property>
+	</object>
 	<object class="AutomationPoint" id="{e524ab5a-a8bb-4e69-94e9-6296400e7fb8}">
 		<property name="position">
 			<value>0</value>

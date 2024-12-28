@@ -21,7 +21,7 @@ MonoBehaviour:
   Banks:
   - {fileID: -2580587457087736247}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 0
   Parameters:
   - {fileID: -2719546472263950619}
@@ -179,7 +179,7 @@ MonoBehaviour:
   Banks:
   - {fileID: -2580587457087736247}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters:
   - {fileID: -1972471612901666221}
@@ -202,7 +202,7 @@ MonoBehaviour:
   Path: FMOD/projecte_del_prota/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638699775370090532
+  lastModified: 638701767853858996
   FileSizes:
   - Name: Desktop
     Value: 2034
@@ -487,7 +487,7 @@ MonoBehaviour:
   Banks:
   - {fileID: -2580587457087736247}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 0
   Parameters:
   - {fileID: -3724885199142291886}
@@ -542,7 +542,7 @@ MonoBehaviour:
   Banks:
   - {fileID: -2580587457087736247}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters:
   - {fileID: 7134296849053680263}
@@ -589,10 +589,10 @@ MonoBehaviour:
   Path: FMOD/projecte_del_prota/Build/Desktop/Sounds.bank
   Name: Sounds
   StudioPath: bank:/Sounds
-  lastModified: 638699775370150548
+  lastModified: 638701769374902387
   FileSizes:
   - Name: Desktop
-    Value: 467616
+    Value: 469824
   Exists: 1
 --- !u!114 &-2564993369880891117
 MonoBehaviour:
@@ -803,7 +803,7 @@ MonoBehaviour:
   Banks:
   - {fileID: -2580587457087736247}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 0
   Parameters:
   - {fileID: 120748450311211519}
@@ -882,7 +882,7 @@ MonoBehaviour:
   - {fileID: 3214716861168167310}
   StringsBanks:
   - {fileID: -6798538194360740272}
-  cacheTime: 638699775370150548
+  cacheTime: 638701769374902387
   cacheVersion: 131619
 --- !u!114 &92906252503156646
 MonoBehaviour:
@@ -1033,7 +1033,7 @@ MonoBehaviour:
   Path: FMOD/projecte_del_prota/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638699775370090532
+  lastModified: 638701767853967308
   FileSizes:
   - Name: Desktop
     Value: 494
@@ -1112,7 +1112,7 @@ MonoBehaviour:
   Banks:
   - {fileID: -2580587457087736247}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 0
   Parameters:
   - {fileID: 5443918713766155704}
@@ -1314,7 +1314,7 @@ MonoBehaviour:
   Path: FMOD/projecte_del_prota/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638699775370080532
+  lastModified: 638701767853837061
   FileSizes:
   - Name: Desktop
     Value: 1400
@@ -1366,7 +1366,7 @@ MonoBehaviour:
   Banks:
   - {fileID: -2580587457087736247}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters:
   - {fileID: -5054090259309379627}
@@ -1748,7 +1748,7 @@ MonoBehaviour:
   Banks:
   - {fileID: -2580587457087736247}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters:
   - {fileID: 6427740386635114109}

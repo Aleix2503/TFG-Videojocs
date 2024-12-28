@@ -81,6 +81,7 @@ public class SuckRoomba : MonoBehaviour
 
             foreach (var splatter in raycastHit)
             {
+                GetComponent<EnemySoundEmitter>().PlayAbsorbRoomba();
                 Destroy(splatter.gameObject);
 
                 if (fSMEnemies.life <= 0)

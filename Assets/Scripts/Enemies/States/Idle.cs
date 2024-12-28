@@ -25,7 +25,9 @@ public class Idle : StateBehaviour
         base.Start();
         SetAlreadyArrivedFalse();
         alreadyIdleing = true;
+        GetComponent<EnemySoundEmitter>().PlayIdleTonto();
     }
+    
 
     public override void Behaviour()
     {

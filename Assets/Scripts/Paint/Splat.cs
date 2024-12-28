@@ -77,6 +77,7 @@ public class Splat : MonoBehaviour
                 spriteRenderer.sortingOrder = 0;
                 break;
             case SplatLoacation.Foreground:
+                spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
                 spriteRenderer.sortingOrder = layer;
                 break;
         }

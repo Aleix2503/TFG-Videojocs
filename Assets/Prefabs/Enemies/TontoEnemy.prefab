@@ -220,6 +220,7 @@ GameObject:
   - component: {fileID: 1077118717844779434}
   - component: {fileID: 5211058685009174038}
   - component: {fileID: 6771430526199168950}
+  - component: {fileID: 2323346945928544877}
   m_Layer: 9
   m_Name: Tonto
   m_TagString: Enemy
@@ -409,6 +410,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dieParticles: {fileID: 7717250471087036304, guid: 0550fffcdec208a40907efc25c8628ac, type: 3}
+--- !u!114 &2323346945928544877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077118717844779421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de0e4ca5ca1ea9d41bf8c70abd4da961, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemiesSoundReferences: {fileID: 11400000, guid: 723ef24b34992b54d8e6520bfe47dca6, type: 2}
+  enemyType: 0
 --- !u!1 &1990870710300547941
 GameObject:
   m_ObjectHideFlags: 0

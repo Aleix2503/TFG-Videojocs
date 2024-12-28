@@ -70,6 +70,7 @@ public class BubblePlayerBehaviour : PlayerBehaviour
         {
             PreparePop();
             if (!hasExploded) { _nextBehaviour = _playerController.idleState;}
+            PaintManager._instance.EmitBubbleParticles();
         }
         bubbleOutTimer -= Time.deltaTime;
         bounceTimer -= Time.deltaTime;
@@ -128,6 +129,7 @@ public class BubblePlayerBehaviour : PlayerBehaviour
             isBouncingV = _playerPhysics.BounceVertical(Ydestiny);
             itSounded = true;
             PlayBounceSound();
+            PaintManager._instance.EmitBubbleParticles();
             _playerStateMachine.SetAnimTrigger("isBouncing");
         }
         if(bounceCounter <= _playerController.playerControlValues.bubbleMaxBounces&&isTouchingWall&&bounceTimer <= 0&& !isBouncingH)
@@ -141,6 +143,7 @@ public class BubblePlayerBehaviour : PlayerBehaviour
             isBouncingH = _playerPhysics.BounceHorizontal(Xdestiny);
             itSounded = true;
             PlayBounceSound();
+            PaintManager._instance.EmitBubbleParticles();
             _playerStateMachine.SetAnimTrigger("isBouncing");
         }
         else if(bounceCounter > _playerController.playerControlValues.bubbleMaxBounces)
