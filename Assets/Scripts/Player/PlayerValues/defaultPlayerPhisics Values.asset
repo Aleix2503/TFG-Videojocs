@@ -41,7 +41,7 @@ MonoBehaviour:
   cubedVerticalVelocity: 15
   cubedCollisionEdgeRadius: 0.1
   inkstinkMultiplier: 0.5
-  groundCheckBox: {x: 0.85, y: 0.1}
+  groundCheckBox: {x: 0.91, y: 0.1}
   groundCheckOffset: {x: 0, y: -0.5}
   rightWallCheckBox: {x: 0.1, y: 0.5}
   rightWallCheckOffset: {x: 0.5, y: -0.2}
@@ -51,8 +51,8 @@ MonoBehaviour:
   ceilingCheckOffset: {x: 0, y: 0.18}
   hazardCheckBox: {x: 0.8, y: 0.4}
   hazardCheckOffset: {x: 0, y: -0.2}
-  bubbleCheckBox: {x: 0.1, y: 0.1}
-  bubbleCheckOffset: {x: 0, y: 0}
+  bubbleCheckBox: {x: 0.8, y: 0.48}
+  bubbleCheckOffset: {x: 0, y: 0.59}
   cubedCollisionBox: {x: 1, y: 1.1}
   cubedCollisionBoxOffset: {x: 0, y: 0.1}
   cubedGroundCheckBox: {x: 1, y: 1.1}
