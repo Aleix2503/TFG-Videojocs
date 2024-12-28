@@ -46,8 +46,6 @@ public class SuckRoomba : MonoBehaviour
             suck();
             StartCoroutine(canSuckTimer());
         }
-
-        Debug.Log(patrol.patrolSpeed);
     }
 
     private IEnumerator canSuckTimer ()
