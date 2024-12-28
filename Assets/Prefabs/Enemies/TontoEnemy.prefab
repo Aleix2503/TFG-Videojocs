@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8404043425961746501}
   - component: {fileID: 5562541960174814262}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Color
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24,13 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8986356148603563}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1077118717844779423}
-  m_RootOrder: 2
+  m_Father: {fileID: 1077118716722742834}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5562541960174814262
 SpriteRenderer:
@@ -52,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f9cf454f6bd375a48824ac326828d449, type: 2}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -70,12 +70,12 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 520142483
-  m_SortingLayer: 7
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9de383f9ddf0f6941a51db398f2be5e9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 4, y: 4}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1077118716722742834}
   - component: {fileID: 1580960826505717184}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: TontoEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,6 +115,8 @@ Transform:
   m_Children:
   - {fileID: 1077118717844779423}
   - {fileID: 1077118717468484135}
+  - {fileID: 4644005906616339809}
+  - {fileID: 8404043425961746501}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -147,7 +149,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1077118716930235854}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Point1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,7 +164,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1077118716930235853}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -20, y: -11.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -178,7 +180,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1077118717468484135}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: PatrolPoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,8 +222,7 @@ GameObject:
   - component: {fileID: 1077118717844779434}
   - component: {fileID: 5211058685009174038}
   - component: {fileID: 6771430526199168950}
-  - component: {fileID: 2323346945928544877}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Tonto
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -236,13 +237,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1077118717844779421}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -11.91, y: -11.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5542830701669796303}
-  - {fileID: 4644005906616339809}
-  - {fileID: 8404043425961746501}
   m_Father: {fileID: 1077118716722742834}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -258,7 +257,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 500
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -280,7 +279,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.03806305, y: -0.29141808}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -291,7 +290,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.6867523, y: 1.8113365}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &1077118717844779412
 MonoBehaviour:
@@ -409,21 +408,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11279bd6843a5d945aaa4b60a37f4765, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dieParticles: {fileID: 7717250471087036304, guid: 0550fffcdec208a40907efc25c8628ac, type: 3}
---- !u!114 &2323346945928544877
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1077118717844779421}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de0e4ca5ca1ea9d41bf8c70abd4da961, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemiesSoundReferences: {fileID: 11400000, guid: 723ef24b34992b54d8e6520bfe47dca6, type: 2}
-  enemyType: 0
 --- !u!1 &1990870710300547941
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,7 +418,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4644005906616339809}
   - component: {fileID: 7147293833485023493}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Lineart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -448,13 +432,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1990870710300547941}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1077118717844779423}
-  m_RootOrder: 1
+  m_Father: {fileID: 1077118716722742834}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7147293833485023493
 SpriteRenderer:
@@ -476,7 +460,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -494,12 +478,12 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 310624355
-  m_SortingLayer: 9
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5e67ab525b8b1cb4fbabb181a69bd325, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 4, y: 4}
@@ -519,7 +503,7 @@ GameObject:
   - component: {fileID: 5542830701669796303}
   - component: {fileID: 5900829035703386452}
   - component: {fileID: 6975877262176785941}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: JumpCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

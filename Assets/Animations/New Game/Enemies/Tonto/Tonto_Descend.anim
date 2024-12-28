@@ -30,7 +30,7 @@ AnimationClip:
     - time: 0.29166666
       value: {fileID: 21300000, guid: 255e5b2c009ba0145886abc63d940cb1, type: 3}
     attribute: m_Sprite
-    path: Tonto/Lineart
+    path: Lineart
     classID: 212
     script: {fileID: 0}
   - curve:
@@ -45,7 +45,7 @@ AnimationClip:
     - time: 0.29166666
       value: {fileID: 21300000, guid: e7bca380b4f7cf7448a057e805ba4b58, type: 3}
     attribute: m_Sprite
-    path: Tonto/Color
+    path: Color
     classID: 212
     script: {fileID: 0}
   m_SampleRate: 24
