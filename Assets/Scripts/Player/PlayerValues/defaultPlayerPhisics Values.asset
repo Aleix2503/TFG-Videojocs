@@ -40,13 +40,14 @@ MonoBehaviour:
   cubedTime: 0.5
   cubedVerticalVelocity: 15
   cubedCollisionEdgeRadius: 0.1
+  inkstinkMultiplier: 0.5
   groundCheckBox: {x: 0.85, y: 0.1}
   groundCheckOffset: {x: 0, y: -0.5}
   rightWallCheckBox: {x: 0.1, y: 0.5}
   rightWallCheckOffset: {x: 0.5, y: -0.2}
   leftWallCheckBox: {x: 0.1, y: 0.5}
   leftWallCheckOffset: {x: -0.5, y: -0.2}
-  ceilingCheckBox: {x: 0.85, y: 0.25}
+  ceilingCheckBox: {x: 0.85, y: 0.5}
   ceilingCheckOffset: {x: 0, y: 0.18}
   hazardCheckBox: {x: 0.8, y: 0.4}
   hazardCheckOffset: {x: 0, y: -0.2}
