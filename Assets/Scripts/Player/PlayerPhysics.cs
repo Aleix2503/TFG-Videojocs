@@ -308,5 +308,10 @@ public class PlayerPhysics : MonoBehaviour
     {
         return Physics2D.OverlapBox((Vector2)transform.position + playerPhysicsValues.cubedGroundCheckBoxOffset, playerPhysicsValues.cubedGroundCheckBox, 0, playerPhysicsValues.whatIsGround);
     }
+
+    public bool checkIfBubbleTouchingCeiling()
+    {
+        return Physics2D.OverlapBox((Vector2)transform.position + playerPhysicsValues.bubbleCheckOffset, playerPhysicsValues.bubbleCheckBox, 0, playerPhysicsValues.whatIsGround);
+    }
     #endregion
 }

@@ -319,6 +319,8 @@ public class PlayerController : MonoBehaviour
         Gizmos.DrawCube((Vector2)transform.position + playerPhysics.playerPhysicsValues.defaultCollisionBoxOffset,
             new Vector2(playerPhysics.playerPhysicsValues.defaultCollisionBox.x + playerPhysics.playerPhysicsValues.defaultCollisionEdgeRadius, playerPhysics.playerPhysicsValues.defaultCollisionBox.y + playerPhysics.playerPhysicsValues.defaultCollisionEdgeRadius));
 
+        Gizmos.color = new Color(1, 0, 0, 0.4f);
+        Gizmos.DrawCube((Vector2)transform.position + playerPhysics.playerPhysicsValues.bubbleCheckOffset, playerPhysics.playerPhysicsValues.bubbleCheckBox);
         /*if (m_playerValues.expandedShowGizmos)
         {
             //Expanded collision gizmos

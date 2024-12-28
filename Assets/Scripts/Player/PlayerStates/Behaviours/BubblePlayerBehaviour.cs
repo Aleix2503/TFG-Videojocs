@@ -172,7 +172,7 @@ public class BubblePlayerBehaviour : PlayerBehaviour
     {
         base.DoChecks();
         isTouchingWall = _playerPhysics.checkIfTouchingFrontWall();
-        isTouchingCeiling = _playerPhysics.checkIfTouchingCeiling();
+        isTouchingCeiling = _playerPhysics.checkIfBubbleTouchingCeiling();
     }
 
 }
