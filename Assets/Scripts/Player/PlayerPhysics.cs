@@ -161,12 +161,12 @@ public class PlayerPhysics : MonoBehaviour
     public void BubbleIn()
     {
         FreezePlayerPosition(true);
+        SetGravityScale(0);
         StartCoroutine(BubbleInCoroutine());
     }
     private IEnumerator BubbleInCoroutine()
     {
         yield return new WaitForSeconds(playerPhysicsValues.bubbleTransformationTime);
-        SetGravityScale(0);
         FreezePlayerPosition(false);
     }
     public void BubbleOut()
