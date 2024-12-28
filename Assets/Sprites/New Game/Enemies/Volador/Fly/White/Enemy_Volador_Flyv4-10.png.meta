@@ -52,11 +52,7 @@ TextureImporter:
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
-<<<<<<< HEAD
   spriteTessellationDetail: 1
-=======
-  spriteTessellationDetail: -1
->>>>>>> Enemy_Animations
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
@@ -108,7 +104,6 @@ TextureImporter:
   spriteSheet:
     serializedVersion: 2
     sprites: []
-<<<<<<< HEAD
     outline:
     - - {x: -84, y: -78}
       - {x: -80, y: -76}
@@ -404,13 +399,6 @@ TextureImporter:
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
     internalID: 1537655665
-=======
-    outline: []
-    physicsShape: []
-    bones: []
-    spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
->>>>>>> Enemy_Animations
     vertices: []
     indices: 
     edges: []
