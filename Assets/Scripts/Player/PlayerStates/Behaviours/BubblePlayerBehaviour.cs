@@ -33,6 +33,8 @@ public class BubblePlayerBehaviour : PlayerBehaviour
         hasExploded = false;
         isBouncingH = false;
         isBouncingV = false;
+        bounceTimer = 0;
+        isTouchingCeiling = false;
     }
     public void Exit()
     {
@@ -161,6 +163,10 @@ public class BubblePlayerBehaviour : PlayerBehaviour
             hasExploded = true;
             _nextBehaviour = _playerController.cubeState;
         }
+    }
+    public override void Physics()
+    {
+        base.Physics();
     }
     public override void DoChecks()
     {
