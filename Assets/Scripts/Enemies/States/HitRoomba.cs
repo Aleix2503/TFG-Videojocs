@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class HitRoomba : Hit
 {
+    private bool alreadyHit = false;
+
+    private float previousSpeed;
+
     // Start is called before the first frame update
     new void Start()
     {
         base.Start();
     }
 
-    public override void Behaviour()
+    protected override void Behaviour()
     {
         if (!alreadyHit) StartCoroutine(hit());
     }
@@ -18,12 +22,25 @@ public class HitRoomba : Hit
     private IEnumerator hit()
     {
         alreadyHit = true;
-        rb.velocity = Vector3.zero;
+
+        previousSpeed = GetComponent<Patrol>().patrolSpeed;
+        GetComponent<Patrol>().patrolSpeed = 0;
+
         animator.SetTrigger("isHit");
 
         yield return new WaitForSeconds(hitTime);
 
         alreadyHit = false;
+
+        GetComponent<Patrol>().patrolSpeed = previousSpeed;
+
+        animator.SetTrigger("isPatroled");
+
         fsmEnemies.state = FSMEnemies.State.Patrol;
+    }
+
+    public void setAlreadyHit()
+    {
+        alreadyHit = false;
     }
 }

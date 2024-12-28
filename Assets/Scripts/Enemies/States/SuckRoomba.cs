@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class SuckRoomba : MonoBehaviour
@@ -42,11 +41,13 @@ public class SuckRoomba : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (fSMEnemies.state == FSMEnemies.State.Patrol && !sucking && canSuck)
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Patrol") && !sucking && canSuck)
         {
             suck();
             StartCoroutine(canSuckTimer());
         }
+
+        Debug.Log(patrol.patrolSpeed);
     }
 
     private IEnumerator canSuckTimer ()
@@ -65,7 +66,9 @@ public class SuckRoomba : MonoBehaviour
         yield return new WaitForSeconds(suckingTimer);
 
         sucking = false;
-        patrol.patrolSpeed = previousPatrolSpeed;
+
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Hit"))
+            patrol.patrolSpeed = previousPatrolSpeed;
     }
 
     private void suck()

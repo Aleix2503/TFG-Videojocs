@@ -73,7 +73,7 @@ public class FSMEnemies : MonoBehaviour
     public void Revive()
     {
         state = initialState;
-        GetComponent<Hit>()?.setAlreadyHit();
+        GetComponent<HitRoomba>()?.setAlreadyHit();
         GetComponent<Recover>()?.setAlreadyCalled();
         GetComponent<AttackTonto>()?.setAlreadyAttacked();
         GetComponent<DieRoomba>()?.setAlredyDead();

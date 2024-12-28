@@ -30,6 +30,8 @@ public class AttackTonto : Attack
         }
         else if (alreadyFalling && rb.velocity.y > -0.02)
         {
+            Debug.Log("aaaaaaaaaaaa");
+
             animator.SetTrigger("isLanded");
             alreadyFalling = false;
             alreadyJumped = false;

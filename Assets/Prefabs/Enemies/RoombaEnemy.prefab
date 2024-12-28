@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitDamage: 2
-  hitTime: 0.8
+  hitTime: 1.5
   hasRecoil: 0
   impulseStrength: 1
 --- !u!114 &37610369
