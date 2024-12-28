@@ -65,6 +65,7 @@ public class BubblePlayerBehaviour : PlayerBehaviour
     private bool isBouncingV;
     private float Ydestiny;
     private float Xdestiny;
+    private int bounceDirection;
     public override void Logic()
     {
         base.Logic();
@@ -97,7 +98,7 @@ public class BubblePlayerBehaviour : PlayerBehaviour
 
         if(isBouncingH)
         {
-            isBouncingH = _playerPhysics.BounceHorizontal(Xdestiny);
+            isBouncingH = _playerPhysics.BounceHorizontal(Xdestiny,bounceDirection);
             if (_playerPhysics.facingDirection == 1)
             {
                 if (_playerPhysics.checkIfTouchingLeftWall())
@@ -124,7 +125,7 @@ public class BubblePlayerBehaviour : PlayerBehaviour
         if (bounceCounter<= _playerController.playerControlValues.bubbleMaxBounces&&isTouchingCeiling&&bounceTimer<=0&&!isBouncingV)
         {
             bounceCounter++;
-            bounceTimer = 0.05f;
+            bounceTimer = _playerPhysics.playerPhysicsValues.bubbleVerticalBounceTimer;
             PaintManager._instance.PlaceSplat(_playerPhysics.transform.position + new Vector3(0, 0.3f, 0), Vector3.down, _playerController.playerControlValues.bubbleColor);
 
             Ydestiny = _playerPhysics.rb2D.position.y - (_playerPhysics.playerPhysicsValues.bubbleVerticalBounceForce * (_playerPhysics.playerPhysicsValues.bubbleBounceTime / 2));
@@ -134,15 +135,16 @@ public class BubblePlayerBehaviour : PlayerBehaviour
             PaintManager._instance.EmitBubbleParticles();
             _playerStateMachine.SetAnimTrigger("isBouncing");
         }
-        if(bounceCounter <= _playerController.playerControlValues.bubbleMaxBounces&&isTouchingWall&&bounceTimer <= 0&& !isBouncingH)
+        if(bounceCounter <= _playerController.playerControlValues.bubbleMaxBounces&&isTouchingWall&&bounceTimer <= 0)
         {
             bounceCounter++;
-            bounceTimer = 0.05f;
+            bounceTimer = _playerPhysics.playerPhysicsValues.bubbleHorizontalBounceTimer;
             PaintManager._instance.PlaceSplat(_playerController.transform.position + new Vector3(0.5f * _playerPhysics.facingDirection, 0, 0),
                 Vector3.left * _playerPhysics.facingDirection, _playerController.playerControlValues.bubbleColor);
 
+            bounceDirection = -_playerPhysics.facingDirection;
             Xdestiny = _playerPhysics.rb2D.position.x - (_playerPhysics.playerPhysicsValues.bubbleHorizontalBounceForce * (_playerPhysics.playerPhysicsValues.bubbleBounceTime / 2) * _playerPhysics.facingDirection);
-            isBouncingH = _playerPhysics.BounceHorizontal(Xdestiny);
+            isBouncingH = _playerPhysics.BounceHorizontal(Xdestiny,bounceDirection);
             itSounded = true;
             PlayBounceSound();
             PaintManager._instance.EmitBubbleParticles();

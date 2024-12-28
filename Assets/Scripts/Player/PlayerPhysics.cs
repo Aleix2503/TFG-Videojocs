@@ -201,13 +201,21 @@ public class PlayerPhysics : MonoBehaviour
         SetVelocityX(playerPhysicsValues.bubbleHorizontalVelocity * currentRelativeVelocity);
         return currentRelativeVelocity;
     }
-    public bool BounceHorizontal(float destiny)
+    public bool BounceHorizontal(float destiny,float bounceDirection)
     {
         float position = rb2D.position.x;
         while (Math.Abs(position - destiny) > 0)
         {
             position = rb2D.position.x;
-            rb2D.AddForce(new Vector2(-facingDirection * playerPhysicsValues.bubbleHorizontalBounceForce, 0),ForceMode2D.Impulse);
+            if(bounceDirection != facingDirection)
+            {
+                rb2D.AddForce(new Vector2(-facingDirection * playerPhysicsValues.bubbleHorizontalBounceForce, 0), ForceMode2D.Impulse);
+            }
+            else
+            {
+                rb2D.AddForce(new Vector2(facingDirection * playerPhysicsValues.bubbleHorizontalBounceForce, 0), ForceMode2D.Impulse);
+            }
+            
             return true;
         }
         return false;

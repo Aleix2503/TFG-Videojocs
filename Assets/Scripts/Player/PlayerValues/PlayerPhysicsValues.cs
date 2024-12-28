@@ -49,6 +49,8 @@ public class PlayerPhysicsValues : ScriptableObject
     public float bubbleBounceTime = 0.3f;
     public float bubbleVerticalBounceForce;
     public float bubbleHorizontalBounceForce;
+    public float bubbleHorizontalBounceTimer = 0.5f;
+    public float bubbleVerticalBounceTimer = 0.05f;
     [Space]
     [Header("Expansion State")]
     public float cubedTime = 0.5f;

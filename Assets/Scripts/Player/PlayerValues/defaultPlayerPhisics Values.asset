@@ -36,7 +36,9 @@ MonoBehaviour:
   bubbleTransformationTime: 0.5
   bubbleBounceTime: 2
   bubbleVerticalBounceForce: 5
-  bubbleHorizontalBounceForce: 2
+  bubbleHorizontalBounceForce: 5
+  bubbleHorizontalBounceTimer: 0.5
+  bubbleVerticalBounceTimer: 0.05
   cubedTime: 0.5
   cubedVerticalVelocity: 15
   cubedCollisionEdgeRadius: 0.1
