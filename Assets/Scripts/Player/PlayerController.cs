@@ -290,7 +290,7 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region Gizmos
-    void OnDrawGizmos()
+    /*void OnDrawGizmos()
     {
         if (playerPhysics.playerPhysicsValues == null) return;
         if (!playerControlValues.showGizmos) return;
@@ -334,7 +334,7 @@ public class PlayerController : MonoBehaviour
             Gizmos.color = new Color(0, 0, 1, 0.2f);
             Gizmos.DrawWireCube((Vector2)transform.position + m_playerValues.expandedGroundCheckBoxOffset, m_playerValues.expandedGroundCheckBox);
         }*/
-    }
+    //}
     #endregion
 
 }

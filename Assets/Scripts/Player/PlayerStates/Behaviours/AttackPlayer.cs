@@ -61,21 +61,24 @@ public class AttackPlayer : MonoBehaviour
                 animator.SetTrigger("isAttacking2");
                 attackedFirst = false;
                 PaintManager._instance.EmitAttackParticles(numberOfEmissions);
-                StartCoroutine(hitboxActive(durationNormalAttack, 0));
+                StartCoroutine(hitboxActive(durationNormalAttack, 0, true));
             }
             else if (attackTimer >= cooldownAttack)
             {
                 animator.SetTrigger("isAttacking");
                 attackedFirst = true;
                 PaintManager._instance.EmitAttackParticles(numberOfEmissions);
-                StartCoroutine(hitboxActive(durationNormalAttack, 0));
+                StartCoroutine(hitboxActive(durationNormalAttack, 0, false));
             }
         }
     }
 
-    private IEnumerator hitboxActive(float seconds, int posicio)
+    private IEnumerator hitboxActive(float seconds, int posicio, bool second)
     {
         hitbox.SetActive(true);
+
+        hitbox.GetComponent<Animator>().SetBool("2nd", second);
+
         hitbox.transform.localPosition = new Vector3(posicions[posicio].x, posicions[posicio].y);
         isAttacking = true;
 
