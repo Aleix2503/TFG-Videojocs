@@ -28,7 +28,7 @@ MonoBehaviour:
   bubbleTransformationTime: 1
   bubbleMaxBounces: 2
   cubeColorFadeTime: 0.5
-  cubedBreakPlatformVelocityThreshold: -15
+  cubedBreakPlatformVelocityThreshold: -10
   cubedShowGizmos: 0
   deathToRespawnSeconds: 1
   respawnToIdleSeconds: 0.5
