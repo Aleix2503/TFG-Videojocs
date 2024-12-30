@@ -428,6 +428,11 @@ MonoBehaviour:
   maxLife: 2
   life: 0
   state: 1
+  offset: {x: -0.04, y: -0.38}
+  dieBox: {x: 1.36, y: 1.29}
+  hazardLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &6800976740162509531
 MonoBehaviour:
   m_ObjectHideFlags: 0

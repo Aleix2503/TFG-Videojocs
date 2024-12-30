@@ -104,6 +104,11 @@ MonoBehaviour:
   maxLife: 100
   life: 100
   state: 1
+  offset: {x: 0.09, y: -0.35}
+  dieBox: {x: 1.52, y: 1.65}
+  hazardLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &1741693600401413209
 MonoBehaviour:
   m_ObjectHideFlags: 0
