@@ -34,7 +34,6 @@ public class Hit : MonoBehaviour
     protected virtual void Behaviour()
     {
         fsmEnemies.life -= hitDamage;
-
         if (hasRecoil) rb.AddForce(hitDirection * impulseStrength, ForceMode2D.Impulse);
     }
 

@@ -1,13 +1,18 @@
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ColliderHit : MonoBehaviour
 {
+    public bool isMissed = true;
+    public EventReference missAttack;
+    public EventReference Attack;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
         {
+            isMissed = false;
             GameObject gameObject = collision.gameObject;
             //gameObject.GetComponent<FSMEnemies>().state = FSMEnemies.State.Hit;
 
@@ -17,5 +22,17 @@ public class ColliderHit : MonoBehaviour
             Vector2 hitDirection = new Vector2(directionX, directionY); 
             gameObject.GetComponent<Hit>().hitDirectionVector(hitDirection);
         }
+    }
+    private void OnDisable()
+    {
+        if (isMissed)
+        {
+            RuntimeManager.PlayOneShot(missAttack);
+        }
+        else
+        {
+            RuntimeManager.PlayOneShot(Attack);
+        }
+        isMissed = true;
     }
 }

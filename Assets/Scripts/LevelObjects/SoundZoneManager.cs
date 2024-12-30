@@ -19,9 +19,11 @@ public class SoundZoneManager : MonoBehaviour
     public void Start()
     {
         caveZoneInstance.start();
+        //beachZoneInstance.start();
     }
     public void OnDisable()
     {
         caveZoneInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        //beachZoneInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 }
