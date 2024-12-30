@@ -12,6 +12,7 @@ public class HitRoomba : Hit
     new void Start()
     {
         base.Start();
+        previousSpeed = GetComponent<PatrolRoomba>().patrolSpeed;
     }
 
     protected override void Behaviour()
@@ -22,8 +23,7 @@ public class HitRoomba : Hit
     private IEnumerator hit()
     {
         alreadyHit = true;
-
-        previousSpeed = GetComponent<Patrol>().patrolSpeed;
+        
         GetComponent<Patrol>().patrolSpeed = 0;
 
         animator.SetTrigger("isHit");

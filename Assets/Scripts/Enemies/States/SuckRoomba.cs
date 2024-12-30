@@ -58,7 +58,8 @@ public class SuckRoomba : MonoBehaviour
     private IEnumerator roombaSucking ()
     {
         sucking = true;
-        patrol.patrolSpeed = suckingVelocity;
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Hit"))
+            patrol.patrolSpeed = suckingVelocity;
         animator.SetTrigger("isSucked");
 
         yield return new WaitForSeconds(suckingTimer);
