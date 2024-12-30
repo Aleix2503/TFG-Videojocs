@@ -38,6 +38,7 @@ public class FSMEnemies : MonoBehaviour
     private LayerMask hazardLayer;
 
     private Vector3 initialPosition;
+    private Quaternion initialRotation;
 
     private void OnEnable()
     {
@@ -49,6 +50,7 @@ public class FSMEnemies : MonoBehaviour
         EnemyManager.Instance?.RegisterEnemy(gameObject);
 
         initialPosition = transform.position;
+        initialRotation = transform.rotation;
         initialState = state;
         // Obtener el componente del script de detección
         playerDetection = GetComponent<PlayerDetection>();
@@ -86,7 +88,9 @@ public class FSMEnemies : MonoBehaviour
     public void Revive()
     {
         transform.position = initialPosition;
+        transform.rotation = initialRotation;
         state = initialState;
+        GetComponent<Patrol>()?.setCurrentPointIndex();
         GetComponent<HitRoomba>()?.setAlreadyHit();
         GetComponent<Recover>()?.setAlreadyCalled();
         GetComponent<AttackTonto>()?.setAlreadyAttacked();

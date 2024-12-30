@@ -48,9 +48,6 @@ public class Patrol : StateBehaviour
             currentPointIndex = (currentPointIndex + 1) % patrolPoints.Count;
             
             Flip();
-
-            /*Quaternion targetRotation = Quaternion.Euler(0, 0, 0);
-            transform.rotation = targetRotation;*/
         }
     }
 
@@ -70,18 +67,12 @@ public class Patrol : StateBehaviour
 
     public void RotateTowardsPoint()
     {
-        /*// Calcular la dirección hacia el jugador
-        Vector2 direction = patrolPoints[currentPointIndex].transform.position - transform.position;
-
-        // Calcular el ángulo en radianes y convertirlo a grados
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-        // Crear una rotación en Z hacia el ángulo calculado
-        Quaternion targetRotation = Quaternion.Euler(0, 0, angle);
-
-        transform.rotation = targetRotation;*/
-
         Flip();
+    }
+
+    public void setCurrentPointIndex()
+    {
+        currentPointIndex = 0;
     }
 
     void OnDrawGizmos()
