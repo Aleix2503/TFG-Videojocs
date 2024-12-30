@@ -25,7 +25,6 @@ public class Idle : StateBehaviour
         base.Start();
         SetAlreadyArrivedFalse();
         alreadyIdleing = true;
-        GetComponent<EnemySoundEmitter>().PlayIdleTonto();
     }
     
 
@@ -51,6 +50,8 @@ public class Idle : StateBehaviour
         if (Vector2.Distance(transform.position, targetPosition) < 0.2f)
         {
             alreadyArrived = true;
+
+            GetComponent<EnemySoundEmitter>().PlayIdleTonto();
 
             Vector3 rotation = transform.rotation.eulerAngles;
             if (this.direction == Direction.Right)

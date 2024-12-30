@@ -20,16 +20,39 @@ public class EnemySoundEmitter : MonoBehaviour
     private EventInstance idleRoomba;
     private EventInstance patrolMosca;
     private EventInstance idleTonto;
+    private EventInstance absorbRoomba;
+    private EventInstance dieSound;
+    private EventInstance alertTonto;
+    private EventInstance chaseMosca;
+    private EventInstance dashMiniBoss;
 
     private void Start()
     {
         idleRoomba = RuntimeManager.CreateInstance(enemiesSoundReferences.idleRoomba);
         patrolMosca = RuntimeManager.CreateInstance(enemiesSoundReferences.patrolMosca);
         idleTonto = RuntimeManager.CreateInstance(enemiesSoundReferences.idleTonto);
+        absorbRoomba = RuntimeManager.CreateInstance(enemiesSoundReferences.absorbRoomba);
+        dieSound = RuntimeManager.CreateInstance(enemiesSoundReferences.dieEnemy);
+        alertTonto = RuntimeManager.CreateInstance(enemiesSoundReferences.alertTonto);
+        chaseMosca = RuntimeManager.CreateInstance(enemiesSoundReferences.chaseMosca);
+        dashMiniBoss = RuntimeManager.CreateInstance(enemiesSoundReferences.dashMiniBoss);
+
+
+    }
+    private void Update()
+    {
+        RuntimeManager.AttachInstanceToGameObject(idleRoomba, transform, GetComponent<Rigidbody>());
+        RuntimeManager.AttachInstanceToGameObject(patrolMosca, transform, GetComponent<Rigidbody>());
+        RuntimeManager.AttachInstanceToGameObject(idleTonto, transform, GetComponent<Rigidbody>());
+        RuntimeManager.AttachInstanceToGameObject(absorbRoomba, transform, GetComponent<Rigidbody>());
+        RuntimeManager.AttachInstanceToGameObject(dieSound, transform, GetComponent<Rigidbody>());
+        RuntimeManager.AttachInstanceToGameObject(alertTonto, transform, GetComponent<Rigidbody>());
+        RuntimeManager.AttachInstanceToGameObject(chaseMosca, transform, GetComponent<Rigidbody>());
+        RuntimeManager.AttachInstanceToGameObject(dashMiniBoss, transform, GetComponent<Rigidbody>());
     }
     public void PlayDieEnemy()
     {
-        RuntimeManager.PlayOneShot(enemiesSoundReferences.dieEnemy);
+        dieSound.start();
         StopIdleRoomba();
         StopPatrolMosca();
         StopIdleTonto();
@@ -37,7 +60,7 @@ public class EnemySoundEmitter : MonoBehaviour
     public void PlayAbsorbRoomba()
     {
         StopIdleRoomba();
-        RuntimeManager.PlayOneShot(enemiesSoundReferences.absorbRoomba);
+        absorbRoomba.start();
     }
     public void PlayIdleRoomba()
     {
@@ -66,15 +89,15 @@ public class EnemySoundEmitter : MonoBehaviour
     public void PlayAlertTonto()
     {
         StopIdleTonto();
-        RuntimeManager.PlayOneShot(enemiesSoundReferences.alertTonto);
+        alertTonto.start();
     }
     public void PlayChaseMosca()
     {
         StopPatrolMosca();
-        RuntimeManager.PlayOneShot(enemiesSoundReferences.chaseMosca);
+        chaseMosca.start();
     }
     public void PlayDashMiniBoss()
     {
-        RuntimeManager.PlayOneShot(enemiesSoundReferences.dashMiniBoss);
+        dashMiniBoss.start();
     }
 }

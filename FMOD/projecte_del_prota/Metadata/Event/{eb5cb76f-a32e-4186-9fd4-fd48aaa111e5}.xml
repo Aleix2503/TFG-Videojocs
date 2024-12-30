@@ -258,14 +258,8 @@
 		<property name="minimumDistance">
 			<value>0</value>
 		</property>
-		<property name="maximumDistance">
-			<value>100</value>
-		</property>
 		<property name="overrideRange">
 			<value>true</value>
-		</property>
-		<property name="extentMode">
-			<value>1</value>
 		</property>
 		<property name="soundSize">
 			<value>0.5</value>
