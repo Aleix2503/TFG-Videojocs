@@ -28,7 +28,7 @@ MonoBehaviour:
   dashVelocity: 80
   dashTime: 0.2
   dashLinearDrag: 12
-  bubbleHorizontalVelocity: 10
+  bubbleHorizontalVelocity: 6
   bubbleHorizontalAccelerationSeconds: 0.6
   floatForce: 0.03
   floatForceWhenGoingDown: 0.1
