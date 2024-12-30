@@ -75,6 +75,12 @@ public class EnemySoundEmitter : MonoBehaviour
     }
     public void PlayIdleRoomba()
     {
+        PLAYBACK_STATE playback_state;
+        idleRoomba.getPlaybackState(out playback_state);
+        if(playback_state == PLAYBACK_STATE.PLAYING||playback_state == PLAYBACK_STATE.STARTING)
+        {
+            return;
+        }
         idleRoomba.start();
     }
     public void StopIdleRoomba()
@@ -83,6 +89,12 @@ public class EnemySoundEmitter : MonoBehaviour
     }
     public void PlayPatrolMosca()
     {
+        PLAYBACK_STATE playback_state;
+        patrolMosca.getPlaybackState(out playback_state);
+        if (playback_state == PLAYBACK_STATE.PLAYING || playback_state == PLAYBACK_STATE.STARTING)
+        {
+            return;
+        }
         patrolMosca.start();
     }
     public void StopPatrolMosca()

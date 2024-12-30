@@ -51,14 +51,13 @@ public class PatrolRoomba : Patrol
         {
             Debug.LogError("No patrol points have been assigned");
         }
-        GetComponent<EnemySoundEmitter>().PlayIdleRoomba();
     }
 
     public override void Behaviour()
     {
         if (patrolPoints.Count == 0)
             return;
-
+        GetComponent<EnemySoundEmitter>().PlayIdleRoomba();
         MoveToPoint();
     }
 

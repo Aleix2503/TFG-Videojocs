@@ -22,7 +22,7 @@ public class Patrol : StateBehaviour
         }
 
         Flip();
-        GetComponent<EnemySoundEmitter>().PlayPatrolMosca();
+        
     }
 
     public override void Behaviour()
@@ -30,6 +30,7 @@ public class Patrol : StateBehaviour
         if (patrolPoints.Count == 0)
             return;
 
+        GetComponent<EnemySoundEmitter>().PlayPatrolMosca();
         MoveToPoint();
     }
 

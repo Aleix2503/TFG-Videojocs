@@ -27,6 +27,7 @@ public class DieRoomba : Die
         alreadyDead = false;
         Instantiate(dieParticles, transform.position, dieParticles.transform.rotation);
         gameObject.SetActive(false);
+        GetComponent<EnemySoundEmitter>().PlayDieEnemy();
     }
 
     public void setAlredyDead()
