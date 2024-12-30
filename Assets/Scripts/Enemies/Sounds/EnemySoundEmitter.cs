@@ -50,6 +50,17 @@ public class EnemySoundEmitter : MonoBehaviour
         RuntimeManager.AttachInstanceToGameObject(chaseMosca, transform, GetComponent<Rigidbody>());
         RuntimeManager.AttachInstanceToGameObject(dashMiniBoss, transform, GetComponent<Rigidbody>());
     }
+    private void OnDisable()
+    {
+        idleRoomba.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        patrolMosca.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        idleTonto.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        absorbRoomba.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        dieSound.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        alertTonto.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        chaseMosca.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        dashMiniBoss.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+    }
     public void PlayDieEnemy()
     {
         dieSound.start();
