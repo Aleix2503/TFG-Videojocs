@@ -13,6 +13,8 @@ public class ColliderHit : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             isMissed = false;
+            RuntimeManager.PlayOneShot(Attack);
+
             GameObject gameObject = collision.gameObject;
             //gameObject.GetComponent<FSMEnemies>().state = FSMEnemies.State.Hit;
 
@@ -28,10 +30,6 @@ public class ColliderHit : MonoBehaviour
         if (isMissed)
         {
             RuntimeManager.PlayOneShot(missAttack);
-        }
-        else
-        {
-            RuntimeManager.PlayOneShot(Attack);
         }
         isMissed = true;
     }
