@@ -138,10 +138,13 @@ public class PatrolRoomba : Patrol
 
         while (elapsedTime < duration)
         {
-            // Interpolar rotación con base en el tiempo transcurrido
-            transform.rotation = Quaternion.Slerp(startRotation, endRotation, elapsedTime / duration);
+            if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Hit"))
+            {
+                // Interpolar rotación con base en el tiempo transcurrido
+                transform.rotation = Quaternion.Slerp(startRotation, endRotation, elapsedTime / duration);
 
-            elapsedTime += Time.deltaTime; // Incrementar el tiempo transcurrido
+                elapsedTime += Time.deltaTime; // Incrementar el tiempo transcurrido
+            }
             yield return null; // Esperar al siguiente frame
         }
 
