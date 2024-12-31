@@ -26,7 +26,7 @@ public class MovePlayerBehaviour : FloorPlayerBehaviour
         }
         if (!_playerPhysics.isGrounded)
         {
-            _playerController.StartCoyoteTime();
+            if (_playerController.didPlayerTouchGroundSinceLastJump) _playerController.StartCoyoteTime();
             _playerStateMachine.ChangeState(_playerController.fallState);
             return;
         }
