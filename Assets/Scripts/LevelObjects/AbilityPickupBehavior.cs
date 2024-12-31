@@ -36,12 +36,6 @@ public class AbilityPickupBehavior : MonoBehaviour
 
         rb2D.AddForce(new Vector2(0, upwardsForce), ForceMode2D.Impulse);
 
-        StartCoroutine(DeleteAfterDelay(deletionDelay));
-    }
-
-    private IEnumerator DeleteAfterDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay);
         Explode();
         Destroy(gameObject);
     }
