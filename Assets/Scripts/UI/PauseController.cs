@@ -25,12 +25,14 @@ public class PauseController : MonoBehaviour
         inputAction_pause = m_playerControls.Player.Pause;
         inputAction_pause.Enable();
         inputAction_pause.performed += _ => TogglePause();
+        ResumeGame();
     }
 
     private void OnDisable()
     {
         inputAction_pause.Disable();
         inputAction_pause.performed -= _ => TogglePause();
+        PauseGame();
     }
 
     private void TogglePause()
