@@ -451,7 +451,7 @@ MonoBehaviour:
   isPlayerLocked: 0
   isDashUnlocked: 0
   isBubbleUnlocked: 0
-  isCubeUnlocked: 1
+  isCubeUnlocked: 0
   playerSoundReferences: {fileID: 11400000, guid: 2ddada8255c73e44c92728abb3ef96e5, type: 2}
 --- !u!114 &4672833244012665228
 MonoBehaviour:
@@ -535,6 +535,13 @@ MonoBehaviour:
   - {fileID: 2100000, guid: b2c11b7c051abd84182f4f9cdc2cc74c, type: 2}
   - {fileID: 2100000, guid: dfbee4da555d450459b1f55a08ef622a, type: 2}
   - {fileID: 2100000, guid: b2d608d286c76724d878e958ead3e7c2, type: 2}
+  inkstinkSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1 &5008324012478773876
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,6 +699,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92b109c2401c10842847b59e9e7bdd31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMissed: 1
+  missAttack:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  Attack:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!212 &527607038523854936
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -61,8 +61,8 @@ public class PlayerController : MonoBehaviour
 
     public void Start()
     {
-        //Cursor.visible = false;
-        //Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         playerPhysics = GetComponent<PlayerPhysics>();
         stateMachine = ScriptableObject.CreateInstance<PlayerStateMachine>();
 

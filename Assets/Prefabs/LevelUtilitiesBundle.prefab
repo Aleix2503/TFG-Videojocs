@@ -609,14 +609,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6200000, guid: 87d587791eece0642a477cab456128d9, type: 2}
     - target: {fileID: 3736661429019874301, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
-      propertyPath: isDashUnlocked
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3736661429019874301, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
-      propertyPath: isBubbleUnlocked
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3736661429019874301, guid: 2656416c741ce304bb1def79d00a5c02, type: 3}
       propertyPath: m_spriteRenderer
       value: 
       objectReference: {fileID: 3271832097577571392}
