@@ -192,16 +192,16 @@ MonoBehaviour:
   timeSinceLastInstantiation: 0
   timeSinceLastBackgroundTraceInstantiation: 0
   moveThreshold: 0.1
-  instantiationInterval: 0.02
+  instantiationInterval: 0.005
   dashThreshold: 0.1
-  dashingInstantiationInterval: 0.005
+  dashingInstantiationInterval: 0.0001
   distanceMoved: {x: 0, y: 0, z: 0}
   playerTransform: {fileID: 1101028820}
   bubbleTransform: {fileID: 1062263910}
   currentLayer: 3
   debugText: {fileID: 0}
   bubble: {fileID: 1062263909}
-  buublePaintingRate: 2
+  buublePaintingRate: 10
 --- !u!1 &83785203
 GameObject:
   m_ObjectHideFlags: 0
@@ -5334,6 +5334,8 @@ MonoBehaviour:
   cameraBoundariesSize: {x: 71.28, y: 41.2}
   cameraBoundariesPosition: {x: 15.7, y: 0.7}
   boundsTransitionTime: 0.3
+  isFreeCameraAllowed: 0
+  freeCameraSpeed: 5
 --- !u!1 &343098498
 GameObject:
   m_ObjectHideFlags: 0
@@ -5861,6 +5863,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4ed637d3eca9f7a419e9c3682feb4ec3, type: 3}
   - {fileID: 21300000, guid: e68be6224c9caa349955ec28f857f01d, type: 3}
   - {fileID: 21300000, guid: 5757c988a3534df409165bcd333c9745, type: 3}
+  animator: {fileID: 0}
 --- !u!1 &527121453
 GameObject:
   m_ObjectHideFlags: 0
@@ -11951,6 +11954,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4ed637d3eca9f7a419e9c3682feb4ec3, type: 3}
   - {fileID: 21300000, guid: e68be6224c9caa349955ec28f857f01d, type: 3}
   - {fileID: 21300000, guid: 5757c988a3534df409165bcd333c9745, type: 3}
+  animator: {fileID: 0}
 --- !u!1 &878314607
 GameObject:
   m_ObjectHideFlags: 0
@@ -12089,7 +12093,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0a513f88e7422448887137ec4a70bbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 1101028820}
+  cameraTransform: {fileID: 0}
   chunksParent: {fileID: 905204171}
   chunkSize: 16
 --- !u!1 &906718002
@@ -22089,6 +22093,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4ed637d3eca9f7a419e9c3682feb4ec3, type: 3}
   - {fileID: 21300000, guid: e68be6224c9caa349955ec28f857f01d, type: 3}
   - {fileID: 21300000, guid: 5757c988a3534df409165bcd333c9745, type: 3}
+  animator: {fileID: 0}
 --- !u!1 &1014142944
 GameObject:
   m_ObjectHideFlags: 0
@@ -22716,10 +22721,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
+    x: -0.25
+    y: -0.18750001
+    width: 0.5
+    height: 0.37500003
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -22814,6 +22819,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4ed637d3eca9f7a419e9c3682feb4ec3, type: 3}
   - {fileID: 21300000, guid: e68be6224c9caa349955ec28f857f01d, type: 3}
   - {fileID: 21300000, guid: 5757c988a3534df409165bcd333c9745, type: 3}
+  animator: {fileID: 0}
 --- !u!1 &1272910879
 GameObject:
   m_ObjectHideFlags: 0
@@ -23307,6 +23313,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4ed637d3eca9f7a419e9c3682feb4ec3, type: 3}
   - {fileID: 21300000, guid: e68be6224c9caa349955ec28f857f01d, type: 3}
   - {fileID: 21300000, guid: 5757c988a3534df409165bcd333c9745, type: 3}
+  animator: {fileID: 0}
 --- !u!4 &1380962655
 Transform:
   m_ObjectHideFlags: 0
