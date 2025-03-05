@@ -23,7 +23,6 @@ public class PaintManager : MonoBehaviour
     
     public enum ColorOption { OneColor, RandomBetweenTwoColors }
 
-    public ParticleSystem particleSystem;
     public ParticleSystem dashParticleSystem;
     public ParticleSystem jumpParticleSystem;
     public ParticleSystem expandedParticleSystem;
@@ -517,103 +516,4 @@ public class PaintManager : MonoBehaviour
         }
         
     }
-
-    public void InstanceExplosion(Vector3 position, PlayerController.AbilityType ability)
-    {
-        switch (ability)
-        {
-            case PlayerController.AbilityType.Bubble:
-                bubbleParticleSystem.transform.position = position;
-                bubbleParticleSystem.Emit(5);   
-                break;
-            case PlayerController.AbilityType.Dash:
-                Transform dashParticlesTransform = dashParticleSystem.transform;
-                dashParticleSystem.transform.position = position;
-                dashParticleSystem.Emit(5);
-                dashParticleSystem.transform.position = dashParticlesTransform.position;
-                break;
-            case PlayerController.AbilityType.Expand:
-                Transform expandedParticlesTransform = expandedParticleSystem.transform;
-                expandedParticleSystem.transform.position = position;
-                expandedParticleSystem.Emit(5);
-                expandedParticleSystem.transform.position = expandedParticlesTransform.position;
-                break;
-        }
-    }
 }
-
-#if UNITY_EDITOR
-[CustomEditor(typeof(PaintManager))]
-public class PaintManagerEditor : Editor
-{
-    SerializedProperty tracePrefabProp;
-    SerializedProperty backgroundTracePrefabProp;
-    SerializedProperty traceSpawnPositionProp;
-    SerializedProperty colorOptionProp;
-    SerializedProperty paintColorProp;
-    SerializedProperty color1Prop;
-    SerializedProperty color2Prop;
-    SerializedProperty jumpParticleSystemProp;
-    SerializedProperty dashParticleSystemProp;
-
-    void OnEnable()
-    {
-        // Initialize serialized properties
-        tracePrefabProp = serializedObject.FindProperty("tracePrefab");
-        backgroundTracePrefabProp = serializedObject.FindProperty("backgroundTracePrefab");
-        traceSpawnPositionProp = serializedObject.FindProperty("traceSpawnPosition");
-        colorOptionProp = serializedObject.FindProperty("colorOption");
-        paintColorProp = serializedObject.FindProperty("paintColor");
-        color1Prop = serializedObject.FindProperty("color1");
-        color2Prop = serializedObject.FindProperty("color2");
-        jumpParticleSystemProp = serializedObject.FindProperty("jumpParticleSystem");
-        dashParticleSystemProp = serializedObject.FindProperty("dashParticleSystem");
-    }
-
-    public override void OnInspectorGUI()
-    {
-        serializedObject.Update();
-        
-        EditorGUILayout.Space();
-        EditorGUILayout.LabelField("On Move - Trace", EditorStyles.boldLabel);
-
-        EditorGUILayout.PropertyField(tracePrefabProp, new GUIContent("Front Trace Prefab"));
-        EditorGUILayout.PropertyField(backgroundTracePrefabProp, new GUIContent("Background Trace Prefab"));
-        
-        EditorGUILayout.Space();
-        EditorGUILayout.PropertyField(colorOptionProp, new GUIContent("Front Trace Color Option"));
-
-        PaintManager.ColorOption option = (PaintManager.ColorOption)colorOptionProp.enumValueIndex;
-        switch (option)
-        {
-            case PaintManager.ColorOption.OneColor:
-                EditorGUILayout.PropertyField(paintColorProp, new GUIContent("Front Trace Color"));
-                break;
-            case PaintManager.ColorOption.RandomBetweenTwoColors:
-                EditorGUILayout.PropertyField(color1Prop, new GUIContent("Front Trace Color 1"));
-                EditorGUILayout.PropertyField(color2Prop, new GUIContent("Front Trace Color 2"));
-                break;
-        }
-
-        EditorGUILayout.Space();
-        EditorGUILayout.PropertyField(traceSpawnPositionProp, new GUIContent("Trace Spawn Position"));
-        
-        //EditorGUILayout.PropertyField(traceSpawnPositionProp, new GUIContent("On Fall Trace Spawn Position"));
-        
-        EditorGUILayout.Space();
-        EditorGUILayout.LabelField("On Jump - Splat", EditorStyles.boldLabel);
-        EditorGUILayout.PropertyField(jumpParticleSystemProp, new GUIContent("Jump Particle System"));
-
-        EditorGUILayout.Space();
-        EditorGUILayout.LabelField("On Dash", EditorStyles.boldLabel);
-        // Add properties related to "On Dash" event here if needed
-
-        serializedObject.ApplyModifiedProperties();
-
-        
-        EditorGUILayout.Space();
-        EditorGUILayout.LabelField("Other Inspector Elements");
-        DrawDefaultInspector();
-    }
-}
-#endif
