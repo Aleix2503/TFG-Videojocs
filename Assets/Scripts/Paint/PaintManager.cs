@@ -2,9 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public enum PlayerPaintingState { def, moving, dashing, expanded }
@@ -15,9 +13,9 @@ public class PaintManager : MonoBehaviour
     
     //Singleton, para que solo haya uno activo a la vez
     public static PaintManager _instance;
-    
-    
 
+
+    #region vars
     public PlayerPaintingState playerPaintingState = PlayerPaintingState.def;
     public PlayerPaintingState lastState = PlayerPaintingState.def;
     
@@ -78,7 +76,9 @@ public class PaintManager : MonoBehaviour
     private bool bubbleWasActive;
     public float buublePaintingRate = 2f;
     private float timeSinceLastBubblePaint = 0f;
-    
+    #endregion
+
+    #region UnityFunctions
     private void Awake()
     {
         if (_instance != null)
@@ -101,13 +101,11 @@ public class PaintManager : MonoBehaviour
     private void Update()
     {
         distanceMoved = (playerTransform.position - lastPosition);
-        //Debug.Log(distanceMoved);
-        //lastPosition = playerTransform.position;
 
         if ((playerPaintingState == PlayerPaintingState.dashing && 
-         lastState != PlayerPaintingState.dashing) ||
+            lastState != PlayerPaintingState.dashing) ||
             (playerPaintingState == PlayerPaintingState.expanded && 
-             lastState != PlayerPaintingState.expanded) ||
+            lastState != PlayerPaintingState.expanded) ||
             (playerPaintingState == PlayerPaintingState.moving || playerPaintingState == PlayerPaintingState.def) &&
             (lastState != PlayerPaintingState.moving && lastState != PlayerPaintingState.def))
         {
@@ -129,7 +127,6 @@ public class PaintManager : MonoBehaviour
             // Check if enough time has passed to paint another bubble
             if (timeSinceLastBubblePaint >= 1f / buublePaintingRate)
             {
-                PlaceBackgroundBubbleTrace(bubble.transform.position);
                 // Reset the timer
                 timeSinceLastBubblePaint = 0f;
             }
@@ -148,7 +145,6 @@ public class PaintManager : MonoBehaviour
                 // Check if enough time has passed since the last instantiation
                 if (timeSinceLastBackgroundTraceInstantiation >= dashingInstantiationInterval)
                 {
-                    PlaceBackgroundDashingTrace(backgroundTraceSpawnPosition.position);
                     // Reset the time since the last instantiation
                     timeSinceLastBackgroundTraceInstantiation = 0f;
                 }
@@ -165,7 +161,6 @@ public class PaintManager : MonoBehaviour
                 // Check if enough time has passed since the last instantiation
                 if (timeSinceLastBackgroundTraceInstantiation >= dashingInstantiationInterval)
                 {
-                    PlaceBackgroundExpandedTrace(backgroundExpandedTraceSpawnPosition.position);
                     // Reset the time since the last instantiation
                     timeSinceLastBackgroundTraceInstantiation = 0f;
                 }
@@ -182,7 +177,6 @@ public class PaintManager : MonoBehaviour
                 // Check if enough time has passed since the last instantiation
                 if (timeSinceLastBackgroundTraceInstantiation >= instantiationInterval)
                 {
-                    PlaceBackgroundTrace(backgroundTraceSpawnPosition.position);
                     // Reset the time since the last instantiation
                     timeSinceLastBackgroundTraceInstantiation = 0f;
                 }
@@ -247,7 +241,9 @@ public class PaintManager : MonoBehaviour
 
         UpdateDebugText();
     }
-    
+    #endregion
+
+    #region PlaceTraces
     public void PlaceTrace(Vector3 position)
     {
         Color traceColor = paintColor; // Default color is the single paint color
@@ -294,148 +290,22 @@ public class PaintManager : MonoBehaviour
     
     public void PlaceOnExpandedTrace()
     {
-        Color traceColor = paintColor; // Default color is the single paint color
-
-        switch (colorOption)
-        {
-            case ColorOption.OneColor:
-                // Use the single paint color
-                traceColor = paintColor;
-                break;
-            case ColorOption.RandomBetweenTwoColors:
-                // Use a random color between color1 and color2
-                traceColor = Color.Lerp(color1, color2, Random.Range(0f, 1f));
-                break;
-        }
-
         GameObject trace = Instantiate(tracePrefab, onFallTraceSpawnPosition.position, Quaternion.identity);
         Trace traceScript = trace.GetComponent<Trace>();
         GetDecalChunk(trace.transform);
         traceScript.Initialize(Trace.SplatLoacation.Foreground, currentLayer, expandedPaintColor);
     }
     
-    public void PlaceBackgroundTrace(Vector3 position)
-    {
-        Color traceColor = paintColor; // Default color is the single paint color
-
-        switch (colorOption)
-        {
-            case ColorOption.OneColor:
-                // Use the single paint color
-                traceColor = paintColor;
-                break;
-            case ColorOption.RandomBetweenTwoColors:
-                // Use a random color between color1 and color2
-                traceColor = Color.Lerp(color1, color2, Random.Range(0f, 1f));
-                break;
-        }
-
-        GameObject trace = Instantiate(backgroundTracePrefab, position, Quaternion.identity);
-        Trace traceScript = trace.GetComponent<Trace>();
-        GetDecalChunk(trace.transform);
-        Color color = traceColor;
-        Color backgroundColor = new Color(color.r / 2f, color.g / 2f, color.b / 2f, 1f);
-        
-        traceScript.Initialize(Trace.SplatLoacation.Background, currentLayer, backgroundColor);
-    }
-    
     public void PlaceDashingTrace(Vector3 position)
     {
-        Color traceColor = paintColor; // Default color is the single paint color
-
-        switch (colorOption)
-        {
-            case ColorOption.OneColor:
-                // Use the single paint color
-                traceColor = paintColor;
-                break;
-            case ColorOption.RandomBetweenTwoColors:
-                // Use a random color between color1 and color2
-                traceColor = Color.Lerp(color1, color2, Random.Range(0f, 1f));
-                break;
-        }
-
         GameObject trace = Instantiate(tracePrefab, position, Quaternion.identity);
         Trace traceScript = trace.GetComponent<Trace>();
         GetDecalChunk(trace.transform);
         traceScript.Initialize(Trace.SplatLoacation.Foreground, currentLayer, dashPaintColor);
     }
-    
-    public void PlaceBackgroundDashingTrace(Vector3 position)
-    {
-        Color traceColor = paintColor; // Default color is the single paint color
+    #endregion
 
-        switch (colorOption)
-        {
-            case ColorOption.OneColor:
-                // Use the single paint color
-                traceColor = paintColor;
-                break;
-            case ColorOption.RandomBetweenTwoColors:
-                // Use a random color between color1 and color2
-                traceColor = Color.Lerp(color1, color2, Random.Range(0f, 1f));
-                break;
-        }
-
-        GameObject trace = Instantiate(backgroundTracePrefab, position, Quaternion.identity);
-        Trace traceScript = trace.GetComponent<Trace>();
-        GetDecalChunk(trace.transform);
-        Color color = dashPaintColor;
-        Color backgroundColor = new Color(color.r / 2f, color.g / 2f, color.b / 2f, 1f);
-        
-        traceScript.Initialize(Trace.SplatLoacation.Background, currentLayer, backgroundColor);
-    }
-    
-    public void PlaceBackgroundExpandedTrace(Vector3 position)
-    {
-        Color traceColor = paintColor; // Default color is the single paint color
-
-        switch (colorOption)
-        {
-            case ColorOption.OneColor:
-                // Use the single paint color
-                traceColor = paintColor;
-                break;
-            case ColorOption.RandomBetweenTwoColors:
-                // Use a random color between color1 and color2
-                traceColor = Color.Lerp(color1, color2, Random.Range(0f, 1f));
-                break;
-        }
-
-        GameObject trace = Instantiate(backgroundTracePrefab, position, Quaternion.identity);
-        Trace traceScript = trace.GetComponent<Trace>();
-        GetDecalChunk(trace.transform);
-        Color color = expandedPaintColor;
-        Color backgroundColor = new Color(color.r / 2f, color.g / 2f, color.b / 2f, 1f);
-        
-        traceScript.Initialize(Trace.SplatLoacation.Background, currentLayer, backgroundColor);
-    }
-    
-    public void PlaceBackgroundBubbleTrace(Vector3 position)
-    {
-        Color traceColor = paintColor; // Default color is the single paint color
-
-        switch (colorOption)
-        {
-            case ColorOption.OneColor:
-                // Use the single paint color
-                traceColor = paintColor;
-                break;
-            case ColorOption.RandomBetweenTwoColors:
-                // Use a random color between color1 and color2
-                traceColor = Color.Lerp(color1, color2, Random.Range(0f, 1f));
-                break;
-        }
-
-        GameObject trace = Instantiate(backgroundTracePrefab, position, Quaternion.identity);
-        Trace traceScript = trace.GetComponent<Trace>();
-        GetDecalChunk(trace.transform);
-        Color color = bubblePaintColor;
-        Color backgroundColor = new Color(color.r / 2f, color.g / 2f, color.b / 2f, 1f);
-        
-        traceScript.Initialize(Trace.SplatLoacation.Background, currentLayer, backgroundColor);
-    }
-
+    #region EmitPartciles
     public void EmitJumpParticles()
     {
         jumpParticleSystem.Emit(3);   
@@ -456,6 +326,7 @@ public class PaintManager : MonoBehaviour
         bubbleParticleSystem.transform.position = bubbleTransform.position;
         bubbleParticleSystem.Emit(5);   
     }
+    #endregion
 
     public void PlaceSplat(Vector3 position, Vector3 normal, Color color)
     {

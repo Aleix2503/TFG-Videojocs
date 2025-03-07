@@ -61,38 +61,13 @@ public class Trace : MonoBehaviour
 
     private void SetLocationProperties(int layer)
     {
-        switch (splatLocation)
-        {
-            case SplatLoacation.Background:
-                //spriteRenderer.color = Color.black*0.1f;
-                spriteRenderer.sortingOrder = layer;
-                break;
-            case SplatLoacation.Foreground:
-                spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
-                spriteRenderer.sortingOrder = layer;
-                break;
-        }
+        spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+        spriteRenderer.sortingOrder = layer;
     }
     
     public void SetColor(Color color)
     {
         spriteRenderer.color = color;
-        /*
-        Color initialColor = color;
-        // Generate random offsets for each RGB component within the specified range
-        float rOffset = Random.Range(minColorRange, maxColorRange);
-        float gOffset = Random.Range(minColorRange, maxColorRange);
-        float bOffset = Random.Range(minColorRange, maxColorRange);
-
-        // Apply the offsets to the initial color
-        Color newColor = new Color(
-            Mathf.Clamp01(initialColor.r + rOffset),
-            Mathf.Clamp01(initialColor.g + gOffset),
-            Mathf.Clamp01(initialColor.b + bOffset),
-            initialColor.a
-        );
-
-        spriteRenderer.color = newColor;*/
         GetComponentInChildren<Renderer>().material.color = color;
     }
 }

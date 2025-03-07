@@ -201,24 +201,6 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
---- !u!1 &1481409320 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1490647109334714156, guid: 1ba559027c9775f498d5248a25d86615, type: 3}
-  m_PrefabInstance: {fileID: 6828094400878876286}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1481409327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1481409320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a2d36dea2552fb42b7eac2ca9c8ec81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Img: {fileID: 0}
 --- !u!1001 &1690083532
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -249,6 +231,10 @@ PrefabInstance:
     - target: {fileID: 1065585399483427149, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
       propertyPath: color2.r
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1065585399483427149, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
+      propertyPath: colorOption
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1065585399483427149, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
       propertyPath: paintColor.b
@@ -311,36 +297,20 @@ PrefabInstance:
       value: LevelUtilitiesBundle
       objectReference: {fileID: 0}
     - target: {fileID: 6493722856985976075, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
-      propertyPath: m_BackGroundColor.a
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6493722856985976075, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6493722856985976075, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6493722856985976075, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6493722856985976075, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0.208901
+      value: 0.06989247
       objectReference: {fileID: 0}
     - target: {fileID: 6493722856985976075, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0.15221581
+      value: 0.34094903
       objectReference: {fileID: 0}
     - target: {fileID: 6493722856985976075, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.58128977
+      value: 0.86021507
       objectReference: {fileID: 0}
     - target: {fileID: 6493722856985976075, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 0.6936416
+      value: 0.31634447
       objectReference: {fileID: 0}
     - target: {fileID: 6493722858751087089, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
       propertyPath: m_LocalPosition.y
@@ -391,6 +361,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5767783937758413566, guid: 1ba559027c9775f498d5248a25d86615, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fb4359c2478af104b9d142c05ba53a7b, type: 2}
     - target: {fileID: 7558195489311519265, guid: 1ba559027c9775f498d5248a25d86615, type: 3}
       propertyPath: m_Name
       value: Level

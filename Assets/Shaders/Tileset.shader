@@ -3,6 +3,7 @@ Shader "Unlit/Tileset"
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
+        _Color ("Color", Color) = (1,1,1,1)
     }
     SubShader
     {
@@ -49,13 +50,14 @@ Shader "Unlit/Tileset"
                 return o;
             }
 
+            fixed4 _Color;
             fixed4 frag (v2f i) : SV_Target
             {
                 // sample the texture
-                fixed4 col = tex2D(_MainTex, i.uv);
+                fixed4 col = _Color;
                 // apply fog
                 UNITY_APPLY_FOG(i.fogCoord, col);
-                return col*0;
+                return col;
             }
             ENDCG
         }
