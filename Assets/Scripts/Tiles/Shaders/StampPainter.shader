@@ -2,66 +2,70 @@ Shader "Custom/StampPainter"
 {
     Properties
     {
-        _MainTex ("Base Texture", 2D) = "white" {}
+        _MainTex ("Base (unused)", 2D) = "white" {}
         _StampTex ("Stamp Texture", 2D) = "white" {}
-        _StampPos ("Stamp Position (UV)", Vector) = (0,0,0,0)
-        _StampScale ("Stamp Scale", Float) = 1.0
-        _StampRotation ("Stamp Rotation (degrees)", Float) = 0.0
+        _StampPos ("Stamp UV Pos", Vector) = (0.5, 0.5, 0, 0)
+        _StampRotation ("Stamp Rotation", Float) = 0
+        _StampScale ("Stamp Scale", Float) = 1
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
+        Tags { "RenderType" = "Opaque" }
         Pass
         {
-            ZTest Always Cull Off ZWrite Off
+            ZWrite Off
+            Cull Off
+            Fog { Mode Off }
 
             CGPROGRAM
-            #pragma vertex vert_img
+            #pragma vertex vert
             #pragma fragment frag
-            #include "UnityCG.cginc"
 
             sampler2D _MainTex;
             sampler2D _StampTex;
-            float4 _StampPos;
+            float4 _StampPos;      // xy = center UV
+            float _StampRotation;  // degrees
             float _StampScale;
-            float _StampRotation;
 
-            fixed4 frag(v2f_img i) : SV_Target
+            struct appdata { float4 vertex : POSITION; float2 uv : TEXCOORD0; };
+            struct v2f { float2 uv : TEXCOORD0; float4 vertex : SV_POSITION; };
+
+            v2f vert (appdata v)
             {
-                float2 uv = i.uv;
+                v2f o;
+                o.vertex = UnityObjectToClipPos(v.vertex);
+                o.uv = v.uv;
+                return o;
+            }
 
-                // Coordenadas relativas al centro del stamp
-                float2 diff = uv - _StampPos.xy;
+            float2 RotateUV(float2 uv, float angleRad)
+            {
+                float s = sin(angleRad);
+                float c = cos(angleRad);
+                return float2(c * uv.x - s * uv.y, s * uv.x + c * uv.y);
+            }
 
-                // Rotar UV (rotación inversa para samplear el sprite correctamente)
-                float angle = radians(-_StampRotation);
-                float cosA = cos(angle);
-                float sinA = sin(angle);
-                float2 rotatedUV = float2(
-                    diff.x * cosA - diff.y * sinA,
-                    diff.x * sinA + diff.y * cosA
-                );
+            fixed4 frag (v2f i) : SV_Target
+            {
+                float2 delta = (i.uv - _StampPos.xy);
+                delta /= _StampScale;
 
-                // Escalar coords para muestrear el stamp
-                float2 stampUV = rotatedUV / _StampScale + 0.5;
+                float angleRad = radians(_StampRotation);
+                delta = RotateUV(delta, -angleRad); // reverse rotate
 
-                // Muestreamos el stamp solo si está dentro de rango [0,1]
-                fixed4 stampCol = fixed4(0,0,0,0);
-                if (stampUV.x >= 0 && stampUV.x <= 1 && stampUV.y >= 0 && stampUV.y <= 1)
-                {
-                    stampCol = tex2D(_StampTex, stampUV);
-                }
+                float2 stampUV = delta + 0.5; // center sample
+                
+                if (stampUV.x < 0 || stampUV.x > 1 || stampUV.y < 0 || stampUV.y > 1)
+                    return tex2D(_MainTex, i.uv); // fuera del stamp
 
-                // Muestreamos la textura actual
-                fixed4 baseCol = tex2D(_MainTex, uv);
+                fixed4 baseColor = tex2D(_MainTex, i.uv);
+                fixed4 stampColor = tex2D(_StampTex, stampUV);
 
-                // Combinamos: usamos canal alpha del stamp para "pintar" blanco
-                float alpha = stampCol.a;
-                fixed4 result = lerp(baseCol, fixed4(1,1,1, baseCol.a), alpha);
-
-                return result;
+                // Usa alpha como máscara, blanco donde hay imagen
+                return lerp(baseColor, fixed4(1, 1, 1, 1), stampColor.a);
             }
             ENDCG
         }
     }
 }
+

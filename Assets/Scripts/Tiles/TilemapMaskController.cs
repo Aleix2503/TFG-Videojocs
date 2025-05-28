@@ -29,6 +29,8 @@ public class TilemapMaskController : MonoBehaviour
     {
         // Asignamos la RenderTexture al material del Tilemap
         tilemapMaterial.SetTexture("_MaskTex", maskRenderTexture);
+
+        ReloadStamps();
     }
 
     void Update()
@@ -73,43 +75,34 @@ public class TilemapMaskController : MonoBehaviour
     {
         BoundsInt bounds = tilemap.cellBounds;
 
-        float u = (cellPos.x - bounds.xMin) / (float)bounds.size.x;
-        float v = (cellPos.y - bounds.yMin) / (float)bounds.size.y;
+        float u = (cellPos.x - bounds.xMin + 0.5f) / bounds.size.x;
+        float v = (cellPos.y - bounds.yMin + 0.5f) / bounds.size.y;
 
         return new Vector2(u, v);
     }
 
     void DrawStampOnRenderTexture(Sprite stamp, Vector2 uvPos, float rotation, float scale)
     {
-        RenderTexture.active = maskRenderTexture;
-
         // Crear textura del sprite
         Texture2D stampTex = SpriteToTexture(stamp);
 
-        // Asignar textura y parámetros al material de pintado
+        // Asignar parámetros
         stampMaterial.SetTexture("_StampTex", stampTex);
         stampMaterial.SetVector("_StampPos", new Vector4(uvPos.x, uvPos.y, 0, 0));
         stampMaterial.SetFloat("_StampRotation", rotation);
         stampMaterial.SetFloat("_StampScale", scale);
 
-        // Pintar usando Graphics.Blit para superponer el stamp sobre la RenderTexture
-        Graphics.Blit(maskRenderTexture, maskRenderTexture, stampMaterial);
+        // Usar una temporal para evitar sobrescribir mientras blitteas
+        RenderTexture tempRT = RenderTexture.GetTemporary(maskRenderTexture.width, maskRenderTexture.height, 0, maskRenderTexture.format);
+        Graphics.Blit(maskRenderTexture, tempRT); // Copia el contenido actual
 
-        RenderTexture.active = null;
+        Graphics.Blit(tempRT, maskRenderTexture, stampMaterial); // Aplica el nuevo stamp
+
+        RenderTexture.ReleaseTemporary(tempRT);
     }
 
     Texture2D SpriteToTexture(Sprite sprite)
     {
-        /*Texture2D tex = new((int)sprite.rect.width, (int)sprite.rect.height, TextureFormat.ARGB32, false);
-        Color[] pixels = sprite.texture.GetPixels(
-            (int)sprite.textureRect.x,
-            (int)sprite.textureRect.y,
-            (int)sprite.textureRect.width,
-            (int)sprite.textureRect.height);
-        tex.SetPixels(pixels);
-        tex.Apply();
-        return tex;*/
-
         if (sprite.rect.width != sprite.texture.width || sprite.rect.height != sprite.texture.height)
         {
             Texture2D newTex = new((int)sprite.rect.width, (int)sprite.rect.height);
