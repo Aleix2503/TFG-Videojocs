@@ -7,12 +7,13 @@ Shader "Unlit/Splater"
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" "Queue"="Transparent" } // Set the queue to Transparent
-        LOD 100
+        Tags { "Queue"="Transparent" "RenderType"="Transparent" }
 
         Pass
         {
-            ZTest Off
+            Blend SrcAlpha OneMinusSrcAlpha
+            ZTest LEqual
+            ZWrite Off
             Stencil{
                 Ref 1
                 Comp Equal
@@ -21,8 +22,6 @@ Shader "Unlit/Splater"
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
-            // make fog work
-            #pragma multi_compile_fog
 
             #include "UnityCG.cginc"
 
@@ -56,8 +55,6 @@ Shader "Unlit/Splater"
             {
                 // sample the texture
                 fixed4 col = tex2D(_MainTex, i.uv);
-                // apply fog
-                UNITY_APPLY_FOG(i.fogCoord, col);
                 return col*_Color;
             }
             ENDCG
