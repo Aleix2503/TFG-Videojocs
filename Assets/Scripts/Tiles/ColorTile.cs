@@ -6,6 +6,7 @@ using System.Collections.Generic;
 public class ColorTile : Tile
 {
     public Color tintColor = Color.white;
+    public Material material;
 
     public override void GetTileData(Vector3Int position, ITilemap tilemap, ref TileData tileData)
     {

@@ -68,7 +68,7 @@ public class TilemapMaskController : MonoBehaviour
         Vector2 uv = CellToUV(cellPos);
 
         // Pintar el stamp en la RenderTexture
-        DrawStampOnRenderTexture(stamp, uv, rotation, scale);
+        DrawStampOnRenderTexture(stamp, uv, rotation, scale, cellPos);
     }
 
     Vector2 CellToUV(Vector3Int cellPos)
@@ -81,7 +81,7 @@ public class TilemapMaskController : MonoBehaviour
         return new Vector2(u, v);
     }
 
-    void DrawStampOnRenderTexture(Sprite stamp, Vector2 uvPos, float rotation, float scale)
+    void DrawStampOnRenderTexture(Sprite stamp, Vector2 uvPos, float rotation, float scale, Vector3Int cellPos)
     {
         // Crear textura del sprite
         Texture2D stampTex = SpriteToTexture(stamp);
@@ -95,6 +95,15 @@ public class TilemapMaskController : MonoBehaviour
         // Usar una temporal para evitar sobrescribir mientras blitteas
         RenderTexture tempRT = RenderTexture.GetTemporary(maskRenderTexture.width, maskRenderTexture.height, 0, maskRenderTexture.format);
         Graphics.Blit(maskRenderTexture, tempRT); // Copia el contenido actual
+
+        Vector3Int origin = tilemap.origin;             // esquina inferior del área usada
+        Vector3Int size = tilemap.size;                 // tamaño en tiles
+
+        Vector2 tilemapSize = new(size.x, size.y);
+
+        Vector2 clickedUV = new Vector2(cellPos.x, cellPos.y) / tilemapSize;
+        tilemapMaterial.SetVector("_ClickedTileUV", clickedUV);
+        tilemapMaterial.SetVector("_TilemapSize", tilemapSize);
 
         Graphics.Blit(tempRT, maskRenderTexture, stampMaterial); // Aplica el nuevo stamp
 
@@ -112,8 +121,6 @@ public class TilemapMaskController : MonoBehaviour
                 (int)sprite.textureRect.width,
                 (int)sprite.textureRect.height
             );
-            Debug.Log((int)sprite.rect.width);
-            Debug.Log((int)sprite.rect.height);
             newTex.SetPixels(pixels);
             newTex.Apply();
             return newTex;
@@ -132,11 +139,11 @@ public class TilemapMaskController : MonoBehaviour
         GL.Clear(true, true, Color.clear);
         RenderTexture.active = null;
 
-        foreach (var stamp in savedStamps)
+        /*foreach (var stamp in savedStamps)
         {
             Sprite s = stampSprites[stamp.spriteIndex];
             Vector2 uv = CellToUV(stamp.cellPos);
-            DrawStampOnRenderTexture(s, uv, stamp.rotation, stamp.scale);
-        }
+            DrawStampOnRenderTexture(s, uv, stamp.rotation, stamp.scale, cellPos);
+        }*/
     }
 }

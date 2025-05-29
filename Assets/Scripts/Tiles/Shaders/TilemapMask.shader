@@ -5,6 +5,8 @@ Shader "Custom/TilemapMaskShader"
         _MainTex ("Base (RGB)", 2D) = "white" {}
         _MaskTex ("Mask Texture", 2D) = "white" {}
         _Color ("Color", Color) = (1,1,1,1)
+        _ClickedTileUV ("Clicked Tile UV", Vector) = (0,0,0,0)
+        _TilemapSize ("Tilemap Size", Vector) = (1,1,0,0)
     }
     SubShader
     {
@@ -49,10 +51,24 @@ Shader "Custom/TilemapMaskShader"
 
 
             fixed4 _Color;
+
+            float2 _ClickedTileUV;
+            float2 _TilemapSize;
+
+            fixed4 baseCol = (1,1,1,1);
+           
+
             fixed4 frag (v2f i) : SV_Target
             {
-                fixed4 col = _Color;
+                half4 isWhite = step(0.99, 1) * step(0.99, 1) * step(0.99, 1);
+                fixed4 col = lerp(_Color, baseCol, isWhite);
+
                 fixed mask = tex2D(_MaskTex, i.uv).r;
+
+                float2 tileUV = floor(i.uv * _TilemapSize) / _TilemapSize;
+                float matchX = step(0.01, 1.0 - abs(tileUV.x - _ClickedTileUV.x));
+                float matchY = step(0.01, 1.0 - abs(tileUV.y - _ClickedTileUV.y));
+                float isClicked = matchX * matchY;
 
                 if (mask > 0.1)
                     return fixed4(1,1,1,1);
