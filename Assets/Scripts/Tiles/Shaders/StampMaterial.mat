@@ -37,17 +37,18 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _StampTex:
-        m_Texture: {fileID: 2800000, guid: d461bfe495bef92439d3e19b25c68962, type: 3}
+        m_Texture: {fileID: 2800000, guid: 023c57c8b58ab0141bf2fa81b7137be4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
     - _EnableExternalAlpha: 0
-    - _StampRotation: 97.53574
-    - _StampScale: 1.1116239
+    - _StampRotation: 331.1699
+    - _StampScale: 0.008
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-    - _StampPos: {r: 0.49712643, g: 0.78318584, b: 0, a: 0}
+    - _StampPos: {r: 0.52011496, g: 0.80088496, b: 0, a: 0}
+    - _TilemapSize: {r: 174, g: 113, b: -83, a: -85}
   m_BuildTextureStacks: []
