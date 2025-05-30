@@ -37,6 +37,7 @@ public class TilemapMaskController : MonoBehaviour
         BoundsInt bounds = tilemap.cellBounds;
         Vector4 tilemapData = new(bounds.size.x, bounds.size.y, bounds.xMin, bounds.yMin);
         tilemapMaterial.SetVector("_TilemapSize", tilemapData);
+        stampMaterial.SetVector("_TilemapSize", tilemapData);
     }
 
     void Update()
@@ -96,7 +97,7 @@ public class TilemapMaskController : MonoBehaviour
         stampMaterial.SetTexture("_StampTex", stampTex);
         stampMaterial.SetVector("_StampPos", new Vector4(uvPos.x, uvPos.y, 0, 0));
         stampMaterial.SetFloat("_StampRotation", rotation);
-        stampMaterial.SetFloat("_StampScale", scale);
+        stampMaterial.SetFloat("_StampScale", 0.008f);
 
         // Usar una temporal para evitar sobrescribir mientras blitteas
         RenderTexture tempRT = RenderTexture.GetTemporary(maskRenderTexture.width, maskRenderTexture.height, 0, maskRenderTexture.format);
