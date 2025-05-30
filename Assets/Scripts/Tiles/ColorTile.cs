@@ -12,5 +12,6 @@ public class ColorTile : Tile
     {
         base.GetTileData(position, tilemap, ref tileData);
         tileData.color = tintColor;
+        //tileData.sprite
     }
 }

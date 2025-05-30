@@ -31,6 +31,12 @@ public class TilemapMaskController : MonoBehaviour
         tilemapMaterial.SetTexture("_MaskTex", maskRenderTexture);
 
         ReloadStamps();
+
+        Debug.Log("Tamaños " + tilemap.cellBounds.size.x + ", " + tilemap.cellBounds.size.y);
+
+        BoundsInt bounds = tilemap.cellBounds;
+        Vector4 tilemapData = new(bounds.size.x, bounds.size.y, bounds.xMin, bounds.yMin);
+        tilemapMaterial.SetVector("_TilemapSize", tilemapData);
     }
 
     void Update()
@@ -95,15 +101,6 @@ public class TilemapMaskController : MonoBehaviour
         // Usar una temporal para evitar sobrescribir mientras blitteas
         RenderTexture tempRT = RenderTexture.GetTemporary(maskRenderTexture.width, maskRenderTexture.height, 0, maskRenderTexture.format);
         Graphics.Blit(maskRenderTexture, tempRT); // Copia el contenido actual
-
-        Vector3Int origin = tilemap.origin;             // esquina inferior del área usada
-        Vector3Int size = tilemap.size;                 // tamaño en tiles
-
-        Vector2 tilemapSize = new(size.x, size.y);
-
-        Vector2 clickedUV = new Vector2(cellPos.x, cellPos.y) / tilemapSize;
-        tilemapMaterial.SetVector("_ClickedTileUV", clickedUV);
-        tilemapMaterial.SetVector("_TilemapSize", tilemapSize);
 
         Graphics.Blit(tempRT, maskRenderTexture, stampMaterial); // Aplica el nuevo stamp
 

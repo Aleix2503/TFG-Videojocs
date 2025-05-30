@@ -5,7 +5,6 @@ Shader "Custom/TilemapMaskShader"
         _MainTex ("Base (RGB)", 2D) = "white" {}
         _MaskTex ("Mask Texture", 2D) = "white" {}
         _Color ("Color", Color) = (1,1,1,1)
-        _ClickedTileUV ("Clicked Tile UV", Vector) = (0,0,0,0)
         _TilemapSize ("Tilemap Size", Vector) = (1,1,0,0)
     }
     SubShader
@@ -28,6 +27,8 @@ Shader "Custom/TilemapMaskShader"
             sampler2D _MainTex;
             sampler2D _MaskTex;
             float4 _MainTex_ST;
+            fixed4 _Color;
+            float4 _TilemapSize;
 
             struct appdata
             {
@@ -39,6 +40,7 @@ Shader "Custom/TilemapMaskShader"
             {
                 float2 uv : TEXCOORD0;
                 float4 vertex : SV_POSITION;
+                float3 worldPos : TEXCOORD1;
             };
 
             v2f vert (appdata v)
@@ -46,32 +48,24 @@ Shader "Custom/TilemapMaskShader"
                 v2f o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+                o.worldPos = mul(unity_ObjectToWorld, v.vertex);
                 return o;
-            }
-
-
-            fixed4 _Color;
-
-            float2 _ClickedTileUV;
-            float2 _TilemapSize;
-
-            fixed4 baseCol = (1,1,1,1);
-           
+            }           
 
             fixed4 frag (v2f i) : SV_Target
             {
-                half4 isWhite = step(0.99, 1) * step(0.99, 1) * step(0.99, 1);
-                fixed4 col = lerp(_Color, baseCol, isWhite);
+                // Calcular coordenadas UV globales relativas al tilemap
+                float2 maskUV;
+                maskUV.x = (i.worldPos.x - _TilemapSize.z) / _TilemapSize.x;
+                maskUV.y = (i.worldPos.y - _TilemapSize.w) / _TilemapSize.y;
 
-                fixed mask = tex2D(_MaskTex, i.uv).r;
+                fixed mask = tex2D(_MaskTex, maskUV).r;
 
-                float2 tileUV = floor(i.uv * _TilemapSize) / _TilemapSize;
-                float matchX = step(0.01, 1.0 - abs(tileUV.x - _ClickedTileUV.x));
-                float matchY = step(0.01, 1.0 - abs(tileUV.y - _ClickedTileUV.y));
-                float isClicked = matchX * matchY;
+                fixed4 baseCol = tex2D(_MainTex, i.uv);
+                fixed4 col = _Color;
 
                 if (mask > 0.1)
-                    return fixed4(1,1,1,1);
+                    return fixed4(1, 1, 1, 1);
                 else
                     return col;
             }
