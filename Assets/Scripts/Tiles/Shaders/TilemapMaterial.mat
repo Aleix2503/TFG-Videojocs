@@ -41,10 +41,10 @@ Material:
     - _EnableExternalAlpha: 0
     m_Colors:
     - _CellSize: {r: 0.1, g: 0.1, b: 0, a: 0}
-    - _ClickedTileUV: {r: -0.01724138, g: 0.07964602, b: 0, a: 0}
+    - _ClickedTileUV: {r: 0.01724138, g: 0.026548672, b: 0, a: 0}
     - _Color: {r: 0.3207547, g: 0.3207547, b: 0.3207547, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _MaskTextureSize: {r: 512, g: 512, b: 0, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-    - _TilemapSize: {r: 174, g: 113, b: 0, a: 0}
+    - _TilemapSize: {r: 174, g: 113, b: -83, a: -85}
   m_BuildTextureStacks: []
