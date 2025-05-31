@@ -297,6 +297,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1065585399483427149, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
+      propertyPath: tilemap
+      value: 
+      objectReference: {fileID: 132850819}
+    - target: {fileID: 1065585399483427149, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
       propertyPath: color1.b
       value: 0.9843138
       objectReference: {fileID: 0}
@@ -427,6 +431,10 @@ PrefabInstance:
     - target: {fileID: 7316741255186394415, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
       propertyPath: InitialModule.startColor.minColor.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621532360921192119, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 237c75ebcaf9ac84d8ca6af4bb598181, type: 3}

@@ -55,6 +55,7 @@ public class SplatParticles : MonoBehaviour
         int count = collisionEvents.Count;
         for (int i = 0; i < count; i++)
         {
+            Debug.Log(PaintManager._instance._shadersEnabled);
             PaintManager._instance.PlaceSplat(collisionEvents[i].intersection, collisionEvents[i].normal, splatParticles.main.startColor.color);
         }
     }

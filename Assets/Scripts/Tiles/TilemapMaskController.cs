@@ -13,6 +13,8 @@ public class TilemapMaskController : MonoBehaviour
 
     public Sprite[] stampSprites;
 
+    public static TilemapMaskController _instance;
+
     // Datos guardados por mancha
     [System.Serializable]
     public class StampData
@@ -24,6 +26,17 @@ public class TilemapMaskController : MonoBehaviour
     }
 
     public List<StampData> savedStamps = new();
+
+    private void Awake()
+    {
+        if (_instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        _instance = this;
+    }
 
     void Start()
     {
@@ -54,7 +67,7 @@ public class TilemapMaskController : MonoBehaviour
         }
     }
 
-    void PaintStamp(Vector3Int cellPos)
+    public void PaintStamp(Vector3Int cellPos)
     {
         int spriteIndex = Random.Range(0, stampSprites.Length);
         Sprite stamp = stampSprites[spriteIndex];
@@ -95,7 +108,7 @@ public class TilemapMaskController : MonoBehaviour
 
         // Asignar parámetros
         stampMaterial.SetTexture("_StampTex", stampTex);
-        stampMaterial.SetVector("_StampPos", new Vector4(uvPos.x, uvPos.y, 0, 0));
+        stampMaterial.SetVector("_StampPos", new Vector4(uvPos.x, uvPos.y + 0.002f, 0, 0));
         stampMaterial.SetFloat("_StampRotation", rotation);
         stampMaterial.SetFloat("_StampScale", 0.008f);
 

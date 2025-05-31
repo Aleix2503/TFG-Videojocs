@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Tilemaps;
+using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
 public enum PlayerPaintingState { def, moving, dashing, expanded }
@@ -13,6 +15,9 @@ public class PaintManager : MonoBehaviour
     
     //Singleton, para que solo haya uno activo a la vez
     public static PaintManager _instance;
+
+    public bool _shadersEnabled = true;
+    public Tilemap tilemap;
 
 
     #region vars
@@ -246,96 +251,135 @@ public class PaintManager : MonoBehaviour
     #region PlaceTraces
     public void PlaceTrace(Vector3 position)
     {
-        Color traceColor = paintColor; // Default color is the single paint color
-
-        switch (colorOption)
+        if (!_shadersEnabled)
         {
-            case ColorOption.OneColor:
-                // Use the single paint color
-                traceColor = paintColor;
-                break;
-            case ColorOption.RandomBetweenTwoColors:
-                // Use a random color between color1 and color2
-                traceColor = Color.Lerp(color1, color2, Random.Range(0f, 1f));
-                break;
-        }
+            Color traceColor = paintColor; // Default color is the single paint color
 
-        GameObject trace = Instantiate(tracePrefab, position, Quaternion.identity);
-        Trace traceScript = trace.GetComponent<Trace>();
-        GetDecalChunk(trace.transform);
-        traceScript.Initialize(Trace.SplatLoacation.Foreground, currentLayer, traceColor);
+            switch (colorOption)
+            {
+                case ColorOption.OneColor:
+                    // Use the single paint color
+                    traceColor = paintColor;
+                    break;
+                case ColorOption.RandomBetweenTwoColors:
+                    // Use a random color between color1 and color2
+                    traceColor = Color.Lerp(color1, color2, Random.Range(0f, 1f));
+                    break;
+            }
+
+            GameObject trace = Instantiate(tracePrefab, position, Quaternion.identity);
+            Trace traceScript = trace.GetComponent<Trace>();
+            GetDecalChunk(trace.transform);
+            traceScript.Initialize(Trace.SplatLoacation.Foreground, currentLayer, traceColor);
+        }
+        else
+        {
+            Vector3Int cellPos = tilemap.WorldToCell(position);
+            TilemapMaskController._instance.PaintStamp(cellPos);
+        }
     }
     
     public void PlaceOnFallTrace()
     {
-        Color traceColor = paintColor; // Default color is the single paint color
-
-        switch (colorOption)
+        if (!_shadersEnabled)
         {
-            case ColorOption.OneColor:
-                // Use the single paint color
-                traceColor = paintColor;
-                break;
-            case ColorOption.RandomBetweenTwoColors:
-                // Use a random color between color1 and color2
-                traceColor = Color.Lerp(color1, color2, Random.Range(0f, 1f));
-                break;
-        }
+            Color traceColor = paintColor; // Default color is the single paint color
 
-        GameObject trace = Instantiate(tracePrefab, onFallTraceSpawnPosition.position, Quaternion.identity);
-        Trace traceScript = trace.GetComponent<Trace>();
-        GetDecalChunk(trace.transform);
-        traceScript.Initialize(Trace.SplatLoacation.Foreground, currentLayer, traceColor);
+            switch (colorOption)
+            {
+                case ColorOption.OneColor:
+                    // Use the single paint color
+                    traceColor = paintColor;
+                    break;
+                case ColorOption.RandomBetweenTwoColors:
+                    // Use a random color between color1 and color2
+                    traceColor = Color.Lerp(color1, color2, Random.Range(0f, 1f));
+                    break;
+            }
+
+            GameObject trace = Instantiate(tracePrefab, onFallTraceSpawnPosition.position, Quaternion.identity);
+            Trace traceScript = trace.GetComponent<Trace>();
+            GetDecalChunk(trace.transform);
+            traceScript.Initialize(Trace.SplatLoacation.Foreground, currentLayer, traceColor);
+        }
+        else
+        {
+            Vector3Int cellPos = tilemap.WorldToCell(onFallTraceSpawnPosition.position);
+            TilemapMaskController._instance.PaintStamp(cellPos);
+        }
     }
     
     public void PlaceOnExpandedTrace()
     {
-        GameObject trace = Instantiate(tracePrefab, onFallTraceSpawnPosition.position, Quaternion.identity);
-        Trace traceScript = trace.GetComponent<Trace>();
-        GetDecalChunk(trace.transform);
-        traceScript.Initialize(Trace.SplatLoacation.Foreground, currentLayer, expandedPaintColor);
+        if (!_shadersEnabled)
+        {
+            GameObject trace = Instantiate(tracePrefab, onFallTraceSpawnPosition.position, Quaternion.identity);
+            Trace traceScript = trace.GetComponent<Trace>();
+            GetDecalChunk(trace.transform);
+            traceScript.Initialize(Trace.SplatLoacation.Foreground, currentLayer, expandedPaintColor);
+        }
+        else
+        {
+            Vector3Int cellPos = tilemap.WorldToCell(onFallTraceSpawnPosition.position);
+            TilemapMaskController._instance.PaintStamp(cellPos);
+        }
     }
     
     public void PlaceDashingTrace(Vector3 position)
     {
-        GameObject trace = Instantiate(tracePrefab, position, Quaternion.identity);
-        Trace traceScript = trace.GetComponent<Trace>();
-        GetDecalChunk(trace.transform);
-        traceScript.Initialize(Trace.SplatLoacation.Foreground, currentLayer, dashPaintColor);
+        if (!_shadersEnabled)
+        {
+            GameObject trace = Instantiate(tracePrefab, position, Quaternion.identity);
+            Trace traceScript = trace.GetComponent<Trace>();
+            GetDecalChunk(trace.transform);
+            traceScript.Initialize(Trace.SplatLoacation.Foreground, currentLayer, dashPaintColor);
+        }
+        else
+        {
+            Vector3Int cellPos = tilemap.WorldToCell(position);
+            TilemapMaskController._instance.PaintStamp(cellPos);
+        }
     }
     #endregion
 
     #region EmitPartciles
     public void EmitJumpParticles()
     {
-        jumpParticleSystem.Emit(3);   
+        //jumpParticleSystem.Emit(3);   
     }
     
     public void EmitDashParticles()
     {
-        dashParticleSystem.Emit(5);   
+        //dashParticleSystem.Emit(5);   
     }
     
     public void EmitExpandedParticles()
     {
-        expandedParticleSystem.Emit(5);   
+        //expandedParticleSystem.Emit(5);   
     }
     
     public void EmitBubbleParticles()
     {
-        bubbleParticleSystem.transform.position = bubbleTransform.position;
-        bubbleParticleSystem.Emit(5);   
+        /*bubbleParticleSystem.transform.position = bubbleTransform.position;
+        bubbleParticleSystem.Emit(5);*/   
     }
     #endregion
 
     public void PlaceSplat(Vector3 position, Vector3 normal, Color color)
     {
-        GameObject splat =
+        if (!_shadersEnabled)
+        {
+            GameObject splat =
             Instantiate(splatPrefab, position, Quaternion.identity) as GameObject;
-        GetDecalChunk(splat.transform);
-        Splat splatScript = splat.GetComponent<Splat>();
-        splatScript.Initialize(Splat.SplatLoacation.Foreground, currentLayer, color, normal);
-
+            GetDecalChunk(splat.transform);
+            Splat splatScript = splat.GetComponent<Splat>();
+            splatScript.Initialize(Splat.SplatLoacation.Foreground, currentLayer, color, normal);
+        }
+        else
+        {
+            Vector3Int cellPos = tilemap.WorldToCell(position);
+            TilemapMaskController._instance.PaintStamp(cellPos);
+        }
     }
     
     private void UpdateDebugText()
