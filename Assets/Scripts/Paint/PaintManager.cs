@@ -246,7 +246,7 @@ public class PaintManager : MonoBehaviour
     #region PlaceTraces
     public void PlaceTrace(Vector3 position)
     {
-        Color traceColor = paintColor; // Default color is the single paint color
+        /*Color traceColor = paintColor; // Default color is the single paint color
 
         switch (colorOption)
         {
@@ -263,12 +263,12 @@ public class PaintManager : MonoBehaviour
         GameObject trace = Instantiate(tracePrefab, position, Quaternion.identity);
         Trace traceScript = trace.GetComponent<Trace>();
         GetDecalChunk(trace.transform);
-        traceScript.Initialize(Trace.SplatLoacation.Foreground, currentLayer, traceColor);
+        traceScript.Initialize(Trace.SplatLoacation.Foreground, currentLayer, traceColor);*/
     }
     
     public void PlaceOnFallTrace()
     {
-        Color traceColor = paintColor; // Default color is the single paint color
+        /*Color traceColor = paintColor; // Default color is the single paint color
 
         switch (colorOption)
         {
@@ -285,23 +285,23 @@ public class PaintManager : MonoBehaviour
         GameObject trace = Instantiate(tracePrefab, onFallTraceSpawnPosition.position, Quaternion.identity);
         Trace traceScript = trace.GetComponent<Trace>();
         GetDecalChunk(trace.transform);
-        traceScript.Initialize(Trace.SplatLoacation.Foreground, currentLayer, traceColor);
+        traceScript.Initialize(Trace.SplatLoacation.Foreground, currentLayer, traceColor);*/
     }
     
     public void PlaceOnExpandedTrace()
     {
-        GameObject trace = Instantiate(tracePrefab, onFallTraceSpawnPosition.position, Quaternion.identity);
+        /*GameObject trace = Instantiate(tracePrefab, onFallTraceSpawnPosition.position, Quaternion.identity);
         Trace traceScript = trace.GetComponent<Trace>();
         GetDecalChunk(trace.transform);
-        traceScript.Initialize(Trace.SplatLoacation.Foreground, currentLayer, expandedPaintColor);
+        traceScript.Initialize(Trace.SplatLoacation.Foreground, currentLayer, expandedPaintColor);*/
     }
     
     public void PlaceDashingTrace(Vector3 position)
     {
-        GameObject trace = Instantiate(tracePrefab, position, Quaternion.identity);
+        /*GameObject trace = Instantiate(tracePrefab, position, Quaternion.identity);
         Trace traceScript = trace.GetComponent<Trace>();
         GetDecalChunk(trace.transform);
-        traceScript.Initialize(Trace.SplatLoacation.Foreground, currentLayer, dashPaintColor);
+        traceScript.Initialize(Trace.SplatLoacation.Foreground, currentLayer, dashPaintColor);*/
     }
     #endregion
 
@@ -330,11 +330,11 @@ public class PaintManager : MonoBehaviour
 
     public void PlaceSplat(Vector3 position, Vector3 normal, Color color)
     {
-        GameObject splat =
+        /*GameObject splat =
             Instantiate(splatPrefab, position, Quaternion.identity) as GameObject;
         GetDecalChunk(splat.transform);
         Splat splatScript = splat.GetComponent<Splat>();
-        splatScript.Initialize(Splat.SplatLoacation.Foreground, currentLayer, color, normal);
+        splatScript.Initialize(Splat.SplatLoacation.Foreground, currentLayer, color, normal);*/
 
     }
     
