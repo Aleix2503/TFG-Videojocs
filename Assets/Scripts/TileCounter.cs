@@ -14,7 +14,7 @@ public class TileCounter : MonoBehaviour
 
     void Start()
     {
-        int tileCount = 0;
+        /*int tileCount = 0;
 
         BoundsInt bounds = tilemap.cellBounds;
         foreach (Vector3Int pos in bounds.allPositionsWithin)
@@ -25,14 +25,14 @@ public class TileCounter : MonoBehaviour
             }
         }
 
-        Debug.Log("Total tiles: " + tileCount);
+        Debug.Log("Total tiles: " + tileCount);*/
 
         CountTriangles(player);
     }
 
     private void Update()
     {
-        CountVisibleTileData();
+        //CountVisibleTileData();
     }
 
     void CountTriangles(GameObject obj)
