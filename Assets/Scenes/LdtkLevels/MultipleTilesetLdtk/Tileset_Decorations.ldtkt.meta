@@ -1,0 +1,240 @@
+fileFormatVersion: 2
+guid: cf53715a777630946937fdc766fdb950
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: f3268c876daf4890b6af6cd462063137, type: 3}
+  _reimportOnDependencyChange: 1
+  _pixelsPerUnit: 16
+  _overrideTexture: {instanceID: 0}
+  _sprites:
+  - name: Tileset_Decorations_0
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 48
+      width: 16
+      height: 16
+    spriteID: 4c9e4feeed4a8cc4f9a64bd5c7d8c2d7
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: Tileset_Decorations_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 16
+      y: 48
+      width: 16
+      height: 16
+    spriteID: a7c2fdf79cf7f134b98d70e71d2ce450
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: Tileset_Decorations_2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 32
+      y: 48
+      width: 16
+      height: 16
+    spriteID: a89117ddfde9c604e879157b84625e4a
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: Tileset_Decorations_3
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 48
+      width: 16
+      height: 16
+    spriteID: 4b784585d04818b42bd5b7aa3cc7ce4d
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: Tileset_Decorations_4
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 32
+      width: 16
+      height: 16
+    spriteID: 0822de59285990149827114ad7417525
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: Tileset_Decorations_5
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 16
+      y: 32
+      width: 16
+      height: 16
+    spriteID: 77183dc6d04331c4485c7f28fef37008
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: Tileset_Decorations_6
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 32
+      y: 32
+      width: 16
+      height: 16
+    spriteID: 34589aee461926e4a8178df5e5dd5772
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: Tileset_Decorations_7
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 32
+      width: 16
+      height: 16
+    spriteID: 7b91f41f022e51b42a6b8410468f5b74
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: Tileset_Decorations_8
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 16
+      width: 16
+      height: 16
+    spriteID: c67d823a293d8f748a55088ae459e475
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: Tileset_Decorations_9
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 16
+      y: 16
+      width: 16
+      height: 16
+    spriteID: ad2ecf72eaa8e4e4ab66acfe8e44a863
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: Tileset_Decorations_10
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 32
+      y: 16
+      width: 16
+      height: 16
+    spriteID: 8ff891e4f1fe9544a995321356655d62
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: Tileset_Decorations_11
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 16
+      width: 16
+      height: 16
+    spriteID: f0f9ecc5acd44284990e3f561c53ee70
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: Tileset_Decorations_12
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 16
+      height: 16
+    spriteID: 7dca89bd8e2e5d849b8c7f58dcf711c9
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: Tileset_Decorations_13
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 16
+      y: 0
+      width: 16
+      height: 16
+    spriteID: 53c33a050d1552a499421927d9fde723
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: Tileset_Decorations_14
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 32
+      y: 0
+      width: 16
+      height: 16
+    spriteID: 66f322e6392b51c48b3dd6d34df93a48
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: Tileset_Decorations_15
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 0
+      width: 16
+      height: 16
+    spriteID: dd0af1c69146c1346bd148669c4b8aaa
+    spriteOutline: []
+    tessellationDetail: 0
+  _secondaryTextures: []
+  _artifacts: {instanceID: 0}
