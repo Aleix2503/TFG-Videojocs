@@ -28,10 +28,6 @@ public class ColorTile : Tile
 
     public void SaveStamp(Vector4 pos, int spriteIndex, float rotation, float scale, Color color)
     {
-        if (stamps.Count >= 3)
-        {
-            stamps.RemoveAt(0); // quita el más antiguo (al inicio)
-        }
         stamps.Add(new StampData
         {
             pos = pos,

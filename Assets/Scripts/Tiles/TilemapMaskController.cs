@@ -30,7 +30,6 @@ public class TilemapMaskController : MonoBehaviour
         public List<TileStampData> allTileStamps = new();
     }
 
-
     private void Awake()
     {
         if (_instance != null)
@@ -59,15 +58,17 @@ public class TilemapMaskController : MonoBehaviour
         tilemapMaterial.SetTexture("_MaskTex", maskRenderTexture);
 
         tilemapMaterial.SetVector("_TilemapSize", tilemapData);
-
-        LoadTilemapStamps();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.J))
+        if (Input.GetKeyDown(KeyCode.N))
         {
             SaveTilemapStamps();
+        } 
+        else if (Input.GetKeyDown(KeyCode.M))
+        {
+            LoadTilemapStamps();
         }
     }
 
@@ -167,9 +168,8 @@ public class TilemapMaskController : MonoBehaviour
 
     public void SaveTilemapStamps()
     {
-        SaveData saveData = new();
-
         BoundsInt bounds = tilemap.cellBounds;
+        SaveData saveData = new();
 
         for (int x = bounds.xMin; x < bounds.xMax; x++)
         {
@@ -186,14 +186,17 @@ public class TilemapMaskController : MonoBehaviour
                         stamps = myTile.stamps
                     };
                     saveData.allTileStamps.Add(data);
+
+                    string json = JsonUtility.ToJson(saveData, true);
+                    System.IO.File.WriteAllText(Application.persistentDataPath + "/stampsSave.json", json);
+
+                    Debug.Log("Save completed at: " + Application.persistentDataPath);
+
+                    return;
                 }
             }
         }
-
-        string json = JsonUtility.ToJson(saveData, true);
-        System.IO.File.WriteAllText(Application.persistentDataPath + "/stampsSave.json", json);
-
-        Debug.Log("Save completed at: " + Application.persistentDataPath);
+        
     }
 
     public void LoadTilemapStamps()
