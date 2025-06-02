@@ -43,13 +43,13 @@ Material:
     m_Ints: []
     m_Floats:
     - _EnableExternalAlpha: 0
-    - _StampRotation: 222.41905
+    - _StampRotation: 260.35895
     - _StampScale: 0.008
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-    - _StampColor: {r: 1, g: 0.93187994, b: 0.14509301, a: 1}
-    - _StampPos: {r: 0.5718391, g: 0.75863713, b: 0, a: 0}
+    - _StampColor: {r: 1, g: 1, b: 1, a: 1}
+    - _StampPos: {r: 0.47413793, g: 0.7940354, b: 0, a: 0}
     - _TilemapSize: {r: 174, g: 113, b: -83, a: -85}
   m_BuildTextureStacks: []

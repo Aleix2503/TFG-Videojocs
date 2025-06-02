@@ -1,10 +1,7 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using System.Collections.Generic;
-using static UnityEditor.PlayerSettings;
-using UnityEngine.UI;
 using static ColorTile;
-using UnityEngine.UIElements;
 
 public class TilemapMaskController : MonoBehaviour
 {
@@ -68,7 +65,7 @@ public class TilemapMaskController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.J))
         {
             SaveTilemapStamps();
         }
