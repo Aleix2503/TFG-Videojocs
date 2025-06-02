@@ -5,22 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/SingleTilesetUnity.unity
+    guid: 56d20d146e965454d972ec256cb89263
+  - enabled: 0
+    path: Assets/Scenes/MultTilesetUnity.unity
+    guid: 05239f1449e49f946bf80bc8098812d1
   - enabled: 1
-    path: Assets/Scenes/MainMenuScene.unity
-    guid: 47863da9b7df96d46b7e5fa6c4047508
-  - enabled: 1
-    path: Assets/Scenes/MainScene.unity
-    guid: 4fff51b3484fd5e49883f2e42acc3e46
-  - enabled: 1
-    path: Assets/Scenes/FinalCutscene.unity
-    guid: 640e6bd97277fb443b2771066bea2e8b
-  - enabled: 1
-    path: Assets/Scenes/InitCutscene.unity
-    guid: d4f9aba3247948c4a97f41b1be3ed785
-  - enabled: 1
-    path: Assets/Scenes/PauseOverlayMenu.unity
-    guid: 490e83c3561784d4bb707ac9bc449d6c
-  - enabled: 1
-    path: Assets/Scenes/CreditsScene.unity
-    guid: 3c62e7038b664f94e8c3813e228b013a
+    path: Assets/Scenes/SingleTilesetLdtk.unity
+    guid: 5aaa45d8704c67f4c96ff66a97915e46
   m_configObjects: {}
