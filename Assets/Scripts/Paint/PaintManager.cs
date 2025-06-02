@@ -19,6 +19,8 @@ public class PaintManager : MonoBehaviour
     public bool _shadersEnabled = true;
     public Tilemap tilemap;
 
+    private GameObject player;
+
 
     #region vars
     public PlayerPaintingState playerPaintingState = PlayerPaintingState.def;
@@ -101,6 +103,8 @@ public class PaintManager : MonoBehaviour
         lastPosition = playerTransform.position;
 
         bubble = FindObjectOfType<BubbleController>();
+
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void Update()
@@ -274,8 +278,14 @@ public class PaintManager : MonoBehaviour
         }
         else
         {
+            Vector3 playerWorldPos = player.transform.position;
+            Vector3Int playerCell = tilemap.WorldToCell(playerWorldPos);
+
             Vector3Int cellPos = tilemap.WorldToCell(position);
-            TilemapMaskController._instance.PaintStamp(cellPos);
+
+            Color color = player.GetComponentInChildren<SpriteRenderer>().color;
+
+            TilemapMaskController._instance.PaintStamp(cellPos, playerCell, color);
         }
     }
     
@@ -304,8 +314,14 @@ public class PaintManager : MonoBehaviour
         }
         else
         {
+            Vector3 playerWorldPos = player.transform.position;
+
+            Vector3Int playerCell = tilemap.WorldToCell(playerWorldPos);
             Vector3Int cellPos = tilemap.WorldToCell(onFallTraceSpawnPosition.position);
-            TilemapMaskController._instance.PaintStamp(cellPos);
+
+            Color color = player.GetComponentInChildren<SpriteRenderer>().color;
+
+            TilemapMaskController._instance.PaintStamp(cellPos, playerCell, color);
         }
     }
     
@@ -320,8 +336,14 @@ public class PaintManager : MonoBehaviour
         }
         else
         {
+            Vector3 playerWorldPos = player.transform.position;
+
+            Vector3Int playerCell = tilemap.WorldToCell(playerWorldPos);
             Vector3Int cellPos = tilemap.WorldToCell(onFallTraceSpawnPosition.position);
-            TilemapMaskController._instance.PaintStamp(cellPos);
+
+            Color color = player.GetComponentInChildren<SpriteRenderer>().color;
+
+            TilemapMaskController._instance.PaintStamp(cellPos, playerCell, color);
         }
     }
     
@@ -336,8 +358,14 @@ public class PaintManager : MonoBehaviour
         }
         else
         {
+            Vector3 playerWorldPos = player.transform.position;
+
+            Vector3Int playerCell = tilemap.WorldToCell(playerWorldPos);
             Vector3Int cellPos = tilemap.WorldToCell(position);
-            TilemapMaskController._instance.PaintStamp(cellPos);
+
+            Color color = player.GetComponentInChildren<SpriteRenderer>().color;
+
+            TilemapMaskController._instance.PaintStamp(cellPos, playerCell, color);
         }
     }
     #endregion
@@ -377,8 +405,14 @@ public class PaintManager : MonoBehaviour
         }
         else
         {
+            Vector3 playerWorldPos = player.transform.position;
+            Vector3Int playerCell = tilemap.WorldToCell(playerWorldPos);
+
             Vector3Int cellPos = tilemap.WorldToCell(position);
-            TilemapMaskController._instance.PaintStamp(cellPos);
+
+            Color colorSplat = player.GetComponentInChildren<SpriteRenderer>().color;
+
+            TilemapMaskController._instance.PaintStamp(cellPos, playerCell, colorSplat);
         }
     }
     

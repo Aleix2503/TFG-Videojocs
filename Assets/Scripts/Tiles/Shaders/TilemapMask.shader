@@ -54,18 +54,17 @@ Shader "Custom/TilemapMaskShader"
 
             fixed4 frag (v2f i) : SV_Target
             {
-                // Calcular coordenadas UV globales relativas al tilemap
                 float2 maskUV;
                 maskUV.x = (i.worldPos.x - _TilemapSize.z) / _TilemapSize.x;
                 maskUV.y = (i.worldPos.y - _TilemapSize.w) / _TilemapSize.y;
 
                 fixed mask = tex2D(_MaskTex, maskUV).r;
+                fixed4 maskColor = tex2D(_MaskTex, maskUV);
 
-                fixed4 baseCol = tex2D(_MainTex, i.uv);
                 fixed4 col = _Color;
 
                 if (mask > 0.1)
-                    return fixed4(1, 1, 1, 1);
+                    return maskColor;
                 else
                     return col;
             }

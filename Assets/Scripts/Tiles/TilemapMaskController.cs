@@ -1,13 +1,17 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using System.Collections.Generic;
+using static UnityEditor.PlayerSettings;
+using UnityEngine.UI;
+using static ColorTile;
+using UnityEngine.UIElements;
 
 public class TilemapMaskController : MonoBehaviour
 {
     public Tilemap tilemap;
     public Camera mainCamera;
 
-    public RenderTexture maskRenderTexture;
+    private RenderTexture maskRenderTexture;
     public Material tilemapMaterial;  // Material con shader TilemapMaskShader
     public Material stampMaterial;    // Material con shader StampPainter
 
@@ -15,17 +19,20 @@ public class TilemapMaskController : MonoBehaviour
 
     public static TilemapMaskController _instance;
 
-    // Datos guardados por mancha
+
     [System.Serializable]
-    public class StampData
+    public class TileStampData
     {
         public Vector3Int cellPos;
-        public int spriteIndex;
-        public float rotation;
-        public float scale;
+        public List<StampData> stamps;
     }
 
-    public List<StampData> savedStamps = new();
+    [System.Serializable]
+    public class SaveData
+    {
+        public List<TileStampData> allTileStamps = new();
+    }
+
 
     private void Awake()
     {
@@ -40,55 +47,61 @@ public class TilemapMaskController : MonoBehaviour
 
     void Start()
     {
-        // Asignamos la RenderTexture al material del Tilemap
-        tilemapMaterial.SetTexture("_MaskTex", maskRenderTexture);
-
-        ReloadStamps();
-
-        Debug.Log("Tamaños " + tilemap.cellBounds.size.x + ", " + tilemap.cellBounds.size.y);
-
         BoundsInt bounds = tilemap.cellBounds;
         Vector4 tilemapData = new(bounds.size.x, bounds.size.y, bounds.xMin, bounds.yMin);
+
+        RenderTexture rt = new(bounds.size.x * 16, bounds.size.y * 16, 0)
+        {
+            enableRandomWrite = true 
+        };
+
+        rt.Create();
+
+        maskRenderTexture = rt;        
+
+        tilemapMaterial.SetTexture("_MaskTex", maskRenderTexture);
+
         tilemapMaterial.SetVector("_TilemapSize", tilemapData);
-        stampMaterial.SetVector("_TilemapSize", tilemapData);
+
+        LoadTilemapStamps();
     }
 
-    void Update()
+    private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            Vector3 mouseWorld = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-            Vector3Int cellPos = tilemap.WorldToCell(mouseWorld);
-
-            if (tilemap.HasTile(cellPos))
-            {
-                PaintStamp(cellPos);
-            }
+            SaveTilemapStamps();
         }
     }
 
-    public void PaintStamp(Vector3Int cellPos)
+    public void PaintStamp(Vector3Int cellPos, Vector3Int playerCell, Color color)
     {
         int spriteIndex = Random.Range(0, stampSprites.Length);
         Sprite stamp = stampSprites[spriteIndex];
 
         float rotation = Random.Range(0f, 360f);
-        float scale = Random.Range(0.5f, 1.5f);
+        float scale = 0.008f;
 
-        // Guardar datos para persistencia
-        savedStamps.Add(new StampData
-        {
-            cellPos = cellPos,
-            spriteIndex = spriteIndex,
-            rotation = rotation,
-            scale = scale
-        });
+        Vector3Int delta = playerCell - cellPos;
 
         // Calcular UV de la celda para la RenderTexture
         Vector2 uv = CellToUV(cellPos);
+        Vector4 pos = new(uv.x, uv.y + 0.002f, 0);
+
+        if (delta.y > 0) pos = new Vector4(uv.x, uv.y + 0.002f, 0);
+        else if (delta.y < 0) pos = new Vector4(uv.x, uv.y - 0.002f, 0);
+        else if (delta.x > 0) pos = new Vector4(uv.x + 0.002f, uv.y, 0);
+        else if (delta.x < 0) pos = new Vector4(uv.x - 0.002f, uv.y, 0);
+
+
+        ColorTile tile = (ColorTile) tilemap.GetTile(cellPos);
+        if (tile != null)
+        {
+            tile.SaveStamp(pos, spriteIndex, rotation, scale, color);
+        }
 
         // Pintar el stamp en la RenderTexture
-        DrawStampOnRenderTexture(stamp, uv, rotation, scale, cellPos);
+        DrawStampOnRenderTexture(stamp, rotation, scale, pos, color);
     }
 
     Vector2 CellToUV(Vector3Int cellPos)
@@ -101,24 +114,28 @@ public class TilemapMaskController : MonoBehaviour
         return new Vector2(u, v);
     }
 
-    void DrawStampOnRenderTexture(Sprite stamp, Vector2 uvPos, float rotation, float scale, Vector3Int cellPos)
+    void DrawStampOnRenderTexture(Sprite stamp, float rotation, float scale, Vector4 pos, Color color)
     {
         // Crear textura del sprite
         Texture2D stampTex = SpriteToTexture(stamp);
 
         // Asignar parámetros
         stampMaterial.SetTexture("_StampTex", stampTex);
-        stampMaterial.SetVector("_StampPos", new Vector4(uvPos.x, uvPos.y + 0.002f, 0, 0));
+        stampMaterial.SetVector("_StampPos", pos);
         stampMaterial.SetFloat("_StampRotation", rotation);
-        stampMaterial.SetFloat("_StampScale", 0.008f);
+        stampMaterial.SetFloat("_StampScale", scale);
+        stampMaterial.SetColor("_StampColor", color);
 
-        // Usar una temporal para evitar sobrescribir mientras blitteas
-        RenderTexture tempRT = RenderTexture.GetTemporary(maskRenderTexture.width, maskRenderTexture.height, 0, maskRenderTexture.format);
-        Graphics.Blit(maskRenderTexture, tempRT); // Copia el contenido actual
+        if (maskRenderTexture != null)
+        {
+            // Usar una temporal para evitar sobrescribir mientras blitteas
+            RenderTexture tempRT = RenderTexture.GetTemporary(maskRenderTexture.width, maskRenderTexture.height, 0, maskRenderTexture.format);
+            Graphics.Blit(maskRenderTexture, tempRT); // Copia el contenido actual
 
-        Graphics.Blit(tempRT, maskRenderTexture, stampMaterial); // Aplica el nuevo stamp
+            Graphics.Blit(tempRT, maskRenderTexture, stampMaterial); // Aplica el nuevo stamp
 
-        RenderTexture.ReleaseTemporary(tempRT);
+            RenderTexture.ReleaseTemporary(tempRT);
+        }
     }
 
     Texture2D SpriteToTexture(Sprite sprite)
@@ -142,19 +159,79 @@ public class TilemapMaskController : MonoBehaviour
         }
     }
 
-    // Método para recargar manchas (por ejemplo al cargar escena)
-    public void ReloadStamps()
+    void OnDestroy()
     {
-        // Limpiar RenderTexture
-        RenderTexture.active = maskRenderTexture;
-        GL.Clear(true, true, Color.clear);
-        RenderTexture.active = null;
-
-        /*foreach (var stamp in savedStamps)
+        if (maskRenderTexture != null)
         {
-            Sprite s = stampSprites[stamp.spriteIndex];
-            Vector2 uv = CellToUV(stamp.cellPos);
-            DrawStampOnRenderTexture(s, uv, stamp.rotation, stamp.scale, cellPos);
-        }*/
+            maskRenderTexture.Release();
+            Destroy(maskRenderTexture);
+        }
     }
+
+    public void SaveTilemapStamps()
+    {
+        SaveData saveData = new();
+
+        BoundsInt bounds = tilemap.cellBounds;
+
+        for (int x = bounds.xMin; x < bounds.xMax; x++)
+        {
+            for (int y = bounds.yMin; y < bounds.yMax; y++)
+            {
+                Vector3Int cellPos = new(x, y, 0);
+                TileBase tile = tilemap.GetTile(cellPos);
+
+                if (tile is ColorTile myTile && myTile.stamps.Count > 0)
+                {
+                    TileStampData data = new()
+                    {
+                        cellPos = cellPos,
+                        stamps = myTile.stamps
+                    };
+                    saveData.allTileStamps.Add(data);
+                }
+            }
+        }
+
+        string json = JsonUtility.ToJson(saveData, true);
+        System.IO.File.WriteAllText(Application.persistentDataPath + "/stampsSave.json", json);
+
+        Debug.Log("Save completed at: " + Application.persistentDataPath);
+    }
+
+    public void LoadTilemapStamps()
+    {
+        string path = Application.persistentDataPath + "/stampsSave.json";
+        if (!System.IO.File.Exists(path))
+        {
+            Debug.LogWarning("No save file found");
+            return;
+        }
+
+        string json = System.IO.File.ReadAllText(path);
+        SaveData saveData = JsonUtility.FromJson<SaveData>(json);
+
+        foreach (var tileData in saveData.allTileStamps)
+        {
+            TileBase tile = tilemap.GetTile(tileData.cellPos);
+
+            if (tile is ColorTile myTile)
+            {
+                myTile.stamps = tileData.stamps;
+
+                foreach (var stamp in myTile.stamps)
+                {
+                    DrawStampOnRenderTexture(
+                        stampSprites[stamp.spriteIndex],
+                        stamp.rotation,
+                        stamp.scale,
+                        stamp.pos,
+                        stamp.color);
+                }     
+            }
+        }
+
+        Debug.Log("Load completed");
+    }
+
 }

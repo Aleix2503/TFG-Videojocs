@@ -7,6 +7,7 @@ Shader "Custom/StampPainter"
         _StampPos ("Stamp UV Pos", Vector) = (0.5, 0.5, 0, 0)
         _StampRotation ("Stamp Rotation", Float) = 0
         _StampScale ("Stamp Scale", Float) = 1
+        _StampColor ("Stamp Color", Color) = (1, 1, 1, 1)
     }
     SubShader
     {
@@ -26,6 +27,7 @@ Shader "Custom/StampPainter"
             float4 _StampPos;      // xy = center UV
             float _StampRotation;  // degrees
             float _StampScale;
+            float4 _StampColor;
 
             struct appdata { float4 vertex : POSITION; float2 uv : TEXCOORD0; };
             struct v2f { float2 uv : TEXCOORD0; float4 vertex : SV_POSITION; };
@@ -51,18 +53,15 @@ Shader "Custom/StampPainter"
                 delta /= _StampScale;
 
                 float angleRad = radians(_StampRotation);
-                delta = RotateUV(delta, -angleRad); // reverse rotate
+                delta = RotateUV(delta, angleRad);
 
-                float2 stampUV = delta + 0.5; // center sample
-                
-                if (stampUV.x < 0 || stampUV.x > 1 || stampUV.y < 0 || stampUV.y > 1)
-                    return tex2D(_MainTex, i.uv); // fuera del stamp
+                float2 stampUV = delta + 0.5;
 
                 fixed4 baseColor = tex2D(_MainTex, i.uv);
                 fixed4 stampColor = tex2D(_StampTex, stampUV);
+                fixed4 color = _StampColor;
 
-                // Usa alpha como máscara, blanco donde hay imagen
-                return lerp(baseColor, fixed4(1, 1, 1, 1), stampColor.a);
+                return lerp(baseColor, color, stampColor.a);
             }
             ENDCG
         }

@@ -8,10 +8,37 @@ public class ColorTile : Tile
     public Color tintColor = Color.white;
     public Material material;
 
+    public List<StampData> stamps = new();
+
+    [System.Serializable]
+    public class StampData
+    {
+        public Vector4 pos;
+        public int spriteIndex;
+        public float rotation;
+        public float scale;
+        public Color color;
+    }
+
     public override void GetTileData(Vector3Int position, ITilemap tilemap, ref TileData tileData)
     {
         base.GetTileData(position, tilemap, ref tileData);
         tileData.color = tintColor;
-        //tileData.sprite
+    }
+
+    public void SaveStamp(Vector4 pos, int spriteIndex, float rotation, float scale, Color color)
+    {
+        if (stamps.Count >= 3)
+        {
+            stamps.RemoveAt(0); // quita el más antiguo (al inicio)
+        }
+        stamps.Add(new StampData
+        {
+            pos = pos,
+            spriteIndex = spriteIndex,
+            rotation = rotation,
+            scale = scale,
+            color = color
+        });
     }
 }

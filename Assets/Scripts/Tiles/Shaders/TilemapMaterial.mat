@@ -29,7 +29,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskTex:
-        m_Texture: {fileID: 8400000, guid: 6723c7ce0a8a26c43a41aee2a9254965, type: 2}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
@@ -46,5 +46,6 @@ Material:
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _MaskTextureSize: {r: 512, g: 512, b: 0, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
+    - _StampColor: {r: 1, g: 1, b: 1, a: 1}
     - _TilemapSize: {r: 174, g: 113, b: -83, a: -85}
   m_BuildTextureStacks: []
